@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
+
+import HeaderMenu from './menu/header.js';
+import FooterMenu from './menu/footer.js';
+import SliderMenu from './menu/slider.js';
+import BotDisplayer from './bot/display.js';
 import BitSoilsCounter from './bitsoil/counter.js';
-import AccountsUIWrapper from './AccountsUIWrapper.js';
 
 // App component - represents the whole app
 class App extends Component {
@@ -11,37 +15,36 @@ class App extends Component {
 		super(props);
 	}
 	
-	renderTasks() {
-		
-	}
-	
 	render() {
-	    return (
+		return (
 			<div className="container">
-				<header>
-					<h1>BitRepublic</h1>
-				</header>
-				<BitSoilsCounter />
-				<AccountsUIWrapper />
+				<HeaderMenu />
+				<SliderMenu />
+				<BitSoilsCounter sentence="There are [X] bitsoils"/>
+				<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
 
+				<ul>
+					<li>
+						<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
+					</li>
+					<li>
+						<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
+					</li>
+					<li>
+						<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
+					</li>
+				</ul>
+
+				<FooterMenu />
 			</div>
 		);
   	}
 }
 
 export default withTracker(() => {
-	//Meteor.subscribe('tasks');
+	
 	return {
-	/*	tasks: Tasks.find({}, {
-			sort : {
-				createdAt : -1
-			}
-		}).fetch(),
-		incompleteCount : Tasks.find({
-			checked : {
-				$ne:true
-			}
-		}).count(),
-		currentUser : Meteor.user()*/
+		userId : Meteor.userId(),
+		currentUser : Meteor.user()
 	};
 })(App);

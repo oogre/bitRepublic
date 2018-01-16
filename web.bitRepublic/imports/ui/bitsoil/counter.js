@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { BitSoils } from '../../api/bitsoils/bitsoils.js';
 
-// App component - represents the whole app
+// BitSoilsCounter component - represents the bitsoil counter utility
 class BitSoilsCounter extends Component {
 	constructor(props){
 		super(props);
@@ -14,15 +14,18 @@ class BitSoilsCounter extends Component {
 	render() {
 	    return (
 			<div className="container">
-				There are {this.props.count} bitsoils
+				{this.props.sentence.replace("[X]", this.props.count)}
 			</div>
 		);
   	}
 }
 
-export default withTracker(() => {
-	Meteor.subscribe('bitsoils');
+export default withTracker((props) => {
+	const request = {};
+	if(props.userId){
+		request.creatorId = props.userId
+	}
 	return {
-		count : BitSoils.find().count()
+		count : BitSoils.find(request).count()
 	};
 })(BitSoilsCounter);
