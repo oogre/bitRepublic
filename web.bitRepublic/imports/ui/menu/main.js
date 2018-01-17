@@ -4,7 +4,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import AccountsUIWrapper from '../AccountsUIWrapper.js';
 
-// App component - represents the whole app
+import UserLogInOut from '../user/loginout.js';
+import UserSignup from '../user/signup.js';
+
 class MainMenu extends Component {
 	constructor(props){
 		super(props);
@@ -27,7 +29,10 @@ class MainMenu extends Component {
 						<a href="/installation">Installation</a>
 					</li>
 					<li>
-						<a href="#"><AccountsUIWrapper /></a>
+						<UserLogInOut />
+					</li>
+					<li>
+						<UserSignup />
 					</li>
 				</ul>
 			</div>
