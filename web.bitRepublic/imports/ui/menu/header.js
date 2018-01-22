@@ -14,7 +14,12 @@ class HeaderMenu extends Component {
 	    return (
 			<div className="container">
 				<header>
-					<h1><a href="/">BitRepublic</a></h1>
+					<h1>
+						<a href="/">
+							<span>#BITSOIL</span>
+							<span>TAX</span>
+						</a>
+					</h1>
 					<MainMenu />
 				</header>
 			</div>

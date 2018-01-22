@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import AccountsUIWrapper from '../AccountsUIWrapper.js';
 
 import UserLogInOut from '../user/loginout.js';
-import UserSignup from '../user/signup.js';
+
 
 class MainMenu extends Component {
 	constructor(props){
@@ -29,10 +29,10 @@ class MainMenu extends Component {
 						<a href="/installation">Installation</a>
 					</li>
 					<li>
-						<UserLogInOut />
+						<a href="#">WHO WE ARE</a>
 					</li>
 					<li>
-						<UserSignup />
+						<UserLogInOut />
 					</li>
 				</ul>
 			</div>

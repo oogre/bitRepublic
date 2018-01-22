@@ -6,13 +6,23 @@ import { Meteor } from 'meteor/meteor';
 import HeaderMenu from './menu/header.js';
 import FooterMenu from './menu/footer.js';
 import SliderMenu from './menu/slider.js';
-import BotDisplayer from './bot/display.js';
-import BitSoilsCounter from './bitsoil/counter.js';
 
+import BotTypeSelector from './bot/typeSelector.js';
+
+import TweetSelector from './tweet/selector.js';
+
+import BitSoilsTotalCounter from './bitsoil/totalCounter.js';
+import UserSignup from './user/signup.js';
 // App component - represents the whole app
 class App extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			selectedBot : ""
+		};
+	}
+	handleBotSelected(input){
+		this.setState({ selectedBot: input });
 	}
 	
 	render() {
@@ -20,21 +30,16 @@ class App extends Component {
 			<div className="container">
 				<HeaderMenu />
 				<SliderMenu />
-				<BitSoilsCounter sentence="There are [X] bitsoils"/>
-				<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
-
-				<ul>
-					<li>
-						<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
-					</li>
-					<li>
-						<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
-					</li>
-					<li>
-						<BotDisplayer sentence="You have created [X] bitsoils" userId={this.props.userId}/>
-					</li>
-				</ul>
-
+				<BitSoilsTotalCounter />
+				<BotTypeSelector onBotSelected={this.handleBotSelected.bind(this)} />
+				{ 
+					this.state.selectedBot 
+					?
+						<TweetSelector bot={this.state.selectedBot} />
+					:
+						""
+				}
+				<UserSignup />
 				<FooterMenu />
 			</div>
 		);

@@ -4,6 +4,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
 import { BitSoils } from '../../api/bitsoils/bitsoils.js';
+import * as Utilities from '../../utilities.js'
+
 
 // BitSoilsCounter component - represents the bitsoil counter utility
 class BitSoilsCounter extends Component {
@@ -14,7 +16,12 @@ class BitSoilsCounter extends Component {
 	render() {
 	    return (
 			<div className="container">
-				{this.props.sentence.replace("[X]", this.props.count)}
+				<div>
+					{Utilities.numberFormat(this.props.count)} : BITSOIL
+				</div>
+				<div>
+					{Utilities.numberFormat(this.props.count * 0.001)} : TAX
+				</div>
 			</div>
 		);
   	}
@@ -25,7 +32,9 @@ export default withTracker((props) => {
 	if(props.userId){
 		request.creatorId = props.userId
 	}
+
 	return {
 		count : BitSoils.find(request).count()
+
 	};
 })(BitSoilsCounter);

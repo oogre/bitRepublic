@@ -23,10 +23,9 @@ class UserSignup extends Component {
 				lastname : lastname,
 				country : country
 			}
-		}, (err) => {
+		}, (err, res) => {
 			if(err){
 				console.log(err.reason);
-				alert("YO");
 			}else{
 				ReactDom.findDOMNode(this.refs.firstname).value = '';
 				ReactDom.findDOMNode(this.refs.lastname).value = '';
