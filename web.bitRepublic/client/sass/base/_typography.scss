@@ -1,0 +1,42 @@
+/*------------------------------------*\
+  > Typograpphy
+  Define all typography global rules heres
+  (fontface are handle in fonts.scss file)
+\*------------------------------------*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-sans-serif;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+// Link
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    outline-color: $color-primary;
+  }
+}
+
+// Abbr
+abbr[title] {
+  border-bottom: 0;
+}

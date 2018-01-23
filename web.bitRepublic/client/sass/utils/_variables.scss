@@ -1,0 +1,83 @@
+/*------------------------------------*\
+  > Variables
+\*------------------------------------*/
+
+// Colors
+// ---------------------
+// Named used (http://name-of-color.com/)
+
+$grey-thunder: #342e30;
+$grey-shark: #1d1e1e;
+$grey-cod: #191919;
+$grey-baltic-sea: #181619;
+$grey-porcelain: #f6f8f9;
+$grey-bonjour: #e8e6e7;
+
+$green-fun: #046737;
+$green-faded-jade: #467373;
+
+$pink-soft-peach: #f4edf1;
+
+$blue-aqua-haze: #f0f4f7;
+$blue-dark-haze: #f5f7f7;
+$blue-porcelaine: #f5f7f8;
+$blue-athens-gray: #f5f7f9;
+
+$orange-brandy-punch: #d89032;
+
+// Grey shader
+$grey-98: #f9f9f9;
+$grey-93: #eaeaea;
+$grey-63: #999999;
+$grey-57: #898989;
+$grey-48: #727272;
+$grey-38: #595959;
+$grey-32: #4c4c4c;
+$grey-30: #474747;
+$grey-21: #333;
+$grey-15: #222;
+$grey-9: #191919;
+
+// Syntaxic color
+
+$color-error: red;
+$color-success: green;
+
+$color-primary: $green-fun;
+
+// Typography
+// ---------------------
+$base-font-size: 16px;
+
+$font-sans-serif: sans-serif;
+
+// Layout
+// ---------------------
+$site-container-width-md:     1140px;
+
+// Breakpoint
+// ---------------------
+// Extra small screen high / high resolution phone
+$screen-xsh-min:            480px;
+// Small screen / tablet
+$screen-sm-min:             480px;
+// Medium screen / desktop
+$screen-md-min:             768px;
+// Large screen / wide desktop
+$screen-lg-min:             1160px;
+// Extra large screen / very wide desktop
+$screen-xl-min:             1600px;
+// So media queries don't overlap when required, provide a maximum
+$screen-sm-max:             ($screen-md-min - 1) !default;
+// XS-max using SM-max value as we don't use SM breakpoint
+$screen-xs-max:             $screen-sm-max !default;
+$screen-md-max:             ($screen-lg-min - 1) !default;
+
+// Z Layer
+// ---------------------
+$z-layers: (
+  "header": 2000,
+  "modal": 1600,
+  "footer": 1500,
+  "menu": 1250
+);

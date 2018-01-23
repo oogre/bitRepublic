@@ -1,0 +1,162 @@
+/*------------------------------------*\
+  > Mixins
+  Generic and common mixins
+\*------------------------------------*/
+
+// Breakpoints mixin
+// ---------------------
+// https://gist.github.com/timknight/b8adb5df5600c37fd567#file-breakpoint-v2-scss
+// Article: https://medium.com/developing-with-sass/refactoring-my-simple-sass-breakpoint-mixin-71205dd6badd
+// Use ex: @include breakpoint($md);
+
+$sm: (min: $screen-sm-min);
+$md: (min: $screen-md-min);
+$lg: (min: $screen-lg-min);
+
+$xs-only: (max:  $screen-xs-max);
+$sm-only: (min: map-get($sm, min), max: map-get($md, min) - 1);
+
+$below-sm: (max:  $screen-sm-min - 1);
+$below-md: (max:  $screen-md-min - 1);
+$below-lg: (max:  $screen-lg-min - 1);
+
+@mixin breakpoint($map) {
+  $query: '';
+  @if map-has-key($map, min) {
+    $query: append($query, '(min-width: #{map-get($map, min)})');
+  }
+  @if map-has-key($map, min) and map-has-key($map, max) {
+    $query: append($query, 'and');
+  }
+  @if map-has-key($map, min) and map-has-key($map, orientation){
+    $query: append($query, 'and');
+    $query: append($query, '(orientation: #{map-get($map, orientation)})');
+  }
+  @if map-has-key($map, max) {
+    $query: append($query, '(max-width: #{map-get($map, max)})');
+  }
+
+  @media screen and #{$query} {
+    @content;
+  }
+}
+
+/**
+ * [rem Return good rem value related to a given function, and add a fallback with pixel]
+ * @param  {string} $property [Any property accepting rem/px value]
+ * @param  {number} $values   [A number with the wanted final value in px]
+ */
+@mixin rem($property, $values) {
+  $px : ();
+  $rem: ();
+
+  @each $value in $values {
+
+    @if $value == 0 or $value == auto {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);
+      $val: parseInt($value);
+
+      @if $unit == "px" {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 + rem));
+      }
+
+      @if $unit == "rem" {
+        $px : append($px,  ($val * 10 + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {
+    #{$property}: $px;
+  } @else {
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
+}
+
+/**
+ * [Vertical Center]
+ * @param  {string} $position [Position type of the element] (default: relative)
+ */
+@mixin vertical-center($position:relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/**
+ * [Horizontal Center]
+ * Horizontaly align item
+ * @param  {string} $position [Position type of the element] (default: relative)
+ */
+@mixin horizontal-center($position:relative) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/**
+ * [Center Align]
+ * @param  {string} $position [Position type of the element] (default: relative)
+ */
+@mixin center-align($position:relative) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/**
+ * [triangle]
+ * Display a triangle (use for carret)
+ * @param  {width (+ unit)} $size [Size of the triangle]
+ * @param  {string} $color [Color of the triangle]
+ * @param  {string} $direction [Direction of the triangle, top, right, down, left]
+ */
+@mixin triangle($size, $color, $direction) {
+  content: '';
+  width: 0;
+  height: 0;
+  border: $size solid transparent;
+  @if $direction == 'up' {
+    border-bottom: $size solid $color;
+  }
+  @if $direction == 'right' {
+    border-left: $size solid $color;
+  }
+  @if $direction == 'down' {
+    border-top: $size solid $color;
+  }
+  @if $direction == 'left' {
+    border-right: $size solid $color;
+  }
+}
+
+
+/**
+ * [debug-map Output content of a sass map for debug purpose]
+ * @param  {map} $map [The map to debug]
+ */
+@mixin debug-map($map) {
+  @at-root {
+    @debug-map {
+      __toString__: inspect($map);
+      __length__: length($map);
+      __depth__: depth($map);
+      __keys__: map-keys($map);
+      __properties__ {
+        @each $key, $value in $map {
+          #{'(' + type-of($value) + ') ' + $key}: inspect($value);
+        }
+      }
+    }
+  }
+}
