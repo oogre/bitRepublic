@@ -6,13 +6,11 @@ import { Meteor } from 'meteor/meteor';
 import HeaderMenu from './menu/header.js';
 import FooterMenu from './menu/footer.js';
 import SliderMenu from './menu/slider.js';
-
-import BotTypeSelector from './bot/typeSelector.js';
-
+import BotSelector from './bot/selector.js';
 import TweetSelector from './tweet/selector.js';
-
 import BitSoilsTotalCounter from './bitsoil/totalCounter.js';
 import UserSignup from './user/signup.js';
+
 // App component - represents the whole app
 class App extends Component {
 	constructor(props){
@@ -21,8 +19,11 @@ class App extends Component {
 			selectedBot : ""
 		};
 	}
-	handleBotSelected(input){
-		this.setState({ selectedBot: input });
+	handleBotSelected(bot){
+		this.setState({ selectedBot: bot });
+	}
+	handleTweetValidation(){
+		console.log("validation");
 	}
 	
 	render() {
@@ -31,11 +32,11 @@ class App extends Component {
 				<HeaderMenu />
 				<SliderMenu />
 				<BitSoilsTotalCounter />
-				<BotTypeSelector onBotSelected={this.handleBotSelected.bind(this)} />
+				<BotSelector onBotSelected={this.handleBotSelected.bind(this)} />
 				{ 
 					this.state.selectedBot 
 					?
-						<TweetSelector bot={this.state.selectedBot} />
+						<TweetSelector bot={this.state.selectedBot} onValidation={this.handleTweetValidation.bind(this)}/>
 					:
 						""
 				}
