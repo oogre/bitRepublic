@@ -14,11 +14,55 @@ Meteor.startup(() => {
 				picture : "IMG",
 				target : "politics",
 				description : "Send a tweet postcard to the Prime Minister",
-				tweets : [
-					"tweetA0",
-					"tweetA1",
-					"tweetA2",
-				]
+				tweets : [{
+					_id : 0,
+					content : "tweetA0",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				},{
+					_id : 1,
+					content : "tweetA1",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				},{
+					_id : 2,
+					content : "tweetA2",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				}]
 			});
 			Bots.insert({
 				model : true,
@@ -29,11 +73,55 @@ Meteor.startup(() => {
 				picture : "IMG",
 				target : "ceos",
 				description : "Send a tweet postcard to the CEO's of the top ten netgiants",
-				tweets : [
-					"tweetB0",
-					"tweetB1",
-					"tweetB2",
-				]
+				tweets : [{
+					_id : 0,
+					content : "tweetB0",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				},{
+					_id : 1,
+					content : "tweetB1",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				},{
+					_id : 2,
+					content : "tweetB2",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				}]
 			});
 			Bots.insert({
 				model : true,
@@ -45,11 +133,55 @@ Meteor.startup(() => {
 				counter : "type",
 				target : "friends",
 				description : "Send a tweet postcard to all your friends",
-				tweets : [
-					"tweetC0",
-					"tweetC1",
-					"tweetC2",
-				]
+				tweets : [{
+					_id : 0,
+					content : "tweetC0",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				},{
+					_id : 1,
+					content : "tweetC1",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				},{
+					_id : 2,
+					content : "tweetC2",
+					schedules : [{
+						content : "Never",
+						value : "never"
+					},{
+						content : "Once an hour",
+						value : "every hour"
+					},{
+						content : "Once a week",
+						value : "every week"
+					},{
+						content : "Once a month",
+						value : "every month"
+					}]
+				}]
 			});
 		}
 	}

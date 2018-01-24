@@ -3,41 +3,32 @@ import React, { Component } from 'react';
 //import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import TweetOption from './option.js';
-import TweetSchedule from './schedule.js';
-import UserSignupModal from '../user/signupModal.js';
 
 export default class TweetSelector extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
 			selectedTweet : 0,
-			selectedSchedule : "",
 			botData : "",
-			signupModal : ""
+			signupModal : "",
+			tweets : []
 		};
 	}
-
 	handleTweetSelected(k){
 		this.setState({ selectedTweet: k});
 	}
-	handleTweetSchedule(schedule){
-		this.setState({ selectedSchedule: schedule});
+	handleTweetSchedule(event){
+		event.bot = this.props.bot._id;
+		this.props.onTweetSelectorScheduleChange(event);
 	}
-	handleValidation(){
-		if(this.state.selectedSchedule != ""){
-			//this.props.onValidation(this.state.selectedTweet, this.state.selectedSchedule);
-			/*this.setState({ 
-				botData: {
-					bot : this.props.bot,
-					tweet : this.state.selectedTweet,
-					schedule : this.state.selectedSchedule
-				}
-			});*/
-			this.state.signupModal.handleOpenModal();
+
+
+	handleTweetMounted(tweet){
+		let tweets = this.state.tweets;
+		if(!tweets.includes(tweet)){
+			tweets.push(tweet);
+			this.setState({ tweets: tweets});
 		}
-	}
-	handleModalMounted(signupModal){
-		this.setState({ signupModal: signupModal});
 	}
 	
 	renderTweetButtons(){
@@ -47,16 +38,25 @@ export default class TweetSelector extends Component {
 			</li>
 		));
 	}
+	renderTweets(){
+		return this.props.bot.tweets.map((tweet, k) => (
+			<TweetOption 
+				visible={this.state.selectedTweet == k}
+				key={this.props.bot._id+"_"+k}
+				id={this.props.bot._id+"_"+k} 
+				onMounted={this.handleTweetMounted.bind(this)} 
+				tweet={this.props.bot.tweets[k]}
+				onScheduleChange={this.handleTweetSchedule.bind(this)}
+			/>
+		));
+	}
 	render() {
 		return (
-			<div className="container">
+			<div className={"container"+ " " + (this.props.visible ? "" : "hide")} >
 				<ul>
 					{this.renderTweetButtons()}
 				</ul>
-				<TweetOption id={this.state.selectedTweet} tweet={this.props.bot.tweets[this.state.selectedTweet]}/>
-				<TweetSchedule onScheduleSelected={this.handleTweetSchedule.bind(this)}/>
-				<button disabled={this.state.selectedSchedule == ""} onClick={this.handleValidation.bind(this)}>validate</button>
-				<UserSignupModal botData={this.state.botData} onMounted={this.handleModalMounted.bind(this)}/>
+				{this.renderTweets()}
 			</div>
 		);
 	}

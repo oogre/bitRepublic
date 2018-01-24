@@ -15,7 +15,7 @@ class BotOption extends Component {
 	
 	render() {
 			return (
-			<li key={this.props.bot.target}>
+			<div className="container">
 				<div>
 					<div>{this.props.bot.title[0]}</div>
 					{this.props.bot.title[1]}
@@ -26,7 +26,7 @@ class BotOption extends Component {
 					{this.props.bot.description}
 				</div>
 				<button onClick={this.botSelected.bind(this)} >Choose a Tweet</button>
-			</li>
+			</div>
 		);
   	}
 }

@@ -7,7 +7,7 @@ import HeaderMenu from './menu/header.js';
 import FooterMenu from './menu/footer.js';
 import SliderMenu from './menu/slider.js';
 import BotSelector from './bot/selector.js';
-import TweetSelector from './tweet/selector.js';
+
 import BitSoilsTotalCounter from './bitsoil/totalCounter.js';
 
 
@@ -15,12 +15,6 @@ import BitSoilsTotalCounter from './bitsoil/totalCounter.js';
 class App extends Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			selectedBot : ""
-		};
-	}
-	handleBotSelected(bot){
-		this.setState({ selectedBot: bot });
 	}
 	
 	
@@ -30,15 +24,7 @@ class App extends Component {
 				<HeaderMenu />
 				<SliderMenu />
 				<BitSoilsTotalCounter />
-				<BotSelector onBotSelected={this.handleBotSelected.bind(this)} />
-				{ 
-					this.state.selectedBot 
-					?
-						<TweetSelector bot={this.state.selectedBot} />
-					:
-						""
-				}
-				
+				<BotSelector />
 				<FooterMenu />
 			</div>
 		);

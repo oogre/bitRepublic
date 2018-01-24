@@ -7,25 +7,30 @@ import { Meteor } from 'meteor/meteor';
 export default class TweetSchedule extends Component {
 	constructor(props){
 		super(props);
-		
 	}
 	handleScheduleChange(event){
-		this.props.onScheduleSelected(event.target.value);
+		this.props.onScheduleSelected({
+			schedule : event.target.value
+		});
+	}
+	renderScheduleRadio(){
+		return this.props.schedules.map((schedule, k) => (
+			<label key={k} >
+				<input 
+					defaultChecked={k == 0}
+					type="radio" 
+					name={"schedule_"+this.props.id} 
+					value={schedule.value} 
+					onChange={this.handleScheduleChange.bind(this)} 
+				/>
+				{schedule.content}<br />
+			</label>
+		));
 	}
 	render() {
 		return (
 			<div className="container">
-				<label >
-					<input type="radio" ref="schedule" name="schedule" value="daily" onChange={this.handleScheduleChange.bind(this)} /> Once an hour
-				</label>
-				<br />
-  				<label >
-					<input type="radio" ref="schedule" name="schedule" value="weekly" onChange={this.handleScheduleChange.bind(this)} /> Once a week
-				</label>
-				<br />
-  				<label>
-  					<input type="radio" ref="schedule" name="schedule" value="monthly" onChange={this.handleScheduleChange.bind(this)} /> Once a month
-  				</label>
+				{this.renderScheduleRadio()}
 			</div>
 		);
 	}

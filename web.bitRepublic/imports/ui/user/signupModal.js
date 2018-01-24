@@ -24,7 +24,7 @@ class UserSignupModal extends Component {
 		if (this.props.onMounted) {
 			this.props.onMounted(this)
 		}
-    }
+	}
     test(){
 		this.setState({ showModal: true });
 	}
