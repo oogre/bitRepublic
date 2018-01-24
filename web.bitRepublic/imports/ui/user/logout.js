@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 class UserLogOut extends Component {
 	constructor(props){
 		super(props);
-		console.log(this.props);
 	}
 	handleLogout(event){
 		event.preventDefault();

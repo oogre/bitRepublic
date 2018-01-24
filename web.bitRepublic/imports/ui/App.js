@@ -9,7 +9,7 @@ import SliderMenu from './menu/slider.js';
 import BotSelector from './bot/selector.js';
 import TweetSelector from './tweet/selector.js';
 import BitSoilsTotalCounter from './bitsoil/totalCounter.js';
-import UserSignup from './user/signup.js';
+
 
 // App component - represents the whole app
 class App extends Component {
@@ -22,9 +22,7 @@ class App extends Component {
 	handleBotSelected(bot){
 		this.setState({ selectedBot: bot });
 	}
-	handleTweetValidation(){
-		console.log("validation");
-	}
+	
 	
 	render() {
 		return (
@@ -36,11 +34,11 @@ class App extends Component {
 				{ 
 					this.state.selectedBot 
 					?
-						<TweetSelector bot={this.state.selectedBot} onValidation={this.handleTweetValidation.bind(this)}/>
+						<TweetSelector bot={this.state.selectedBot} />
 					:
 						""
 				}
-				<UserSignup />
+				
 				<FooterMenu />
 			</div>
 		);

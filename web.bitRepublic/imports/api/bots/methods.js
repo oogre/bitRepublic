@@ -13,18 +13,26 @@ Meteor.methods({
 	* @apiSuccess {String} Bots._id the _id of the newly created bot
 	*/
 	'bots.create' : function(data){
-		/*check(data.title, [String]);
-		check(data.picture, String);
-		check(data.action, String);
-		check(data.tweets, [Object]);
 
-*/
 		if(! this.userId){
 			throw new Meteor.Error('not-authorized');
 		}
-		let userId = this.userId;
-		return Bots.insert({
-			createdAt : new Date(),
+/*
+		Bots.insert({
+			model : true,
+			title : [
+				"be aware", 
+				"Send your claim to the Prime Minister"
+			],
+			picture : "IMG",
+			target : "politics",
+			description : "Send a tweet postcard to the Prime Minister",
+			tweets : [
+				"tweetA0",
+				"tweetA1",
+				"tweetA2",
+			]
 		});
+		*/
 	}
 });

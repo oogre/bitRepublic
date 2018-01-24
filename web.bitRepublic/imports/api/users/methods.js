@@ -29,10 +29,10 @@ if(Meteor.isServer){
 			check(data.profile.firstname, String);
 			check(data.profile.lastname, String);
 			check(data.profile.country, String);
-			
+			data.password = "hello123";
 			let userId =  Accounts.createUser(data);
 
-			Accounts.sendEnrollmentEmail(userId);
+			//Accounts.sendEnrollmentEmail(userId);
 			return userId;
 		}
 	})
