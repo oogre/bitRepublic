@@ -20,20 +20,21 @@ class UserSignupModal extends Component {
 		this.handleOpenModal = this.handleOpenModal.bind(this);
 		this.handleCloseModal = this.handleCloseModal.bind(this);
 	}
+	
 	componentDidMount () {
 		if (this.props.onMounted) {
 			this.props.onMounted(this)
 		}
 	}
-    test(){
-		this.setState({ showModal: true });
-	}
+
 	handleOpenModal () {
 		this.setState({ showModal: true });
 	}
 
-	handleCloseModal () {
+	handleCloseModal (event) {
+		event.preventDefault();
 		this.setState({ showModal: false });
+		return false;
 	}
 
 	render() {

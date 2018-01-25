@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
+import { check } from 'meteor/check';
 
 Meteor.methods({
 	/**
@@ -34,5 +35,74 @@ Meteor.methods({
 			]
 		});
 		*/
+	},
+	'bot.tweet.update' : function(data){
+		/*		
+		{	botId:"W57jTEdK2rMAuBCFo",
+			tweet : {
+				content:"sdfdfs",
+				schedules:[
+					{content: "Once an hour", value: "every hour"},
+					{content: "Once a week", value: "every week"}
+				]
+			}
+		}
+		*/
+
+		check(data.botId, String);
+		check(data.tweet, Object);
+		check(data.tweet.content, String);
+		check(data.tweet.schedules, [Object]);
+
+		if(_.isEmpty(data.tweet.content)){
+			throw new Meteor.Error('form-error', 'tweet content must be filled');
+		}
+		if(_.isEmpty(data.tweet.schedules)){
+			throw new Meteor.Error('form-error', 'schedule must be filled');
+		}
+
+		if((!this.userId) && Meteor.user().roles.includes("admin")){
+			throw new Meteor.Error('not-authorized');
+		}
+
+		Bots.update({
+		 _id : data.botId
+		}, {
+			$push : {
+				tweets : data.tweet
+			}
+		});
+	},
+	'bot.tweet.delete' :function(data){
+		/*		
+		{	botId:"W57jTEdK2rMAuBCFo",
+			tweetId : "W57jTEdK2rMAuBCFo",
+		}
+		*/
+
+		check(data.botId, String);
+		check(data.tweetId, String);
+
+		if((!this.userId) && Meteor.user().roles.includes("admin")){
+			throw new Meteor.Error('not-authorized');
+		}
+		let bot = Bots.findOne({
+		 _id : data.botId
+		});
+		if(!bot){
+			throw new Meteor.Error('unknow bot');
+		}
+		
+		Bots.update({
+		 _id : data.botId
+		}, {
+			$set : {
+				tweets : bot.tweets.filter(function(tweet){
+					return tweet._id != data.tweetId;
+				})
+			}
+		});
 	}
+
+
 });

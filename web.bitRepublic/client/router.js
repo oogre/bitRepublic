@@ -13,6 +13,7 @@ FlowRouter.route( '/', {
 	subscriptions: function(params, queryParams) {
 		this.register('bitsoils', Meteor.subscribe('bitsoils'));
 		this.register('bots', Meteor.subscribe('bots'));
+		this.register('schedules', Meteor.subscribe('schedules'));
 	}
 });
 

@@ -10,18 +10,13 @@ class TweetOption extends Component {
 		super(props);
 	}
 	
-	componentDidMount () {
-		if (this.props.onMounted) {
-			this.props.onMounted(this)
-		}
-	}
 	handleTweetSchedule(event){
 		event.tweet = this.props.tweet._id
 		this.props.onScheduleChange(event);
 	}
 	render() {
 			return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hide")} >
+			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")} >
 				{this.props.tweet.content}
 				<TweetSchedule 
 					id={this.props.id}

@@ -15,8 +15,9 @@ class BotSelector extends Component {
 		this.state = {
 			selectedBot : 0,
 			signupModal : 0,
-			validateActive : false,
-			botData : {}
+			validateDisable : true,
+			tempBotData : {},
+			validateBotData : {}
 		}
 		
 	}
@@ -26,8 +27,10 @@ class BotSelector extends Component {
 		});
 	}
 	handleValidation(){
-		if(this.state.validateActive){
+		if(!this.state.validateDisable){
 			this.state.signupModal.handleOpenModal();
+			console.log(this.state.validateBotData);
+
 		}
 	}
 	handleModalMounted(signupModal){
@@ -35,20 +38,28 @@ class BotSelector extends Component {
 	}
 
 	handleTweetSelectorScheduleChange(event){
-		let botData = this.state.botData;
+		let botData = this.state.tempBotData;
 		botData[event.bot] = botData[event.bot] || {};
 		if(event.schedule == "never"){
 			delete botData[event.bot][event.tweet];
-			if(Object.keys(botData[event.bot]).length === 0){
+			if(_.isEmpty(botData[event.bot])){
 				delete botData[event.bot];
 			}
 		}else{
 			botData[event.bot][event.tweet] = event.schedule	
 		}
-
 		this.setState({
-			botData : botData,
-			validateActive : Object.keys(botData).length !== 0
+			tempBotData : botData,
+			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot]),
+			validateBotData : {
+				botId : this.state.selectedBot,
+				tweet : _.chain(botData[this.state.selectedBot]).map(function(v, k){
+							return {
+								tweetId : k, 
+								schedule : v
+							}
+						}).value()
+			}
 		});		
 	}
 	renderBots(){
@@ -77,11 +88,9 @@ class BotSelector extends Component {
 				<ul>
 					{this.renderBots()}
 				</ul>
-
-
 				{this.renderTweets()}
 				<button 
-					disabled={!this.state.validateActive} 
+					disabled={this.state.validateDisable} 
 					onClick={this.handleValidation.bind(this)}>
 						validate
 				</button>
