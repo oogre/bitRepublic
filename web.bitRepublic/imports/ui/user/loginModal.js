@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
 // https://reactcommunity.org/react-modal/
 import ReactModal from 'react-modal';
 import UserLogIn from './login.js';
@@ -9,7 +6,7 @@ import UserLogIn from './login.js';
 ReactModal.setAppElement('body');
 
 
-class UserLogInModal extends Component {
+export default class UserLogInModal extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -42,8 +39,3 @@ class UserLogInModal extends Component {
 		);
 	}
 }
-
-export default withTracker(() => {
-	return {
-	};
-})(UserLogInModal);

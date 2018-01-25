@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Meteor } from 'meteor/meteor';
 
 import * as Utilities from '../../utilities.js'
 import {config} from '../../startup/config.js';

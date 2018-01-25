@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-class UserSignup extends Component {
+export default class UserSignup extends Component {
 	constructor(props){
 		super(props);
 	}
-
 
 	handleSignup(event){
 		event.preventDefault();
@@ -73,8 +71,3 @@ class UserSignup extends Component {
 		);
 	}
 }
-
-export default withTracker(() => {
-	return {
-	};
-})(UserSignup);

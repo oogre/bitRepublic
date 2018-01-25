@@ -34,4 +34,12 @@ if(Meteor.isServer){
 			Wallets.remove({owner : id});
 		}
 	});
+}else{
+	if( !TempWallets.findOne( {type : config.WALLET_TYPE.BOT} ) ){
+		TempWallets.insert({
+			createdAt : new Date(),
+			type : config.WALLET_TYPE.BOT,
+			bitsoil : 0
+		});
+	}
 }

@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-//import ReactDom from 'react-dom';
-//import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
-
 
 export default class TweetSchedule extends Component {
 	constructor(props){
@@ -35,10 +31,3 @@ export default class TweetSchedule extends Component {
 		);
 	}
 }
-/*
-
-export default withTracker(() => {
-	return {
-	};
-})(TweetSchedule);
-*/

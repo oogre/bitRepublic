@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
+
+import {config} from '../../startup/config.js';
+
+import { TempWallets } from '../../api/wallets/wallets.js';
+import { Bots } from '../../api/bots/bots.js';
+import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
+
 import BotOption from './option.js';
 import TweetSelector from '../tweet/selector.js';
 import UserSignupModal from '../user/signupModal.js';
-import { TempWallets } from '../../api/wallets/wallets.js';
-import {config} from '../../startup/config.js';
-
-import { Bots } from '../../api/bots/bots.js';
-import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
 
 class BotSelector extends Component {
 	constructor(props){
@@ -111,21 +112,8 @@ class BotSelector extends Component {
 }
 
 export default withTracker(() => {
-	let wallet = TempWallets.findOne({
-		type : config.WALLET_TYPE.BOT,
-	});
-	if(!wallet){
-		let walletId = TempWallets.insert({
-			createdAt : new Date(),
-			type : config.WALLET_TYPE.BOT,
-			bitsoil : 0
-		});
-		wallet = TempWallets.findOne({_id : walletId});
-	}
 	return {
-		wallet : wallet,
-		bots : Bots.find({
-			model : true
-		}).fetch()
+		wallet : TempWallets.findOne({type : config.WALLET_TYPE.BOT}),
+		bots : Bots.find( {model : true} ).fetch()
 	};
 })(BotSelector);

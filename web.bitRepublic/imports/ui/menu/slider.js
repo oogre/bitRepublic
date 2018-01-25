@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-// App component - represents the whole app
-class SliderMenu extends Component {
+export default class SliderMenu extends Component {
 	constructor(props){
 		super(props);
 	}
@@ -13,7 +10,7 @@ class SliderMenu extends Component {
 	    return (
 			<div className="container">
 				<h2>
-				Make the data economy benefits all
+					Make the data economy benefits all
 				</h2>
 				<ul>
 					<li>
@@ -27,11 +24,3 @@ class SliderMenu extends Component {
 		);
   	}
 }
-
-export default withTracker(() => {
-	
-	return {
-		userId : Meteor.userId(),
-		currentUser : Meteor.user()
-	};
-})(SliderMenu);

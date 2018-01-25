@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
-import AccountsUIWrapper from '../AccountsUIWrapper.js';
 
-import UserLogInOut from '../user/loginout.js';
 import UserLogInModal from '../user/loginModal.js';
 
 class MainMenu extends Component {
 	constructor(props){
 		super(props);
-	}
-	handleLogout(event){
-		event.preventDefault();
-		Meteor.logout();
 	}
 	render() {
 	    return (

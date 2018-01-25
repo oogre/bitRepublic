@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
@@ -27,6 +26,5 @@ class UserLogInOut extends Component {
 export default withTracker(() => {
 	return {
 		userId : Meteor.userId(),
-		currentUser : Meteor.user()
 	};
 })(UserLogInOut);

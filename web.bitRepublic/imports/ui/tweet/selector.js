@@ -95,8 +95,6 @@ class TweetSelector extends Component {
 
 export default withTracker(() => {
 	return {
-		userId : Meteor.userId(),
-		currentUser : Meteor.user(),
 		isAdmin : Meteor.user() && Meteor.user().roles.includes("admin")
 	};
 })(TweetSelector);

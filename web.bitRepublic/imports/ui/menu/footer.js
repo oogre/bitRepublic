@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
-import MainMenu from './main.js';
 
 // App component - represents the whole app
-class FooterMenu extends Component {
+export default class FooterMenu extends Component {
 	constructor(props){
 		super(props);
 	}
@@ -32,10 +28,3 @@ class FooterMenu extends Component {
   	}
 }
 
-export default withTracker(() => {
-	
-	return {
-		userId : Meteor.userId(),
-		currentUser : Meteor.user()
-	};
-})(FooterMenu);
