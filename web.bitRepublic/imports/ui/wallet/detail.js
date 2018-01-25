@@ -13,6 +13,7 @@ export default class WalletDetail extends Component {
 	render() {
 		return (
 			<div className="container">
+				<h4>your wallet</h4>
 				id number : {Utilities.numberFormat(this.props.wallet.number, 7)}<br/>
 				amount redistributed : {Utilities.bitsoilFormat(this.props.wallet.bitsoil)}<br/>
 				key : {this.props.wallet._id}<br/>

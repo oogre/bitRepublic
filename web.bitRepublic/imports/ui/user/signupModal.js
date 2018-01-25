@@ -40,6 +40,7 @@ export default class UserSignupModal extends Component {
 				<ReactModal 
 					isOpen={this.state.showModal || this.props.open}
 					contentLabel="Minimal Modal Example"
+					onRequestClose={this.handleCloseModal}
 				>
 					<a href="#" onClick={this.handleCloseModal}>&times;</a>
 					<UserSignup modal={this}/>
