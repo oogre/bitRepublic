@@ -29,8 +29,8 @@ export default class UserSignup extends Component {
 				ReactDom.findDOMNode(this.refs.lastname).value = '';
 				ReactDom.findDOMNode(this.refs.email).value = '';
 				ReactDom.findDOMNode(this.refs.country).value = '';
-				if(this.props.modal){
-					this.props.modal.setState({ showModal: false });
+				if(_.isFunction(this.props.onSuccess)){
+					this.props.onSuccess(res);
 				}
 			}
 		});

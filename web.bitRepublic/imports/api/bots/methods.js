@@ -13,28 +13,48 @@ Meteor.methods({
 	*
 	* @apiSuccess {String} Bots._id the _id of the newly created bot
 	*/
-	'bots.create' : function(data){
-
-		if(! this.userId){
-			throw new Meteor.Error('not-authorized');
-		}
-/*
-		Bots.insert({
-			model : true,
-			title : [
-				"be aware", 
-				"Send your claim to the Prime Minister"
-			],
-			picture : "IMG",
-			target : "politics",
-			description : "Send a tweet postcard to the Prime Minister",
-			tweets : [
-				"tweetA0",
-				"tweetA1",
-				"tweetA2",
-			]
-		});
+	'bots.create' : function(userId, data){
+		/*
+			Meteor.call("bots.create", "sZHyzfJdiH9HR7n65", { 
+				botId: 'Ns4NdncH4tFKyBFEH',
+				tweet: [{tweetId: 'BCPqzKQNi335LtWtF', schedule: 'every minute'},
+						{tweetId: 'ptmdJFZDwNYJnsxJ6', schedule: 'every month'},
+						{tweetId: 'Z3SKmppfXfhocpneT', schedule: 'every hour'}
+				]
+			});
 		*/
+		check(userId, String);
+
+		check(data, Object);
+		check(data.botId, String);
+		check(data.tweet, [Object]);
+		
+		let botModel = Bots.findOne({
+			model : true,
+			_id : data.botId
+		});
+		if(!botModel){
+			throw new Meteor.Error('no-bot-model');
+		}
+		
+		let botObject = {
+			createdAt : new Date(),
+			owner : userId,
+			origin : botModel._id,
+			target : botModel.target,
+			tweets : data.tweet.map(function(tweet){
+						return {
+							counter : 0,
+							content : _.find(botModel.tweets, function(t){
+										return t._id == tweet.tweetId
+									}).content,
+							schedule : tweet.schedule
+						}
+					})
+		};
+
+		console.log(botObject);
+
 	},
 	'bot.tweet.update' : function(data){
 		/*		

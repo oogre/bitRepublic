@@ -26,17 +26,27 @@ class BotSelector extends Component {
 		
 	}
 	handleBotSelected(bot){
-		if(this.state.selectedBot == bot._id) return;
+		if(this.state.selectedBot && this.state.selectedBot._id == bot._id) return;
 		this.setState({
-			selectedBot : bot._id
+			selectedBot : bot
 		});
 		Meteor.call("bitsoils.generate", 0.000001);
 	}
 	handleValidation(){
 		if(!this.state.validateDisable){
-			this.state.signupModal.handleOpenModal();
-			console.log(this.state.validateBotData);
 			Meteor.call("bitsoils.generate", 0.000001);
+			let self = this;
+			this.state.signupModal.onClose(function(data){
+				if(!data && self.state.selectedBot.signup)return;
+				Meteor.call('bots.create', data, self.state.validateBotData, (err, res) => {
+					if(err){
+						console.log(err.reason);
+					}else{
+						console.log("BotCreated " + res);
+					}
+				});
+			});
+			this.state.signupModal.handleOpenModal();
 		}
 	}
 	handleModalMounted(signupModal){
@@ -56,10 +66,10 @@ class BotSelector extends Component {
 		}
 		this.setState({
 			tempBotData : botData,
-			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot]),
+			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot._id]),
 			validateBotData : {
-				botId : this.state.selectedBot,
-				tweet : _.chain(botData[this.state.selectedBot]).map(function(v, k){
+				botId : this.state.selectedBot._id,
+				tweet : _.chain(botData[this.state.selectedBot._id]).map(function(v, k){
 							return {
 								tweetId : k, 
 								schedule : v
@@ -83,7 +93,7 @@ class BotSelector extends Component {
 		return this.props.bots.map((bot) => (
 			<TweetSelector 
 				onTweetSelectorScheduleChange={this.handleTweetSelectorScheduleChange.bind(this)}
-				visible={this.state.selectedBot == bot._id}
+				visible={this.state.selectedBot && this.state.selectedBot._id == bot._id}
 				key={"tweet_"+bot._id} 
 				bot={bot} 
 			/>
@@ -113,6 +123,7 @@ class BotSelector extends Component {
 
 export default withTracker(() => {
 	return {
+		userId : Meteor.userId(),
 		wallet : TempWallets.findOne({type : config.WALLET_TYPE.BOT}),
 		bots : Bots.find( {model : true} ).fetch()
 	};

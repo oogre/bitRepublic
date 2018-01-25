@@ -63,6 +63,7 @@ Meteor.startup(() => {
 					"be aware", 
 					"Send your claim to the Prime Minister"
 				],
+				signup : true,
 				picture : "IMG",
 				target : "politics",
 				description : "Send a tweet postcard to the Prime Minister",
@@ -78,6 +79,7 @@ Meteor.startup(() => {
 					"Claim a bitsoiltax",
 					"Time to GAFAM to pay"
 				],
+				signup : true,
 				picture : "IMG",
 				target : "ceos",
 				description : "Send a tweet postcard to the CEO's of the top ten netgiants",
@@ -92,6 +94,7 @@ Meteor.startup(() => {
 					"Join the bitsoil campain",
 					"Invite your friends"
 				],
+				signup : false,
 				picture : "IMG",
 				counter : "type",
 				target : "friends",
