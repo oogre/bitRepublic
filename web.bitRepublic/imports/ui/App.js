@@ -8,7 +8,7 @@ import FooterMenu from './menu/footer.js';
 import SliderMenu from './menu/slider.js';
 import BotSelector from './bot/selector.js';
 
-import BitsoilTotalCounter from './bitsoil/totalCounter.js';
+import BitSoilsTotalCounter from './bitsoil/totalCounter.js';
 
 
 // App component - represents the whole app
@@ -20,15 +20,17 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<HeaderMenu />
-				<SliderMenu />
-				<BitsoilTotalCounter />
-				<BotSelector />
+			<div className="page">
+				<div className="page__content">
+					<HeaderMenu />
+					<SliderMenu />
+					<BitSoilsTotalCounter />
+					<BotSelector />
+				</div>
 				<FooterMenu />
 			</div>
 		);
-  	}
+	}
 }
 
 export default withTracker(() => {

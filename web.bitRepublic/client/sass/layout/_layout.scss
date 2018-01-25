@@ -7,10 +7,24 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   height: 100%;
   width: 100%;
   background: #f0f4f7;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
+}
+
+.page__content {
+  flex: 1 0 auto;
 }
 
 .container {

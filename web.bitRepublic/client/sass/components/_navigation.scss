@@ -45,10 +45,10 @@
   display: none;
 }
 
+
 .menu__item__link {
   font-family: $font-title-sans-serif;
   font-size: 1.4rem;
-  color: $color-text;
   text-transform: uppercase;
 
   &:visited {
@@ -57,7 +57,33 @@
 
   &:hover,
   &:focus {
-    color: $color-primary;
     text-decoration: none;
+  }
+}
+
+// menu--header
+// ---------------------
+.menu--header .menu__item__link {
+  color: $color-text;
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+  }
+}
+
+// menu--footer
+// ---------------------
+
+
+.menu--footer .menu__item__text,
+.menu--footer .menu__item__link {
+  color: $grey-93;
+}
+
+.menu--footer .menu__item__link {
+  &:hover,
+  &:focus {
+    color: $color-primary;
   }
 }
