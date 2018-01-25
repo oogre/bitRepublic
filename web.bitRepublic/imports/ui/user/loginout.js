@@ -11,10 +11,9 @@ class UserLogInOut extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
-
+			<div>
 				{
-					this.props.userId ? 
+					this.props.userId ?
 						<UserLogOut />
 					:
 						<UserLogInModal />

@@ -22,4 +22,5 @@ accounts-password
 kadira:flow-router
 nimble:restivus
 react-meteor-data
+fourseven:scss
 alanning:roles

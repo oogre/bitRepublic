@@ -26,9 +26,9 @@ export default class UserLogInModal extends Component {
 
 	render() {
 		return (
-			<div className="container">
-				<a href="#" onClick={this.handleOpenModal}>Login</a>
-				<ReactModal 
+			<div>
+				<a href="#" className="menu__item__link" onClick={this.handleOpenModal}>Login</a>
+				<ReactModal
 					isOpen={this.state.showModal}
 					contentLabel="Minimal Modal Example"
 				>

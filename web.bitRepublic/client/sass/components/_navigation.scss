@@ -1,0 +1,89 @@
+/*------------------------------------*\
+  > Navigation
+  Resuable navigation components
+\*------------------------------------*/
+
+// Menu
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu--header {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.menu__item {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.menu__item:after {
+  margin-top: 1px; // Small hack to visualy "fix" vertical alignement due to link line-height
+  display: block;
+  content: "";
+  height: 15px;
+  width: 1px;
+  background: $grey-76;
+  @include vertical-center(absolute);
+  right: 0;
+}
+
+.menu__item:last-child:after {
+  display: none;
+}
+
+
+.menu__item__link {
+  font-family: $font-title-sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+// menu--header
+// ---------------------
+.menu--header .menu__item__link {
+  color: $color-text;
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+  }
+}
+
+// menu--footer
+// ---------------------
+
+
+.menu--footer .menu__item__text,
+.menu--footer .menu__item__link {
+  color: $grey-93;
+}
+
+.menu--footer .menu__item__link {
+  &:hover,
+  &:focus {
+    color: $color-primary;
+  }
+}

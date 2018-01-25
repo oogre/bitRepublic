@@ -12,17 +12,19 @@ export default class App extends Component {
 	constructor(props){
 		super(props);
 	}
-	
-	
+
+
 	render() {
 		return (
-			<div className="container">
-				<HeaderMenu />
-				<SliderMenu />
-				<BitsoilTotalCounter />
-				<BotSelector />
+			<div className="page">
+				<div className="page__content">
+					<HeaderMenu />
+					<SliderMenu />
+					<BitsoilTotalCounter />
+					<BotSelector />
+				</div>
 				<FooterMenu />
 			</div>
 		);
-  	}
+		}
 }
