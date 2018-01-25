@@ -6,20 +6,19 @@ export default class HeaderMenu extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+
 	render() {
-	    return (
-			<div className="container">
-				<header>
-					<h1>
+			return (
+			<header className="main-header">
+				<div className="container">
+					<h1 className="logo logo--header">
 						<a href="/">
-							<span>#BITSOIL</span>
-							<span>TAX</span>
+							<img src="/images/logo.png" alt="#Bitsoil Tax"/>
 						</a>
 					</h1>
 					<MainMenu />
-				</header>
-			</div>
+				</div>
+			</header>
 		);
-  	}
+	}
 }

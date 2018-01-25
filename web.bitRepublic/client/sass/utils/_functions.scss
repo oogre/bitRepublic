@@ -1,0 +1,55 @@
+/*------------------------------------*\
+  > Functions
+  Usefull functions use every where in the applications
+\*------------------------------------*/
+
+/**
+ * [parseInt Return an integer from a value with a unit]
+ * @param  {number} $n [A number]
+ * @return {int}    [The related integer of the given ($n) number]
+ */
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+/**
+ * [color-diff Return a map of the difference between two color]
+ * @param  {color} $color-a [Any valid css color]
+ * @param  {color} $color-b [Any valid css color]
+ * @return {map}          [A map of the diff hue, saturation, ligthness between the two color]
+ */
+@function color-diff($color-a, $color-b) {
+  $hue: hue($color-a) - hue($color-b);
+  $saturation: saturation($color-a) - saturation($color-b);
+  $lightness: lightness($color-a) - lightness($color-b);
+
+  $function-hue: 'adjust-hue';
+  $function-saturation: if($saturation > 0, 'desaturate', 'saturate');
+  $function-lightness: if($lightness > 0, 'darken', 'lighten');
+
+  @return (
+    #{$function-hue}: -($hue),
+    #{$function-saturation}: abs($saturation),
+    #{$function-lightness}: abs($lightness),
+  );
+}
+
+@function apply-color-diff($color, $diff) {
+  @each $key, $value in $diff {
+    $color: call($key, $color, $value);
+  }
+  @return $color;
+}
+
+/**
+ * [z Look for the given argument in a layers map to see if it is mapped to a z-index value]
+ * @param  {string} $layer [Layer to search for]
+ * @return {int} [Z-index value]
+ */
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+  }
+
+  @return map-get($z-layers, $layer);
+}

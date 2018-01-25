@@ -1,0 +1,267 @@
+/*------------------------------------*\
+  > Form
+\*------------------------------------*/
+
+// Input like text
+// ---------------------
+//
+@mixin inputText () {
+  display: block;
+  padding: 5px;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  width: 100%;
+  @include rem(font-size, 14px);
+
+  &:focus {
+    outline: none;
+    box-shadow:  0 2px 0 $color-primary;
+  }
+}
+
+[type="text"],
+[type="email"],
+[type="password"],
+[type="date"],
+[type="number"],
+textarea {
+  @include inputText();
+}
+
+// textarea
+// ---------------------
+
+textarea {
+  min-height: 250px;
+}
+
+
+// Checkbox & Radio
+// ---------------------
+
+// Hide default input
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked,
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  opacity: 0;
+  position: absolute;
+}
+
+// Label styles
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label,
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+// Fake checkbox Aspect
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Fake Checked mark aspect */
+[type="checkbox"]:not(:checked) + label:hover:after,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after,
+[type="radio"]:not(:checked) + label:hover:after,
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 6px;
+  left: 5px;
+  color: $color-primary;
+  transition: all .2s;
+}
+
+[type="checkbox"]:not(:checked) + label:after,
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Hover style */
+[type="checkbox"]:not(:checked) + label:hover:after,
+[type="checkbox"]:focus:not(:checked) + label:after,
+[type="radio"]:not(:checked) + label:hover:after,
+[type="radio"]:focus:not(:checked) + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// Checked
+[type="checkbox"]:checked + label:after,
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before,
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+  // background-color: darken($blue-mirage, 3);
+}
+
+[type="checkbox"]:disabled + label,
+[type="radio"]:disabled + label {
+  color: darken(#fff, 50);
+}
+
+[type="checkbox"]:disabled + label,
+[type="checkbox"]:disabled + label:before,
+[type="radio"]:disabled + label,
+[type="radio"]:disabled + label:before {
+  cursor: not-allowed;
+}
+
+/* accessibility */
+// [type="checkbox"]:checked:focus + label:before,
+// [type="checkbox"]:not(:checked):focus + label:before {
+//   border: 1px dotted blue;
+// }
+
+// Checkbox specific
+// Fake checkbox Aspect
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  border-radius: 3px;
+}
+
+// Fake Checked mark aspect
+[type="checkbox"]:not(:checked) + label:hover:after,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  border-radius: 2px;
+}
+
+// Radio Specific
+
+// Fake radio Aspect
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  border-radius: 10px;
+}
+
+// Fake Checked mark aspect
+[type="radio"]:not(:checked) + label:hover:after,
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  border-radius: 5px;
+}
+
+// Input File
+// ---------------------
+
+.input--file {
+  @include rem(font-size, 16px);
+}
+
+// Field
+// ---------------------
+
+.field {
+  position: relative;
+  margin: 0 0 .5em;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: .4em;
+  @include rem(font-size, 16px);
+}
+
+.field__label--optional {
+  @include rem(font-size, 12px);
+  vertical-align: middle;
+}
+
+// field--inline
+
+.field--inline {
+  display: inline-block;
+  margin-right: 1em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Field group
+// ---------------------
+
+.field-group {
+  margin: 1.5em 0;
+  padding-left: .5em;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.field-group__title {
+  margin: 0 0 0.5em -0.5em;
+  @include rem(font-size, 18px);
+  color: $color-primary;
+}
+
+// Errors
+// ---------------------
+
+.errors {
+  @include rem(font-size, 15px);
+  margin-bottom: 1em;
+}
+
+.error {
+  color: $color-error;
+}
+
+.error p {
+  margin: 0;
+}
+
+// Success
+// ---------------------
+
+.success {
+  background: $color-success;
+  padding: .5em 1em;
+  margin-bottom: 2em;
+  @include rem(font-size, 14px);
+  line-height: 0;
+  border-radius: 2px;
+}
+
+// field-errors
+// ---------------------
+
+.field-error {
+  display: block;
+  margin-top: .5em;
+  color: $color-error;
+  @include rem(font-size, 12px);
+}
