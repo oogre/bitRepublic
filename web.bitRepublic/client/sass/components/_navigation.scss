@@ -3,28 +3,61 @@
   Resuable navigation components
 \*------------------------------------*/
 
-// Menu & Submenu
-.menu,
-.submenu {
+// Menu
+.menu {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
-.menu__item__button,
-.submenu__item__button {
-  pointer-events: auto;
-  @include rem(font-size, 14px);
-  @include button-transparent(#fff);
+.menu--header {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
-  &:hover:not(.disable),
-  &:focus:not(.disable),
-  &:active:not(.disable) {
-    outline: none;
+.menu__item {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
   }
 }
 
-.menu__item__button:hover .button__label,
-.menu__item__button:focus .button__label,
-.menu__item__button:active .button__label {
-  text-decoration: underline;
+.menu__item:after {
+  margin-top: 1px; // Small hack to visualy "fix" vertical alignement due to link line-height
+  display: block;
+  content: "";
+  height: 15px;
+  width: 1px;
+  background: $grey-76;
+  @include vertical-center(absolute);
+  right: 0;
+}
+
+.menu__item:last-child:after {
+  display: none;
+}
+
+.menu__item__link {
+  font-family: $font-title-sans-serif;
+  font-size: 1.4rem;
+  color: $color-text;
+  text-transform: uppercase;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+    text-decoration: none;
+  }
 }

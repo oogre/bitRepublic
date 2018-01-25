@@ -16,11 +16,11 @@ class App extends Component {
 	constructor(props){
 		super(props);
 	}
-	
-	
+
+
 	render() {
 		return (
-			<div className="container">
+			<div>
 				<HeaderMenu />
 				<SliderMenu />
 				<BitsoilTotalCounter />
@@ -32,7 +32,7 @@ class App extends Component {
 }
 
 export default withTracker(() => {
-	
+
 	return {
 		userId : Meteor.userId(),
 		currentUser : Meteor.user()
