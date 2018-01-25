@@ -20,6 +20,8 @@ if(Meteor.isServer){
 
 	Meteor.users.find({}).observeChanges({
 		added(id, user) {
+			if(Wallets.find({$and : [{owner : id},personnalWalletReq]}).count() > 0) return;
+			console.log("create wallet for "+user.username);
 			let walletId = Wallets.insert({
 				createdAt : new Date(),
 				type : config.WALLET_TYPE.PERSONNAL,
