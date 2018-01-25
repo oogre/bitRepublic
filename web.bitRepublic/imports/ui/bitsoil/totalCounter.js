@@ -15,10 +15,10 @@ class BitsoilTotalCounter extends Component {
 		return (
 			<div className="container">
 				<div>
-					{Utilities.numberFormat(this.props.totalBitsoil)}
+					{Utilities.bitsoilFormat(this.props.totalBitsoil)}
 				</div>
 				<div>
-					{Utilities.numberFormat(this.props.totalBitsoil * config.TAX_RATE)}
+					{Utilities.bitsoilFormat(this.props.totalBitsoil * config.TAX_RATE)}
 				</div>
 			</div>
 		);

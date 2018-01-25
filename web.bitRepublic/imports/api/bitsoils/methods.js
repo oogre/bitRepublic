@@ -18,6 +18,7 @@ Meteor.methods({
 		*/
 	'bitsoils.generate' : function(data){
 		check(data, Number);
+		data = parseFloat(data.toFixed(6));
 		Wallets.update({
 			type : config.WALLET_TYPE.PUBLIC, 
 			owner : { 
