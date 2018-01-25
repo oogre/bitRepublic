@@ -48,7 +48,6 @@ Meteor.methods({
 			}
 		}
 		*/
-
 		check(data.botId, String);
 		check(data.tweet, Object);
 		check(data.tweet.content, String);

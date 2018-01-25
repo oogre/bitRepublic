@@ -5,13 +5,16 @@ import { Meteor } from 'meteor/meteor';
 import AccountsUIWrapper from '../AccountsUIWrapper.js';
 
 import UserLogInOut from '../user/loginout.js';
-
+import UserLogInModal from '../user/loginModal.js';
 
 class MainMenu extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+	handleLogout(event){
+		event.preventDefault();
+		Meteor.logout();
+	}
 	render() {
 	    return (
 			<div className="container">
@@ -32,7 +35,12 @@ class MainMenu extends Component {
 						<a href="#">WHO WE ARE</a>
 					</li>
 					<li>
-						<UserLogInOut />
+						{
+						this.props.userId ? 
+							<a href={FlowRouter.path("userProfile", {username : this.props.username})}>{this.props.username}</a>
+						:
+							<UserLogInModal />
+						}
 					</li>
 				</ul>
 			</div>
@@ -41,9 +49,12 @@ class MainMenu extends Component {
 }
 
 export default withTracker(() => {
-	
+	let currentUser = Meteor.user();
+	let username = currentUser ? currentUser.username : null;
+	let userId = currentUser ? currentUser._id : null;
 	return {
-		userId : Meteor.userId(),
-		currentUser : Meteor.user()
+		userId : userId,
+		currentUser : currentUser,
+		username : username
 	};
 })(MainMenu);

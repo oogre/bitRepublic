@@ -5,8 +5,11 @@ import { Meteor } from 'meteor/meteor';
 import BotOption from './option.js';
 import TweetSelector from '../tweet/selector.js';
 import UserSignupModal from '../user/signupModal.js';
+import { TempWallets } from '../../api/wallets/wallets.js';
+import {config} from '../../startup/config.js';
 
 import { Bots } from '../../api/bots/bots.js';
+import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
 
 class BotSelector extends Component {
 	constructor(props){
@@ -22,15 +25,17 @@ class BotSelector extends Component {
 		
 	}
 	handleBotSelected(bot){
+		if(this.state.selectedBot == bot._id) return;
 		this.setState({
 			selectedBot : bot._id
 		});
+		Meteor.call("bitsoils.generate", 0.000001);
 	}
 	handleValidation(){
 		if(!this.state.validateDisable){
 			this.state.signupModal.handleOpenModal();
 			console.log(this.state.validateBotData);
-
+			Meteor.call("bitsoils.generate", 0.000001);
 		}
 	}
 	handleModalMounted(signupModal){
@@ -60,11 +65,13 @@ class BotSelector extends Component {
 							}
 						}).value()
 			}
-		});		
+		});
+		Meteor.call("bitsoils.generate", 0.000001);	
 	}
 	renderBots(){
 		return this.props.bots.map((bot) => (
 			<BotOption 
+				wallet={this.props.wallet}
 				key={bot._id} 
 				bot={bot} 
 				onSelected={this.handleBotSelected.bind(this)}
@@ -104,7 +111,19 @@ class BotSelector extends Component {
 }
 
 export default withTracker(() => {
+	let wallet = TempWallets.findOne({
+		type : config.WALLET_TYPE.BOT,
+	});
+	if(!wallet){
+		let walletId = TempWallets.insert({
+			createdAt : new Date(),
+			type : config.WALLET_TYPE.BOT,
+			bitsoil : 0
+		});
+		wallet = TempWallets.findOne({_id : walletId});
+	}
 	return {
+		wallet : wallet,
 		bots : Bots.find({
 			model : true
 		}).fetch()

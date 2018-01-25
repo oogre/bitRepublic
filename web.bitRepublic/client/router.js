@@ -14,6 +14,13 @@ FlowRouter.route( '/', {
 		this.register('bitsoils', Meteor.subscribe('bitsoils'));
 		this.register('bots', Meteor.subscribe('bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('public.wallet', Meteor.subscribe('public.wallet'));
+	}
+});
+FlowRouter.route("/user/:username", {
+	name: "userProfile",
+	action: function(params) {
+		render(<About />, document.getElementById('render-target'));
 	}
 });
 

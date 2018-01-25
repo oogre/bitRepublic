@@ -3,24 +3,24 @@ import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-import { BitSoils } from '../../api/bitsoils/bitsoils.js';
+import { Wallets } from '../../api/wallets/wallets.js';
 import * as Utilities from '../../utilities.js'
-
+import {config} from '../../startup/config.js';
 
 // BitSoilsCounter component - represents the bitsoil counter utility
-class BitSoilsCounter extends Component {
+class BitsoilTotalCounter extends Component {
 	constructor(props){
 		super(props);
 	}
 	
 	render() {
-	    return (
+		return (
 			<div className="container">
 				<div>
-					{Utilities.numberFormat(this.props.count)} : BITSOIL
+					{Utilities.numberFormat(this.props.totalBitsoil)}
 				</div>
 				<div>
-					{Utilities.numberFormat(this.props.count * 0.001)} : TAX
+					{Utilities.numberFormat(this.props.totalBitsoil * config.TAX_RATE)}
 				</div>
 			</div>
 		);
@@ -28,13 +28,9 @@ class BitSoilsCounter extends Component {
 }
 
 export default withTracker((props) => {
-	const request = {};
-	if(props.userId){
-		request.creatorId = props.userId
-	}
-
+	let totalWallet = Wallets.findOne({ type : 0, owner : { $exists:false } });
+	let totalBitsoil = totalWallet ? totalWallet.bitsoil : 0;
 	return {
-		count : BitSoils.find(request).count()
-
+		totalBitsoil : totalBitsoil
 	};
-})(BitSoilsCounter);
+})(BitsoilTotalCounter);

@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
+import BitsoilCounter from '../bitsoil/counter.js';
 
 class BotOption extends Component {
 	constructor(props){
@@ -21,6 +22,7 @@ class BotOption extends Component {
 					{this.props.bot.title[1]}
 				</div>
 				<div>
+					<BitsoilCounter bitsoil={this.props.wallet.bitsoil}/>
 				</div>
 				<div>
 					{this.props.bot.description}
@@ -31,10 +33,7 @@ class BotOption extends Component {
   	}
 }
 
-export default withTracker(() => {
-
+export default withTracker((param) => {
 	return {
-		
 	};
-
 })(BotOption);

@@ -10,13 +10,13 @@ class UserLogIn extends Component {
 
 	handleLogin(event){
 		event.preventDefault();
-		const username = ReactDom.findDOMNode(this.refs.username).value;
+		const email = ReactDom.findDOMNode(this.refs.email).value;
 		const pwd = ReactDom.findDOMNode(this.refs.password).value;
-		Meteor.loginWithPassword(username, pwd, (err) => {
+		Meteor.loginWithPassword(email, pwd, (err) => {
 			if(err){
 				console.log(err.reason);
 			}else{
-				ReactDom.findDOMNode(this.refs.username).value = '';
+				ReactDom.findDOMNode(this.refs.email).value = '';
 				ReactDom.findDOMNode(this.refs.password).value = '';
 				if(this.props.modal){
 					this.props.modal.setState({ showModal: false });
@@ -30,10 +30,10 @@ class UserLogIn extends Component {
 			<div className="container">
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					<input
-						type="text"
-						ref="username"
-						name="username"
-						placeholder="Type your username"
+						type="email"
+						ref="email"
+						name="email"
+						placeholder="Type your email"
 					/>
 					<input
 						type="password"

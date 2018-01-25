@@ -1,5 +1,5 @@
 //import { Meteor } from 'meteor/meteor';
-import { BitSoils } from './bitsoils.js';
+//import { BitSoils } from './bitsoils.js';
 
 
 if(Meteor.isServer){
@@ -17,11 +17,12 @@ if(Meteor.isServer){
 	*
 	* @apiSuccess {Number} Bitsoil quantity
 	*/
+	/*
 	Api.addRoute('bitsoil/count', {authRequired: false}, {
 		get: function () {
 			return BitSoils.find().count();
 		}
-	});
+	});*/
 
 	/**
 	* @api {post} /api/bitsoil/create
@@ -35,6 +36,7 @@ if(Meteor.isServer){
 	*
 	* @apiSuccess {Number} Bitsoil quantity
 	*/
+	/*
 	Api.addRoute('bitsoil/create', {authRequired: true}, {
 		post: function () {
 			let userId = this.userId;
@@ -44,4 +46,5 @@ if(Meteor.isServer){
 			});
 		}
 	});
+	*/
 }

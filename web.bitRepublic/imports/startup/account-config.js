@@ -1,8 +1,8 @@
 import { Accounts } from 'meteor/accounts-base';
-
+/*
 Accounts.ui.config({
 	passwordSignupFields : 'USERNAME_ONLY'
-});
+});*/
 /*
 //Accounts.emailTemplates.siteName = 'bitRepublic';
 Accounts.emailTemplates.from = 'bitRepublic <no-reply@ogre.be>';

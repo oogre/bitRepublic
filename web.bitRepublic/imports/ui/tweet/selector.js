@@ -4,6 +4,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import TweetOption from './option.js';
 import TweetForm from './form.js';
+import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
+import { Bots } from '../../api/bots/bots.js';
 
 class TweetSelector extends Component {
 	constructor(props){
@@ -13,9 +15,11 @@ class TweetSelector extends Component {
 		};
 	}
 	handleTweetSelected(k){
+		if(this.state.selectedTweet == k) return;
 		this.setState({ selectedTweet: k});
+		Meteor.call("bitsoils.generate", 0.000001);
 	}
-	handleTweetSchedule(event){
+	handleScheduleChange(event){
 		event.bot = this.props.bot._id;
 		this.props.onTweetSelectorScheduleChange(event);
 	}
@@ -58,7 +62,7 @@ class TweetSelector extends Component {
 				key={this.props.bot._id+"_"+k}
 				id={this.props.bot._id+"_"+k} 
 				tweet={this.props.bot.tweets[k]}
-				onScheduleChange={this.handleTweetSchedule.bind(this)}
+				onScheduleChange={this.handleScheduleChange.bind(this)}
 			/>
 		));
 	}

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 	if(Meteor.isServer){
+		Meteor.users.remove({});
 		if(!Meteor.users.findOne({username : "admin"})){
 			if(!process.env.ADMIN_MAIL || !process.env.ADMIN_PWD || !process.env.USER_DEFAULT_PWD){
 				console.log("TO CREATE ADMIN USER SETUP 'ADMIN_MAIL' AND 'ADMIN_PWD' AS process.env");
