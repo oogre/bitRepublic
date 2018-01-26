@@ -1,0 +1,77 @@
+/*------------------------------------*\
+  > Cards
+\*------------------------------------*/
+
+// Card-list
+// ---------------------
+.cards-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+}
+
+// Card
+// ---------------------
+.card {
+  width: 100%;
+  background: $grey-bonjour;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($md) {
+    width: calc(33.33% - 30px);
+  }
+}
+
+.card__header,
+.card__content,
+.card__footer {
+  width: 100%;
+}
+
+
+// Card header
+// ---------------------
+.card__header {
+  padding: 20px;
+  background-color: $color-primary;
+}
+
+.card__title,
+.card__subtitle {
+  color: #fff;
+  margin: 0;
+}
+
+.card__title {
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+
+.card__subtitle {
+  font-family: $font-title-secondary-sans-serif;
+  font-size: 1.9rem;
+}
+
+// Card Content
+// ---------------------
+.card__content {
+  font-family: $font-title-sans-serif;
+  font-size: 1.4rem;
+  color: $grey-9;
+  padding: 45px 25px 0;
+}
+
+.card__counter {
+  margin-bottom: 50px;
+}
+
+// Card Footer
+// ---------------------
+.card__footer {
+  padding: 28px;
+  align-self: flex-end;
+}

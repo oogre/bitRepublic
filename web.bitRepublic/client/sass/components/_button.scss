@@ -20,14 +20,6 @@
   }
 }
 
-// Disable state
-%button-disable,
-.button.disable,
-[class*="button--"].disable {
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
 // Button Mixin
 // ---------------------
 
@@ -37,23 +29,35 @@
   color: #fff;
 
   // Hover, focus, active interactions
-  &:hover:not(.disable),
-  &:focus:not(.disable) {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
     outline: none;
     background-color: $grey-70;
   }
 
-  &:active:not(.disable) {
+  &:active:not([disabled]) {
     background-image: none;
     background-color: $grey-70;
   }
 }
 
+// Button Default
+@mixin button-negative($color) {
+  background-color: $color;
+  color: $color-primary;
+
+  // Hover, focus, active interactions
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    outline: none;
+    color: $color-secondary;
+  }
+}
+
 // Size Variation
 %button-size-default {
-  padding: 2rem 3rem;
-  line-height: 1.8;
-  font-size: 1.4rem;
+  padding: 1.4rem 2.8rem;
+  font-size: 1.2rem;
 }
 
 %button-size-medium {
@@ -76,7 +80,7 @@
 
 // Button Primary
 %button--primary,
-[class*='button--primary'] {
+[class*='button--primary']:not([disabled]) {
   position: relative;
   @include button-default($color-primary);
 }
@@ -89,6 +93,37 @@
   @extend %button-size-medium;
 }
 
+
+// Button Secondary
+%button--secondary,
+[class*='button--secondary']:not([disabled]) {
+  position: relative;
+  @include button-default($color-secondary);
+}
+
+.button--secondary {
+  @extend %button-size-default;
+}
+
+.button--secondary--md {
+  @extend %button-size-medium;
+}
+
+// Button Ternary
+%button--ternary,
+[class*='button--ternary']:not([disabled]) {
+  position: relative;
+  @include button-negative(#fff);
+}
+
+.button--ternary {
+  @extend %button-size-default;
+}
+
+.button--ternary--md {
+  @extend %button-size-medium;
+}
+
 // Button Danger
 %button--danger,
 [class*='button--danger'] {
@@ -98,4 +133,13 @@
 
 .button--danger {
   @extend %button-size-default;
+}
+
+// Disable state
+%button-disable,
+.button[disabled],
+[class*="button--"][disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    @include button-default($grey-76);
 }

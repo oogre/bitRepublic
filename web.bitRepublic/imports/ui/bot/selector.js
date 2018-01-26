@@ -15,7 +15,7 @@ import UserSignupModal from '../user/signupModal.js';
 class BotSelector extends Component {
 	constructor(props){
 		super(props);
-		
+
 		this.state = {
 			selectedBot : 0,
 			signupModal : 0,
@@ -23,7 +23,7 @@ class BotSelector extends Component {
 			tempBotData : {},
 			validateBotData : {}
 		}
-		
+
 	}
 	handleBotSelected(bot){
 		if(this.state.selectedBot && this.state.selectedBot._id == bot._id) return;
@@ -62,7 +62,7 @@ class BotSelector extends Component {
 				delete botData[event.bot];
 			}
 		}else{
-			botData[event.bot][event.tweet] = event.schedule	
+			botData[event.bot][event.tweet] = event.schedule
 		}
 		this.setState({
 			tempBotData : botData,
@@ -71,54 +71,63 @@ class BotSelector extends Component {
 				botId : this.state.selectedBot._id,
 				tweet : _.chain(botData[this.state.selectedBot._id]).map(function(v, k){
 							return {
-								tweetId : k, 
+								tweetId : k,
 								schedule : v
 							}
 						}).value()
 			}
 		});
-		Meteor.call("bitsoils.generate", 0.000001);	
+		Meteor.call("bitsoils.generate", 0.000001);
 	}
 	renderBots(){
 		return this.props.bots.map((bot) => (
-			<BotOption 
+			<BotOption
 				wallet={this.props.wallet}
-				key={bot._id} 
-				bot={bot} 
+				key={bot._id}
+				bot={bot}
 				onSelected={this.handleBotSelected.bind(this)}
 			/>
 		));
 	}
 	renderTweets(){
 		return this.props.bots.map((bot) => (
-			<TweetSelector 
+			<TweetSelector
 				onTweetSelectorScheduleChange={this.handleTweetSelectorScheduleChange.bind(this)}
 				visible={this.state.selectedBot && this.state.selectedBot._id == bot._id}
-				key={"tweet_"+bot._id} 
-				bot={bot} 
+				key={"tweet_"+bot._id}
+				bot={bot}
 			/>
 		));
 	}
 	render() {
 		return (
-			<div className="container">
-				- What job will the taxt bot do - 
-				<ul>
-					{this.renderBots()}
-				</ul>
-				{this.renderTweets()}
-				<button 
-					disabled={this.state.validateDisable} 
-					onClick={this.handleValidation.bind(this)}>
-						validate
-				</button>
-				<UserSignupModal 
-					botData={this.state.botData} 
-					onMounted={this.handleModalMounted.bind(this)}
-				/>
+			<div className="bot-selector">
+				<h2 className="title--primary">Design your tax collector bot</h2>
+				<div className="bot-selector__counter">
+					<div className="container">
+
+					</div>
+				</div>
+				<h3 className="title--secondary">Claim a bitsoiltax</h3>
+				<div className="container">
+					<h4 className="title--ternary">What job will the tax bot do</h4>
+					<ul className="cards-list">
+						{this.renderBots()}
+					</ul>
+					{this.renderTweets()}
+					<button className="button--primary button--submit"
+						disabled={this.state.validateDisable}
+						onClick={this.handleValidation.bind(this)}>
+							validate
+					</button>
+					<UserSignupModal
+						botData={this.state.botData}
+						onMounted={this.handleModalMounted.bind(this)}
+					/>
+				</div>
 			</div>
 		);
-  	}
+	}
 }
 
 export default withTracker(() => {

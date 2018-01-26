@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Title
 h1,
 h2,
 h3,
@@ -23,6 +24,60 @@ h5,
 h6 {
   font-family: $font-title-sans-serif;
   font-weight: 400;
+}
+
+.title--primary,
+.title--secondary,
+.title--ternary {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.title--primary,
+.title--secondary {
+  color: #fff;
+  padding: 35px 0;
+}
+
+// Primary
+.title--primary {
+  font-weight: 500;
+  font-size: 2.6rem;
+  background: $color-primary;
+}
+
+// Secondary
+.title--secondary {
+  font-size: 2rem;
+  background: $color-secondary;
+}
+
+// Ternary
+.title--ternary {
+  display: inline;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  padding: 0 103px;
+
+  &:after,
+  &:before {
+    @include vertical-center(absolute);
+    content: '';
+    display: block;
+    width: 72px;
+    height: 2px;
+    background: $color-secondary;
+  }
+
+  &:after {
+    right: 0;
+  }
+
+  &:before {
+    left: 0
+  }
 }
 
 // Link
@@ -42,3 +97,4 @@ a {
 abbr[title] {
   border-bottom: 0;
 }
+

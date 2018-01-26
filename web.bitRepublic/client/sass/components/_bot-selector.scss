@@ -1,0 +1,32 @@
+/*------------------------------------*\
+  > Bot Selector
+\*------------------------------------*/
+
+.bot-selector {
+  text-align: center;
+}
+
+.bot-selector .title--primary {
+  margin-bottom: 0;
+}
+
+.bot-selector .title--secondary {
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.bot-selector__counter {
+  box-sizing: initial;
+  min-height: 444px;
+  padding: 20px 0;
+  background: url('/images/tax-collector-bot.png') no-repeat center $grey-bonjour;
+}
+
+.bot-selector .cards-list {
+  margin-top: 50px;
+}
+
+.bot-selector .button--submit {
+  float: right;
+  margin: 48px 0;
+}
