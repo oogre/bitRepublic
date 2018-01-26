@@ -1,0 +1,49 @@
+/*------------------------------------*\
+  > Hero Banner
+\*------------------------------------*/
+
+.hero-banner {
+  background: url('/images/banner-bitsoil-background.png') repeat-x center 0;
+  position: relative;
+}
+
+.hero-banner .container {
+  background: url('/images/banner-bitsoil.png') no-repeat center 0;
+  min-width: 1294px;
+  min-height: 770px;
+}
+
+.hero-banner__content {
+  @include horizontal-center(absolute);
+  bottom: 106px;
+  text-align: center;
+  width: 100%;
+  max-width: 740px;
+  padding-bottom: 64px;
+  background: rgba(250, 250, 250, .7);
+}
+
+.hero-banner__title {
+  margin: 76px 0 0;
+  color: $grey-shark;
+  font-size: 3.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  &:after {
+    display: block;
+    content: '';
+    width: 520px;
+    height: 2px;
+    background: $grey-shark;
+    margin: 30px auto 0;
+  }
+}
+
+// Hero Banner Buttons
+// ---------------------
+
+.hero-banner__button {
+  margin-top: 44px;
+  min-width: 198px;
+}
