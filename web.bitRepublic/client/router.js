@@ -4,6 +4,8 @@ import App from '../imports/ui/App.js';
 import About from '../imports/ui/About.js';
 import Redistribution from '../imports/ui/Redistribution.js';
 import Installation from '../imports/ui/Installation.js';
+import UserProfile from '../imports/ui/user/profile.js';
+import UserUpdate from '../imports/ui/user/update.js';
 
 FlowRouter.route( '/', {
 	name: 'home',
@@ -17,10 +19,24 @@ FlowRouter.route( '/', {
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
+
 FlowRouter.route("/user/:username", {
 	name: "userProfile",
 	action: function(params) {
-		render(<About />, document.getElementById('render-target'));
+		render(<UserProfile />, document.getElementById('render-target'));
+	},
+	subscriptions: function(params, queryParams) {
+		this.register('my.wallet', Meteor.subscribe('my.wallet'));
+	}
+});
+
+FlowRouter.route("/user/:username/update", {
+	name: "userUpdate",
+	action: function(params) {
+		render(<UserUpdate />, document.getElementById('render-target'));
+	},
+	subscriptions: function(params, queryParams) {
+		
 	}
 });
 

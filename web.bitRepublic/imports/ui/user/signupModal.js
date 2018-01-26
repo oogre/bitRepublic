@@ -12,7 +12,7 @@ export default class UserSignupModal extends Component {
 		this.state = {
 			showModal: false
 		};
-
+		this.closeCallBack = null;
 		this.props.botData
 		this.handleOpenModal = this.handleOpenModal.bind(this);
 		this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -23,14 +23,18 @@ export default class UserSignupModal extends Component {
 			this.props.onMounted(this)
 		}
 	}
-
+	onClose(callback){
+		if(!_.isFunction(callback))return;
+		this.closeCallBack = callback;
+	}
 	handleOpenModal () {
 		this.setState({ showModal: true });
 	}
 
 	handleCloseModal (event) {
-		event.preventDefault();
+		if(_.isObject(event))event.preventDefault();
 		this.setState({ showModal: false });
+		this.closeCallBack(_.isString(event) ? event : false);
 		return false;
 	}
 
@@ -40,9 +44,10 @@ export default class UserSignupModal extends Component {
 				<ReactModal 
 					isOpen={this.state.showModal || this.props.open}
 					contentLabel="Minimal Modal Example"
+					onRequestClose={this.handleCloseModal.bind(this)}
 				>
-					<a href="#" onClick={this.handleCloseModal}>&times;</a>
-					<UserSignup modal={this}/>
+					<a href="#" onClick={this.handleCloseModal.bind(this)}>&times;</a>
+					<UserSignup onSuccess={this.handleCloseModal.bind(this)}/>
 				</ReactModal>
 			</div>
 		);

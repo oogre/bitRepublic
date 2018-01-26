@@ -20,93 +20,90 @@ function randomTweet(){
 
 Meteor.startup(() => {
 	if(Meteor.isServer){
-		console.log(" REMOVE SCHEDULES");
-		Schedules.remove({});
-
 		
-		console.log(" INSERT SCHEDULES");
-		Schedules.insert({
-			content : "Never",
-			value : "never",
-			lvl : 0
-		});
-		Schedules.insert({
-			content : "Once a minute",
-			value : "every minute",
-			lvl : 100
-		});
-		Schedules.insert({
-			content : "Once an hour",
-			value : "every hour",
-			lvl : 200
-		});
-		Schedules.insert({
-			content : "Once a day",
-			value : "every day",
-			lvl : 300
-		});
-		Schedules.insert({
-			content : "Once a week",
-			value : "every week",
-			lvl : 400
-		});
-		Schedules.insert({
-			content : "Once a month",
-			value : "every month",
-			lvl : 500
-		});
+		if(Schedules.find({}).count() < 1){
+			console.log(" INSERT SCHEDULES");
+			Schedules.insert({
+				content : "Never",
+				value : "never",
+				lvl : 0
+			});
+			Schedules.insert({
+				content : "Once a minute",
+				value : "every minute",
+				lvl : 100
+			});
+			Schedules.insert({
+				content : "Once an hour",
+				value : "every hour",
+				lvl : 200
+			});
+			Schedules.insert({
+				content : "Once a day",
+				value : "every day",
+				lvl : 300
+			});
+			Schedules.insert({
+				content : "Once a week",
+				value : "every week",
+				lvl : 400
+			});
+			Schedules.insert({
+				content : "Once a month",
+				value : "every month",
+				lvl : 500
+			});
+		}
 
-
-		console.log(" REMOVE BOT MODEL");
-		Bots.remove({
-			model : true
-		});
-
-		console.log(" INSERT BOTS MODEL");
-
-		Bots.insert({
-			model : true,
-			title : [
-				"be aware", 
-				"Send your claim to the Prime Minister"
-			],
-			picture : "IMG",
-			target : "politics",
-			description : "Send a tweet postcard to the Prime Minister",
-			tweets : [
-				randomTweet(),
-				randomTweet(),
-				randomTweet()
-			]
-		});
-		Bots.insert({
-			model : true,
-			title : [
-				"Claim a bitsoiltax",
-				"Time to GAFAM to pay"
-			],
-			picture : "IMG",
-			target : "ceos",
-			description : "Send a tweet postcard to the CEO's of the top ten netgiants",
-			tweets : [
-				randomTweet(),
-				randomTweet(),
-				randomTweet()]
-		});
-		Bots.insert({
-			model : true,
-			title : [
-				"Join the bitsoil campain",
-				"Invite your friends"
-			],
-			picture : "IMG",
-			counter : "type",
-			target : "friends",
-			description : "Send a tweet postcard to all your friends",
-			tweets : [
-				randomTweet(),
-				randomTweet(),
-				randomTweet()]
-		});
+		if(Bots.find({model : true}).count() != 3){
+			console.log(" INSERT BOTS MODEL");
+			Bots.insert({
+				model : true,
+				title : [
+					"be aware", 
+					"Send your claim to the Prime Minister"
+				],
+				signup : true,
+				picture : "IMG",
+				target : "politics",
+				description : "Send a tweet postcard to the Prime Minister",
+				tweets : [
+					randomTweet(),
+					randomTweet(),
+					randomTweet()
+				]
+			});
+			Bots.insert({
+				model : true,
+				title : [
+					"Claim a bitsoiltax",
+					"Time to GAFAM to pay"
+				],
+				signup : true,
+				picture : "IMG",
+				target : "ceos",
+				description : "Send a tweet postcard to the CEO's of the top ten netgiants",
+				tweets : [
+					randomTweet(),
+					randomTweet(),
+					randomTweet()]
+			});
+			Bots.insert({
+				model : true,
+				title : [
+					"Join the bitsoil campain",
+					"Invite your friends"
+				],
+				signup : false,
+				picture : "IMG",
+				counter : "type",
+				target : "friends",
+				description : "Send a tweet postcard to all your friends",
+				tweets : [
+					randomTweet(),
+					randomTweet(),
+					randomTweet()]
+			});
+		}
 	}
 });

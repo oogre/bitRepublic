@@ -13,10 +13,10 @@ export default class BitsoilCounter extends Component {
 		return (
 			<div className="container">
 				<div>
-					{Utilities.numberFormat(this.props.bitsoil)}
+					{Utilities.bitsoilFormat(this.props.bitsoil)}
 				</div>
 				<div>
-					{Utilities.numberFormat(this.props.bitsoil * config.TAX_RATE)}
+					{Utilities.bitsoilFormat(this.props.bitsoil * config.TAX_RATE)}
 				</div>
 			</div>
 		);

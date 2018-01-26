@@ -19,6 +19,7 @@ export default class UserLogIn extends Component {
 				ReactDom.findDOMNode(this.refs.password).value = '';
 				if(this.props.modal){
 					this.props.modal.setState({ showModal: false });
+					FlowRouter.go("userProfile", {username : Meteor.user().username})
 				}
 			}
 		});

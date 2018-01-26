@@ -8,11 +8,14 @@ export default class UserLogOut extends Component {
 	handleLogout(event){
 		event.preventDefault();
 		Meteor.logout();
+		this.props.onClick();
+		FlowRouter.go("home");
+		return false;
 	}
 	render() {
 		return (
 			<div className="container">
-				<a href="#" onClick={this.handleLogout}>Logout</a>
+				<a href="#" onClick={this.handleLogout.bind(this)}>Logout</a>
 			</div>
 		);
   	}
