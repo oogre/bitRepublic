@@ -5,6 +5,7 @@ import moment from 'moment';
 import * as Utilities from '../../utilities.js'
 import { Bots } from '../../api/bots/bots.js';
 import { Actions } from '../../api/actions/actions.js';
+import  BitsoilDisplay from '../bitsoil/display.js';
 
 // App component - represents the whole app
 class BotInfo extends Component {
@@ -34,6 +35,7 @@ class BotInfo extends Component {
 		));
 	}
 	renderNextActionAt(actions){
+		console.log(actions);
 		return actions.map((action) => (
 			<li key={action._id}>
 				{ 
@@ -67,7 +69,9 @@ class BotInfo extends Component {
 						{ this.renderTweet(bot.actions) }
 					</ul>
 				</td>
-				<td>{Utilities.bitsoilFormat(bot.bitsoil)}</td>
+				<td>
+					<BitsoilDisplay input={bot.bitsoil} />
+				 </td>
 			</tr>
 		);
 	}

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import * as Utilities from '../../utilities.js'
 import { Wallets } from '../../api/wallets/wallets.js';
 import {config} from '../../startup/config.js';
+import BitsoilCounter from './counter.js';
 
-// BitSoilsCounter component - represents the bitsoil counter utility
+// BIG LARGE BITSOIL + TAX COMPONENT
 class BitsoilTotalCounter extends Component {
 	constructor(props){
 		super(props);
@@ -14,12 +14,7 @@ class BitsoilTotalCounter extends Component {
 	render() {
 		return (
 			<div className="container">
-				<div>
-					{Utilities.bitsoilFormat(this.props.totalBitsoil)}
-				</div>
-				<div>
-					{Utilities.bitsoilFormat(this.props.totalBitsoil * config.TAX_RATE)}
-				</div>
+				<BitsoilCounter bitsoil={this.props.totalBitsoil} />
 			</div>
 		);
   	}
