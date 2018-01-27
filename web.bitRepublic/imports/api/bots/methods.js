@@ -18,8 +18,6 @@ Meteor.methods({
 	* @apiSuccess {String} Bots._id the _id of the newly created bot
 	*/
 	'bots.create' : function(userId, data){
-		console.log(userId);
-		console.log(data);
 		/*
 			Meteor.call("bots.create", "sZHyzfJdiH9HR7n65", { 
 				bitsoil: 0.000004, 

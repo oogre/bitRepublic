@@ -17,9 +17,8 @@ export default class UserLogIn extends Component {
 			}else{
 				ReactDom.findDOMNode(this.refs.email).value = '';
 				ReactDom.findDOMNode(this.refs.password).value = '';
-				if(this.props.modal){
-					this.props.modal.setState({ showModal: false });
-					FlowRouter.go("userProfile", {username : Meteor.user().username})
+				if(_.isFunction(this.props.onSuccess)){
+					this.props.onSuccess(Meteor.userId());
 				}
 			}
 		});
@@ -27,7 +26,7 @@ export default class UserLogIn extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					<input
 						type="email"

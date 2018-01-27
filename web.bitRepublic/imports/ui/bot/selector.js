@@ -10,7 +10,7 @@ import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
 
 import BotOption from './option.js';
 import TweetSelector from '../tweet/selector.js';
-import UserSignupModal from '../user/signupModal.js';
+import UserModal from '../user/modal.js';
 
 class BotSelector extends Component {
 	constructor(props){
@@ -18,7 +18,7 @@ class BotSelector extends Component {
 
 		this.state = {
 			selectedBot : 0,
-			signupModal : 0,
+			modal : 0,
 			validateDisable : true,
 			tempBotData : {},
 			validateBotData : {}
@@ -41,6 +41,9 @@ class BotSelector extends Component {
 				console.log(err.reason);
 			}else{
 				console.log("BotCreated " + res);
+				if(Meteor.user()){
+					FlowRouter.go("userProfile", {username : Meteor.user().username})
+				}
 			}
 		});
 	}
@@ -51,14 +54,14 @@ class BotSelector extends Component {
 			if(this.props.userId){
 				this.handleBotCreation(this.props.userId);
 			}else{
-				this.state.signupModal.onClose(this.handleBotCreation.bind(this));
-				this.state.signupModal.handleOpenModal();
+				this.state.modal.onClose(this.handleBotCreation.bind(this));
+				this.state.modal.handleOpenModal();
 			}
 		}
 	}
 
-	handleModalMounted(signupModal){
-		this.setState({ signupModal: signupModal});
+	handleModalMounted(modal){
+		this.setState({ modal: modal});
 	}
 
 	handleTweetSelectorScheduleChange(event){
@@ -129,8 +132,8 @@ class BotSelector extends Component {
 						onClick={this.handleValidation.bind(this)}>
 							validate
 					</button>
-					<UserSignupModal
-						botData={this.state.botData}
+					<UserModal
+						process="signup"
 						onMounted={this.handleModalMounted.bind(this)}
 					/>
 				</div>

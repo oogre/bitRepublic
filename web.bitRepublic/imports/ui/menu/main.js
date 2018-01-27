@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import UserLogInModal from '../user/loginModal.js';
+import UserModal from '../user/modal.js';
 
 class MainMenu extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			modal : 0,
+		}
 	}
 
 	handleLogout(event){
 		event.preventDefault();
 		Meteor.logout();
 	}
-
+	handleModalMounted(modal){
+		this.setState({ modal: modal});
+		modal.onClose(function(userId){
+			if(userId && Meteor.user()){
+				FlowRouter.go("userProfile", {username : Meteor.user().username})
+			}
+		});
+	}
+	handleOpenModal(){
+		this.state.modal.handleOpenModal();
+	}
 	render() {
 			return (
 			<nav>
@@ -37,8 +50,12 @@ class MainMenu extends Component {
 						this.props.userId ?
 							<a className="menu__item__link" href={FlowRouter.path("userProfile", {username : this.props.username})}>{this.props.username}</a>
 						:
-							<UserLogInModal />
+							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Login</a>
 						}
+						<UserModal 
+							process="login"
+							onMounted={this.handleModalMounted.bind(this)}
+						/>
 					</li>
 				</ul>
 			</nav>

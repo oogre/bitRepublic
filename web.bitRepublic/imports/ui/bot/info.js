@@ -16,14 +16,14 @@ class BotInfo extends Component {
 		console.log(actionId);
 	}
 	renderTweet(actions){
-		return actions.map((action) => (
+		return _.compact(actions).map((action) => (
 			<li key={action._id}>
 				{action.content}
 			</li>
 		));
 	}
 	renderActive(actions){
-		return actions.map((action) => (
+		return _.compact(actions).map((action) => (
 			<li key={action._id}>
 				<input 
 					type="checkbox"
@@ -35,8 +35,7 @@ class BotInfo extends Component {
 		));
 	}
 	renderNextActionAt(actions){
-		console.log(actions);
-		return actions.map((action) => (
+		return _.compact(actions).map((action) => (
 			<li key={action._id}>
 				{ 
 					moment(

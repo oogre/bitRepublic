@@ -39,7 +39,7 @@ export default class UserSignup extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleSignup.bind(this)}>
 					<input
 						type="text"
