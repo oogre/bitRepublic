@@ -14,10 +14,10 @@ export default class SliderMenu extends Component {
 						<h2 className="hero-banner__title">Make the data economy benefits all</h2>
 						<ul className="buttons-list">
 							<li className="buttons-list__item">
-								<a className="button button--md hero-banner__button" href="#">Design your taxbot</a>
+								<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
 							</li>
 							<li className="buttons-list__item">
-								<a className="button button--md hero-banner__button" href="#">Find out more</a>
+								<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#shortAbout"}>Find out more</a>
 							</li>
 						</ul>
 					</div>

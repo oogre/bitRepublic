@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import * as Utilities from '../../utilities.js'
 import {config} from '../../startup/config.js';
 
 // BitsoilSplitter : SMALL ANY-STRING SPLITTER COMPONENT

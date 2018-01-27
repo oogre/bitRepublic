@@ -31,10 +31,10 @@ class MainMenu extends Component {
 			<nav>
 				<ul className="menu menu--header">
 					<li className="menu__item">
-						<a className="menu__item__link" href="/about">About</a>
+						<a className="menu__item__link" href={FlowRouter.path("about")}>About</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="#">Design your taxbot</a>
+						<a className="menu__item__link" href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
 					</li>
 					<li className="menu__item">
 						<a className="menu__item__link" href="/redistribution">Take part of the redistribution</a>

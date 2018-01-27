@@ -113,7 +113,7 @@ class BotSelector extends Component {
 	}
 	render() {
 		return (
-			<div className="bot-selector">
+			<div id="taxbot" className="bot-selector">
 				<h2 className="title--primary">Design your tax collector bot</h2>
 				<div className="bot-selector__counter">
 					<div className="container">
