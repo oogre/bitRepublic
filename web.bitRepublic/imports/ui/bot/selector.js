@@ -32,23 +32,31 @@ class BotSelector extends Component {
 		});
 		Meteor.call("bitsoils.generate", 0.000001);
 	}
+
+	handleBotCreation(data){
+		data = data || this.props.userId;
+		if(!data && this.state.selectedBot.signup)return;
+		Meteor.call('bots.create', data, this.state.validateBotData, (err, res) => {
+			if(err){
+				console.log(err.reason);
+			}else{
+				console.log("BotCreated " + res);
+			}
+		});
+	}
+
 	handleValidation(){
 		if(!this.state.validateDisable){
 			Meteor.call("bitsoils.generate", 0.000001);
-			let self = this;
-			this.state.signupModal.onClose(function(data){
-				if(!data && self.state.selectedBot.signup)return;
-				Meteor.call('bots.create', data, self.state.validateBotData, (err, res) => {
-					if(err){
-						console.log(err.reason);
-					}else{
-						console.log("BotCreated " + res);
-					}
-				});
-			});
-			this.state.signupModal.handleOpenModal();
+			if(this.props.userId){
+				this.handleBotCreation(this.props.userId);
+			}else{
+				this.state.signupModal.onClose(this.handleBotCreation.bind(this));
+				this.state.signupModal.handleOpenModal();
+			}
 		}
 	}
+
 	handleModalMounted(signupModal){
 		this.setState({ signupModal: signupModal});
 	}
@@ -56,7 +64,7 @@ class BotSelector extends Component {
 	handleTweetSelectorScheduleChange(event){
 		let botData = this.state.tempBotData;
 		botData[event.bot] = botData[event.bot] || {};
-		if(event.schedule == "never"){
+		if(event.schedule == "0"){
 			delete botData[event.bot][event.tweet];
 			if(_.isEmpty(botData[event.bot])){
 				delete botData[event.bot];
@@ -68,6 +76,7 @@ class BotSelector extends Component {
 			tempBotData : botData,
 			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot._id]),
 			validateBotData : {
+				bitsoil : this.props.wallet.bitsoil,
 				botId : this.state.selectedBot._id,
 				tweet : _.chain(botData[this.state.selectedBot._id]).map(function(v, k){
 							return {

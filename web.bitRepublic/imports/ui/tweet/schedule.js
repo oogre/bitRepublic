@@ -16,7 +16,7 @@ export default class TweetSchedule extends Component {
 					defaultChecked={k == 0}
 					type="radio" 
 					name={"schedule_"+this.props.id} 
-					value={schedule.value} 
+					value={schedule._id} 
 					onChange={this.handleScheduleChange.bind(this)} 
 				/>
 				{schedule.content}<br />

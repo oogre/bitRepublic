@@ -22,3 +22,15 @@ export function numberFormat(inputNumber, len){
 	}
 	return outputNumber;
 }
+
+export function nowPlusSeconds(seconds){
+	check(seconds, Number);
+	let date = new Date();
+	return new Date(date.getTime() + seconds*1000);
+}
+
+export function datePlusSeconds(date, seconds){
+	check(date, Date);
+	check(seconds, Number);
+	return new Date(date.getTime() + seconds*1000);
+}

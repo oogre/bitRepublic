@@ -14,9 +14,7 @@ export default class UserLogOut extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
-				<a href="#" onClick={this.handleLogout.bind(this)}>Logout</a>
-			</div>
+			<a href="#" onClick={this.handleLogout.bind(this)}>Logout</a>
 		);
   	}
 }

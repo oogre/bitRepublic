@@ -1,6 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { Bots } from './bots.js';
 import { check } from 'meteor/check';
+
+import { Bots } from './bots.js';
+import { Schedules } from './bots.js';
+import { Actions } from '../actions/actions.js';
+import * as Utilities from '../../utilities.js'
 
 Meteor.methods({
 	/**
@@ -14,19 +18,19 @@ Meteor.methods({
 	* @apiSuccess {String} Bots._id the _id of the newly created bot
 	*/
 	'bots.create' : function(userId, data){
+		console.log(userId);
+		console.log(data);
 		/*
 			Meteor.call("bots.create", "sZHyzfJdiH9HR7n65", { 
-				botId: 'Ns4NdncH4tFKyBFEH',
-				tweet: [{tweetId: 'BCPqzKQNi335LtWtF', schedule: 'every minute'},
-						{tweetId: 'ptmdJFZDwNYJnsxJ6', schedule: 'every month'},
-						{tweetId: 'Z3SKmppfXfhocpneT', schedule: 'every hour'}
-				]
+				bitsoil: 0.000004, 
+				botId: "mMGWJQZMuiT8D2spA",
+				tweet: [{tweetId: "4ZJ3sJ3gdJn44owk7", schedule: "qan2reqZkNm3uRN64"}]
 			});
 		*/
-		check(userId, String);
-
 		check(data, Object);
 		check(data.botId, String);
+		check(data.bitsoil, Number);
+		
 		check(data.tweet, [Object]);
 		
 		let botModel = Bots.findOne({
@@ -36,25 +40,43 @@ Meteor.methods({
 		if(!botModel){
 			throw new Meteor.Error('no-bot-model');
 		}
-		
-		let botObject = {
+
+		check(botModel._id, String);
+		check(botModel.tweets, [Object]);
+
+		let botId = Bots.insert({
 			createdAt : new Date(),
 			owner : userId,
-			origin : botModel._id,
-			target : botModel.target,
-			tweets : data.tweet.map(function(tweet){
-						return {
-							counter : 0,
-							content : _.find(botModel.tweets, function(t){
-										return t._id == tweet.tweetId
-									}).content,
-							schedule : tweet.schedule
-						}
-					})
-		};
+			model : botModel._id,
+			bitsoil: data.bitsoil,
+			active : true
+		});
 
-		console.log(botObject);
+		let actionIds = data.tweet.map(function(tweet){
+			let schedule = Schedules.findOne(tweet.schedule);
+			return Actions.insert({
+				bot : botId,
+				active : true,
+				counter : 0,
+				content : _.find(botModel.tweets, function(t){
+							return t._id == tweet.tweetId
+						}).content,
+				createdAt : new Date(),
+				nextActivation : Utilities.nowPlusSeconds(60),
+				interval : schedule.value,
+				bitsoil: data.bitsoil,
+			});
+		});
 
+		Bots.update({
+			_id : botId
+		}, {
+			$set : {
+				actions : actionIds,
+				active : true
+			}
+		});
+		return botId;
 	},
 	'bot.tweet.update' : function(data){
 		/*		

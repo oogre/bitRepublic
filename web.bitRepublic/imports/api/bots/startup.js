@@ -20,38 +20,31 @@ function randomTweet(){
 
 Meteor.startup(() => {
 	if(Meteor.isServer){
-		
 		if(Schedules.find({}).count() < 1){
 			console.log(" INSERT SCHEDULES");
 			Schedules.insert({
 				content : "Never",
-				value : "never",
-				lvl : 0
+				value : 0
 			});
 			Schedules.insert({
 				content : "Once a minute",
-				value : "every minute",
-				lvl : 100
+				value : 60 // 60 sec
 			});
 			Schedules.insert({
 				content : "Once an hour",
-				value : "every hour",
-				lvl : 200
+				value : 60 * 60
 			});
 			Schedules.insert({
 				content : "Once a day",
-				value : "every day",
-				lvl : 300
+				value : 60 * 60 * 24
 			});
 			Schedules.insert({
 				content : "Once a week",
-				value : "every week",
-				lvl : 400
+				value : 60 * 60 * 24 * 7
 			});
 			Schedules.insert({
 				content : "Once a month",
-				value : "every month",
-				lvl : 500
+				value : 60 * 60 * 24 * 30
 			});
 		}
 

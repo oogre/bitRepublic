@@ -27,6 +27,7 @@ FlowRouter.route("/user/:username", {
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));
+		this.register('my.bots', Meteor.subscribe('my.bots'));
 	}
 });
 

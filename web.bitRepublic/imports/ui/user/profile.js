@@ -8,6 +8,7 @@ import HeaderMenu from '../menu/header.js';
 import FooterMenu from '../menu/footer.js';
 import UserMenu from '../menu/user.js';
 import WalletDetail from '../wallet/detail.js';
+import BotInfo from '../bot/info.js';
 
 // App component - represents the whole app
 class UserProfile extends Component {
@@ -24,6 +25,8 @@ class UserProfile extends Component {
 				{this.props.username}<br/>
 				
 				{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
+
+				<BotInfo />
 				<FooterMenu />
 			</div>
 		);
