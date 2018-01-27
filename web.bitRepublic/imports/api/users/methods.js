@@ -31,6 +31,7 @@ if(Meteor.isServer){
 			check(data.profile.country, String);
 			data.password = process.env.USER_DEFAULT_PWD;
 			let userId =  Accounts.createUser(data);
+			
 			//Accounts.sendEnrollmentEmail(userId);
 			return userId;
 		}

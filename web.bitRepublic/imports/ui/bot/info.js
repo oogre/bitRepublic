@@ -67,7 +67,7 @@ class BotInfo extends Component {
 						{ this.renderTweet(bot.actions) }
 					</ul>
 				</td>
-				<td>{bot.bitsoil}</td>
+				<td>{Utilities.bitsoilFormat(bot.bitsoil)}</td>
 			</tr>
 		);
 	}
