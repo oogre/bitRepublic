@@ -4,7 +4,7 @@ import * as Utilities from '../../utilities.js'
 import {config} from '../../startup/config.js';
 import BitsoilDisplay from "./display.js";
 
-// SMALL BITSOIL + TAX COMPONENT
+// BitsoilCounter : SMALL BITSOIL + TAX COMPONENT
 export default class BitsoilCounter extends Component {
 	constructor(props){
 		super(props);

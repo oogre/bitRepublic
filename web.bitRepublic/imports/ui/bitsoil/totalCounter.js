@@ -5,7 +5,7 @@ import { Wallets } from '../../api/wallets/wallets.js';
 import {config} from '../../startup/config.js';
 import BitsoilCounter from './counter.js';
 
-// BIG LARGE BITSOIL + TAX COMPONENT
+// BitsoilTotalCounter : LARGE BITSOIL + TAX COMPONENT
 class BitsoilTotalCounter extends Component {
 	constructor(props){
 		super(props);

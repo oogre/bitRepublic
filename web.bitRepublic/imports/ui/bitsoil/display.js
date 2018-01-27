@@ -4,7 +4,7 @@ import * as Utilities from '../../utilities.js'
 import {config} from '../../startup/config.js';
 import BitsoilSplitter from "./splitter.js";
 
-// SMALL BITSOIL COMPONENT
+// BitsoilDisplay : SMALL ANY-NUMBER BITSOIL FORMATED COMPONENT
 export default class BitsoilDisplay extends Component {
 	constructor(props){
 		super(props);
