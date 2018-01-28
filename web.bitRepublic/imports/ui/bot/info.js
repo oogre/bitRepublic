@@ -3,6 +3,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import moment from 'moment';
 
 import * as Utilities from '../../utilities.js'
+import {config} from '../../startup/config.js';
 import { Bots } from '../../api/bots/bots.js';
 import { Actions } from '../../api/actions/actions.js';
 import  BitsoilCounter from '../bitsoil/counter.js';
@@ -12,8 +13,8 @@ class BotInfo extends Component {
 	constructor(props){
 		super(props);
 	}
-	handleActiveChange(actionId){
-		console.log(actionId);
+	handleActiveChange(action){
+		Meteor.call("actions.toggle", action._id, !action.active);
 	}
 	renderTweet(actions){
 		return _.compact(actions).map((action) => (
@@ -29,7 +30,7 @@ class BotInfo extends Component {
 					type="checkbox"
 					readOnly
 					defaultChecked={action.active}
-					onChange={this.handleActiveChange.bind(this, action._id)}
+					onChange={this.handleActiveChange.bind(this, action)}
 				/>
 			</li>
 		));
@@ -38,6 +39,11 @@ class BotInfo extends Component {
 		return _.compact(actions).map((action) => (
 			<li key={action._id}>
 				{ 
+
+
+					
+
+
 					moment(
 						Utilities.datePlusSeconds(
 							action.nextActivation, action.interval
@@ -46,6 +52,15 @@ class BotInfo extends Component {
 				}
 			</li>
 		));
+	}
+	renderBitsoil(bot){
+		return _.compact(bot.actions).map((action) => (
+			<li key={action._id}>
+				<BitsoilCounter currencyBefore={true} bitsoil={bot.bitsoil} tax={false} />
+				every {moment.duration(action.interval, "second").humanize()}
+			</li>
+		));
+
 	}
 	renderBot(bot){
 		return (
@@ -69,8 +84,11 @@ class BotInfo extends Component {
 					</ul>
 				</td>
 				<td>
-					<BitsoilCounter currencyBefore={true} bitsoil={bot.bitsoil} tax={false} />
-				 </td>
+					<ul>
+						{ this.renderBitsoil(bot) }
+					</ul>
+					
+				</td>
 			</tr>
 		);
 	}
@@ -78,6 +96,17 @@ class BotInfo extends Component {
 		return this.props.bots.map((bot) => (
 			this.renderBot(bot)
 		));
+	}
+	renderTotal(){
+		return (
+			<tr>
+				<td>total bitsoils</td>
+				<td>
+					<BitsoilCounter currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} /> 
+					every {this.props.totalInterval.humanize()}
+				</td>
+			</tr>
+		);
 	}
 	render() {
 		return (
@@ -95,6 +124,7 @@ class BotInfo extends Component {
 							<th>Bitsoils</th>
 						</tr>
 						{this.renderBots()}
+						{this.renderTotal()}
 					</tbody>
 				</table>
 			</div>
@@ -121,15 +151,27 @@ export default withTracker(() => {
 			$in : _.pluck(bots, '_id')
 		}
 	}).fetch();
-			
+	
+	let totalBitsoil = 0;
+	let totalInterval = moment.duration(config.BOT_INFO_TOTAL_INTERVAL, "second");
+
 	for(let i = 0 ; i < bots.length ; i++){
 		bots[i].model = _.findWhere(models, { _id : bots[i].model });
 		bots[i].actions = bots[i].actions.map(function(act){
-						return _.findWhere(actions, { _id : act});
+						let action = _.findWhere(actions, { _id : act});
+						if(action && action.active){
+							totalBitsoil += bots[i].bitsoil * (totalInterval.asSeconds() / action.interval) ;
+						}
+						return action;
 					});
 	}
 
+
+
+
 	return {
-		bots : bots
+		bots : bots,
+		totalBitsoil : totalBitsoil,
+		totalInterval : totalInterval
 	};
 })(BotInfo);

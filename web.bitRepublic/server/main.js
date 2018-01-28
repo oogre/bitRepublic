@@ -5,6 +5,7 @@ import '../imports/api/bots/bots.js';
 import '../imports/api/targets/targets.js';
 import '../imports/api/wallets/wallets.js';
 import '../imports/api/users/users.js';
+import '../imports/api/actions/actions.js';
 
 
 

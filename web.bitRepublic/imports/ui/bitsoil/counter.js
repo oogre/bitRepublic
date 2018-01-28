@@ -4,7 +4,7 @@ import * as Utilities from '../../utilities.js'
 import { config } from '../../startup/config.js';
 import BitsoilSplitter from "./splitter.js";
 
-// BitsoilCounter : SMALL BITSOIL + TAX COMPONENT
+// BitsoilCounter : LARGE OR NORMAL BITSOIL + TAX COMPONENT
 export default class BitsoilCounter extends Component {
 	constructor(props){
 		super(props);
