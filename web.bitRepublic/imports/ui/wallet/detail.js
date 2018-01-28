@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import * as Utilities from '../../utilities.js'
-import { Wallets } from '../../api/wallets/wallets.js';
+import BitsoilCounter from "../bitsoil/counter.js";
 
 // App component - represents the whole app
 export default class WalletDetail extends Component {
@@ -15,7 +15,7 @@ export default class WalletDetail extends Component {
 			<div className="container">
 				<h4>your wallet</h4>
 				id number : {Utilities.numberFormat(this.props.wallet.number, 7)}<br/>
-				amount redistributed : {Utilities.bitsoilFormat(this.props.wallet.bitsoil)}<br/>
+				amount redistributed : <BitsoilCounter currencyBefore={true} bitsoil={this.props.wallet.bitsoil} tax={false} /><br/>
 				key : {this.props.wallet._id}<br/>
 			</div>
 		);

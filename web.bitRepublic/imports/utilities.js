@@ -1,13 +1,13 @@
 import { check } from 'meteor/check';
 
-export function bitsoilFormat(inputNumber){
+export function bitsoilFormat(inputNumber, afterCommaOffest){
 	check(inputNumber, Number);
-	inputNumber = inputNumber.toFixed(6);
+	if(!_.isNumber(afterCommaOffest)) afterCommaOffest = 0;
+	
+	inputNumber = inputNumber.toFixed(6 + afterCommaOffest);
 	let stringNumber = inputNumber+"";
-	let outputNumber = (stringNumber.charAt(0) != "0" ? "0" : "") +stringNumber;
-	while(outputNumber.length < ("bitsoil").length){
-		outputNumber = "0"+outputNumber;
-	}
+	let outputNumber = (stringNumber.charAt(0) != "0" ? "0" : "") + stringNumber;
+	
 	return outputNumber;
 }
 

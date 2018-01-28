@@ -6,11 +6,11 @@ import {config} from '../../startup/config.js';
 
 import { TempWallets } from '../../api/wallets/wallets.js';
 import { Bots } from '../../api/bots/bots.js';
-import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
 
 import BotOption from './option.js';
 import TweetSelector from '../tweet/selector.js';
 import UserModal from '../user/modal.js';
+import BitsoilCounter from '../bitsoil/counter.js';
 
 class BotSelector extends Component {
 	constructor(props){
@@ -79,7 +79,7 @@ class BotSelector extends Component {
 			tempBotData : botData,
 			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot._id]),
 			validateBotData : {
-				bitsoil : this.props.wallet.bitsoil,
+				bitsoil : this.props.bitsoil,
 				botId : this.state.selectedBot._id,
 				tweet : _.chain(botData[this.state.selectedBot._id]).map(function(v, k){
 							return {
@@ -94,7 +94,7 @@ class BotSelector extends Component {
 	renderBots(){
 		return this.props.bots.map((bot) => (
 			<BotOption
-				wallet={this.props.wallet}
+				bitsoil={this.props.bitsoil}
 				key={bot._id}
 				bot={bot}
 				onSelected={this.handleBotSelected.bind(this)}
@@ -117,7 +117,7 @@ class BotSelector extends Component {
 				<h2 className="title--primary">Design your tax collector bot</h2>
 				<div className="bot-selector__counter">
 					<div className="container">
-
+						<BitsoilCounter unBlock="." large={true} bitsoil={this.props.bitsoil} tax={true} />
 					</div>
 				</div>
 				<h3 className="title--secondary">Claim a bitsoiltax</h3>
@@ -143,9 +143,12 @@ class BotSelector extends Component {
 }
 
 export default withTracker(() => {
+	let wallet = TempWallets.findOne({type : config.WALLET_TYPE.BOT});
+	let bitsoil = wallet ? wallet.bitsoil : 0;
+	let bots = Bots.find( {model : true} ).fetch() || [];
 	return {
 		userId : Meteor.userId(),
-		wallet : TempWallets.findOne({type : config.WALLET_TYPE.BOT}),
-		bots : Bots.find( {model : true} ).fetch()
+		bitsoil : bitsoil,
+		bots : bots
 	};
 })(BotSelector);

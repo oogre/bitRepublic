@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import {config} from '../../startup/config.js';
-import BitsoilDisplay from "./display.js";
+import * as Utilities from '../../utilities.js'
+import { config } from '../../startup/config.js';
+import BitsoilSplitter from "./splitter.js";
 
 // BitsoilCounter : SMALL BITSOIL + TAX COMPONENT
 export default class BitsoilCounter extends Component {
@@ -10,14 +11,26 @@ export default class BitsoilCounter extends Component {
 	}
 
 	render() {
+		let bitsoil = Utilities.bitsoilFormat(this.props.bitsoil);
+		if(this.props.currencyBefore){
+			bitsoil = "$" + bitsoil;
+		}else{
+			bitsoil = bitsoil + "$";
+		}
+
+
+		let tax = Utilities.bitsoilFormat(this.props.bitsoil * config.TAX_RATE, -2) + "TAX";
+		let length = bitsoil.length > tax.length ? bitsoil.length : tax.length;
+
 		return (
-			<div className="container">
-				<div>
-					<BitsoilDisplay input={this.props.bitsoil} />
-				</div>
-				<div>
-					<BitsoilDisplay input={this.props.bitsoil * config.TAX_RATE} />
-				</div>
+			<div className={(this.props.large ? "large " : "") + "container"}>
+				<BitsoilSplitter unBlock={this.props.unBlock} minLen={length} substitution=" " input={bitsoil}/>
+			
+				{ 	this.props.tax ? 
+						<BitsoilSplitter unBlock={this.props.unBlock} minLen={length} substitution=" " input={tax} />
+					: 
+				 		null
+				}
 			</div>
 		);
   	}

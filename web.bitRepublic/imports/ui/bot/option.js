@@ -20,7 +20,7 @@ export default class BotOption extends Component {
 				</header>
 				<div className="card__content">
 					<div className="card__counter">
-						<BitsoilCounter bitsoil={this.props.wallet.bitsoil}/>
+						<BitsoilCounter unBlock="." bitsoil={this.props.bitsoil} tax={true}/>
 					</div>
 					{this.props.bot.description}
 				</div>
