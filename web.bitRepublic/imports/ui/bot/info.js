@@ -39,16 +39,11 @@ class BotInfo extends Component {
 		return _.compact(actions).map((action) => (
 			<li key={action._id}>
 				{ 
-
-
-					
-
-
 					moment(
 						Utilities.datePlusSeconds(
 							action.nextActivation, action.interval
 						).getTime()
-					).format('lll')
+					).format('MM-DD-YY HH:mm')
 				}
 			</li>
 		));
@@ -67,7 +62,7 @@ class BotInfo extends Component {
 			<tr key={bot._id}>
 				<td>Picture</td>
 				<td>{bot.model.description}</td> 
-				<td>{ moment(bot.createdAt.getTime()).format('lll') }</td>
+				<td>{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
 				<td>
 					<ul>
 						{ this.renderNextActionAt(bot.actions) }

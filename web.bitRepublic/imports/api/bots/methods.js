@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
 
 import { Bots } from './bots.js';
 import { Schedules } from './bots.js';
@@ -18,29 +17,34 @@ Meteor.methods({
 	* @apiSuccess {String} Bots._id the _id of the newly created bot
 	*/
 	'bots.create' : function(userId, data){
-		/*
-			Meteor.call("bots.create", "sZHyzfJdiH9HR7n65", { 
-				bitsoil: 0.000004, 
-				botId: "mMGWJQZMuiT8D2spA",
-				tweet: [{tweetId: "4ZJ3sJ3gdJn44owk7", schedule: "qan2reqZkNm3uRN64"}]
-			});
-		*/
-		check(data, Object);
-		check(data.botId, String);
-		check(data.bitsoil, Number);
-		
-		check(data.tweet, [Object]);
-		
+		console.log(data);
+
+		new SimpleSchema({
+			userId: { type: String, regEx: SimpleSchema.RegEx.Id },
+			data: { type: Object },
+			'data.bitsoil': { type: Number, decimal : true },
+			'data.botId': { type: String, regEx: SimpleSchema.RegEx.Id },
+			'data.tweet': { type: Array },
+			'data.tweet.$': { type: Object },
+			'data.tweet.$.tweetId': { type: String, regEx: SimpleSchema.RegEx.Id },
+			'data.tweet.$.schedule': { type: String, regEx: SimpleSchema.RegEx.Id }
+		}).validate({
+			userId, 
+			data
+		});
+
 		let botModel = Bots.findOne({
 			model : true,
 			_id : data.botId
 		});
+
 		if(!botModel){
-			throw new Meteor.Error('no-bot-model');
+			throw new Meteor.Error("validation-error", 'The bot model is not known');
 		}
 
-		check(botModel._id, String);
-		check(botModel.tweets, [Object]);
+		if(!_.isString(botModel._id) || !_.isArray(botModel.tweets)){
+			throw new Meteor.Error("validation-error", 'The bot model is corrupted');
+		}
 
 		let botId = Bots.insert({
 			createdAt : new Date(),
@@ -74,34 +78,28 @@ Meteor.methods({
 				active : true
 			}
 		});
-		return botId;
+
+		return {
+			success : true,
+			message : "Tweet updated",
+			data : botId
+		};
 	},
 	'bot.tweet.update' : function(data){
-		/*		
-		{	botId:"W57jTEdK2rMAuBCFo",
-			tweet : {
-				content:"sdfdfs",
-				schedules:[
-					{content: "Once an hour", value: "every hour"},
-					{content: "Once a week", value: "every week"}
-				]
-			}
-		}
-		*/
-		check(data.botId, String);
-		check(data.tweet, Object);
-		check(data.tweet.content, String);
-		check(data.tweet.schedules, [Object]);
+		new SimpleSchema({
+			botId: { type: String, regEx: SimpleSchema.RegEx.Id },
+			'tweet': { type: Object },
+			'tweet._id': { type: String, regEx: SimpleSchema.RegEx.Id },
+			'tweet.content': { type: String },
+			'tweet.schedules': { type: Array },
+			'tweet.schedules.$': { type: Object },
+			'tweet.schedules.$._id': { type: String, regEx: SimpleSchema.RegEx.Id },
+			'tweet.schedules.$.content': { type: String },
+			'tweet.schedules.$.value': { type: Number }
+		}).validate(data);
 
-		if(_.isEmpty(data.tweet.content)){
-			throw new Meteor.Error('form-error', 'tweet content must be filled');
-		}
-		if(_.isEmpty(data.tweet.schedules)){
-			throw new Meteor.Error('form-error', 'schedule must be filled');
-		}
-
-		if((!this.userId) && Meteor.user().roles.includes("admin")){
-			throw new Meteor.Error('not-authorized');
+		if( !Meteor.userId() && Meteor.user().roles.includes("admin")){
+			throw new Meteor.Error("validation-error", 'You do not have the right to perform this action');
 		}
 
 		Bots.update({
@@ -111,25 +109,25 @@ Meteor.methods({
 				tweets : data.tweet
 			}
 		});
+
+		return {
+			success : true,
+			message : "Tweet updated"
+		};
 	},
 	'bot.tweet.delete' :function(data){
-		/*		
-		{	botId:"W57jTEdK2rMAuBCFo",
-			tweetId : "W57jTEdK2rMAuBCFo",
-		}
-		*/
+		new SimpleSchema({
+			botId: { type: String, regEx: SimpleSchema.RegEx.Id },
+			'tweetId': { type: String, regEx: SimpleSchema.RegEx.Id }
+		}).validate(data);
 
-		check(data.botId, String);
-		check(data.tweetId, String);
-
-		if((!this.userId) && Meteor.user().roles.includes("admin")){
-			throw new Meteor.Error('not-authorized');
+		if( !Meteor.userId() && Meteor.user().roles.includes("admin")){
+			throw new Meteor.Error("validation-error", 'You do not have the right to perform this action');
 		}
-		let bot = Bots.findOne({
-		 _id : data.botId
-		});
+
+		let bot = Bots.findOne({ _id : data.botId });
 		if(!bot){
-			throw new Meteor.Error('unknow bot');
+			throw new Meteor.Error("validation-error", 'The bot is not known');
 		}
 		
 		Bots.update({
@@ -141,7 +139,10 @@ Meteor.methods({
 				})
 			}
 		});
+		
+		return {
+			success : true,
+			message : "Tweet deleted"
+		};
 	}
-
-
 });

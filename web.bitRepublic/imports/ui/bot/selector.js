@@ -40,7 +40,7 @@ class BotSelector extends Component {
 			if(err){
 				console.log(err.reason);
 			}else{
-				console.log("BotCreated " + res);
+				console.log("BotCreated " + res.data);
 				if(Meteor.user()){
 					FlowRouter.go("userProfile", {username : Meteor.user().username})
 				}

@@ -24,3 +24,5 @@ nimble:restivus
 react-meteor-data
 fourseven:scss
 alanning:roles
+aldeed:simple-schema
+ostrio:files

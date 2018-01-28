@@ -10,12 +10,12 @@ export default class About extends Component {
 	}
 	
 	render() {
-	    return (
+		return (
 			<div className="container">
 				<HeaderMenu />
 				<SliderMenu />
 				<FooterMenu />
 			</div>
 		);
-  	}
+	}
 }

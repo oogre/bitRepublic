@@ -1,39 +1,93 @@
 import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
+
 
 if(Meteor.isServer){
 	Meteor.methods({
-		/**
-		* @api {Meteor.call} /api/user/create
-		* @apiName users.create
-		* @apiGroup Private
-		*
-		* @apiDescription Call Meteor.call('users.create' ... to create user
-		* an email is sent to the user, by folling the link inside the email
-		* he setups his password.  
-		*
-		* @apiParam {Object} 
-		* @apiParam {String} Object.username
-		* @apiParam {String} Object.email
-		* @apiParam {Object} Object.profile
-		* @apiParam {String} Object.profile.firstname
-		* @apiParam {String} Object.profile.lastname
-		* @apiParam {String} Object.profile.country
-		*
-		* @apiSuccess {String} Users._id  the _id of the newly created User
-		*/
+
 		'users.create' : function(data){
-			check(data.username, String);
-			check(data.email, String);
-			check(data.profile, Object);
-			check(data.profile.firstname, String);
-			check(data.profile.lastname, String);
-			check(data.profile.country, String);
+			new SimpleSchema({
+				username: { type: String },
+				profile: { type: Object },
+				'profile.firstname': { type: String },
+				'profile.lastname': { type: String },
+				'profile.country': { type: String },
+				'email': { type: String, regEx: SimpleSchema.RegEx.Email }
+			}).validate(data);
+
 			data.password = process.env.USER_DEFAULT_PWD;
+			
 			let userId =  Accounts.createUser(data);
 			
 			//Accounts.sendEnrollmentEmail(userId);
-			return userId;
+			return {
+				success : true,
+				message : "User updated",
+				data : userId
+			};
+		},
+		'users.setAvatar' : function(avatarId){
+			new SimpleSchema({
+				avatarId: { type: String, regEx: SimpleSchema.RegEx.Id }
+			}).validate({
+				avatarId
+			});
+
+			Meteor.users.update({
+				_id: Meteor.userId()
+			},{
+				$set : {
+					'profile.avatar' : avatarId
+				}
+			});
+
+			return {
+				success : true,
+				message : "User updated"
+			};
+		},
+		'users.update' : function(data){
+			new SimpleSchema({
+				username: { type: String },
+				profile: { type: Object },
+				'profile.firstname': { type: String },
+				'profile.lastname': { type: String },
+				emails: { type: Array },
+				'emails.$': { type: Object },
+				'emails.$.address': { type: String, regEx: SimpleSchema.RegEx.Email }
+			}).validate(data);
+
+			data['profile.firstname'] = data.profile.firstname;
+			data['profile.lastname'] = data.profile.lastname;
+			delete data.profile;
+			
+			if(Meteor.users.find({
+				_id : {
+					$ne : Meteor.userId()
+				},
+				'emails.address' : data.emails[0].address
+			}).count() > 0){
+				throw new Meteor.Error("validation-error", 'This email is already recorded', 'email');
+			}
+
+			if(Meteor.users.find({
+				_id : {
+					$ne : Meteor.userId()
+				},
+				'username' : data.username
+			}).count() > 0){
+				throw new Meteor.Error("validation-error", 'This username is already taken', 'username');
+			}
+			
+			Meteor.users.update({
+				_id: Meteor.userId()
+			},{
+				$set : data
+			});
+
+			return {
+				success : true,
+				message : "User updated"
+			};
 		}
 	})
 }

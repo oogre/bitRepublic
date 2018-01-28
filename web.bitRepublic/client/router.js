@@ -28,6 +28,7 @@ FlowRouter.route("/user/:username", {
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));
 		this.register('my.bots', Meteor.subscribe('my.bots'));
+		this.register('my.files.images', Meteor.subscribe('my.files.images'));
 	}
 });
 
@@ -37,7 +38,7 @@ FlowRouter.route("/user/:username/update", {
 		render(<UserUpdate />, document.getElementById('render-target'));
 	},
 	subscriptions: function(params, queryParams) {
-		
+		this.register('my.files.images', Meteor.subscribe('my.files.images'));
 	}
 });
 

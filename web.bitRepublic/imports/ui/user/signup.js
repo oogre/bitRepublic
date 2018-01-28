@@ -30,7 +30,7 @@ export default class UserSignup extends Component {
 				ReactDom.findDOMNode(this.refs.email).value = '';
 				ReactDom.findDOMNode(this.refs.country).value = '';
 				if(_.isFunction(this.props.onSuccess)){
-					this.props.onSuccess(res);
+					this.props.onSuccess(res.data);
 				}
 			}
 		});

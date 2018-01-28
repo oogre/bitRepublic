@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
 
 import { Bots } from '../bots/bots.js';
 import { Actions } from '../actions/actions.js';
@@ -16,11 +15,16 @@ Meteor.methods({
 	* @apiSuccess {String} Bots._id the _id of the newly created bot
 	*/
 	'actions.toggle' : function(actionId, setChecked){
-		check(actionId, String);
-		check(setChecked, Boolean);
+		new SimpleSchema({
+			actionId: { type: String, regEx: SimpleSchema.RegEx.Id },
+			setChecked: { type: Boolean },
+		}).validate({
+			actionId, 
+			setChecked
+		});
 
 		if(!Meteor.user()){
-			throw new Meteor.Error('not-authorized');
+			throw new Meteor.Error("validation-error", 'You need to bo login to perform this action');
 		}
 
 		Actions.update({
@@ -30,5 +34,10 @@ Meteor.methods({
 				active : setChecked
 			}
 		});
+
+		return {
+			success : true,
+			message : "Action updated"
+		};
 	}
 });

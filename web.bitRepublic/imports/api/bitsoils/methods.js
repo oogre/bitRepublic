@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Wallets } from '../wallets/wallets.js';
 import { TempWallets } from '../wallets/wallets.js';
 
-import { check } from 'meteor/check';
 import {config} from '../../startup/config.js';
 
 Meteor.methods({
@@ -16,9 +15,15 @@ Meteor.methods({
 		*
 		* @apiSuccess {String} BitSoils._id the _id of the newly created bitsoil
 		*/
-	'bitsoils.generate' : function(data){
-		check(data, Number);
-		data = parseFloat(data.toFixed(6));
+	'bitsoils.generate' : function(bitsoil){
+		new SimpleSchema({
+			bitsoil: { type: Number, decimal : true	}
+		}).validate({
+			bitsoil
+		});
+
+		bitsoil = parseFloat(bitsoil.toFixed(6));
+
 		Wallets.update({
 			type : config.WALLET_TYPE.PUBLIC, 
 			owner : { 
@@ -26,7 +31,7 @@ Meteor.methods({
 			}
 		},{
 			$inc : {
-				bitsoil : data
+				bitsoil : bitsoil
 			}
 		});
 		
@@ -37,8 +42,13 @@ Meteor.methods({
 			}
 		},{
 			$inc : {
-				bitsoil : data
+				bitsoil : bitsoil
 			}
 		});
+
+		return {
+			success : true,
+			message : "Bitsoil created"
+		};
 	}
 });
