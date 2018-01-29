@@ -11,11 +11,11 @@ export default class BitsoilTaxrate extends Component {
 
 	render() {
 		return (
-			<div className="container">
-				<div>
-					{config.TAX_RATE}
-				</div>
-				<div>
+			<div className="taxrate">
+				<div className="counter--tax">
+					<div className="counter--tax__row">
+						{config.TAX_RATE}
+					</div>
 					<BitsoilSplitter input="TAX"/>
 				</div>
 			</div>

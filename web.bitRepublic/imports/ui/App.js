@@ -7,7 +7,6 @@ import BotSelector from './bot/selector.js';
 import BitsoilTotalCounter from './bitsoil/totalCounter.js';
 import FixeShortAbout from './fixe/shortAbout.js';
 import FixePunchline from './fixe/punchline.js';
-import BitsoilTaxrate from './bitsoil/taxrate.js';
 
 // App component - represents the whole app
 export default class App extends Component {
@@ -21,7 +20,6 @@ export default class App extends Component {
 			<div className="page">
 				<div className="page__content">
 					<HeaderMenu />
-					<BitsoilTaxrate />
 					<SliderMenu />
 					<BitsoilTotalCounter />
 					<FixePunchline />

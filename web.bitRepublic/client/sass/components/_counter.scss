@@ -4,7 +4,8 @@
 
 .counter,
 .counter--large,
-.counter--xl {
+.counter--xl,
+.counter--tax {
   font-family: $font-counter-sans-serif;
   clear: both;
 }
@@ -135,6 +136,7 @@
 
 .counter--xl .counter__row {
   background: transparent;
+  padding: 0;
   margin-bottom: .9rem;
 }
 
@@ -156,4 +158,39 @@
   }
 }
 
+// Counter Tax Rate
+// Use in the hero banner
+// ---------------------
+.counter--tax {
+  display: inline-block;
+}
 
+.counter--tax__row,
+.counter--tax .counter__row {
+  padding: 0;
+  border-radius: 0;
+  text-transform: right;
+}
+
+.counter--tax__row:first-child {
+  background: $red-cardinal;
+  margin-bottom: 1.5rem;
+  text-align: right;
+  font-size: 3rem;
+}
+
+.counter--tax .counter__row {
+  background: transparent;
+}
+
+.counter--tax__row,
+.counter--tax .counter__block {
+  color: #fff;
+}
+
+.counter--tax .counter__row .counter__block {
+  background: $red-cardinal;
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 4.4rem;
+}

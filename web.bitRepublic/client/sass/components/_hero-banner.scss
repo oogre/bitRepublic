@@ -42,8 +42,15 @@
 
 // Hero Banner Buttons
 // ---------------------
-
 .hero-banner__button {
   margin-top: 44px;
   min-width: 198px;
+}
+
+// Hero Banner Taxrate
+// ---------------------
+.hero-banner .taxrate {
+  position: absolute;
+  bottom: 576px;
+  right: 0;
 }
