@@ -25,13 +25,13 @@ export default class BitsoilCounter extends Component {
 		return (
 			<div className={(this.props.large ? "large " : "") + "container"}>
 				<BitsoilSplitter unBlock={this.props.unBlock} minLen={length} substitution=" " input={bitsoil}/>
-			
-				{ 	this.props.tax ? 
+
+				{ 	this.props.tax ?
 						<BitsoilSplitter unBlock={this.props.unBlock} minLen={length} substitution=" " input={tax} />
-					: 
-				 		null
+					:
+						null
 				}
 			</div>
 		);
-  	}
+	}
 }

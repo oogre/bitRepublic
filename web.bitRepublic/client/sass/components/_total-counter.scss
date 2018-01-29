@@ -1,0 +1,17 @@
+/*------------------------------------*\
+  > Total Counter
+\*------------------------------------*/
+
+.total-counter {
+  padding: 70px 0;
+}
+
+.total-counter .counter,
+.total-counter .counter--large {
+  margin-bottom: 50px;
+  text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

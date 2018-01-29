@@ -1,0 +1,82 @@
+/*------------------------------------*\
+  > Counter
+\*------------------------------------*/
+
+.counter,
+.counter--large {
+  font-family: $font-counter-sans-serif;
+  clear: both;
+}
+
+// Counter Prefix
+// Artwork display before counter row
+// ---------------------
+.counter__prefix {
+  position: relative;
+  display: inline-block;
+}
+
+.counter__prefix svg {
+  @include center-align(absolute);
+}
+
+// Counter Content
+// Counter row wrapper (mandatory if counter prefix are needed)
+// ---------------------
+.counter__content {
+  display: inline-block;
+}
+
+// Counter Row
+// Counter Row / Line of character
+// ---------------------
+.counter__row {
+}
+
+// Counter Block
+// Individual character of the counter
+// ---------------------
+.counter__block {
+  text-align: center;
+  position: relative;
+  background: $grey-thunder;
+}
+
+.counter__block__text {
+  @include center-align(absolute);
+}
+
+// Counter Large
+// ---------------------
+.counter--large .counter__row:first-child .counter__block,
+.counter--large .counter__prefix + .counter__row .counter__block {
+  background: $color-primary;
+}
+
+.counter--large .counter__block {
+  display: inline-block;
+  width: 5.7rem;
+  height: 5.7rem;
+  margin-right: 9px;
+  font-size: 9rem;
+  color: #fff;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.counter__block__text {
+  line-height: 5.7rem;
+}
+
+.counter--large .counter__row {
+  margin-bottom: .9rem;
+}
+
+.counter--large .counter__prefix {
+  background: $color-primary;
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-right: .9rem;
+}

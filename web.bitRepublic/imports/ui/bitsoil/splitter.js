@@ -16,19 +16,21 @@ export default class BitsoilSplitter extends Component {
 	}
 	renderSplitted(input){
 		return this.format(input).map((b, k) => (
-			<span 
-				className={this.props.unBlock === b ? "" : "block"} 
+			<span
+				className={this.props.unBlock === b ? "" : "counter__block"}
 				key={k}
 			>
-				{b}
+				<span className="counter__block__text">
+					{b}
+				</span>
 			</span>
 		));
 	}
 	render() {
 		return (
-			<div className="container">
+			<div className="counter__row">
 				{	this.renderSplitted(this.props.input) }
 			</div>
 		)
-  	}
+	}
 }
