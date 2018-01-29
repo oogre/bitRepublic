@@ -45,8 +45,7 @@ class UserAvatar extends Component {
 		let progress = this.state.currentUpload ? this.state.currentUpload.progress.get() : false;
 
 		return (
-			<div className="container">
-
+			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<FileReaderInput
 					as="url"
 					id="my-file-input"
@@ -58,7 +57,6 @@ class UserAvatar extends Component {
 						alt="avatar"
 					/>
 				</FileReaderInput>
-
 				{	progress !== false ?
 						progress 
 					: 

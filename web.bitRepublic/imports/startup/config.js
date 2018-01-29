@@ -5,5 +5,9 @@ export const config = {
 		BOT : 2
 	},
 	TAX_RATE : 0.0427,
-	BOT_INFO_TOTAL_INTERVAL: 60 * 60 * 24
+	BOT_INFO_TOTAL_INTERVAL: 60 * 60 * 24,
+	PWD_LENGTH : {
+		MIN : 6,
+		MAX : 64
+	}
 }

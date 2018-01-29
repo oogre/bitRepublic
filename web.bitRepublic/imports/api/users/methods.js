@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { config } from '../../startup/config.js';
 
 
 if(Meteor.isServer){
@@ -88,6 +89,14 @@ if(Meteor.isServer){
 				success : true,
 				message : "User updated"
 			};
+		},
+		'users.update.pwd' : function(data){
+			new SimpleSchema({
+				oldPassword: { type: String },
+				newPassword: { type: String, min: config.PWD_LENGTH.MIN, max: config.PWD_LENGTH.MAX }
+			}).validate(data);
+
+			console.log(data);
 		}
 	})
 }
