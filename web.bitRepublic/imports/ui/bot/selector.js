@@ -116,9 +116,7 @@ class BotSelector extends Component {
 			<div id="taxbot" className="bot-selector">
 				<h2 className="title--primary">Design your tax collector bot</h2>
 				<div className="bot-selector__counter">
-					<div className="container">
-						<BitsoilCounter unBlock="." large={true} bitsoil={this.props.bitsoil} tax={true} />
-					</div>
+					<BitsoilCounter unBlock="." large={true} bitsoil={this.props.bitsoil} tax={true} />
 				</div>
 				<h3 className="title--secondary">Claim a bitsoiltax</h3>
 				<div className="container">

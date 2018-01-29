@@ -16,10 +16,16 @@
 }
 
 .bot-selector__counter {
+  position: relative;
   box-sizing: initial;
   min-height: 444px;
   padding: 20px 0;
   background: url('/images/tax-collector-bot.png') no-repeat center $grey-bonjour;
+}
+
+.bot-selector__counter .counter--large {
+  @include horizontal-center(absolute);
+  bottom: 55px;
 }
 
 .bot-selector .cards-list {

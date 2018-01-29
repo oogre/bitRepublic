@@ -3,7 +3,8 @@
 \*------------------------------------*/
 
 .counter,
-.counter--large {
+.counter--large,
+.counter--xl {
   font-family: $font-counter-sans-serif;
   clear: both;
 }
@@ -37,6 +38,7 @@
 // Individual character of the counter
 // ---------------------
 .counter__block {
+  display: inline-block;
   text-align: center;
   position: relative;
   background: $grey-thunder;
@@ -46,15 +48,70 @@
   @include center-align(absolute);
 }
 
-// Counter Large
+// Counter Unblock
+// Individual character of the counter rendered "outside" a block
+// For comma, point etc
 // ---------------------
-.counter--large .counter__row:first-child .counter__block,
-.counter--large .counter__prefix + .counter__row .counter__block {
-  background: $color-primary;
+.counter__unblock {
+  display: inline-block;
+  position: relative;
+}
+
+// Counter Large
+// Normal counter with large dimension
+// Use in bot selector
+// ---------------------
+.counter--large {
+  display: inline-block;
+}
+
+.counter--large .counter__row {
+  border-radius: 2px;
+  padding: 8px;
+  background: $grey-shark;
 }
 
 .counter--large .counter__block {
-  display: inline-block;
+  background: $orange-macaroni-and-cheese;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin-right: 9px;
+  font-size: 4rem;
+  color: $grey-shark;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.counter--large .counter__unblock {
+  margin-right: .4rem;
+  height: 2rem;
+  font-size: 6rem;
+  color: $orange-macaroni-and-cheese;
+}
+
+.counter--large .counter__row .counter__block:last-child,
+.counter--large .counter__row + .counter__row .counter__block:nth-last-child(-n+3) {
+  background: transparent;
+  color: $orange-macaroni-and-cheese;
+}
+
+
+.counter--large .counter__row {
+  margin-bottom: .6rem;
+}
+
+// Counter XL
+// Counter XL variation (not only size)
+// Use in total counter
+// ---------------------
+.counter--xl .counter__row:first-child .counter__block,
+.counter--xl .counter__prefix + .counter__row .counter__block {
+  background: $color-primary;
+}
+
+.counter--xl .counter__block {
   width: 5.7rem;
   height: 5.7rem;
   margin-right: 9px;
@@ -66,15 +123,11 @@
   }
 }
 
-.counter__block__text {
-  line-height: 5.7rem;
-}
-
-.counter--large .counter__row {
+.counter--xl .counter__row {
   margin-bottom: .9rem;
 }
 
-.counter--large .counter__prefix {
+.counter--xl .counter__prefix {
   background: $color-primary;
   width: 12.5rem;
   height: 12.5rem;

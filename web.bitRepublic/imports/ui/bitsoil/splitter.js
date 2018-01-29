@@ -17,7 +17,7 @@ export default class BitsoilSplitter extends Component {
 	renderSplitted(input){
 		return this.format(input).map((b, k) => (
 			<span
-				className={this.props.unBlock === b ? "" : "counter__block"}
+				className={this.props.unBlock === b ? "counter__unblock" : "counter__block"}
 				key={k}
 			>
 				<span className="counter__block__text">
