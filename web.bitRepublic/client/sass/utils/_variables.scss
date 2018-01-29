@@ -75,9 +75,9 @@ $screen-sm-min:             480px;
 // Medium screen / desktop
 $screen-md-min:             768px;
 // Large screen / wide desktop
-$screen-lg-min:             1160px;
+$screen-lg-min:             1024px;
 // Extra large screen / very wide desktop
-$screen-xl-min:             1600px;
+$screen-xl-min:             1300px;
 // So media queries don't overlap when required, provide a maximum
 $screen-sm-max:             ($screen-md-min - 1) !default;
 // XS-max using SM-max value as we don't use SM breakpoint

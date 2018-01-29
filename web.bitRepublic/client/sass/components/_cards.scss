@@ -5,11 +5,13 @@
 // Card-list
 // ---------------------
 .cards-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
   margin: 0 auto;
+  padding: 0;
+
+  @include breakpoint($md) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 // Card
@@ -17,11 +19,13 @@
 .card {
   width: 100%;
   background: $grey-bonjour;
-  display: flex;
-  flex-wrap: wrap;
+  margin-bottom: 2rem;
 
   @include breakpoint($md) {
+    display: flex;
+    flex-wrap: wrap;
     width: calc(33.33% - 30px);
+    margin-bottom: 0;
   }
 }
 

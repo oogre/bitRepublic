@@ -9,8 +9,18 @@
 
 .hero-banner .container {
   background: url('/images/banner-bitsoil.png') no-repeat center 0;
-  min-width: 1294px;
   min-height: 770px;
+  margin: 0 1rem;
+  padding: 0 1rem;
+
+  @include breakpoint($md) {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  @include breakpoint($xl) {
+    min-width: 1294px;
+  }
 }
 
 .hero-banner__content {
@@ -18,39 +28,62 @@
   bottom: 106px;
   text-align: center;
   width: 100%;
-  max-width: 740px;
-  padding-bottom: 64px;
   background: rgba(250, 250, 250, .7);
+  max-width: calc(100% - 2rem);
+  padding: 0 1rem 2rem;
+
+  @include breakpoint($md) {
+    max-width: 740px;
+    padding: 0 1rem 64px;
+  }
 }
 
 .hero-banner__title {
-  margin: 76px 0 0;
   color: $grey-shark;
-  font-size: 3.1rem;
   text-transform: uppercase;
+  font-size: 1.8rem;
   font-weight: 500;
 
   &:after {
     display: block;
     content: '';
-    width: 520px;
     height: 2px;
+    width: calc(100% - 4rem);
     background: $grey-shark;
-    margin: 30px auto 0;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  @include breakpoint($md) {
+    margin: 76px 0 0;
+    font-size: 3.1rem;
+
+    &:after {
+      width: 100%;
+      max-width: 520px;
+      margin-top: 30px;
+    }
   }
 }
 
 // Hero Banner Buttons
 // ---------------------
 .hero-banner__button {
-  margin-top: 44px;
-  min-width: 198px;
+  margin-top: 1rem;
+
+  @include breakpoint($md) {
+    margin-top: 44px;
+    min-width: 198px;
+  }
 }
 
 // Hero Banner Taxrate
 // ---------------------
 .hero-banner .taxrate {
   position: absolute;
-  bottom: 576px;
-  right: 0;
+
+  @include breakpoint($md) {
+    bottom: 576px;
+    right: 0;
+  }
 }

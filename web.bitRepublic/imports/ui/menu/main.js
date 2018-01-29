@@ -52,7 +52,7 @@ class MainMenu extends Component {
 						:
 							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Login</a>
 						}
-						<UserModal 
+						<UserModal
 							process="login"
 							onMounted={this.handleModalMounted.bind(this)}
 						/>
