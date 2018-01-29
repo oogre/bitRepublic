@@ -9,6 +9,11 @@
   clear: both;
 }
 
+.counter,
+.counter--large {
+  display: inline-block;
+}
+
 // Counter Prefix
 // Artwork display before counter row
 // ---------------------
@@ -32,6 +37,10 @@
 // Counter Row / Line of character
 // ---------------------
 .counter__row {
+  border-radius: 2px;
+  padding: 4px 5px;
+  background: $grey-shark;
+  margin-bottom: .4rem;
 }
 
 // Counter Block
@@ -41,11 +50,29 @@
   display: inline-block;
   text-align: center;
   position: relative;
-  background: $grey-thunder;
+  background: $orange-macaroni-and-cheese;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-right: 3px;
+  font-size: 2.2rem;
+  line-height: 0;
+  color: $grey-shark;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .counter__block__text {
   @include center-align(absolute);
+}
+
+.counter .counter__row .counter__block:last-child,
+.counter .counter__row + .counter__row .counter__block:nth-last-child(-n+3),
+.counter--large .counter__row .counter__block:last-child,
+.counter--large .counter__row + .counter__row .counter__block:nth-last-child(-n+3) {
+  background: transparent;
+  color: $orange-macaroni-and-cheese;
 }
 
 // Counter Unblock
@@ -55,6 +82,11 @@
 .counter__unblock {
   display: inline-block;
   position: relative;
+  margin-right: .4rem;
+  margin-left: .4rem;
+  height: 2rem;
+  font-size: 6rem;
+  color: $orange-macaroni-and-cheese;
 }
 
 // Counter Large
@@ -66,9 +98,7 @@
 }
 
 .counter--large .counter__row {
-  border-radius: 2px;
   padding: 8px;
-  background: $grey-shark;
 }
 
 .counter--large .counter__block {
@@ -84,28 +114,30 @@
   }
 }
 
-.counter--large .counter__unblock {
-  margin-right: .4rem;
-  height: 2rem;
-  font-size: 6rem;
-  color: $orange-macaroni-and-cheese;
-}
-
-.counter--large .counter__row .counter__block:last-child,
-.counter--large .counter__row + .counter__row .counter__block:nth-last-child(-n+3) {
-  background: transparent;
-  color: $orange-macaroni-and-cheese;
-}
-
-
 .counter--large .counter__row {
   margin-bottom: .6rem;
+}
+
+.counter--large .counter__unblock {
+  margin-left: 0;
 }
 
 // Counter XL
 // Counter XL variation (not only size)
 // Use in total counter
 // ---------------------
+.counter--xl .counter__prefix {
+  background: $color-primary;
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-right: .9rem;
+}
+
+.counter--xl .counter__row {
+  background: transparent;
+  margin-bottom: .9rem;
+}
+
 .counter--xl .counter__row:first-child .counter__block,
 .counter--xl .counter__prefix + .counter__row .counter__block {
   background: $color-primary;
@@ -117,19 +149,11 @@
   margin-right: 9px;
   font-size: 9rem;
   color: #fff;
+  background: $grey-thunder;
 
   &:last-child {
     margin-right: 0;
   }
 }
 
-.counter--xl .counter__row {
-  margin-bottom: .9rem;
-}
 
-.counter--xl .counter__prefix {
-  background: $color-primary;
-  width: 12.5rem;
-  height: 12.5rem;
-  margin-right: .9rem;
-}
