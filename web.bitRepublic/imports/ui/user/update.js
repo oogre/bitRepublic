@@ -19,12 +19,10 @@ export default class UserUpdate extends Component {
 		this.setState({ selectedProcess: selectedProcess })
 	}
 	render() {
-
-		//<HeaderMenu />
-		//
 		return (
 			<div className="page">
 				<div className="page__content">
+					<HeaderMenu />
 					<UserMenu />
 					<ul>
 						<li>

@@ -102,8 +102,9 @@ class BotSelector extends Component {
 		));
 	}
 	renderTweets(){
-		return this.props.bots.map((bot) => (
+		return this.props.bots.map((bot, k) => (
 			<TweetSelector
+				k={k+1}
 				onTweetSelectorScheduleChange={this.handleTweetSelectorScheduleChange.bind(this)}
 				visible={this.state.selectedBot && this.state.selectedBot._id == bot._id}
 				key={"tweet_"+bot._id}

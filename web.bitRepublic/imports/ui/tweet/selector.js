@@ -58,6 +58,7 @@ class TweetSelector extends Component {
 	renderTweets(){
 		return this.props.bot.tweets.map((tweet, k) => (
 			<TweetOption
+				k={this.props.k}
 				visible={this.state.selectedTweet == k}
 				key={this.props.bot._id+"_"+k}
 				id={this.props.bot._id+"_"+k}

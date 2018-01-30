@@ -18,9 +18,9 @@ class UserProfile extends Component {
 	}
 	
 	render() {
-		//<HeaderMenu />
 		return (
 			<div className="container">
+				<HeaderMenu />
 				<UserMenu />
 				<UserAvatar update={false}/><br/>
 				{this.props.username}<br/>
