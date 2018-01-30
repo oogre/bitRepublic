@@ -9,15 +9,17 @@ export default class Redistribution extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+
 	render() {
-	    return (
-			<div className="container">
-				<HeaderMenu />
-				<SliderMenu />
+		return (
+			<div className="page">
+				<div className="page__content">
+					<HeaderMenu />
+					<SliderMenu />
+				</div>
 				<FooterMenu />
 			</div>
 		);
-  	}
+	}
 }
 
