@@ -44,9 +44,13 @@ export default class UserUpdate extends Component {
 							</a>
 						</li>
 					</ul>
-					<UserAvatar visible={this.state.selectedProcess == "profile"} update={true}/>
-					<UserForm visible={this.state.selectedProcess == "profile"} />
-					<UserPassword visible={this.state.selectedProcess == "password"} />
+					<div className={this.state.selectedProcess == "profile" ? "" : "hidden"}>
+						<UserAvatar update={true}/>
+						<UserForm />
+					</div>
+					<div className={this.state.selectedProcess == "password" ? "" : "hidden"}>
+						<UserPassword />
+					</div>
 					<FooterMenu />
 				</div>
 			</div>

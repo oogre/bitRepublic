@@ -22,7 +22,7 @@ class UserProfile extends Component {
 		return (
 			<div className="container">
 				<UserMenu />
-				<UserAvatar /><br/>
+				<UserAvatar update={false}/><br/>
 				{this.props.username}<br/>
 				{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
 				<BotInfo />

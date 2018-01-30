@@ -50,7 +50,7 @@ class UserForm extends Component {
 	render() {
 		//<HeaderMenu />
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className="container">
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<label>
 						firstname

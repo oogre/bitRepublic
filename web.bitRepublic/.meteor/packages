@@ -26,3 +26,5 @@ fourseven:scss
 alanning:roles
 aldeed:simple-schema
 ostrio:files
+mdg:validated-method
+mdg:validation-error

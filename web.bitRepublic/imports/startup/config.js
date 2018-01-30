@@ -9,5 +9,25 @@ export const config = {
 	PWD_LENGTH : {
 		MIN : 6,
 		MAX : 64
+	},
+	FORM : {
+		ERRORS : {
+			firstname : {
+				required : "your firstname is require"
+			},
+			lastname : {
+				required : "your lastname is require"
+			},
+			email : {
+				required : "your email is require",
+				'already-exists' : "your email is already recorded",
+			},
+			country : {
+				required : "your country is require"
+			},
+			password : {
+				required : "your password is require"
+			},
+		}
 	}
 }

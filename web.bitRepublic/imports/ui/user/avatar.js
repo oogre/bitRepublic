@@ -41,26 +41,49 @@ class UserAvatar extends Component {
 			upload.start();
 		});
 	}
-	render() {
-		let progress = this.state.currentUpload ? this.state.currentUpload.progress.get() : false;
-
+	renderPicture(){
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<img
+				style={{maxWidth: 100 + 'px'}}
+				src={this.props.avatar}
+				alt="avatar"
+			/>
+		);
+	}
+	renderProgressBar(){
+		let progress = this.state.currentUpload ? this.state.currentUpload.progress.get() : false;
+		return (
+			<div className="container">
+				{	
+					progress !== false ?
+						progress 
+					: 
+						null
+				}
+			</div>
+		);
+	}
+	renderFileInput(){
+		return (
+			<div className="container">
 				<FileReaderInput
 					as="url"
 					id="my-file-input"
 					onChange={this.handleChange.bind(this)}
 				>
-					<img
-						style={{maxWidth: 100 + 'px'}}
-						src={this.props.avatar}
-						alt="avatar"
-					/>
+					{this.renderPicture()}
 				</FileReaderInput>
-				{	progress !== false ?
-						progress 
-					: 
-						null
+				{this.renderProgressBar()}
+			</div>
+		);
+	}
+	render() {
+		return (
+			<div className="container">
+				{ 	this.props.update ? 
+						this.renderFileInput()
+					:
+						this.renderPicture()
 				}
 			</div>
 		);

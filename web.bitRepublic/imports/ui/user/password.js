@@ -15,9 +15,8 @@ export default class UserPassword extends Component {
 	render() {
 		//<HeaderMenu />
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className="container">
 				<label>
-					
 					Send me a mail to 
 					<button onClick={this.handleResetPassword.bind(this)}>
 						Reset Password

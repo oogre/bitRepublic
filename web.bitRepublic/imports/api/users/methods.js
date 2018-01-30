@@ -2,30 +2,107 @@ import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
 
 
-if(Meteor.isServer){
-	Meteor.methods({
 
-		'users.create' : function(data){
-			new SimpleSchema({
-				username: { type: String },
-				profile: { type: Object },
-				'profile.firstname': { type: String },
-				'profile.lastname': { type: String },
-				'profile.country': { type: String },
-				'email': { type: String, regEx: SimpleSchema.RegEx.Email }
-			}).validate(data);
 
-			//data.password = process.env.USER_DEFAULT_PWD;
-			
-			let userId =  Accounts.createUser(data);
-			
+export const CreateUser = new ValidatedMethod({
+	name: 'Users.methods.create',
+	validate: new SimpleSchema({
+		'firstname': { type: String },
+		'lastname': { type: String },
+		'country': { type: String },
+		'email': { type: String, regEx: SimpleSchema.RegEx.Email }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ firstname, lastname, email, country }) {
+		if (!this.isSimulation) {
+			if(Meteor.users.find({'emails.address':new RegExp(email, "i")}).count() > 0){
+				const errors = [{
+					name: 'email',
+					type: 'already-exists',
+					details: {
+						value: email
+					}
+				}];
+				throw new ValidationError(errors);
+			}
+
+			let defaultUsername = firstname + "." + lastname;
+			let countHomonym = 	Meteor.users.find({
+									$or : [{
+										'profile.firstname':new RegExp(firstname, "i"),
+										'profile.lastname':new RegExp(lastname, "i")
+									},{
+										username : new RegExp('^' + defaultUsername, 'i')
+									}]
+								}).count();
+
+			if(countHomonym > 0){
+				defaultUsername += "."+countHomonym;
+			}
+
+			let userId =  Accounts.createUser({
+				username : defaultUsername,
+				email : email,
+				profile : {
+					firstname,
+					lastname,
+					country
+				}
+			});
 			Accounts.sendEnrollmentEmail(userId);
 			return {
 				success : true,
-				message : "User updated",
+				message : "Your account is up to be created \nYou'll receive soon an email to complete your subscription.",
 				data : userId
 			};
-		},
+		}
+	}
+});
+
+
+export const LoginUser = new ValidatedMethod({
+	name: 'Users.methods.login',
+	validate: new SimpleSchema({
+		'email': { type: String, regEx: SimpleSchema.RegEx.Email },
+		'password': { type: String }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ email, password }) {
+
+	}
+});
+
+
+export const ForgotPassword = new ValidatedMethod({
+	name: 'Users.methods.forgot.password',
+	validate: new SimpleSchema({
+		'email': { type: String, regEx: SimpleSchema.RegEx.Email }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ email }) {
+
+	}
+});
+
+
+
+if(Meteor.isServer){
+	Meteor.methods({
 		'users.resetPassord' : function(){
 			Accounts.sendResetPasswordEmail(Meteor.userId());
 			return {
