@@ -37,9 +37,6 @@ textarea {
 }
 
 
-// Checkbox & Radio
-// ---------------------
-
 // Hide default input
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked,
@@ -68,8 +65,10 @@ textarea {
   content: "";
   display: inline-block;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  background: transparent;
+  border: 1px solid #000;
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -84,8 +83,8 @@ textarea {
   content: '';
   display: inline-block;
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   top: 6px;
   left: 5px;
   color: $color-primary;
@@ -105,6 +104,7 @@ textarea {
 [type="radio"]:focus:not(:checked) + label:after {
   opacity: 1;
   transform: scale(1);
+  background: #000;
 }
 
 // Checked
@@ -112,6 +112,7 @@ textarea {
 [type="radio"]:checked + label:after {
   opacity: 1;
   transform: scale(1);
+  background: #000;
 }
 
 /* disabled checkbox */
@@ -119,12 +120,12 @@ textarea {
 [type="checkbox"]:disabled:checked + label:before,
 [type="radio"]:disabled:not(:checked) + label:before,
 [type="radio"]:disabled:checked + label:before {
-  // background-color: darken($blue-mirage, 3);
+  background-color: #000;
 }
 
 [type="checkbox"]:disabled + label,
 [type="radio"]:disabled + label {
-  color: darken(#fff, 50);
+  color: #fff;
 }
 
 [type="checkbox"]:disabled + label,
@@ -167,6 +168,11 @@ textarea {
 [type="radio"]:not(:checked) + label:after,
 [type="radio"]:checked + label:after {
   border-radius: 5px;
+}
+
+.radio__label {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 // Input File

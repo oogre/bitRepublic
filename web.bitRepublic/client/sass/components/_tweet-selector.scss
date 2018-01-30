@@ -1,0 +1,39 @@
+/*------------------------------------*\
+  > Tweet Selector
+\*------------------------------------*/
+
+.tweets-selector {
+  background: $grey-91;
+  padding: 70px 0;
+}
+
+.tweets-selector__content {
+  max-width: 824px;
+  margin: 0 auto;
+}
+
+.tweet__content,
+.tweet-schedule__option {
+  font-family: $font-title-sans-serif;
+  font-size: 1.4rem;
+}
+
+// Tweet Content
+// ---------------------
+.tweet__content {
+  margin-bottom: 14px;
+
+  &:before {
+    content: "#";
+  }
+
+  @include breakpoint($md) {
+    padding: 0 50px 0 0;
+  }
+}
+
+// Tweet Schedule
+// ---------------------
+.tweet-schedule__option {
+  display: block;
+}

@@ -27,7 +27,7 @@ class TweetSelector extends Component {
 		this.setState({ selectedTweet: -1});
 	}
 	handleTweetDelete(tweetId, event){
-		event.preventDefault();	
+		event.preventDefault();
 		let data = {
 			botId : this.props.bot._id,
 			tweetId : tweetId
@@ -37,10 +37,10 @@ class TweetSelector extends Component {
 	}
 	renderTweetButtons(){
 		return this.props.bot.tweets.map((tweet, k) => (
-			<li key={k}>
-				<button 
-					className={this.state.selectedTweet == k ? 'selected' : ''} 
-					onClick={this.handleTweetSelected.bind(this, k)} 
+			<li className="tabs-selector-list__item" key={k}>
+				<button
+					className={'tabs-selector-list__button' + (this.state.selectedTweet == k ? ' selected' : '')}
+					onClick={this.handleTweetSelected.bind(this, k)}
 				>
 					tweet #{k}
 				</button>
@@ -57,10 +57,10 @@ class TweetSelector extends Component {
 	}
 	renderTweets(){
 		return this.props.bot.tweets.map((tweet, k) => (
-			<TweetOption 
+			<TweetOption
 				visible={this.state.selectedTweet == k}
 				key={this.props.bot._id+"_"+k}
-				id={this.props.bot._id+"_"+k} 
+				id={this.props.bot._id+"_"+k}
 				tweet={this.props.bot.tweets[k]}
 				onScheduleChange={this.handleScheduleChange.bind(this)}
 			/>
@@ -75,19 +75,20 @@ class TweetSelector extends Component {
 	}
 	render() {
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")} >
-				<ul>
-					{this.renderTweetButtons()}
-					{this.props.isAdmin ? this.renderAddTweet():null}
-					
-				</ul>
-				{this.renderTweets()}
-				{(this.props.isAdmin && this.state.selectedTweet == -1) ? 
-					<TweetForm 
-						botId={this.props.bot._id}
-						visible={this.state.selectedTweet == -1}/> 
-						:
-						 null}
+			<div className={"tweets-selector" + " " + (this.props.visible ? "" : "hidden")}>
+				<div className="tweets-selector__content">
+					<ul className="tabs-selector-list">
+						{this.renderTweetButtons()}
+						{this.props.isAdmin ? this.renderAddTweet():null}
+					</ul>
+					{this.renderTweets()}
+					{(this.props.isAdmin && this.state.selectedTweet == -1) ?
+						<TweetForm
+							botId={this.props.bot._id}
+							visible={this.state.selectedTweet == -1}/>
+							:
+							 null}
+				</div>
 			</div>
 		);
 	}

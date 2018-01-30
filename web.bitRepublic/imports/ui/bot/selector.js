@@ -124,7 +124,9 @@ class BotSelector extends Component {
 					<ul className="cards-list">
 						{this.renderBots()}
 					</ul>
-					{this.renderTweets()}
+				</div>
+				{this.renderTweets()}
+				<div className="container">
 					<button className="button--primary button--submit"
 						disabled={this.state.validateDisable}
 						onClick={this.handleValidation.bind(this)}>
