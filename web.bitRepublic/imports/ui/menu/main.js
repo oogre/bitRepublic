@@ -8,6 +8,7 @@ class MainMenu extends Component {
 		super(props);
 		this.state = {
 			modal : 0,
+			mobileMenu: false
 		}
 	}
 
@@ -26,10 +27,20 @@ class MainMenu extends Component {
 	handleOpenModal(){
 		this.state.modal.handleOpenModal();
 	}
+	handleOpenMobileMenu(){
+		this.setState({
+			mobileMenu: !this.state.mobileMenu
+		});
+	}
 	render() {
 			return (
 			<nav>
-				<ul className="menu menu--header">
+				<button type="button" className="menu--header__mobile-trigger" onClick={this.handleOpenMobileMenu.bind(this)}>
+					<div className="bar"></div>
+					<div className="bar"></div>
+					<div className="bar"></div>
+				</button>
+				<ul className={"menu menu--header" + " " + (this.state.mobileMenu ? "visible" : "")}>
 					<li className="menu__item">
 						<a className="menu__item__link" href={FlowRouter.path("about")}>About</a>
 					</li>
