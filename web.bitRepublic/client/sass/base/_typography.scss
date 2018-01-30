@@ -41,6 +41,10 @@ h6 {
 
 // Primary
 .title--primary {
+  @include breakpoint($below-sm) {
+    font-size: 2rem;
+  }
+
   font-weight: 500;
   font-size: 2.6rem;
   background: $color-primary;
@@ -48,6 +52,10 @@ h6 {
 
 // Secondary
 .title--secondary {
+  @include breakpoint($below-sm) {
+    font-size: 1.8rem;
+  }
+
   font-size: 2rem;
   background: $color-secondary;
 }
