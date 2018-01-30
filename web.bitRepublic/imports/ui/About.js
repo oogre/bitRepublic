@@ -8,12 +8,14 @@ export default class About extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+
 	render() {
 		return (
-			<div className="container">
-				<HeaderMenu />
-				<SliderMenu />
+			<div className="page">
+				<div className="page__content">
+					<HeaderMenu />
+					<SliderMenu />
+				</div>
 				<FooterMenu />
 			</div>
 		);
