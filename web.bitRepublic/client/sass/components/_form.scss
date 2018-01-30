@@ -7,17 +7,17 @@
 //
 @mixin inputText () {
   display: block;
-  padding: 5px;
+  padding: 16px;
+  font-size: 1.2rem;
   box-shadow: none;
   border: 0;
   border-radius: 0;
   width: 100%;
-  @include rem(font-size, 14px);
-
-  &:focus {
-    outline: none;
-    box-shadow:  0 2px 0 $color-primary;
-  }
+  text-transform: uppercase;
+  background: $grey-98;
+  line-height: 1;
+  border: 1px solid $grey-9;
+  outline-color: $color-primary;
 }
 
 [type="text"],
@@ -36,9 +36,6 @@ textarea {
   min-height: 250px;
 }
 
-
-// Checkbox & Radio
-// ---------------------
 
 // Hide default input
 [type="checkbox"]:not(:checked),
@@ -68,8 +65,10 @@ textarea {
   content: "";
   display: inline-block;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  background: transparent;
+  border: 1px solid #000;
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -84,8 +83,8 @@ textarea {
   content: '';
   display: inline-block;
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   top: 6px;
   left: 5px;
   color: $color-primary;
@@ -105,6 +104,7 @@ textarea {
 [type="radio"]:focus:not(:checked) + label:after {
   opacity: 1;
   transform: scale(1);
+  background: #000;
 }
 
 // Checked
@@ -112,6 +112,7 @@ textarea {
 [type="radio"]:checked + label:after {
   opacity: 1;
   transform: scale(1);
+  background: #000;
 }
 
 /* disabled checkbox */
@@ -119,12 +120,12 @@ textarea {
 [type="checkbox"]:disabled:checked + label:before,
 [type="radio"]:disabled:not(:checked) + label:before,
 [type="radio"]:disabled:checked + label:before {
-  // background-color: darken($blue-mirage, 3);
+  background-color: #000;
 }
 
 [type="checkbox"]:disabled + label,
 [type="radio"]:disabled + label {
-  color: darken(#fff, 50);
+  color: #fff;
 }
 
 [type="checkbox"]:disabled + label,
@@ -167,6 +168,11 @@ textarea {
 [type="radio"]:not(:checked) + label:after,
 [type="radio"]:checked + label:after {
   border-radius: 5px;
+}
+
+.radio__label {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 // Input File
@@ -264,4 +270,21 @@ textarea {
   margin-top: .5em;
   color: $color-error;
   @include rem(font-size, 12px);
+}
+
+// fields-grid
+// ---------------------
+
+.fields-row {
+  margin-bottom: 58px;
+  @include clearfix();
+}
+
+.fields-column {
+  float: left;
+  width: calc(50% - 24px);
+
+  &:last-child {
+    float: right;
+  }
 }

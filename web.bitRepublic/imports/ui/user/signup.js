@@ -69,73 +69,89 @@ export default class UserSignup extends Component {
 
 	render() {
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className={"modal__container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleSignup.bind(this)}>
-					<input
-						type="text"
-						ref="firstname"
-						name="firstname"
-						placeholder="first name"
-					/>
-					{ 	this.state["error-firstname"] ? 
-							<MessageError 
-								error={this.state["error-firstname"]} 
-								messages={config.FORM.ERRORS.firstname}
+					<div className="fields-row">
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="firstname"
+								name="firstname"
+								placeholder="first name"
 							/>
-						:
-							null
-					}
-					<input
-						type="text"
-						ref="lastname"
-						name="lastname"
-						placeholder="last name"
-					/>
-					{ 	this.state["error-lastname"] ? 
-							<MessageError 
-								error={this.state["error-lastname"]} 
-								messages={config.FORM.ERRORS.lastname}
+							{ 	this.state["error-firstname"] ? 
+									<MessageError 
+										error={this.state["error-firstname"]} 
+										messages={config.FORM.ERRORS.firstname}
+									/>
+								:
+									null
+							}
+						</div>
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="lastname"
+								name="lastname"
+								placeholder="last name"
 							/>
-						:
-							null
-					}
-					<input
-						type="email"
-						ref="email"
-						name="email"
-						placeholder="yout email"
-					/>
-					{ 	this.state["error-email"] ? 
-							<MessageError 
-								error={this.state["error-email"]} 
-								messages={config.FORM.ERRORS.email}
+							{ 	this.state["error-lastname"] ? 
+									<MessageError 
+										error={this.state["error-lastname"]} 
+										messages={config.FORM.ERRORS.lastname}
+									/>
+								:
+									null
+							}
+						</div>
+					</div>
+					<div className="fields-row">
+						<div className="fields-column">
+							<input
+								type="email"
+								ref="email"
+								name="email"
+								placeholder="yout email"
 							/>
-						:
-							null
-					}
-					<input
-						type="text"
-						ref="country"
-						name="country"
-						placeholder="yout country"
-					/>
-					{ 	this.state["error-country"] ? 
-							<MessageError 
-								error={this.state["error-country"]} 
-								messages={config.FORM.ERRORS.country}
+							{ 	this.state["error-email"] ? 
+									<MessageError 
+										error={this.state["error-email"]} 
+										messages={config.FORM.ERRORS.email}
+									/>
+								:
+									null
+							}
+						</div>
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="country"
+								name="country"
+								placeholder="your country"
 							/>
-						:
-							null
-					}
-					<input 
-						type="submit" 
-						value="confirm" 
-						className={
-							(this.state['is-loading'] ? "loading " : "") + 
-							(this.state['has-success'] ? "success " : "") + 
-							(this.state['has-error'] ? "error " : "")
-						}/>
-				</form> 
+							{ 	this.state["error-country"] ? 
+									<MessageError 
+										error={this.state["error-country"]} 
+										messages={config.FORM.ERRORS.country}
+									/>
+								:
+									null
+							}
+						</div>
+					</div>
+					<div className="fields-row text-right">
+						<input 
+							className={
+								"button--primary " + 
+								(this.state['is-loading'] ? "loading " : "") + 
+								(this.state['has-success'] ? "success " : "") + 
+								(this.state['has-error'] ? "error " : "")
+							} 
+							type="submit" 
+							value="confirm" 
+						/>
+					</div>
+				</form>
 			</div>
 		);
 	}

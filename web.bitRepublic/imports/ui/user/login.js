@@ -112,60 +112,69 @@ export default class UserLogIn extends Component {
 
 	render() {
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className={"modal__container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
-					<input
-						type="email"
-						ref="email"
-						name="email"
-						placeholder="Type your email"
-					/>
-					{ 	
-						this.state["error-email"] ? 
-							<MessageError 
-								error={this.state["error-email"]} 
-								messages={config.FORM.ERRORS.email}
+					<div className="fields-row">
+						<div className="fields-column">
+							<input
+								type="email"
+								ref="email"
+								name="email"
+								placeholder="Type your email"
 							/>
-						:
-							null
-					}
-					<input
-						type="password"
-						ref="password"
-						name="password"
-						placeholder="Type your password"
-					/>
-					{ 	
-						this.state["error-password"] ? 
-							<MessageError 
-								error={this.state["error-password"]} 
-								messages={config.FORM.ERRORS.password}
+							{ 	
+								this.state["error-email"] ? 
+									<MessageError 
+										error={this.state["error-email"]} 
+										messages={config.FORM.ERRORS.email}
+									/>
+								:
+									null
+							}
+						</div>
+						<div className="fields-column">
+							<input
+								type="password"
+								ref="password"
+								name="password"
+								placeholder="Type your password"
 							/>
-						:
-							null
-					}
-					<input 
-						type="submit" 
-						value="Login" 
-						className={
-							(this.state['is-loading'] ? "loading " : "") + 
-							(this.state['has-success'] ? "success " : "") + 
-							(this.state['has-error'] ? "error " : "")
-						}/>
-					{ 	
-						this.state["error"] ? 
-							<MessageError 
-								error={this.state["error"]} 
-								messages={[]}
-							/>
-						:
-							null
-					}
-					<br/>
-					<a href="#" onClick={this.handleForgotPassword.bind(this)}>
-						forgot password ? 
-					</a>
-				</form> 
+							{ 	
+								this.state["error-password"] ? 
+									<MessageError 
+										error={this.state["error-password"]} 
+										messages={config.FORM.ERRORS.password}
+									/>
+								:
+									null
+							}
+						</div>
+					</div>
+					<div className="fields-row text-right">
+						<a onClick={this.handleForgotPassword.bind(this)}>
+							forgot password ?
+						</a>
+						<input 
+							className={
+								"button--primary " +
+								(this.state['is-loading'] ? "loading " : "") + 
+								(this.state['has-success'] ? "success " : "") + 
+								(this.state['has-error'] ? "error " : "") 
+							}
+							type="submit" 
+							value="Login" 
+						/>
+						{ 	
+							this.state["error"] ? 
+								<MessageError 
+									error={this.state["error"]} 
+									messages={[]}
+								/>
+							:
+								null
+						}
+					</div>
+				</form>
 			</div>
 		);
 	}

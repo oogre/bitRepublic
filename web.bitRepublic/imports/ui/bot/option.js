@@ -19,6 +19,7 @@ export default class BotOption extends Component {
 					<h6 className="card__subtitle">{this.props.bot.title[1]}</h6>
 				</header>
 				<div className="card__content">
+					<img className="card__picture" src={this.props.bot.picture} alt=""/>
 					<div className="card__counter">
 						<BitsoilCounter unBlock="." bitsoil={this.props.bitsoil} tax={true}/>
 					</div>

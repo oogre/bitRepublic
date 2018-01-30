@@ -9,7 +9,7 @@ class TweetForm extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+
 	handleTweetSchedule(event){
 		event.tweet = this.props.tweet._id
 		this.props.onScheduleChange(event);
@@ -30,7 +30,7 @@ class TweetForm extends Component {
 			}
 		};
 		ReactDom.findDOMNode(self.refs["tweetContent"]).value = '';
-		
+
 		Meteor.call("bot.tweet.update", data);
 
 		return false;
@@ -53,8 +53,8 @@ class TweetForm extends Component {
 	}
 	render() {
 			return (
-				<form 
-					className={"container"+ " " + (this.props.visible ? "" : "hidden")} 
+				<form
+					className={"container"+ " " + (this.props.visible ? "" : "hidden")}
 					onSubmit={this.handleSubmit.bind(this)}
 				>
 					<input
@@ -68,7 +68,7 @@ class TweetForm extends Component {
 						type="submit"
 						value="Submit"
 					/>
-				</form> 
+				</form>
 		);
   	}
 }

@@ -1,0 +1,28 @@
+//====== Helpers ======
+// Various class reusable everywhere that can help
+//=======================
+
+// Clearfix
+.clearfix {
+    @include clearfix;
+}
+
+// No scroll-x
+.no-scroll-x {
+    overflow-x: hidden;
+}
+
+// Text helper
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+

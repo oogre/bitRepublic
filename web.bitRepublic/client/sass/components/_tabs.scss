@@ -1,0 +1,70 @@
+/*------------------------------------*\
+  > Tabs
+\*------------------------------------*/
+
+.tabs {
+
+}
+
+// Tabs Selector
+// ---------------------
+.tabs-selector-list {
+  list-style-type: none;
+  margin: 20px 0 0;
+  padding: 0;
+  @include clearfix();
+}
+
+.tabs-selector-list__item {
+  background: $grey-95;
+  float: left;
+  margin-right: 6px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tabs-selector-list__button {
+  padding: 15px;
+  background: $grey-95;
+  border: none;
+  border-top: 4px solid $grey-61;
+  border-bottom: 6px solid $grey-91;
+  color: $color-primary;
+  text-transform: uppercase;
+  font-family: $font-title-sans-serif;
+  min-width: 178px;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &.selected {
+    border-top-color: $color-primary;
+    border-bottom-color: $grey-95;
+  }
+}
+
+// Tab
+// ---------------------
+
+.tab {
+  background: $grey-95;
+  @include clearfix();
+}
+
+.tab__content {
+  flex-wrap: wrap;
+  min-height: 510px;
+  width: 50%;
+  float: right;
+  text-align: left;
+  padding: 236px 33px 33px 0;
+  background: url('/images/bot-stamp.svg') no-repeat right 30px top 33px;
+  background-size: 185px 138px;
+}
+
+
+
