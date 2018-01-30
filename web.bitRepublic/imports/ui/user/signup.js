@@ -22,6 +22,7 @@ export default class UserSignup extends Component {
 				country : country
 			}
 		}, (err, res) => {
+			console.log(err, res);
 			if(err){
 				console.log(err.reason);
 			}else{

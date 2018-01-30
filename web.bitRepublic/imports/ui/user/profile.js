@@ -18,15 +18,13 @@ class UserProfile extends Component {
 	}
 	
 	render() {
+		//<HeaderMenu />
 		return (
 			<div className="container">
-				<HeaderMenu />
 				<UserMenu />
 				<UserAvatar /><br/>
 				{this.props.username}<br/>
-				
 				{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
-
 				<BotInfo />
 				<FooterMenu />
 			</div>

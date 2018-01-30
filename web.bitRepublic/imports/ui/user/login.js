@@ -23,7 +23,21 @@ export default class UserLogIn extends Component {
 			}
 		});
 	}
+	handleForgotPassword(event){
+		event.preventDefault();
+		const email = ReactDom.findDOMNode(this.refs.email).value;
+		
+		new SimpleSchema({
+			'email': { type: String, regEx: SimpleSchema.RegEx.Email }
+		}).validate({email});
 
+		Accounts.forgotPassword({
+			email
+		}, function(err, res){
+			console.log(err, res);
+		});
+		return false;
+	}
 	render() {
 		return (
 			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
@@ -41,6 +55,9 @@ export default class UserLogIn extends Component {
 						placeholder="Type your password"
 					/>
 					<input type="submit" value="Login" />
+					<button onClick={this.handleForgotPassword.bind(this)}>
+						forgot password ? 
+					</button>
 				</form> 
 			</div>
 		);

@@ -11,6 +11,8 @@ export ADMIN_PWD="bitrepublic123"
 
 export USER_DEFAULT_PWD="hello123"
 
+export MAIL_URL='smtps://bitrepublic@ogre.be:weneedmorebitsoils@smtp.phpnet.org:465'
+
 echo "[+] Starting Node Server"
 
 meteor run

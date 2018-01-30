@@ -15,17 +15,26 @@ if(Meteor.isServer){
 				'email': { type: String, regEx: SimpleSchema.RegEx.Email }
 			}).validate(data);
 
-			data.password = process.env.USER_DEFAULT_PWD;
+			//data.password = process.env.USER_DEFAULT_PWD;
 			
 			let userId =  Accounts.createUser(data);
 			
-			//Accounts.sendEnrollmentEmail(userId);
+			Accounts.sendEnrollmentEmail(userId);
 			return {
 				success : true,
 				message : "User updated",
 				data : userId
 			};
 		},
+		'users.resetPassord' : function(){
+			Accounts.sendResetPasswordEmail(Meteor.userId());
+			return {
+				success : true,
+				message : "Mail send",
+				data : Meteor.userId()
+			};
+		},
+		
 		'users.setAvatar' : function(avatarId){
 			new SimpleSchema({
 				avatarId: { type: String, regEx: SimpleSchema.RegEx.Id }
