@@ -34,7 +34,7 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
-  padding: 0 1rem;
+  padding: 0 2.5rem;
   max-width: 100%;
 
   @include breakpoint($xl) {

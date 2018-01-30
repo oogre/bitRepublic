@@ -10,21 +10,6 @@
   margin: 0;
 }
 
-.menu--header {
-  display: none;
-
-  @include breakpoint($md) {
-    display: inline-block;
-  }
-
-  @include breakpoint($lg) {
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-    right: 0;
-  }
-}
-
 .menu__item {
   position: relative;
   display: inline-block;
@@ -54,7 +39,6 @@
   display: none;
 }
 
-
 .menu__item__link {
   font-family: $font-title-sans-serif;
   font-size: 1.4rem;
@@ -72,12 +56,105 @@
 
 // menu--header
 // ---------------------
+
+.menu--header {
+  @include breakpoint($below-md) {
+    display: none;
+    margin-top: 16px;
+  }
+
+  @include breakpoint($md) {
+    display: inline-block;
+  }
+
+  @include breakpoint($lg) {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    right: 0;
+  }
+}
+
+.menu--header .menu__item {
+  @include breakpoint($below-md) {
+    display: block;
+    padding: 0;
+    border-bottom: 1px solid $blue-geyser;
+    position: relative;
+
+    // › symbol
+    &:after {
+      content: "›";
+      width: auto;
+      height: auto;
+      right: 10px;
+      margin-top: 0;
+      padding-bottom: 2px;
+      background: none;
+
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:last-child:after {
+      display: block;
+      bottom: 0;
+    }
+  }
+}
+
 .menu--header .menu__item__link {
   color: $color-text;
 
   &:hover,
   &:focus {
     color: $color-primary;
+  }
+
+  @include breakpoint($below-md) {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+
+.menu--header .menu__item:last-child .menu__item__link {
+  @include breakpoint($below-md) {
+    padding-bottom: 0;
+  }
+}
+
+// Hamburger button
+.menu--header__mobile-trigger {
+  position: absolute;
+  top: 20px;
+  right: 2.5rem;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline-color: $color-primary;
+
+  @include breakpoint($sm) {
+    top: 30px;
+  }
+
+  @include breakpoint($md) {
+    display: none;
+  }
+}
+
+.menu--header__mobile-trigger .bar {
+  height: 2px;
+  width: 12px;
+  margin-bottom: 2px;
+  background: $grey-thunder;
+
+  @include breakpoint($sm) {
+    height: 3px;
+    width: 20px;
+    margin-bottom: 3px;
   }
 }
 
