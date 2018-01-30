@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import {config} from '../../startup/config.js';
 
 import { TempWallets } from '../../api/wallets/wallets.js';
+import { Schedules } from '../../api/bots/bots.js';
 import { Bots } from '../../api/bots/bots.js';
 
 import BotOption from './option.js';
@@ -67,7 +68,7 @@ class BotSelector extends Component {
 	handleTweetSelectorScheduleChange(event){
 		let botData = this.state.tempBotData;
 		botData[event.bot] = botData[event.bot] || {};
-		if(event.schedule == "0"){
+		if(event.schedule == this.props.scheduleNeverId){
 			delete botData[event.bot][event.tweet];
 			if(_.isEmpty(botData[event.bot])){
 				delete botData[event.bot];
@@ -75,6 +76,7 @@ class BotSelector extends Component {
 		}else{
 			botData[event.bot][event.tweet] = event.schedule
 		}
+		console.log(botData);
 		this.setState({
 			tempBotData : botData,
 			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot._id]),
@@ -144,10 +146,13 @@ class BotSelector extends Component {
 }
 
 export default withTracker(() => {
+	let scheduleNever = Schedules.findOne({value : 0});
+	scheduleNeverId = scheduleNever ? scheduleNever._id : null;
 	let wallet = TempWallets.findOne({type : config.WALLET_TYPE.BOT});
 	let bitsoil = wallet ? wallet.bitsoil : 0;
 	let bots = Bots.find( {model : true} ).fetch() || [];
 	return {
+		scheduleNeverId : scheduleNeverId,
 		userId : Meteor.userId(),
 		bitsoil : bitsoil,
 		bots : bots
