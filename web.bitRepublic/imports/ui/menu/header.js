@@ -13,7 +13,7 @@ export default class HeaderMenu extends Component {
 				<div className="container">
 					<h1 className="logo logo--header">
 						<a href="/">
-							<img src="/images/logo.png" alt="#Bitsoil Tax"/>
+							<img src="/images/logo-animated.gif" alt="#Bitsoil Tax"/>
 						</a>
 					</h1>
 					<MainMenu />

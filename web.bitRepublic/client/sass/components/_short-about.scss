@@ -36,4 +36,11 @@
 .short-about__link {
   text-transform: uppercase;
   float: right;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-secondary;
+    text-decoration: none;
+  }
 }
