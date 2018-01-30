@@ -26,7 +26,7 @@ export default class UserLogIn extends Component {
 	handleForgotPassword(event){
 		event.preventDefault();
 		const email = ReactDom.findDOMNode(this.refs.email).value;
-		
+
 		new SimpleSchema({
 			'email': { type: String, regEx: SimpleSchema.RegEx.Email }
 		}).validate({email});
@@ -40,25 +40,33 @@ export default class UserLogIn extends Component {
 	}
 	render() {
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className={"modal__container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
-					<input
-						type="email"
-						ref="email"
-						name="email"
-						placeholder="Type your email"
-					/>
-					<input
-						type="password"
-						ref="password"
-						name="password"
-						placeholder="Type your password"
-					/>
-					<input type="submit" value="Login" />
-					<button onClick={this.handleForgotPassword.bind(this)}>
-						forgot password ? 
-					</button>
-				</form> 
+					<div className="fields-row">
+						<div className="fields-column">
+							<input
+								type="email"
+								ref="email"
+								name="email"
+								placeholder="Type your email"
+							/>
+						</div>
+						<div className="fields-column">
+							<input
+								type="password"
+								ref="password"
+								name="password"
+								placeholder="Type your password"
+							/>
+						</div>
+					</div>
+					<div className="fields-row text-right">
+						<a onClick={this.handleForgotPassword.bind(this)}>
+							forgot password ?
+						</a>
+						<input className="button--primary" type="submit" value="Login" />
+					</div>
+				</form>
 			</div>
 		);
 	}

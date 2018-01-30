@@ -35,39 +35,53 @@ export default class UserSignup extends Component {
 				}
 			}
 		});
-		
+
 	}
 
 	render() {
 		return (
-			<div className={"container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className={"modal__container"+ " " + (this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleSignup.bind(this)}>
-					<input
-						type="text"
-						ref="firstname"
-						name="firstname"
-						placeholder="first name"
-					/>
-					<input
-						type="text"
-						ref="lastname"
-						name="lastname"
-						placeholder="last name"
-					/>
-					<input
-						type="email"
-						ref="email"
-						name="email"
-						placeholder="yout email"
-					/>
-					<input
-						type="text"
-						ref="country"
-						name="country"
-						placeholder="yout country"
-					/>
-					<input type="submit" value="confirm" />
-				</form> 
+					<div className="fields-row">
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="firstname"
+								name="firstname"
+								placeholder="first name"
+							/>
+						</div>
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="lastname"
+								name="lastname"
+								placeholder="last name"
+							/>
+						</div>
+					</div>
+					<div className="fields-row">
+						<div className="fields-column">
+							<input
+								type="email"
+								ref="email"
+								name="email"
+								placeholder="yout email"
+							/>
+						</div>
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="country"
+								name="country"
+								placeholder="your country"
+							/>
+						</div>
+					</div>
+					<div className="fields-row text-right">
+						<input className="button--primary" type="submit" value="confirm" />
+					</div>
+				</form>
 			</div>
 		);
 	}

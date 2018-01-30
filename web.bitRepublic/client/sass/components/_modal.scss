@@ -1,0 +1,41 @@
+/*------------------------------------*\
+  > Modal
+  Extra custom style for React modal, normaly handle in JS
+  https://reactcommunity.org/react-modal/styles/
+\*------------------------------------*/
+
+// Modal Close
+// ---------------------
+.modal__close {
+  position: absolute;
+  right: 52px;
+  top: 60px;
+  color: $grey-76;
+  font-size: 46px;
+  line-height: 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+// Modal-container
+// ---------------------
+.modal__container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 778px;
+}
+
+// Modal Submit
+// ---------------------
+.ReactModal__Content .text-right .button--primary {
+  margin-left: 2em;
+}
+
+.ReactModal__Content .text-left .button--primary {
+  margin-right: 2em;
+}
