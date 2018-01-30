@@ -8,7 +8,7 @@ function randomTweet(){
 	return {
 		_id : Random.id(),
 		content : _.shuffle(fastLoremIpsum.fastLoremIpsum("140c").split("")).join(""),
-		schedules : Schedules.find({}, { 
+		schedules : Schedules.find({}, {
 						fields : {
 							lvl : 0
 						}
@@ -53,11 +53,11 @@ Meteor.startup(() => {
 			Bots.insert({
 				model : true,
 				title : [
-					"be aware", 
+					"be aware",
 					"Send your claim to the Prime Minister"
 				],
 				signup : true,
-				picture : "IMG",
+				picture : "/images/bots/bot-pm.gif",
 				target : "politics",
 				description : "Send a tweet postcard to the Prime Minister",
 				tweets : [
@@ -73,7 +73,7 @@ Meteor.startup(() => {
 					"Time to GAFAM to pay"
 				],
 				signup : true,
-				picture : "IMG",
+				picture : "/images/bots/bot-gafam.gif",
 				target : "ceos",
 				description : "Send a tweet postcard to the CEO's of the top ten netgiants",
 				tweets : [
@@ -88,7 +88,7 @@ Meteor.startup(() => {
 					"Invite your friends"
 				],
 				signup : false,
-				picture : "IMG",
+				picture : "/images/bots/bot-friends.gif",
 				counter : "type",
 				target : "friends",
 				description : "Send a tweet postcard to all your friends",

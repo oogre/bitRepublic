@@ -10,7 +10,9 @@
 
   @include breakpoint($md) {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
   }
 }
 
@@ -24,8 +26,20 @@
   @include breakpoint($md) {
     display: flex;
     flex-wrap: wrap;
-    width: calc(33.33% - 30px);
+    width: calc(50% - 30px);
     margin-bottom: 0;
+
+    &:last-child {
+      margin-top: 2rem;
+    }
+  }
+
+  @include breakpoint($lg) {
+    width: calc(33.33% - 30px);
+
+    &:last-child {
+      margin-top: 0;
+    }
   }
 }
 
@@ -69,8 +83,26 @@
   padding: 45px 25px 0;
 }
 
+.card__picture {
+  display: block;
+  max-width: calc(100% + 50px);
+
+  @include breakpoint($md) {
+    margin-left: -25px;
+  }
+}
+
 .card__counter {
   margin-bottom: 50px;
+  margin-top: -45px;
+
+  @include breakpoint($md) {
+    margin-top: -40px;
+  }
+
+  @include breakpoint($xl) {
+    margin-top: -45px;
+  }
 }
 
 // Card Footer
