@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
-
-
+import { Images } from '../images/images.js';
 
 
 export const CreateUser = new ValidatedMethod({
@@ -100,24 +99,67 @@ export const ForgotPassword = new ValidatedMethod({
 });
 
 
-
-if(Meteor.isServer){
-	Meteor.methods({
-		'users.resetPassord' : function(){
+export const ResetPassword = new ValidatedMethod({
+	name: 'Users.methods.reset.password',
+	validate: new SimpleSchema({
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ }) {
+		if(!Meteor.userId()){
+			const errors = [{
+				name: 'login',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		if (!this.isSimulation) {
 			Accounts.sendResetPasswordEmail(Meteor.userId());
 			return {
 				success : true,
-				message : "Mail send",
-				data : Meteor.userId()
+				message : "You'll receive soon an email to reset your password.",
 			};
-		},
-		
-		'users.setAvatar' : function(avatarId){
-			new SimpleSchema({
-				avatarId: { type: String, regEx: SimpleSchema.RegEx.Id }
-			}).validate({
-				avatarId
+		}
+	}
+});
+
+
+export const UserSetAvatar = new ValidatedMethod({
+	name: 'Users.methods.avatar',
+	validate: new SimpleSchema({
+		'avatarId' : {type: String, regEx: SimpleSchema.RegEx.Id }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ avatarId }) {
+		if(!Meteor.userId()){
+			const errors = [{
+				name: 'login',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		if (!this.isSimulation) {
+			let avatar = Images.findOne({
+				_id : avatarId,
+				userId : Meteor.userId()
 			});
+
+			if(!avatar){
+				const errors = [{
+					name: 'avatar',
+					type: 'no-exists'
+				}];
+				throw new ValidationError(errors);
+			}
 
 			Meteor.users.update({
 				_id: Meteor.userId()
@@ -129,60 +171,80 @@ if(Meteor.isServer){
 
 			return {
 				success : true,
-				message : "User updated"
+				message : "Your picture is setup as avatar.",
 			};
-		},
-		'users.update' : function(data){
-			new SimpleSchema({
-				username: { type: String },
-				profile: { type: Object },
-				'profile.firstname': { type: String },
-				'profile.lastname': { type: String },
-				emails: { type: Array },
-				'emails.$': { type: Object },
-				'emails.$.address': { type: String, regEx: SimpleSchema.RegEx.Email }
-			}).validate(data);
+		}
+	}
+});
 
-			data['profile.firstname'] = data.profile.firstname;
-			data['profile.lastname'] = data.profile.lastname;
-			delete data.profile;
-			
-			if(Meteor.users.find({
+
+export const UpdateUser = new ValidatedMethod({
+	name: 'Users.methods.update',
+	validate: new SimpleSchema({
+		username: { type: String },
+		firstname: { type: String },
+		lastname: { type: String },
+		email: { type: String, regEx: SimpleSchema.RegEx.Email }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ username, firstname, lastname, email }) {
+		if(!Meteor.userId()){
+			const errors = [{
+				name: 'login',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		if (!this.isSimulation) {
+			if(Meteor.users.findOne({
 				_id : {
 					$ne : Meteor.userId()
 				},
-				'emails.address' : data.emails[0].address
-			}).count() > 0){
-				throw new Meteor.Error("validation-error", 'This email is already recorded', 'email');
+				'emails.address' : new RegExp(email, "i"),
+			})){
+				const errors = [{
+					name: 'email',
+					type: 'already-exists'
+				}];
+				throw new ValidationError(errors);
 			}
 
-			if(Meteor.users.find({
+			if(Meteor.users.findOne({
 				_id : {
 					$ne : Meteor.userId()
 				},
-				'username' : data.username
-			}).count() > 0){
-				throw new Meteor.Error("validation-error", 'This username is already taken', 'username');
+				'username' : new RegExp(username, "i"),
+			})){
+				const errors = [{
+					name: 'username',
+					type: 'already-exists'
+				}];
+				throw new ValidationError(errors);
 			}
-			
+
 			Meteor.users.update({
 				_id: Meteor.userId()
 			},{
-				$set : data
+				$set : {
+					username : username,
+					profile : {
+						firstname : firstname,
+						lastname : lastname,
+					},
+					emails : [{
+						address : email,
+					}]
+				}
 			});
-
 			return {
 				success : true,
-				message : "User updated"
+				message : "Your account is updated."
 			};
-		},
-		'users.update.pwd' : function(data){
-			new SimpleSchema({
-				oldPassword: { type: String },
-				newPassword: { type: String, min: config.PWD_LENGTH.MIN, max: config.PWD_LENGTH.MAX }
-			}).validate(data);
-
-			console.log(data);
 		}
-	})
-}
+	}
+});

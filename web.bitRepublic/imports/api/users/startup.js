@@ -10,6 +10,11 @@ Meteor.startup(() => {
 				console.log("INSERT ADMIN");
 				let adminUserData = {
 					username : "admin",
+					profile : {
+						firstname : "admin",
+						lastname : "admin",
+						country : "admin"
+					},
 					email : process.env.ADMIN_MAIL,
 					password : process.env.ADMIN_PWD
 				}

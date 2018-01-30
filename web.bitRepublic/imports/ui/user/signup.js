@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { Meteor } from 'meteor/meteor';
+
 import { CreateUser } from '../../api/users/methods.js';
-import MessageError from '../message/error.js';
 import { config } from '../../startup/config.js';
+import MessageError from '../message/error.js';
+
 
 export default class UserSignup extends Component {
 	constructor(props){
@@ -17,13 +18,6 @@ export default class UserSignup extends Component {
 			'has-error' : false,
 			'has-success' : false
 		};
-	}
-	renderError(message){
-		return(
-			<div className="message error-message">
-				{ message }
-			</div>
-		);
 	}
 
 	handleSignup(event){

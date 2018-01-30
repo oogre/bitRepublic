@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+import ReactDom from 'react-dom';
+import { UpdateUser } from '../../api/users/methods.js';
+import { config } from '../../startup/config.js';
+import MessageError from '../message/error.js';
 
-
-// App component - represents the whole app
 class UserForm extends Component {
 	constructor(props){
 		super(props);
@@ -10,7 +12,14 @@ class UserForm extends Component {
 			firstname: this.props.firstname,
 			lastname : this.props.lastname,
 			username : this.props.username,
-			email : this.props.email
+			email : this.props.email,
+			'error-firstname' : false,
+			'error-lastname' : false,
+			'error-username' : false,
+			'error-email' : false,
+			'is-loading' : false,
+			'has-error' : false,
+			'has-success' : false
 		};
 	}
 	componentWillReceiveProps(nextProps) {
@@ -21,27 +30,39 @@ class UserForm extends Component {
 			email : nextProps.email
 		});
 	}
+
 	handleSubmit(event){
 		event.preventDefault();
-		const firstname = this.state.firstname.trim();
-		const lastname = this.state.lastname.trim();
-		const username = this.state.username.trim();
-		const email = this.state.email.trim();
-		Meteor.call("users.update", {
-			username : username,
-			profile : {
-				firstname : firstname,
-				lastname : lastname
-			},
-			emails : [{
-				address : email
-			}]
-		}, function(err, res){
-			if(err){
-				console.log(err);
-				return ;
+		this.setState({
+			'error-firstname' : false,
+			'error-lastname' : false,
+			'error-username' : false,
+			'error-email' : false,
+			'is-loading' : true,
+			'has-error' : false,
+			'has-success' : false
+		});
+
+		const data = {
+			firstname : ReactDom.findDOMNode(this.refs.firstname).value,
+			lastname : ReactDom.findDOMNode(this.refs.lastname).value,
+			username : ReactDom.findDOMNode(this.refs.username).value,
+			email : ReactDom.findDOMNode(this.refs.email).value,
+		}
+
+		UpdateUser.call(data, (err, res)=>{
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
 			}
-			console.log(res);
+			this.setState({'has-success' : true});
+			alert(res.message);
 		});
 	}
 	handleOnChange(e){
@@ -61,6 +82,15 @@ class UserForm extends Component {
 							value={this.state.firstname}
 							onChange={this.handleOnChange.bind(this)}
 						/>
+						{	
+							this.state["error-firstname"] ? 
+								<MessageError 
+									error={this.state["error-firstname"]} 
+									messages={config.FORM.ERRORS.firstname}
+								/>
+							:
+								null
+						}
 					</label>
 					<label>
 						lastname
@@ -71,6 +101,15 @@ class UserForm extends Component {
 							value={this.state.lastname}
 							onChange={this.handleOnChange.bind(this)}
 						/>
+						{	
+							this.state["error-lastname"] ? 
+								<MessageError 
+									error={this.state["error-lastname"]} 
+									messages={config.FORM.ERRORS.lastname}
+								/>
+							:
+								null
+						}
 					</label>
 					<label>
 						username
@@ -81,6 +120,15 @@ class UserForm extends Component {
 							value={this.state.username}
 							onChange={this.handleOnChange.bind(this)}
 						/>
+						{	
+							this.state["error-username"] ? 
+								<MessageError 
+									error={this.state["error-username"]} 
+									messages={config.FORM.ERRORS.username}
+								/>
+							:
+								null
+						}
 					</label>
 					<label>
 						email
@@ -91,28 +139,41 @@ class UserForm extends Component {
 							value={this.state.email}
 							onChange={this.handleOnChange.bind(this)}
 						/>
+						{	
+							this.state["error-email"] ? 
+								<MessageError 
+									error={this.state["error-email"]} 
+									messages={config.FORM.ERRORS.email}
+								/>
+							:
+								null
+						}
 					</label>
 					<input 
 						type="submit"
 						value="save" 
-						className="button--primary button--submit"
+						className={
+							"button--primary button--submit "+
+							(this.state['is-loading'] ? "loading " : "") + 
+							(this.state['has-success'] ? "success " : "") + 
+							(this.state['has-error'] ? "error " : "")
+						}
 					/>
 				</form> 		
 			</div>
 		);
   	}
 }
+
+
 export default withTracker(() => {
 	let currentUser = Meteor.user();
 	let username = currentUser ? currentUser.username : "";
-	let firstname = currentUser ? currentUser.profile.firstname : "";
-	let lastname = currentUser ? currentUser.profile.lastname : "";
-	let email = currentUser ? currentUser.emails[0].address : "";
-	let userId = currentUser ? currentUser._id : null;
+	let firstname = currentUser && currentUser.profile ? currentUser.profile.firstname : "";
+	let lastname = currentUser && currentUser.profile ? currentUser.profile.lastname : "";
+	let email = currentUser && currentUser.emails && currentUser.emails[0] ? currentUser.emails[0].address : "";
 	
 	return {
-		userId : userId,
-		currentUser : currentUser,
 		firstname : firstname,
 		lastname : lastname,
 		username : username,

@@ -22,12 +22,22 @@ export const config = {
 				required : "your email is require",
 				'already-exists' : "your email is already recorded",
 			},
+			username : {
+				required : "your username is require",
+				'already-exists' : "your username is already recorded",
+			},
 			country : {
 				required : "your country is require"
 			},
 			password : {
 				required : "your password is require"
 			},
+			login : {
+				'needed' : "you have to be logged in to perform this action"
+			},
+			avatar : {
+				'no-exists' : "the picture does not exist"
+			}
 		}
 	}
 }
