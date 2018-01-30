@@ -1,0 +1,39 @@
+/*------------------------------------*\
+  > Short About
+\*------------------------------------*/
+
+.short-about {
+  @include clearfix();
+  padding: 57px 0 65px;
+}
+
+.short-about__col {
+  @include breakpoint($md) {
+    width: calc(50% - 40px);
+    float: left;
+  }
+}
+
+.short-about__col + .short-about__col {
+  float: right;
+}
+
+.short-about__title {
+  font-family: $font-title-sans-serif;
+  font-weight: 500;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.short-about__content {
+  font-weight: 200;
+  font-size: 1.4rem;
+  margin-bottom: 32px;
+}
+
+.short-about__link {
+  text-transform: uppercase;
+  float: right;
+}

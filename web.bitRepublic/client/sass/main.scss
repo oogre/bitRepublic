@@ -10,6 +10,7 @@
 @import 'utils/functions';
 @import 'utils/variables';
 @import 'utils/mixins';
+@import 'utils/helper';
 
 // Base
 @import 'base/fonts';
@@ -32,6 +33,7 @@
 @import 'components/counter';
 @import 'components/total-counter';
 @import 'components/punchline';
+@import 'components/short-about';
 
 // Pages
 
