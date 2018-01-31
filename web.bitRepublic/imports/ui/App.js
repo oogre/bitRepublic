@@ -22,7 +22,11 @@ export default class App extends Component {
 					<HeaderMenu />
 					<SliderMenu />
 					<BitsoilTotalCounter />
-					<FixePunchline />
+					<FixePunchline description={[
+						"over € 1 billion in lost taxes on people's browsing activity.",
+						"bitsoil the new oil of the digital economy.",
+						"time to claim your share."
+					]}/>
 					<FixeShortAbout />
 					<BotSelector />
 					<RedistriutionMenu />

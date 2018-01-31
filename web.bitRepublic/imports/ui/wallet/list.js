@@ -93,7 +93,6 @@ export default withTracker(() => {
 			updatedAt : -1
 		}
 	});
-	console.log(wallets.fetch());
 	return {
 		wallets : wallets.fetch(),
 		count : wallets.count(),

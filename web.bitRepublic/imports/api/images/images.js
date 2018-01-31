@@ -1,5 +1,5 @@
 import { FilesCollection } from 'meteor/ostrio:files';
-
+import './methods.js';
 import './publications.js';
 
 

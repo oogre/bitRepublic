@@ -5,13 +5,34 @@ import SliderMenu from './menu/slider.js';
 import FooterMenu from './menu/footer.js';
 import RedistriutionMenu from './menu/redistribution.js';
 import BitsoilTotalCounter from './bitsoil/totalCounter.js';
-import FixeRedistriutionPunchline from './fixe/RedistributionPunchline.js';
+import FixePunchline from './fixe/punchline.js';
 import FixeShortAbout from './fixe/shortAbout.js';
 import WalletList from './wallet/list.js';
+import UserModal from './user/modal.js';
+import { BitsoilCreate } from '../api/bitsoils/methods.js';
+import { config } from '../startup/config.js';
+
 // App component - represents the whole app
 export default class Redistribution extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			modal : 0
+		}
+	}
+
+	handleOpenModal(){
+		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
+		this.state.modal.handleOpenModal();
+	}
+
+	handleModalMounted(modal){
+		this.setState({ modal: modal});
+		modal.onClose(function(userId){
+			if(userId && Meteor.user()){
+				FlowRouter.go("userProfile", {username : Meteor.user().username})
+			}
+		});
 	}
 
 	render() {
@@ -24,11 +45,37 @@ export default class Redistribution extends Component {
 						<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaingn.</p>
 						<p>Join us and let's make the data economy benefits everyone!</p>
 						<BitsoilTotalCounter />
-						<FixeRedistriutionPunchline />
+						<FixePunchline description={[
+							"create your personal wallet.",
+							"take part of the taxation system."
+						]}>
+								{
+									Meteor.userId() ?
+										<a	className="button button--md hero-banner__button" 
+											href={FlowRouter.path("userProfile", {username : Meteor.user().username})} 
+										>
+											{Meteor.user().username}
+										</a>
+									:
+										<a	href="#" 
+											className="button button--md hero-banner__button" 
+											onClick={this.handleOpenModal.bind(this)}
+										>
+											Sign up
+										</a>
+								}
+							<a	className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>
+								Create your taxbot
+							</a>
+						</FixePunchline>
 						<FixeShortAbout />
 						<WalletList />
 					</div>
 				</div>
+				<UserModal
+					process="signup"
+					onMounted={this.handleModalMounted.bind(this)}
+				/>
 				<FooterMenu />
 			</div>
 		);

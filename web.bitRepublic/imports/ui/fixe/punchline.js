@@ -10,9 +10,36 @@ export default class FixePunchline extends Component {
 		return (
 			<div className="punchline">
 				<div className="container">
-					<p>over &euro; 1 billion in lost taxes on people's browsing activity.</p>
-					<p>bitsoil the new oil of the digital economy.</p>
-					<p>time to claim your share.</p>
+					{
+						this.props.title ? 
+							<h2 className="hero-banner__title">
+								{this.props.title}
+							</h2>
+						:
+							null
+					}
+					{
+						this.props.description ? 
+							this.props.description.map((description, k) => (
+								<p key={k}>{description}</p>
+							))
+						:
+							null
+					}
+					{
+						this.props.children ? 
+							<ul className="buttons-list">
+								{
+									React.Children.map(this.props.children, (child, k) =>(
+										<li className="buttons-list__item" key={k}>
+											{child}
+										</li>
+									))
+								}
+							</ul>
+						:
+							null
+					}
 				</div>
 			</div>
 		);
