@@ -42,6 +42,7 @@
   padding: 4px 5px;
   background: $grey-shark;
   margin-bottom: .4rem;
+  line-height: 0;
 }
 
 // Counter Block
@@ -129,15 +130,34 @@
 // ---------------------
 .counter--xl .counter__prefix {
   background: $color-primary;
-  width: 12.5rem;
-  height: 12.5rem;
-  margin-right: .9rem;
+
+  @include breakpoint($below-md) {
+    width: 4.3rem;
+    height: 4.3rem;
+    margin-right: 3px;
+  }
+
+  @include breakpoint($md) {
+    width: 12.3rem;
+    height: 12.3rem;
+    margin-right: 9px;
+  }
 }
 
 .counter--xl .counter__row {
+  border-radius: 0;
   background: transparent;
   padding: 0;
-  margin-bottom: .9rem;
+  margin-bottom: 3px;
+
+
+  @include breakpoint($md) {
+    margin-bottom: 9px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .counter--xl .counter__row:first-child .counter__block,
@@ -145,17 +165,32 @@
   background: $color-primary;
 }
 
+
 .counter--xl .counter__block {
-  width: 5.7rem;
-  height: 5.7rem;
-  margin-right: 9px;
-  font-size: 9rem;
   color: #fff;
   background: $grey-thunder;
 
   &:last-child {
     margin-right: 0;
   }
+
+  @include breakpoint($below-md) {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 3px;
+    font-size: 3rem;
+  }
+
+  @include breakpoint($md) {
+    width: 5.7rem;
+    height: 5.7rem;
+    margin-right: 9px;
+    font-size: 9rem;
+  }
+}
+
+.counter--xl .counter__block__text {
+  // line-height: 0;
 }
 
 // Counter Tax Rate
