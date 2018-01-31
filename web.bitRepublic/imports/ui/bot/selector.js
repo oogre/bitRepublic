@@ -16,7 +16,7 @@ import UserModal from '../user/modal.js';
 import BitsoilCounter from '../bitsoil/counter.js';
 import { BitsoilCreate } from '../../api/bitsoils/methods.js';
 
-
+import * as Utilities from '../../utilities.js'
 class BotSelector extends Component {
 	constructor(props){
 		super(props);
@@ -39,6 +39,8 @@ class BotSelector extends Component {
 			selectedBot : bot
 		});
 		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
+
+		Utilities.scrollTo("tweetSelector");
 	}
 
 	handleBotCreation(userId){
@@ -142,6 +144,7 @@ class BotSelector extends Component {
 						{this.renderBots()}
 					</ul>
 				</div>
+				<div id="tweetSelector" ></div>
 				{this.renderTweets()}
 				<div className="container">
 					<button className="button--primary button--submit"
@@ -154,6 +157,7 @@ class BotSelector extends Component {
 						onMounted={this.handleModalMounted.bind(this)}
 					/>
 				</div>
+
 			</div>
 		);
 	}

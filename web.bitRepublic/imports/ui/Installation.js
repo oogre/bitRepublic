@@ -7,7 +7,8 @@ import MenuMenu from './menu/menu.js';
 import FixePitch from './fixe/pitch.js';
 import FixePunchline from './fixe/punchline.js';
 import FixeGallery from './fixe/gallery.js';
-
+import FixeInfo from './fixe/info.js';
+import FixeSlider from './fixe/slider.js';
 // App component - represents the whole app
 export default class Installation extends Component {
 	constructor(props){
@@ -43,7 +44,8 @@ export default class Installation extends Component {
 					<FixePunchline description={["design your tax collector bot", "claim a #bitsoiltax"]}>
 						<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create now</a>
 					</FixePunchline>
-					
+					<FixeInfo />
+					<FixeSlider />
 				</div>
 				<FooterMenu />
 			</div>

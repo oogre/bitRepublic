@@ -6,21 +6,13 @@ import Redistribution from '../imports/ui/Redistribution.js';
 import Installation from '../imports/ui/Installation.js';
 import UserProfile from '../imports/ui/user/profile.js';
 import UserUpdate from '../imports/ui/user/update.js';
-
-
-function scrollTo(hash){	
-	if(!!$("#"+hash).length){
-		$('html, body').animate({
-			scrollTop: $("#"+hash).offset().top
-		}, 2000);
-	}
-}
+import * as Utilities from '../imports/utilities.js'
 
 FlowRouter.route( '/', {
 	name: 'home',
 	action( params ) {
 		render(<App />, document.getElementById('render-target'));
-		scrollTo(FlowRouter.current().context.hash);
+		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('bitsoils', Meteor.subscribe('bitsoils'));
@@ -34,7 +26,7 @@ FlowRouter.route('/about', {
 	name: 'about',
 	action( params ) {
 		render(<About />, document.getElementById('render-target'));
-		scrollTo(FlowRouter.current().context.hash);
+		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
 		//this.register('bitsoils', Meteor.subscribe('bitsoils'));
@@ -45,7 +37,7 @@ FlowRouter.route('/redistribution', {
 	name: 'redistribution',
 	action( params ) {
 		render(<Redistribution />, document.getElementById('render-target'));
-		scrollTo(FlowRouter.current().context.hash);
+		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
 		//this.register('bitsoils', Meteor.subscribe('bitsoils'));
@@ -57,7 +49,7 @@ FlowRouter.route('/installation', {
 	name: 'installation',
 	action( params ) {
 		render(<Installation />, document.getElementById('render-target'));
-		scrollTo(FlowRouter.current().context.hash);
+		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
 		//this.register('bitsoils', Meteor.subscribe('bitsoils'));
@@ -77,7 +69,7 @@ loginRoutes.route("/user/:username", {
 	name: "userProfile",
 	action: function(params) {
 		render(<UserProfile />, document.getElementById('render-target'));
-		scrollTo(FlowRouter.current().context.hash);
+		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));
@@ -90,7 +82,7 @@ loginRoutes.route("/user/:username/update", {
 	name: "userUpdate",
 	action: function(params) {
 		render(<UserUpdate />, document.getElementById('render-target'));
-		scrollTo(FlowRouter.current().context.hash);
+		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('my.files.images', Meteor.subscribe('my.files.images'));

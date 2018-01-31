@@ -11,7 +11,6 @@ export function bitsoilFormat(inputNumber, afterCommaOffest){
 	return outputNumber;
 }
 
-
 export function numberFormat(inputNumber, len){
 	check(inputNumber, Number);
 
@@ -33,4 +32,17 @@ export function datePlusSeconds(date, seconds){
 	check(date, Date);
 	check(seconds, Number);
 	return new Date(date.getTime() + seconds*1000);
+}
+
+export function scrollTo(hash){
+	console.log(hash);
+	let h = $("#"+hash);
+	console.log(h);
+	if(!!h.length){
+		let des = h.offset().top;
+		let cur = $('html').get(0).scrollTop;
+		$('html, body').animate({
+			scrollTop: des
+		}, Math.abs(cur-des) * 1);
+	}
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import UserModal from '../user/modal.js';
+import { withTracker } from 'meteor/react-meteor-data';
+
 import { BitsoilCreate } from '../../api/bitsoils/methods.js';
 import { config } from '../../startup/config.js';
 
-export default class RedistriutionMenu extends Component {
+class RedistriutionMenu extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -33,12 +35,12 @@ export default class RedistriutionMenu extends Component {
 							<ul className="buttons-list">
 								<li className="buttons-list__item">
 									{
-										Meteor.userId() ?
+										this.props.userId ?
 											<a 
 												className="button button--md hero-banner__button" 
-												href={FlowRouter.path("userProfile", {username : Meteor.user().username})} 
+												href={FlowRouter.path("userProfile", {username : this.props.username})} 
 											>
-												{Meteor.user().username}
+												{this.props.username}
 											</a>
 										:
 											<a 
@@ -81,3 +83,16 @@ export default class RedistriutionMenu extends Component {
 		);
 	}
 }
+
+
+export default withTracker(() => {
+	let currentUser = Meteor.user();
+	let username = currentUser ? currentUser.username : null;
+	let userId = currentUser ? currentUser._id : null;
+
+	return {
+		userId : userId,
+		currentUser : currentUser,
+		username : username
+	};
+})(RedistriutionMenu);

@@ -35,11 +35,11 @@ export default class FixeGallery extends Component {
 			});
 		}
 	}
-	componentWillMount(){
-		window.addEventListener('keyup', this.handleKeyPress.bind(this));
+	componentDidMount(){
+		window.addEventListener('keyup', this.handleKeyPress.bind(this), false);
 	}
 	componentWillUnmount(){
-		window.removeEventListener("keyup", this.handleKeyPress.bind(this));
+		window.removeEventListener("keyup", this.handleKeyPress.bind(this), false);
 	}
 	render() {
 		GetContentGallery.call({}, (err, res) =>{

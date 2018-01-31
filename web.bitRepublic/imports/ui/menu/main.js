@@ -53,22 +53,22 @@ class MainMenu extends Component {
 						<a className="menu__item__link" href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="/redistribution">Take part of the redistribution</a>
+						<a className="menu__item__link" href={FlowRouter.path("redistribution")} >Take part of the redistribution</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="/installation">Installation</a>
+						<a className="menu__item__link" href={FlowRouter.path("installation")}>Installation</a>
 					</li>
 					<li className="menu__item">
 						<a className="menu__item__link" href="#">WHO WE ARE</a>
 					</li>
 					<li className="menu__item">
 						{
-							Meteor.userId() ?
+							this.props.userId ?
 							<a 
 								className="menu__item__link" 
-								href={FlowRouter.path("userProfile", {username : Meteor.user().username})} 
+								href={FlowRouter.path("userProfile", {username : this.props.username})} 
 							>
-								{Meteor.user().username}
+								{this.props.username}
 							</a>
 						:
 							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Login</a>
