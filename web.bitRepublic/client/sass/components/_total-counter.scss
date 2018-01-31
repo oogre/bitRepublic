@@ -3,15 +3,47 @@
 \*------------------------------------*/
 
 .total-counter {
-  padding: 70px 0;
+  padding: 35px 0;
+
+  @include breakpoint($md) {
+    padding: 70px 0;
+  }
 }
 
 .total-counter .counter,
 .total-counter .counter--xl {
-  margin-bottom: 50px;
   text-align: center;
+  margin-bottom: 25px;
+
+  @include breakpoint($md) {
+    margin-bottom: 50px;
+  }
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+// artwork-bitsoil-symbol
+// ---------------------
+.total-counter .counter--xl .artwork-bitsoil-symbol {
+  @include breakpoint($below-md) {
+    height: 35px;
+  }
+
+  @include breakpoint($md) {
+    height: 98px;
+  }
+}
+
+// artwork-tax-logo
+// ---------------------
+.total-counter .counter--xl .artwork-tax-logo {
+  @include breakpoint($below-md) {
+    width: 35px;
+  }
+
+  @include breakpoint($md) {
+    width: 97px;
   }
 }

@@ -79,7 +79,7 @@ class TweetSelector extends Component {
 					className={'tabs-selector-list__button' + (this.state.selectedTweet == k ? ' selected' : '')}
 					onClick={this.handleTweetSelected.bind(this, k)}
 				>
-					tweet #{k}
+					<span class="tabs-selector-list__button__prefix">tweet</span> #{k}
 				</button>
 				{
 					this.props.isAdmin ? this.renderDeleteTweetButton(tweet._id) : null
@@ -95,7 +95,7 @@ class TweetSelector extends Component {
 	renderTweets(){
 		return this.props.bot.tweets.map((tweet, k) => (
 			<TweetOption
-				k={this.props.k}
+				k={k}
 				visible={this.state.selectedTweet == k}
 				key={this.props.bot._id+"_"+k}
 				id={this.props.bot._id+"_"+k}
