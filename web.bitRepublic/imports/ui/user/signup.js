@@ -58,12 +58,12 @@ export default class UserSignup extends Component {
 			if(_.isFunction(this.props.onSuccess)){
 				this.props.onSuccess(res.data);
 			}
-		});		
+		});
 	}
 
 	render() {
 		return (
-			<div className={"modal__container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className={(this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleSignup.bind(this)}>
 					<div className="fields-row">
 						<div className="fields-column">
@@ -73,9 +73,9 @@ export default class UserSignup extends Component {
 								name="firstname"
 								placeholder="first name"
 							/>
-							{ 	this.state["error-firstname"] ? 
-									<MessageError 
-										error={this.state["error-firstname"]} 
+							{ 	this.state["error-firstname"] ?
+									<MessageError
+										error={this.state["error-firstname"]}
 										messages={config.FORM.ERRORS.firstname}
 									/>
 								:
@@ -89,9 +89,9 @@ export default class UserSignup extends Component {
 								name="lastname"
 								placeholder="last name"
 							/>
-							{ 	this.state["error-lastname"] ? 
-									<MessageError 
-										error={this.state["error-lastname"]} 
+							{ 	this.state["error-lastname"] ?
+									<MessageError
+										error={this.state["error-lastname"]}
 										messages={config.FORM.ERRORS.lastname}
 									/>
 								:
@@ -107,9 +107,9 @@ export default class UserSignup extends Component {
 								name="email"
 								placeholder="yout email"
 							/>
-							{ 	this.state["error-email"] ? 
-									<MessageError 
-										error={this.state["error-email"]} 
+							{ 	this.state["error-email"] ?
+									<MessageError
+										error={this.state["error-email"]}
 										messages={config.FORM.ERRORS.email}
 									/>
 								:
@@ -123,9 +123,9 @@ export default class UserSignup extends Component {
 								name="country"
 								placeholder="your country"
 							/>
-							{ 	this.state["error-country"] ? 
-									<MessageError 
-										error={this.state["error-country"]} 
+							{ 	this.state["error-country"] ?
+									<MessageError
+										error={this.state["error-country"]}
 										messages={config.FORM.ERRORS.country}
 									/>
 								:
@@ -134,15 +134,15 @@ export default class UserSignup extends Component {
 						</div>
 					</div>
 					<div className="fields-row text-right">
-						<input 
+						<input
 							className={
-								"button--primary " + 
-								(this.state['is-loading'] ? "loading " : "") + 
-								(this.state['has-success'] ? "success " : "") + 
+								"button--primary " +
+								(this.state['is-loading'] ? "loading " : "") +
+								(this.state['has-success'] ? "success " : "") +
 								(this.state['has-error'] ? "error " : "")
-							} 
-							type="submit" 
-							value="confirm" 
+							}
+							type="submit"
+							value="confirm"
 						/>
 					</div>
 				</form>

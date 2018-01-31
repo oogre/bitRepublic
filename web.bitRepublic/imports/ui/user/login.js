@@ -33,7 +33,7 @@ export default class UserLogIn extends Component {
 			email : ReactDom.findDOMNode(this.refs.email).value,
 			password : ReactDom.findDOMNode(this.refs.password).value
 		};
-		
+
 		LoginUser.call(data, (err, res) => {
 			this.setState({'is-loading' : false});
 			if (err && err.error === 'validation-error') {
@@ -104,15 +104,15 @@ export default class UserLogIn extends Component {
 				alert("You'll receive soon an email to reset your password.");
 			});
 		});
-		
-		
+
+
 		return false;
 	}
 
 
 	render() {
 		return (
-			<div className={"modal__container"+ " " + (this.props.visible ? "" : "hidden")}>
+			<div className={(this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					<div className="fields-row">
 						<div className="fields-column">
@@ -122,10 +122,10 @@ export default class UserLogIn extends Component {
 								name="email"
 								placeholder="Type your email"
 							/>
-							{ 	
-								this.state["error-email"] ? 
-									<MessageError 
-										error={this.state["error-email"]} 
+							{
+								this.state["error-email"] ?
+									<MessageError
+										error={this.state["error-email"]}
 										messages={config.FORM.ERRORS.email}
 									/>
 								:
@@ -139,10 +139,10 @@ export default class UserLogIn extends Component {
 								name="password"
 								placeholder="Type your password"
 							/>
-							{ 	
-								this.state["error-password"] ? 
-									<MessageError 
-										error={this.state["error-password"]} 
+							{
+								this.state["error-password"] ?
+									<MessageError
+										error={this.state["error-password"]}
 										messages={config.FORM.ERRORS.password}
 									/>
 								:
@@ -151,23 +151,23 @@ export default class UserLogIn extends Component {
 						</div>
 					</div>
 					<div className="fields-row text-right">
-						<a onClick={this.handleForgotPassword.bind(this)}>
+						<a className="modal__link" onClick={this.handleForgotPassword.bind(this)}>
 							forgot password ?
 						</a>
-						<input 
+						<input
 							className={
 								"button--primary " +
-								(this.state['is-loading'] ? "loading " : "") + 
-								(this.state['has-success'] ? "success " : "") + 
-								(this.state['has-error'] ? "error " : "") 
+								(this.state['is-loading'] ? "loading " : "") +
+								(this.state['has-success'] ? "success " : "") +
+								(this.state['has-error'] ? "error " : "")
 							}
-							type="submit" 
-							value="Login" 
+							type="submit"
+							value="Login"
 						/>
-						{ 	
-							this.state["error"] ? 
-								<MessageError 
-									error={this.state["error"]} 
+						{
+							this.state["error"] ?
+								<MessageError
+									error={this.state["error"]}
 									messages={[]}
 								/>
 							:

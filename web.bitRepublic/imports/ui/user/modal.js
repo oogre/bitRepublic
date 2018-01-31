@@ -70,9 +70,7 @@ export default class UserModal extends Component {
 				WebkitOverflowScrolling    : 'touch',
 				borderRadius               : '0',
 				outline                    : 'none',
-				padding                    : '20px',
-				display                    : 'flex',
-				alignItems                 : 'center'
+				padding                    : '20px'
 			}
 		}
 
@@ -84,26 +82,29 @@ export default class UserModal extends Component {
 					onRequestClose={this.handleCloseModal.bind(this)}
 					style={modalStyle}
 				>
-
-					<a className="modal__close" href="#" onClick={this.handleCloseModal.bind(this)}>&times;</a>
-
-					<UserLogIn visible={this.state.selectedProcess == "login"} onSuccess={this.handleCloseModal.bind(this)}/>
-					<UserSignup visible={this.state.selectedProcess == "signup"} onSuccess={this.handleCloseModal.bind(this)}/>
-					<br/>
-					<a
-						className={this.state.selectedProcess == "signup" ? "" : "hidden"}
-						href="#"
-						onClick={this.handleChangeProcess.bind(this, "login")}
-					>
-						Login
-					</a>
-					<a
-						className={this.state.selectedProcess == "login" ? "" : "hidden"}
-						href="#"
-						onClick={this.handleChangeProcess.bind(this, "signup")}
-					>
-						Signup
-					</a>
+					<div className="modal__wrapper">
+						<div className="modal__container">
+							<a className="modal__close" href="#" onClick={this.handleCloseModal.bind(this)}>&times;</a>
+							<UserLogIn visible={this.state.selectedProcess == "login"} onSuccess={this.handleCloseModal.bind(this)}/>
+							<UserSignup visible={this.state.selectedProcess == "signup"} onSuccess={this.handleCloseModal.bind(this)}/>
+							<div className="field__row text-right">
+								<a
+									className={"modal__link" + " " + (this.state.selectedProcess == "signup" ? "" : "hidden")}
+									href="#"
+									onClick={this.handleChangeProcess.bind(this, "login")}
+								>
+									Login
+								</a>
+								<a
+									className={"modal__link" + " " + (this.state.selectedProcess == "login" ? "" : "hidden")}
+									href="#"
+									onClick={this.handleChangeProcess.bind(this, "signup")}
+								>
+									Signup
+								</a>
+							</div>
+						</div>
+					</div>
 				</ReactModal>
 			</div>
 		);
