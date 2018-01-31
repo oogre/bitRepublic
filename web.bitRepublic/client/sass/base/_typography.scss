@@ -36,7 +36,11 @@ h6 {
 .title--primary,
 .title--secondary {
   color: #fff;
-  padding: 35px 0;
+  padding: 20px;
+
+  @include breakpoint($md) {
+    padding: 35px 0;
+  }
 }
 
 // Primary
