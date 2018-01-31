@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
 import { Schedules } from '../../api/bots/bots.js';
+import { BotTweetUpdate } from '../../api/bots/methods.js';
+import { config } from '../../startup/config.js';
+import MessageError from '../message/error.js';
 
 class TweetForm extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			'error-login' : false,
+			'error-admin' : false,
+			'error-bot-model' : false,
+			'error-tweet' : false,
+			'error-tweet.content' : false,
+			'error-tweet.schedules' : false,
+			'is-loading' : false,
+			'has-error' : false,
+			'has-success' : false
+		}
 	}
 
 	handleTweetSchedule(event){
@@ -16,6 +29,17 @@ class TweetForm extends Component {
 	}
 	handleSubmit(event){
 		event.preventDefault();
+		this.setState({
+			'error-login' : false,
+			'error-admin' : false,
+			'error-bot-model' : false,
+			'error-tweet' : false,
+			'error-tweet.content' : false,
+			'error-tweet.schedules' : false,
+			'is-loading' : true,
+			'has-error' : false,
+			'has-success' : false
+		});
 		let self = this;
 		let data = {
 			botId : this.props.botId,
@@ -29,10 +53,22 @@ class TweetForm extends Component {
 							})
 			}
 		};
-		ReactDom.findDOMNode(self.refs["tweetContent"]).value = '';
-
-		Meteor.call("bot.tweet.update", data);
-
+		
+		BotTweetUpdate.call(data, (err, res)=>{
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
+			}
+			this.setState({'has-success' : true});
+			ReactDom.findDOMNode(this.refs["tweetContent"]).value = '';
+		});
+		
 		return false;
 	}
 	renderCheckboxSchedule(){
@@ -62,12 +98,65 @@ class TweetForm extends Component {
 						ref="tweetContent"
 						placeholder="Type to add tweetContent"
 					/>
+					{	
+						this.state["error-tweet.content"] ? 
+							<MessageError 
+								error={this.state["error-tweet.content"]} 
+								messages={config.FORM.ERRORS.tweet.content}
+							/>
+						:
+							null
+					}
 					<br/>
 					{this.renderCheckboxSchedule()}
+					{	
+						this.state["error-tweet.schedules"] ? 
+							<MessageError 
+								error={this.state["error-tweet.schedules"]} 
+								messages={config.FORM.ERRORS.tweet.schedules}
+							/>
+						:
+							null
+					}
 					<input
 						type="submit"
 						value="Submit"
+						className={
+							"button--primary button--submit "+
+							(this.state['is-loading'] ? "loading " : "") + 
+							(this.state['has-success'] ? "success " : "") + 
+							(this.state['has-error'] ? "error " : "")
+						}
 					/>
+					{	
+						this.state["error-login"] ? 
+							<MessageError 
+								error={this.state["error-login"]} 
+								messages={config.FORM.ERRORS.login}
+							/>
+						:
+							null
+					}
+					
+					{	
+						this.state["error-admin"] ? 
+							<MessageError 
+								error={this.state["error-admin"]} 
+								messages={config.FORM.ERRORS.admin}
+							/>
+						:
+							null
+					}
+					
+					{	
+						this.state["error-bot-model"] ? 
+							<MessageError 
+								error={this.state["error-bot-model"]} 
+								messages={config.FORM.ERRORS.bot-model}
+							/>
+						:
+							null
+					}
 				</form>
 		);
   	}

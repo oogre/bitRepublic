@@ -5,68 +5,67 @@ import { Schedules } from './bots.js';
 import { Actions } from '../actions/actions.js';
 import * as Utilities from '../../utilities.js'
 
-Meteor.methods({
-	/**
-	* @api {Meteor.call} /api/bots/create
-	* @apiName bots.create
-	* @apiGroup Private
-	*
-	* @apiDescription Call Meteor.call('bots.create' ... to create bot
-	* the user has to be loged-in
-	*
-	* @apiSuccess {String} Bots._id the _id of the newly created bot
-	*/
-	'bots.create' : function(userId, data){
-		console.log(data);
 
-		new SimpleSchema({
-			userId: { type: String, regEx: SimpleSchema.RegEx.Id },
-			data: { type: Object },
-			'data.bitsoil': { type: Number, decimal : true },
-			'data.botId': { type: String, regEx: SimpleSchema.RegEx.Id },
-			'data.tweet': { type: Array },
-			'data.tweet.$': { type: Object },
-			'data.tweet.$.tweetId': { type: String, regEx: SimpleSchema.RegEx.Id },
-			'data.tweet.$.schedule': { type: String, regEx: SimpleSchema.RegEx.Id }
-		}).validate({
-			userId, 
-			data
-		});
-
-		let botModel = Bots.findOne({
+export const CreateBot = new ValidatedMethod({
+	name: 'Bots.methods.create',
+	validate: new SimpleSchema({
+		userId: { type: String, regEx: SimpleSchema.RegEx.Id },
+		'bitsoil': { type: Number, decimal : true },
+		'botModelId': { type: String, regEx: SimpleSchema.RegEx.Id },
+		'tweet': { type: [Object], minCount: 1},
+		'tweet.$.tweetId': { type: String, regEx: SimpleSchema.RegEx.Id },
+		'tweet.$.schedule': { type: String, regEx: SimpleSchema.RegEx.Id }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ userId, bitsoil, botModelId, tweet }) {
+		const botModel = Bots.findOne({
 			model : true,
-			_id : data.botId
+			_id : botModelId
 		});
-
 		if(!botModel){
-			throw new Meteor.Error("validation-error", 'The bot model is not known');
+			const errors = [{
+				name: 'bot-model',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
 		}
 
 		if(!_.isString(botModel._id) || !_.isArray(botModel.tweets)){
-			throw new Meteor.Error("validation-error", 'The bot model is corrupted');
+			const errors = [{
+				name: 'bot-model',
+				type: 'corrupted'
+			}];
+			throw new ValidationError(errors);
 		}
+		const schedules = Schedules.find({}).fetch();
 
-		let botId = Bots.insert({
+		const botId = Bots.insert({
 			createdAt : new Date(),
 			owner : userId,
-			model : botModel._id,
-			bitsoil: data.bitsoil,
+			model : botModelId,
+			bitsoil: bitsoil,
 			active : true
 		});
 
-		let actionIds = data.tweet.map(function(tweet){
-			let schedule = Schedules.findOne(tweet.schedule);
+		let actionIds = tweet.map((tweet)=>{
 			return Actions.insert({
 				bot : botId,
 				active : true,
 				counter : 0,
-				content : _.find(botModel.tweets, function(t){
+				content : _.find(botModel.tweets, (t)=>{
 							return t._id == tweet.tweetId
 						}).content,
 				createdAt : new Date(),
 				nextActivation : Utilities.nowPlusSeconds(60),
-				interval : schedule.value,
-				bitsoil: data.bitsoil,
+				interval : _.find(schedules, (schedule)=>{
+							return schedule._id == tweet.schedule;
+						}).value,
+				bitsoil: bitsoil,
 			});
 		});
 
@@ -81,32 +80,57 @@ Meteor.methods({
 
 		return {
 			success : true,
-			message : "Tweet updated",
+			message : "Bot created",
 			data : botId
 		};
-	},
-	'bot.tweet.update' : function(data){
-		new SimpleSchema({
-			botId: { type: String, regEx: SimpleSchema.RegEx.Id },
-			'tweet': { type: Object },
-			'tweet._id': { type: String, regEx: SimpleSchema.RegEx.Id },
-			'tweet.content': { type: String },
-			'tweet.schedules': { type: Array },
-			'tweet.schedules.$': { type: Object },
-			'tweet.schedules.$._id': { type: String, regEx: SimpleSchema.RegEx.Id },
-			'tweet.schedules.$.content': { type: String },
-			'tweet.schedules.$.value': { type: Number }
-		}).validate(data);
+	}
+});
 
-		if( !Meteor.userId() && Meteor.user().roles.includes("admin")){
-			throw new Meteor.Error("validation-error", 'You do not have the right to perform this action');
+
+export const BotTweetUpdate = new ValidatedMethod({
+	name: 'Bots.methods.tweet.update',
+	validate: new SimpleSchema({
+		botId: { type: String, regEx: SimpleSchema.RegEx.Id },
+		'tweet': { type: Object },
+		'tweet._id': { type: String, regEx: SimpleSchema.RegEx.Id },
+		'tweet.content': { type: String, min: 1, max: 140},
+		'tweet.schedules': { type: [Object], minCount: 2},
+		'tweet.schedules.$._id': { type: String, regEx: SimpleSchema.RegEx.Id },
+		'tweet.schedules.$.content': { type: String },
+		'tweet.schedules.$.value': { type: Number }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ botId, tweet }) {
+		if(!Meteor.userId()){
+			const errors = [{
+				name: 'login',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		if(!Meteor.user().roles.includes("admin")){
+			const errors = [{
+				name: 'admin',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		if(!Bots.findOne({model : true,_id : botId})){
+			const errors = [{
+				name: 'bot-model',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
 		}
 
-		Bots.update({
-		 _id : data.botId
-		}, {
+		Bots.update({model : true,_id : botId}, {
 			$push : {
-				tweets : data.tweet
+				tweets : tweet
 			}
 		});
 
@@ -114,28 +138,53 @@ Meteor.methods({
 			success : true,
 			message : "Tweet updated"
 		};
+
+	}
+});
+
+
+export const BotTweetDelete = new ValidatedMethod({
+	name: 'Bots.methods.tweet.delete',
+	validate: new SimpleSchema({
+		botId: { type: String, regEx: SimpleSchema.RegEx.Id },
+		tweetId: { type: String, regEx: SimpleSchema.RegEx.Id }
+	}).validator({clean:true}),
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
 	},
-	'bot.tweet.delete' :function(data){
-		new SimpleSchema({
-			botId: { type: String, regEx: SimpleSchema.RegEx.Id },
-			'tweetId': { type: String, regEx: SimpleSchema.RegEx.Id }
-		}).validate(data);
-
-		if( !Meteor.userId() && Meteor.user().roles.includes("admin")){
-			throw new Meteor.Error("validation-error", 'You do not have the right to perform this action');
+	run({ botId, tweetId }) {
+		if(!Meteor.userId()){
+			const errors = [{
+				name: 'login',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
 		}
-
-		let bot = Bots.findOne({ _id : data.botId });
+		if(!Meteor.user().roles.includes("admin")){
+			const errors = [{
+				name: 'admin',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		const bot = Bots.findOne({model : true, _id : botId, 'tweets' : { $elemMatch : { _id : tweetId}}})
 		if(!bot){
-			throw new Meteor.Error("validation-error", 'The bot is not known');
+			const errors = [{
+				name: 'bot-model',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
 		}
 		
 		Bots.update({
-		 _id : data.botId
+		 _id : botId
 		}, {
 			$set : {
 				tweets : bot.tweets.filter(function(tweet){
-					return tweet._id != data.tweetId;
+					return tweet._id != tweetId;
 				})
 			}
 		});
@@ -144,5 +193,6 @@ Meteor.methods({
 			success : true,
 			message : "Tweet deleted"
 		};
+
 	}
 });

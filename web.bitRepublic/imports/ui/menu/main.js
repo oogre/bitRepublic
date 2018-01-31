@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import UserModal from '../user/modal.js';
+import { BitsoilCreate } from '../../api/bitsoils/methods.js';
+import { config } from '../../startup/config.js';
 
 class MainMenu extends Component {
 	constructor(props){
@@ -25,12 +27,19 @@ class MainMenu extends Component {
 		});
 	}
 	handleOpenModal(){
+		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 		this.state.modal.handleOpenModal();
 	}
 	handleOpenMobileMenu(){
+		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 		this.setState({
 			mobileMenu: !this.state.mobileMenu
 		});
+	}
+	handleClickOnLink(event){
+		//event.preventDefault();
+		//BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
+		//return true;
 	}
 	render() {
 			return (
@@ -42,24 +51,30 @@ class MainMenu extends Component {
 				</button>
 				<ul className={"menu menu--header" + " " + (this.state.mobileMenu ? "visible" : "")}>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("about")}>About</a>
+						<a className="menu__item__link" href={FlowRouter.path("about")} onClick={this.handleClickOnLink.bind(this)}>About</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
+						<a className="menu__item__link" href={FlowRouter.path("home") + "#taxbot"} onClick={this.handleClickOnLink.bind(this)}>Design your taxbot</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="/redistribution">Take part of the redistribution</a>
+						<a className="menu__item__link" href="/redistribution" onClick={this.handleClickOnLink.bind(this)}>Take part of the redistribution</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="/installation">Installation</a>
+						<a className="menu__item__link" href="/installation" onClick={this.handleClickOnLink.bind(this)}>Installation</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="#">WHO WE ARE</a>
+						<a className="menu__item__link" href="#" onClick={this.handleClickOnLink.bind(this)}>WHO WE ARE</a>
 					</li>
 					<li className="menu__item">
 						{
 						this.props.userId ?
-							<a className="menu__item__link" href={FlowRouter.path("userProfile", {username : this.props.username})}>{this.props.username}</a>
+							<a 
+								className="menu__item__link" 
+								href={FlowRouter.path("userProfile", {username : this.props.username})} 
+								onClick={this.handleClickOnLink.bind(this)}
+							>
+								{this.props.username}
+							</a>
 						:
 							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Login</a>
 						}

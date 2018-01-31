@@ -10,6 +10,10 @@ export const config = {
 		MIN : 6,
 		MAX : 64
 	},
+	BITSOIL_UNIT : {
+		MIN : 0.000001,
+		MAX : 1.0
+	},
 	FORM : {
 		ERRORS : {
 			firstname : {
@@ -36,7 +40,27 @@ export const config = {
 				'needed' : "you have to be logged in to perform this action"
 			},
 			avatar : {
-				'no-exists' : "the picture does not exist"
+				'needed' : "the picture does not exist"
+			},
+			action : {
+				'needed' : "the action does not exist"
+			},
+			'bot-model' : {
+				'needed' : "the bot model does not exist",
+				'corrupted' : "the bot model is corrupted"
+			},
+			"tweet" : {
+				minCount : "select at leat one tweet",
+				content : {
+					required : "the tweet must be filled",
+					maxString : "the tweet is too long",
+				},
+				schedules : {
+					"minCount" : "select at least 2 schedules"
+				},
+			},
+			admin : {
+				'needed' : "you have to be admin to perform this action"
 			}
 		}
 	}

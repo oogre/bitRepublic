@@ -8,10 +8,14 @@ import { TempWallets } from '../../api/wallets/wallets.js';
 import { Schedules } from '../../api/bots/bots.js';
 import { Bots } from '../../api/bots/bots.js';
 
+import { CreateBot } from '../../api/bots/methods.js';
+
 import BotOption from './option.js';
 import TweetSelector from '../tweet/selector.js';
 import UserModal from '../user/modal.js';
 import BitsoilCounter from '../bitsoil/counter.js';
+import { BitsoilCreate } from '../../api/bitsoils/methods.js';
+
 
 class BotSelector extends Component {
 	constructor(props){
@@ -22,7 +26,10 @@ class BotSelector extends Component {
 			modal : 0,
 			validateDisable : true,
 			tempBotData : {},
-			validateBotData : {}
+			validateBotData : {},
+			'is-loading' : true,
+			'has-error' : false,
+			'has-success' : false
 		}
 
 	}
@@ -31,27 +38,36 @@ class BotSelector extends Component {
 		this.setState({
 			selectedBot : bot
 		});
-		Meteor.call("bitsoils.generate", 0.000001);
+		
+		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 	}
 
-	handleBotCreation(data){
-		data = data || this.props.userId;
-		if(!data && this.state.selectedBot.signup)return;
-		Meteor.call('bots.create', data, this.state.validateBotData, (err, res) => {
-			if(err){
-				console.log(err.reason);
-			}else{
-				console.log("BotCreated " + res.data);
-				if(Meteor.user()){
-					FlowRouter.go("userProfile", {username : Meteor.user().username})
-				}
+	handleBotCreation(userId){
+		userId = userId || this.props.userId;
+		if(!userId && this.state.selectedBot.signup)return;
+
+		const data = {
+			userId: userId,
+			'bitsoil': this.state.validateBotData.bitsoil,
+			'botModelId': this.state.validateBotData.botId,
+			'tweet': this.state.validateBotData.tweet
+		}
+		CreateBot.call(data, (err, res)=>{
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				return;
+			}
+			this.setState({'has-success' : true});
+			if(Meteor.user()){
+				FlowRouter.go("userProfile", {username : Meteor.user().username})
 			}
 		});
 	}
 
 	handleValidation(){
 		if(!this.state.validateDisable){
-			Meteor.call("bitsoils.generate", 0.000001);
+			BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 			if(this.props.userId){
 				this.handleBotCreation(this.props.userId);
 			}else{
@@ -76,7 +92,6 @@ class BotSelector extends Component {
 		}else{
 			botData[event.bot][event.tweet] = event.schedule
 		}
-		console.log(botData);
 		this.setState({
 			tempBotData : botData,
 			validateDisable : _.isEmpty(botData) || _.isEmpty(botData[this.state.selectedBot._id]),
@@ -91,7 +106,7 @@ class BotSelector extends Component {
 						}).value()
 			}
 		});
-		Meteor.call("bitsoils.generate", 0.000001);
+		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 	}
 	renderBots(){
 		return this.props.bots.map((bot) => (

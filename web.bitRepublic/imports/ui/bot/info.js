@@ -8,13 +8,46 @@ import { Bots } from '../../api/bots/bots.js';
 import { Actions } from '../../api/actions/actions.js';
 import  BitsoilCounter from '../bitsoil/counter.js';
 
+import { ToggleAction } from '../../api/actions/methods.js';
+import MessageError from '../message/error.js';
+
 // App component - represents the whole app
 class BotInfo extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			'error-login' : false,
+			'error-action' : false,
+			'is-loading' : false,
+			'has-error' : false,
+			'has-success' : false
+		};
 	}
 	handleActiveChange(action){
-		Meteor.call("actions.toggle", action._id, !action.active);
+		this.setState({
+			'error-login' : false,
+			'error-action' : false,
+			'is-loading' : true,
+			'has-error' : false,
+			'has-success' : false
+		});
+
+		const data = {
+			actionId : action._id,
+			setChecked : !action.active
+		};
+		ToggleAction.call(data, (err, res)=>{
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
+			}
+			console.log(res);
+		});
 	}
 	renderTweet(actions){
 		return _.compact(actions).map((action) => (
@@ -122,6 +155,8 @@ class BotInfo extends Component {
 						{this.renderTotal()}
 					</tbody>
 				</table>
+				{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
+				{ this.state["error-action"] ? <MessageError error={ this.state["error-action"] } messages={ config.FORM.ERRORS.action } /> : null }
 			</div>
 		);
   	}

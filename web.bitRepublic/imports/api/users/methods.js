@@ -156,7 +156,7 @@ export const UserSetAvatar = new ValidatedMethod({
 			if(!avatar){
 				const errors = [{
 					name: 'avatar',
-					type: 'no-exists'
+					type: 'needed'
 				}];
 				throw new ValidationError(errors);
 			}

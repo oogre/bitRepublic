@@ -7,17 +7,30 @@ import TweetForm from './form.js';
 import { Bitsoils } from '../../api/bitsoils/bitsoils.js';
 import { Bots } from '../../api/bots/bots.js';
 
+import { BitsoilCreate } from '../../api/bitsoils/methods.js';
+import { BotTweetDelete } from '../../api/bots/methods.js';
+import { config } from '../../startup/config.js';
+import MessageError from '../message/error.js';
+
 class TweetSelector extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			'error-login' : false,
+			'error-admin' : false,
+			'error-bot-model' : false,
+			'is-loading' : false,
+			'has-error' : false,
+			'has-success' : false,
 			selectedTweet : 0,
+
 		};
+		
 	}
 	handleTweetSelected(k){
 		if(this.state.selectedTweet == k) return;
 		this.setState({ selectedTweet: k});
-		Meteor.call("bitsoils.generate", 0.000001);
+		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 	}
 	handleScheduleChange(event){
 		event.bot = this.props.bot._id;
@@ -28,11 +41,35 @@ class TweetSelector extends Component {
 	}
 	handleTweetDelete(tweetId, event){
 		event.preventDefault();
+		this.setState({
+			'error-login' : false,
+			'error-admin' : false,
+			'error-bot-model' : false,
+			'is-loading' : true,
+			'has-error' : false,
+			'has-success' : false
+		});
+
 		let data = {
 			botId : this.props.bot._id,
 			tweetId : tweetId
 		}
-		Meteor.call("bot.tweet.delete", data);
+		
+		BotTweetDelete.call(data, (err, res)=>{
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
+			}
+			this.setState({'has-success' : true});
+		});
+
+		
 		return false;
 	}
 	renderTweetButtons(){
@@ -83,12 +120,44 @@ class TweetSelector extends Component {
 						{this.props.isAdmin ? this.renderAddTweet():null}
 					</ul>
 					{this.renderTweets()}
-					{(this.props.isAdmin && this.state.selectedTweet == -1) ?
-						<TweetForm
-							botId={this.props.bot._id}
-							visible={this.state.selectedTweet == -1}/>
-							:
-							 null}
+					{
+						(this.props.isAdmin && this.state.selectedTweet == -1) ?
+							<TweetForm
+								botId={this.props.bot._id}
+								visible={this.state.selectedTweet == -1}
+							/>
+						:
+							null
+					}
+					{	
+						this.state["error-login"] ? 
+							<MessageError 
+								error={this.state["error-login"]} 
+								messages={config.FORM.ERRORS.login}
+							/>
+						:
+							null
+					}
+					
+					{	
+						this.state["error-admin"] ? 
+							<MessageError 
+								error={this.state["error-admin"]} 
+								messages={config.FORM.ERRORS.admin}
+							/>
+						:
+							null
+					}
+					
+					{	
+						this.state["error-bot-model"] ? 
+							<MessageError 
+								error={this.state["error-bot-model"]} 
+								messages={config.FORM.ERRORS.bot-model}
+							/>
+						:
+							null
+					}
 				</div>
 			</div>
 		);

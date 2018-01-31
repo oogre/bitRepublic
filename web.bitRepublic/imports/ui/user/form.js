@@ -13,6 +13,7 @@ class UserForm extends Component {
 			lastname : this.props.lastname,
 			username : this.props.username,
 			email : this.props.email,
+			'error-login' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
 			'error-username' : false,
@@ -34,6 +35,7 @@ class UserForm extends Component {
 	handleSubmit(event){
 		event.preventDefault();
 		this.setState({
+			'error-login' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
 			'error-username' : false,
@@ -159,6 +161,7 @@ class UserForm extends Component {
 							(this.state['has-error'] ? "error " : "")
 						}
 					/>
+					{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
 				</form> 		
 			</div>
 		);
