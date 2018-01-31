@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-import {config} from '../../startup/config.js';
+import * as Utilities from '../../utilities.js'
+import { config } from '../../startup/config.js';
 
+import { BitsoilCreate } from '../../api/bitsoils/methods.js';
 import { TempWallets } from '../../api/wallets/wallets.js';
 import { Schedules } from '../../api/bots/bots.js';
+import { CreateBot } from '../../api/bots/methods.js';
 import { Bots } from '../../api/bots/bots.js';
 
-import { CreateBot } from '../../api/bots/methods.js';
-
-import BotOption from './option.js';
-import TweetSelector from '../tweet/selector.js';
-import UserModal from '../user/modal.js';
 import BitsoilCounter from '../bitsoil/counter.js';
-import { BitsoilCreate } from '../../api/bitsoils/methods.js';
+import TweetSelector from '../tweet/selector.js';
+import BotOption from './option.js';
+import UserModal from '../user/modal.js';
+import FixeWait from '../fixe/wait.js';
 
-import * as Utilities from '../../utilities.js'
+
 class BotSelector extends Component {
 	constructor(props){
 		super(props);
-
 		this.state = {
 			selectedBot : 0,
 			modal : 0,
@@ -31,8 +31,8 @@ class BotSelector extends Component {
 			'has-error' : false,
 			'has-success' : false
 		}
-
 	}
+
 	handleBotSelected(bot){
 		if(this.state.selectedBot && this.state.selectedBot._id == bot._id) return;
 		this.setState({
@@ -110,14 +110,20 @@ class BotSelector extends Component {
 		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 	}
 	renderBots(){
-		return this.props.bots.map((bot) => (
-			<BotOption
-				bitsoil={this.props.bitsoil}
-				key={bot._id}
-				bot={bot}
-				onSelected={this.handleBotSelected.bind(this)}
-			/>
-		));
+		return (
+			<ul className="cards-list">
+			{
+				this.props.bots.map((bot) => (
+					<BotOption
+						bitsoil={this.props.bitsoil}
+						key={bot._id}
+						bot={bot}
+						onSelected={this.handleBotSelected.bind(this)}
+					/>
+				))
+			}
+			</ul>
+		);
 	}
 	renderTweets(){
 		return this.props.bots.map((bot, k) => (
@@ -140,39 +146,35 @@ class BotSelector extends Component {
 				<h3 className="title--secondary">Claim a bitsoiltax</h3>
 				<div className="container">
 					<h4 className="title--ternary">What job will the tax bot do</h4>
-					<ul className="cards-list">
-						{this.renderBots()}
-					</ul>
+					{ this.props.isReady ? this.renderBots() : <FixeWait/> }
 				</div>
 				<div id="tweetSelector" ></div>
-				{this.renderTweets()}
+				{ this.props.isReady ? this.renderTweets() : null }
 				<div className="container">
 					<button className="button--primary button--submit"
 						disabled={this.state.validateDisable}
 						onClick={this.handleValidation.bind(this)}>
 							validate
 					</button>
-					<UserModal
-						process="signup"
-						onMounted={this.handleModalMounted.bind(this)}
-					/>
 				</div>
-
+				<UserModal
+					process="signup"
+					onMounted={this.handleModalMounted.bind(this)}
+				/>
 			</div>
 		);
 	}
 }
 
 export default withTracker(() => {
-	let scheduleNever = Schedules.findOne({value : 0});
-	scheduleNeverId = scheduleNever ? scheduleNever._id : null;
-	let wallet = TempWallets.findOne({type : config.WALLET_TYPE.BOT});
-	let bitsoil = wallet ? wallet.bitsoil : 0;
-	let bots = Bots.find( {model : true} ).fetch() || [];
+	let publicBotsReady = FlowRouter.subsReady("public.bots");
+	let scheduleReady = FlowRouter.subsReady("schedules");
+	
 	return {
-		scheduleNeverId : scheduleNeverId,
 		userId : Meteor.userId(),
-		bitsoil : bitsoil,
-		bots : bots
+		isReady : publicBotsReady && scheduleReady,
+		scheduleNeverId : scheduleReady ? Schedules.findOne({value : 0})._id : 0,
+		bitsoil : TempWallets.findOne({type : config.WALLET_TYPE.BOT}, {fields : {bitsoil : 1}}).bitsoil,
+		bots : publicBotsReady ? Bots.find( {model : true} ).fetch() : []
 	};
 })(BotSelector);

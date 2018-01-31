@@ -35,9 +35,7 @@ export function datePlusSeconds(date, seconds){
 }
 
 export function scrollTo(hash){
-	console.log(hash);
 	let h = $("#"+hash);
-	console.log(h);
 	if(!!h.length){
 		let des = h.offset().top;
 		let cur = $('html').get(0).scrollTop;

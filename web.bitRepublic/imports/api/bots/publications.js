@@ -5,14 +5,14 @@ import { Schedules } from './bots.js';
 
 
 if(Meteor.isServer){
-	Meteor.publish('bots', function botsPublication(){
+	Meteor.publish('public.bots', function botsPublication(){
 		let bots = Bots.find({
-			$or : [{
-				owner : Meteor.userId()
-			}, {
-				model : true
-			}]
+			model : true,
+			owner : {
+				$exists : 0
+			}
 		});
+
 		let actions = Actions.find({
 			bot : {
 				$in : _.pluck(bots.fetch(), '_id')
@@ -22,9 +22,14 @@ if(Meteor.isServer){
 	});
 
 	Meteor.publish('my.bots', function botsPublication(){
+
+		if (!this.userId) {
+			return this.ready();
+		}
+
 		let bots = Bots.find({
 			$or : [{
-				owner : Meteor.userId()
+				owner : this.userId
 			},{
 				model : true
 			}]
@@ -36,9 +41,7 @@ if(Meteor.isServer){
 			}
 		});
 		
-		return [bots, actions];
-
-		
+		return [bots, actions];		
 	});
 	
 	Meteor.publish('schedules', function schedulesPublication(){

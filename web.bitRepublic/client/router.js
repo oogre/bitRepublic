@@ -1,12 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from '../imports/ui/App.js';
-import About from '../imports/ui/About.js';
+
+import * as Utilities from '../imports/utilities.js'
+
 import Redistribution from '../imports/ui/Redistribution.js';
 import Installation from '../imports/ui/Installation.js';
 import UserProfile from '../imports/ui/user/profile.js';
 import UserUpdate from '../imports/ui/user/update.js';
-import * as Utilities from '../imports/utilities.js'
+import About from '../imports/ui/About.js';
+import App from '../imports/ui/App.js';
 
 FlowRouter.route( '/', {
 	name: 'home',
@@ -15,8 +17,7 @@ FlowRouter.route( '/', {
 		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
-		this.register('bitsoils', Meteor.subscribe('bitsoils'));
-		this.register('bots', Meteor.subscribe('bots'));
+		this.register('public.bots', Meteor.subscribe('public.bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
@@ -27,9 +28,6 @@ FlowRouter.route('/about', {
 	action( params ) {
 		render(<About />, document.getElementById('render-target'));
 		Utilities.scrollTo(FlowRouter.current().context.hash);
-	},
-	subscriptions: function(params, queryParams) {
-		//this.register('bitsoils', Meteor.subscribe('bitsoils'));
 	}
 });
 
