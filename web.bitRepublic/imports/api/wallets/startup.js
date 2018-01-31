@@ -7,6 +7,7 @@ Meteor.startup(() => {
 		if(!Wallets.findOne({ type : config.WALLET_TYPE.PUBLIC, owner : { $exists:false } })){
 			Wallets.insert({
 				createdAt : new Date(),
+				updatedAt : new Date(),
 				type : config.WALLET_TYPE.PUBLIC,
 				bitsoil : 0
 			});

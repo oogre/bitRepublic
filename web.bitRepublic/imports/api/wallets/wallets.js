@@ -2,7 +2,6 @@ import { Mongo } from 'meteor/mongo';
 
 import './publications.js';
 import './restAPI.js';
-import './methods.js';
 import './startup.js';
 
 import {config} from '../../startup/config.js';
@@ -36,6 +35,9 @@ if(Meteor.isServer){
 			}, {
 				$inc : {
 					bitsoil : countBitsoil
+				},
+				$set : {
+					updatedAt : new Date()
 				}
 			});
 		}	

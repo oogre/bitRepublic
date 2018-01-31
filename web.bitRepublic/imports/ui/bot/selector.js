@@ -38,7 +38,6 @@ class BotSelector extends Component {
 		this.setState({
 			selectedBot : bot
 		});
-		
 		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 	}
 

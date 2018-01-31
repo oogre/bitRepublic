@@ -10,4 +10,14 @@ if(Meteor.isServer){
 	Meteor.publish('my.wallet', function myWalletPublication(){
 		return Wallets.find({ type : config.WALLET_TYPE.PERSONNAL, owner : Meteor.userId() });
 	});
+
+	Meteor.publish('all.wallet', function myWalletPublication(){
+		return Wallets.find({ $or : [{
+				type : config.WALLET_TYPE.PERSONNAL
+			}, {
+				type : config.WALLET_TYPE.PUBLIC, 
+				owner : { $exists:false }
+			}]
+		});
+	});
 }

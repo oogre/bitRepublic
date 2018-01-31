@@ -25,6 +25,7 @@ if(Meteor.isServer){
 			console.log("create wallet for "+user.username);
 			let walletId = Wallets.insert({
 				createdAt : new Date(),
+				updatedAt : new Date(),
 				type : config.WALLET_TYPE.PERSONNAL,
 				owner : id,
 				bitsoil : 0,

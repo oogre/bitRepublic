@@ -14,6 +14,9 @@ export const config = {
 		MIN : 0.000001,
 		MAX : 1.0
 	},
+	WALLET_LIST : {
+		LIMIT : 10
+	},
 	FORM : {
 		ERRORS : {
 			firstname : {

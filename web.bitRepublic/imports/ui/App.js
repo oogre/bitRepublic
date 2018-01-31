@@ -7,7 +7,7 @@ import BotSelector from './bot/selector.js';
 import BitsoilTotalCounter from './bitsoil/totalCounter.js';
 import FixeShortAbout from './fixe/shortAbout.js';
 import FixePunchline from './fixe/punchline.js';
-
+import RedistriutionMenu from './menu/redistribution.js';
 // App component - represents the whole app
 export default class App extends Component {
 	constructor(props){
@@ -25,6 +25,7 @@ export default class App extends Component {
 					<FixePunchline />
 					<FixeShortAbout />
 					<BotSelector />
+					<RedistriutionMenu />
 				</div>
 				<FooterMenu />
 			</div>

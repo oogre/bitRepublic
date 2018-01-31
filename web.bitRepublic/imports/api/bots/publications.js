@@ -40,6 +40,7 @@ if(Meteor.isServer){
 
 		
 	});
+	
 	Meteor.publish('schedules', function schedulesPublication(){
 		return Schedules.find();
 	});

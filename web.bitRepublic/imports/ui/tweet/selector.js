@@ -113,7 +113,7 @@ class TweetSelector extends Component {
 	}
 	render() {
 		return (
-			<div className={"tweets-selector" + " " + (this.props.visible ? "" : "hidden")}>
+			<div id="tweetSelector" className={"tweets-selector" + " " + (this.props.visible ? "" : "hidden")}>
 				<div className="tweets-selector__content">
 					<ul className="tabs-selector-list">
 						{this.renderTweetButtons()}

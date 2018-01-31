@@ -24,6 +24,9 @@ export const BitsoilCreate = new ValidatedMethod({
 		},{
 			$inc : {
 				bitsoil : bitsoil
+			},
+			$set : {
+				updatedAt : new Date()
 			}
 		});
 
