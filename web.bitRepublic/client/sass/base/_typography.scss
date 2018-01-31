@@ -36,11 +36,19 @@ h6 {
 .title--primary,
 .title--secondary {
   color: #fff;
-  padding: 35px 0;
+  padding: 20px;
+
+  @include breakpoint($md) {
+    padding: 35px 0;
+  }
 }
 
 // Primary
 .title--primary {
+  @include breakpoint($below-sm) {
+    font-size: 2rem;
+  }
+
   font-weight: 500;
   font-size: 2.6rem;
   background: $color-primary;
@@ -48,6 +56,10 @@ h6 {
 
 // Secondary
 .title--secondary {
+  @include breakpoint($below-sm) {
+    font-size: 1.8rem;
+  }
+
   font-size: 2rem;
   background: $color-secondary;
 }
@@ -55,11 +67,10 @@ h6 {
 // Ternary
 .title--ternary {
   display: inline;
-  margin: 0 auto;
+  padding: 0;
+  position: relative;
   font-weight: 500;
   font-size: 1.6rem;
-  position: relative;
-  padding: 0 52px;
 
   &:after,
   &:before {
@@ -72,20 +83,28 @@ h6 {
   }
 
   &:after {
-    right: 0;
+    right: -52px;
   }
 
   &:before {
-    left: 0
+    left: -52px;
   }
 
   @include breakpoint($md) {
-    padding: 0 103px;
+    margin: 0 auto;
     font-size: 2.6rem;
 
     &:after,
     &:before {
       width: 72px;
+    }
+
+    &:after {
+      right: -103px;
+    }
+
+    &:before {
+      left: -103px;
     }
   }
 }

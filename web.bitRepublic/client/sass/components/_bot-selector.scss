@@ -32,8 +32,8 @@
 }
 
 .bot-selector__counter .counter--large {
-  @include horizontal-center(absolute);
-  bottom: 55px;
+  position: relative;
+  top: 292px;
 }
 
 .bot-selector .cards-list {

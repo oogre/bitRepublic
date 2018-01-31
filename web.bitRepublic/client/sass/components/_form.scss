@@ -272,19 +272,34 @@ textarea {
   @include rem(font-size, 12px);
 }
 
+.error-message {
+  color: $color-error;
+  font-size: 1.2rem;
+  position: absolute;
+  margin-top: 5px;
+}
+
 // fields-grid
 // ---------------------
 
 .fields-row {
-  margin-bottom: 58px;
-  @include clearfix();
+  @include breakpoint($md) {
+    margin-bottom: 58px;
+    @include clearfix();
+  }
 }
 
 .fields-column {
-  float: left;
-  width: calc(50% - 24px);
+  width: 100%;
+  margin-bottom: 2rem;
 
-  &:last-child {
-    float: right;
+  @include breakpoint($md) {
+    float: left;
+    width: calc(50% - 24px);
+    margin-bottom: 0;
+
+    &:last-child {
+      float: right;
+    }
   }
 }

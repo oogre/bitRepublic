@@ -14,10 +14,12 @@ $grey-bonjour: #e8e6e7;
 
 $green-fun: #046737;
 $green-faded-jade: #467373;
+$green-fern: #52ba58;
 
 $pink-soft-peach: #f4edf1;
 
 $red-cardinal: #bb1a2a;
+$red-monza: #d80519;
 
 $blue-aqua-haze: #f0f4f7;
 $blue-dark-haze: #f5f7f7;
@@ -48,8 +50,8 @@ $grey-9: #191919;
 
 // Syntaxic color
 
-$color-error: red;
-$color-success: green;
+$color-error: $red-monza;
+$color-success: $green-fern;
 
 $color-primary: $green-fun;
 $color-secondary: $orange-brandy-punch;
@@ -64,7 +66,7 @@ $font-text-sans-serif: 'Open Sans', sans-serif;
 $font-title-sans-serif: 'Asap', sans-serif;
 $font-title-secondary-sans-serif: 'Asap Condensed', sans-serif;
 $font-title-ternary-sans-serif: 'Overpass Mono', sans-serif;
-$font-counter-sans-serif: 'Inversionz Unboxed', Courier;
+$font-counter-sans-serif: 'Inversionz Unboxed', "Courier New";
 
 // Layout
 // ---------------------

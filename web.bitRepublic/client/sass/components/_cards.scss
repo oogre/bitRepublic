@@ -85,18 +85,17 @@
 
 .card__picture {
   display: block;
+  width: 100%;
   max-width: calc(100% + 50px);
-
-  @include breakpoint($md) {
-    margin-left: -25px;
-  }
 }
 
 .card__counter {
-  margin-bottom: 50px;
-  margin-top: -45px;
+  margin-bottom: 20px;
+  margin-top: -22px;
+
 
   @include breakpoint($md) {
+    margin-bottom: 50px;
     margin-top: -40px;
   }
 
