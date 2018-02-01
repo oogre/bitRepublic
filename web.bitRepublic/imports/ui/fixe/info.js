@@ -34,13 +34,13 @@ export default class FixeInfo extends Component {
 			return e.hash === FlowRouter.current().context.hash;
 		});
 
-		
+
 
 		this.state = {
 			selected : select >= this.data.length ? false : select
 		}
 
-		
+
 	}
 	handleClickOnLink(k){
 		this.setState({
@@ -49,25 +49,27 @@ export default class FixeInfo extends Component {
 	}
 	render() {
 		return (
-			<div id="container">
-				<ul>
-					{
-						this.data.map((d, k) => (
-							<li key={k} className={this.state.selected === k ? 'selected' : ""}>
-								<a onClick={this.handleClickOnLink.bind(this, k)} href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}>{d.title}</a>
-							</li>		
-						))
-					}
-				</ul>
+			<div class="container">
+				<div className="contents-list">
+					<ul className="contents-selector-list">
+						{
+							this.data.map((d, k) => (
+								<li key={k} className={'contents-selector-list__item ' + (this.state.selected === k ? 'selected' : "")}>
+									<a className="contents-selector-list__button" onClick={this.handleClickOnLink.bind(this, k)} href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}>{d.title}</a>
+								</li>
+							))
+						}
+					</ul>
 
-				<div>
-					{
-						this.data.map((d, k) => (
-							<div id={d.hash} key={k} className={this.state.selected === k ? "" : "hidden"}>
-								<p>{d.desciption}</p>
-							</div>		
-						))
-					}
+					<div className="contents-list__item">
+						{
+							this.data.map((d, k) => (
+								<div id={d.hash} key={k} className={this.state.selected === k ? "" : "hidden"}>
+									<p>{d.desciption}</p>
+								</div>
+							))
+						}
+					</div>
 				</div>
 			</div>
 		);

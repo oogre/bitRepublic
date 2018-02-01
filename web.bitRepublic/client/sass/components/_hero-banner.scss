@@ -124,3 +124,49 @@
     display: none;
   }
 }
+
+// Hero Banner Installation
+// ---------------------
+.hero-banner--installation {
+  background: #332e35;
+}
+
+.hero-banner--installation .container {
+  min-height: 632px;
+}
+
+.hero-banner--installation .hero-banner__content {
+  background: rgba(239, 239, 239, .85);
+  max-width: calc(100% - 2rem);
+  padding: 0 1rem 2rem;
+  bottom: 106px;
+
+  @include breakpoint($md) {
+    max-width: 718px;
+    padding: 0 1rem 64px;
+  }
+}
+
+.hero-banner--installation .hero-banner__title {
+  color: $grey-shark;
+
+  &:after {
+    display: block;
+    content: '';
+    height: 2px;
+    width: calc(100% - 4rem);
+    background: $grey-shark;
+    margin: 2rem auto 0;
+  }
+
+  @include breakpoint($md) {
+    margin: 76px 0 0;
+    font-size: 3.1rem;
+
+    &:after {
+      width: 100%;
+      max-width: 520px;
+      margin-top: 32px;
+    }
+  }
+}

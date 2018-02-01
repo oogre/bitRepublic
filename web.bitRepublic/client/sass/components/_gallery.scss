@@ -1,0 +1,46 @@
+/*------------------------------------*\
+  > Gallery
+\*------------------------------------*/
+
+// Gallery
+// ---------------------
+.gallery {
+  padding: 72px 72px 47px;
+  padding-right: 0;
+}
+
+// Gallery List
+// ---------------------
+.gallery__list {
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+
+  @include clearfix();
+}
+
+// Gallery List Item
+// ---------------------
+.gallery__list__item {
+  display: inline-block;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  float: left;
+
+  &:nth-child(2n+3) {
+    // margin-right: 0;
+  }
+
+  &:nth-child(n+4) {
+    margin-top: 0;
+  }
+}
+
+// Gallery Picture
+// ---------------------
+.gallery__picture {
+  display: block;
+  width: 150px;
+  height: 150px;
+}

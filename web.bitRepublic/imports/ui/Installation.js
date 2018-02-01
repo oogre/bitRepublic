@@ -20,29 +20,39 @@ export default class Installation extends Component {
 			<div className="page">
 				<div className="page__content">
 					<HeaderMenu />
-					<MenuMenu 
-						title="enter the republic" 
+					<MenuMenu
+						title="enter the republic"
 						description={[
 							"PITCH of the installation",
 							"A few words about bitSOIL resource and installation"
 						]}
 					>
-						<a className="button button--md hero-banner__button" href={FlowRouter.path("redistribution")}>Join the campaign</a>
-						<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create your taxbot</a>
+						<li className="buttons-list__item">
+							<a className="button button--md hero-banner__button" href={FlowRouter.path("redistribution")}>Join the campaign</a>
+						</li>
+						<li className="buttons-list__item">
+							<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create your taxbot</a>
+						</li>
 					</MenuMenu>
-					<div>
-						<FixePitch 	title="enter the republic" 
+					<div className="offset-grid offset-grid--installation">
+						<div className="offset-grid__wrapper container">
+							<div className="offset-grid__col text-center">
+								<FixePitch title="enter the republic"
 									description={[
 										"pitch pistch dsfjhsdlkfj sdkjfh lkfjha lskjfhlkjdsh alkjjshf alkjjhfs lkajshf kjh"
 									]}
-						/>
-						<FixeGallery />
+								/>
+							</div>
+							<div className="offset-grid__col text-center">
+								<FixeGallery />
+							</div>
+						</div>
 					</div>
 					<div>
 
 					</div>
 					<FixePunchline description={["design your tax collector bot", "claim a #bitsoiltax"]}>
-						<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create now</a>
+						<a className="button--secondary hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create now</a>
 					</FixePunchline>
 					<FixeInfo />
 					<FixeSlider />

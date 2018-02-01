@@ -1,0 +1,80 @@
+/*------------------------------------*\
+  > Contents List
+\*------------------------------------*/
+
+// contents-list
+// ---------------------
+.contents-list {
+  @include clearfix();
+
+  margin: 20px auto;
+
+  @include breakpoint($md) {
+    max-width: 840px;
+    margin: 55px auto;
+  }
+}
+
+// Contents Lists Selector
+// ---------------------
+.contents-selector-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  @include breakpoint($md) {
+    width: 258px;
+    float: left;
+    margin-right: 56px;
+  }
+}
+
+.contents-selector-list__item {
+  margin-bottom: 2px;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contents-selector-list__button {
+  display: block;
+  padding: 15px;
+  background: $color-primary;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: $font-title-sans-serif;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.selected {
+    background: $grey-50;
+    text-decoration: none;
+  }
+}
+
+// Content-list item
+// ---------------------
+.contents-list__item {
+  font-size: 1.1rem;
+
+  @include breakpoint($below-md) {
+    margin-top: 20px;
+  }
+
+  @include breakpoint($md) {
+    padding-left: 314px;
+  }
+}
+
+.contents-list__item p:first-child{
+  margin-top: 0;
+}
