@@ -28,7 +28,7 @@ class RedistriutionMenu extends Component {
 	render() {
 		return (
 			<div>
-				<div className="hero-banner">
+				<div className="hero-banner hero-banner--redistribution">
 					<div className="container">
 						<div className="hero-banner__content">
 							<h2 className="hero-banner__title">TAKE PART TO THE REDISTRIBTION MECHANISM</h2>
@@ -36,16 +36,16 @@ class RedistriutionMenu extends Component {
 								<li className="buttons-list__item">
 									{
 										this.props.userId ?
-											<a 
-												className="button button--md hero-banner__button" 
-												href={FlowRouter.path("userProfile", {username : this.props.username})} 
+											<a
+												className="button--secondary hero-banner__button"
+												href={FlowRouter.path("userProfile", {username : this.props.username})}
 											>
 												{this.props.username}
 											</a>
 										:
-											<a 
-												href="#" 
-												className="button button--md hero-banner__button" 
+											<a
+												href="#"
+												className="button--secondary hero-banner__button"
 												onClick={this.handleOpenModal.bind(this)}
 											>
 												Generate yout wallet
@@ -54,17 +54,17 @@ class RedistriutionMenu extends Component {
 								</li>
 								<li className="buttons-list__item">
 									{
-										this.props.findOutMore ? 
-											<a 
-												className="button button--md hero-banner__button" 
+										this.props.findOutMore ?
+											<a
+												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("about")}
 											>
 												Find out more
 											</a>
-											
+
 										:
-											<a 
-												className="button button--md hero-banner__button" 
+											<a
+												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("home") + "#taxbot"}
 											>
 												Create your taxbot

@@ -138,7 +138,7 @@ class BotSelector extends Component {
 	}
 	render() {
 		return (
-			<div id="taxbot" className="bot-selector">
+			<div id="taxbot" className="bot-selector clearfix">
 				<h2 className="title--primary">Design your tax collector bot</h2>
 				<div className="bot-selector__counter">
 					<BitsoilCounter unBlock="." large={true} bitsoil={this.props.bitsoil} tax={true} />
@@ -169,7 +169,7 @@ class BotSelector extends Component {
 export default withTracker(() => {
 	let publicBotsReady = FlowRouter.subsReady("public.bots");
 	let scheduleReady = FlowRouter.subsReady("schedules");
-	
+
 	return {
 		userId : Meteor.userId(),
 		isReady : publicBotsReady && scheduleReady,

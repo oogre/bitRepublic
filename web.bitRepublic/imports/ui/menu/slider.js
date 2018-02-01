@@ -11,7 +11,7 @@ export default class SliderMenu extends Component {
 
 	render() {
 		return (
-			<div className="hero-banner">
+			<div className="hero-banner hero-banner--bitsoil">
 				<div className="container">
 					<BitsoilTaxrate />
 					<div className="hero-banner__content">
