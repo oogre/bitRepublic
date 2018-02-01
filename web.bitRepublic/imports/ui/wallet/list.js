@@ -27,7 +27,7 @@ class WalletList extends Component {
 				<td className="table__cell">
 					<span className="wallet-id">ID {Utilities.numberFormat(wallet.number, 6)}</span>
 				</td>
-				<td className="table__cell">
+				<td className="table__cell table__cell--counter">
 					<BitsoilCounter currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} />
 				</td>
 			</tr>
@@ -43,40 +43,48 @@ class WalletList extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
-				<table className="table table--redistribution">
-					<thead className="table__header">
-						<tr>
-							<th className="table__header__cell">ID MEMBERS</th>
-							<th className="table__header__cell">WALLETS</th>
-						</tr>
-					</thead>
-					<tbody className="table__body">
-						{this.renderWallets()}
-					</tbody>
-				</table>
+			<div>
+				<h2 className="title--primary">The redistribution mechanism</h2>
 
-				<ul>
-					<li style={{ display : this.state.skip > 0 ? "block" : "none" }}>
-						<button onClick={this.handleSkip.bind(this, -config.WALLET_LIST.LIMIT)}>prev</button>
-					</li>
-					<li>
-						{
-							(this.state.skip + 1)
-						}
-						-
-						{
-							Math.min(this.props.count, this.state.skip + config.WALLET_LIST.LIMIT)
-						}
-					</li>
-					<li style={{ display : this.state.skip < (this.props.count - config.WALLET_LIST.LIMIT) ? "block" : "none" }}>
-						<button onClick={this.handleSkip.bind(this, config.WALLET_LIST.LIMIT)}>next</button>
-					</li>
+				<div className="container">
+					<div className="section-intro">
+						<p>Follow live the redistribution of bitsoils over participants wallets. Join and create your own personal wallet.</p>
+						<p>Let’s make the data economy benefits all.</p>
+					</div>
+					<table className="table table--redistribution">
+						<thead className="table__header">
+							<tr>
+								<th className="table__header__cell">ID MEMBERS</th>
+								<th className="table__header__cell">WALLETS</th>
+							</tr>
+						</thead>
+						<tbody className="table__body">
+							{this.renderWallets()}
+						</tbody>
+					</table>
 
-				</ul>
+					<ul className="table-scroller">
+						<li style={{ display : this.state.skip > 0 ? "block" : "none" }}>
+							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, -config.WALLET_LIST.LIMIT)}>prev</button>
+						</li>
+						<li>
+							{
+								(this.state.skip + 1)
+							}
+							-
+							{
+								Math.min(this.props.count, this.state.skip + config.WALLET_LIST.LIMIT)
+							}
+						</li>
+						<li style={{ display : this.state.skip < (this.props.count - config.WALLET_LIST.LIMIT) ? "block" : "none" }}>
+							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, config.WALLET_LIST.LIMIT)}>next</button>
+						</li>
+
+					</ul>
+				</div>
 			</div>
 		)
-  	}
+	}
 }
 
 export default withTracker(() => {

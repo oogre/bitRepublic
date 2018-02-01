@@ -60,6 +60,7 @@
 .table--redistribution {
   width: 100%;
   max-width: 730px;
+  margin-bottom: 65px;
 }
 
 .table--redistribution th {
@@ -69,4 +70,63 @@
 .wallet-id {
   font-family: $font-title-ternary-sans-serif;
   font-size: 1.4rem;
+}
+
+// Table Counter
+// ---------------------
+
+.table__cell--counter {
+  text-align: center;
+}
+
+.table .counter {
+  padding-left: 20px;
+  position: relative;
+}
+
+.table .counter__row {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.table .counter__block,
+.table .counter .counter__row .counter__block:last-child {
+  color: #fff;
+  background: $grey-thunder;
+  width: 2rem;
+  height: 2rem;
+}
+
+.table .counter__block__text {
+  font-size: 3rem;
+}
+
+.table .counter .counter__row .counter__block:first-child {
+  display: none;
+}
+
+.table .counter:before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 20px;
+  background: url(images/bitsoil-symbol-small.svg) no-repeat;
+  position: absolute;
+  left: 0;
+}
+
+// table-scroller
+// ---------------------
+.table-scroller {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.table-scroller__button {
+  width: 23px;
+  height: 23px;
+  background: $grey-9;
 }
