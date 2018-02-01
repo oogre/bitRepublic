@@ -31,7 +31,7 @@ class TweetSelector extends Component {
 			selectedTweet : 0,
 
 		};
-		
+
 	}
 	handleTweetSelected(k){
 		if(this.state.selectedTweet == k) return;
@@ -60,7 +60,7 @@ class TweetSelector extends Component {
 			botId : this.props.bot._id,
 			tweetId : tweetId
 		}
-		
+
 		BotTweetDelete.call(data, (err, res)=>{
 			this.setState({'is-loading' : false});
 			if (err && err.error === 'validation-error') {
@@ -75,7 +75,7 @@ class TweetSelector extends Component {
 			this.setState({'has-success' : true});
 		});
 
-		
+
 		return false;
 	}
 	renderTweetButtons(){
@@ -135,30 +135,30 @@ class TweetSelector extends Component {
 						:
 							null
 					}
-					{	
-						this.state["error-login"] ? 
-							<MessageError 
-								error={this.state["error-login"]} 
+					{
+						this.state["error-login"] ?
+							<MessageError
+								error={this.state["error-login"]}
 								messages={config.FORM.ERRORS.login}
 							/>
 						:
 							null
 					}
-					
-					{	
-						this.state["error-admin"] ? 
-							<MessageError 
-								error={this.state["error-admin"]} 
+
+					{
+						this.state["error-admin"] ?
+							<MessageError
+								error={this.state["error-admin"]}
 								messages={config.FORM.ERRORS.admin}
 							/>
 						:
 							null
 					}
-					
-					{	
-						this.state["error-bot-model"] ? 
-							<MessageError 
-								error={this.state["error-bot-model"]} 
+
+					{
+						this.state["error-bot-model"] ?
+							<MessageError
+								error={this.state["error-bot-model"]}
 								messages={config.FORM.ERRORS.bot-model}
 							/>
 						:

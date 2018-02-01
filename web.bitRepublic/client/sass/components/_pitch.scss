@@ -1,0 +1,19 @@
+/*------------------------------------*\
+  > Pitch
+\*------------------------------------*/
+
+.pitch__title,
+.pitch__description {
+  font-family: $font-title-sans-serif;
+}
+
+.pitch__title {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.pitch__description {
+  font-size: 1.8rem;
+  font-weight: 400;
+}

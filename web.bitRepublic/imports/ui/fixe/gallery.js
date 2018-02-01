@@ -63,26 +63,24 @@ export default class FixeGallery extends Component {
 		});
 
 		return (
-			<div className="container">
-				{ 	
+			<div className="gallery">
+				{
 					this.state.pictures ?
-						<ul>
+						<ul className="gallery__list">
 							{
 								this.state.pictures.map((picture, k) => (
-									<li	key={k}>
-										<img
-											className={this.state.selected === k ? "selected" : ""}
-											style={this.state.selected === k ? this.large : {maxWidth: 100 + 'px'}}
+									<li	className="gallery__list__item" key={k}>
+										<img className={"gallery__picture" + (this.state.selected === k ? "selected" : "")}
+											style={this.state.selected === k ? this.large : {maxWidth: 150 + 'px'}}
 											src={"/"+picture}
 											onClick={this.handleSelectPicture.bind(this, k)}
-											alt="image de bitRepublic"
-										/>
+											alt="image de bitRepublic"/>
 									</li>
 								))
 							}
 						</ul>
-				 	:
-				 		null
+					:
+						null
 				}
 			</div>
 		);

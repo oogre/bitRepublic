@@ -14,7 +14,7 @@ export default class MenuMenu extends Component {
 
 	render() {
 		return (
-			<div className="hero-banner">
+			<div className="hero-banner hero-banner--installation">
 				<div className="container">
 					<div className="hero-banner__content">
 						<h2 className="hero-banner__title">
