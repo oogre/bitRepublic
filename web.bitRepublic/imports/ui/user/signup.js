@@ -2,15 +2,16 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-02 00:08:25
+  @Last Modified time: 2018-02-02 00:25:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 
 import { CreateUser } from '../../api/users/methods.js';
 import { config } from '../../startup/config.js';
-import MessageError from '../message/error.js';
 
+import MessageError from '../message/error.js';
+import FixeWait from '../fixe/wait.js';
 
 export default class UserSignup extends Component {
 	constructor(props){
@@ -139,6 +140,7 @@ export default class UserSignup extends Component {
 							}
 						</div>
 					</div>
+					{this.state['is-loading'] ? <FixeWait /> : null }
 					<div className="fields-row text-right">
 						<input
 							className={

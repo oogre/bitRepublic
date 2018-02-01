@@ -2,7 +2,7 @@
   bitRepublic - avatar.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:30
-  @Last Modified time: 2018-02-02 00:08:27
+  @Last Modified time: 2018-02-02 00:32:41
 \*----------------------------------------*/
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -12,7 +12,6 @@ import FileReaderInput from 'react-file-reader-input';
 
 import { UserSetAvatar } from '../../api/users/methods.js';
 import MessageError from '../message/error.js';
-
 
 class UserAvatar extends Component {
 	constructor(props){
@@ -166,8 +165,11 @@ export default withTracker(() => {
 	let myFilesImagesReady = FlowRouter.subsReady("my.files.images");
 	let isReady = Meteor.user() && myFilesImagesReady;
 	let avatar = "/images/avatar.png" 
-	if(isReady){
-		avatar = Images.link(Images.collection.findOne({_id : Meteor.user().profile.avatar}));
+	if(isReady && Meteor.user().profile.avatar){
+		let img = Images.collection.findOne({_id : Meteor.user().profile.avatar});
+		if(img){
+			avatar = Images.link(img);
+		}
 	}
 	return {
 		avatar : avatar

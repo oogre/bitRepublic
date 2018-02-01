@@ -2,7 +2,7 @@
   bitRepublic - gallery.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:55:35
-  @Last Modified time: 2018-02-02 00:08:16
+  @Last Modified time: 2018-02-02 00:17:01
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentGallery } from '../../api/images/methods.js';
@@ -20,6 +20,19 @@ export default class FixeGallery extends Component {
 			maxWidth: "100%",
     		maxHeight: "100%"
 		}
+		GetContentGallery.call({}, (err, res) =>{
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
+			}
+			this.setState({'has-success' : true, pictures : res.data});
+		});
 	}
 	handleSelectPicture (k){
 		this.setState({'selected' : k});
@@ -48,20 +61,6 @@ export default class FixeGallery extends Component {
 		window.removeEventListener("keyup", this.handleKeyPress.bind(this), false);
 	}
 	render() {
-		GetContentGallery.call({}, (err, res) =>{
-			this.setState({'is-loading' : false});
-			if (err && err.error === 'validation-error') {
-				this.setState({'has-error' : true});
-				err.details.forEach((fieldError) => {
-					this.setState({
-						["error-"+fieldError.name] : fieldError.type
-					});
-				});
-				return;
-			}
-			this.setState({'has-success' : true, pictures : res.data});
-		});
-
 		return (
 			<div className="gallery">
 				{

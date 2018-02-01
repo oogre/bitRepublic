@@ -2,15 +2,21 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-02 00:08:23
+  @Last Modified time: 2018-02-02 00:23:15
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { Meteor } from 'meteor/meteor';
+
+import { config } from '../../startup/config.js';
+
 import { LoginUser } from '../../api/users/methods.js';
 import { ForgotPassword } from '../../api/users/methods.js';
+
 import MessageError from '../message/error.js';
-import { config } from '../../startup/config.js';
+import FixeWait from '../fixe/wait.js';
+
+
 export default class UserLogIn extends Component {
 	constructor(props){
 		super(props);
@@ -119,6 +125,7 @@ export default class UserLogIn extends Component {
 	render() {
 		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
+				
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					<div className="fields-row">
 						<div className="fields-column">
@@ -156,6 +163,7 @@ export default class UserLogIn extends Component {
 							}
 						</div>
 					</div>
+					{this.state['is-loading'] ? <FixeWait /> : null }
 					<div className="fields-row text-right">
 						<a className="modal__link" onClick={this.handleForgotPassword.bind(this)}>
 							forgot password ?

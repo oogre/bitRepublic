@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2018-02-02 00:08:16
+  @Last Modified time: 2018-02-02 00:17:24
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -55,7 +55,7 @@ export default class FixeInfo extends Component {
 	}
 	render() {
 		return (
-			<div class="container">
+			<div className="container">
 				<div className="contents-list">
 					<ul className="contents-selector-list">
 						{

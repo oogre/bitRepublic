@@ -2,7 +2,7 @@
   bitRepublic - slider.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:16:48
-  @Last Modified time: 2018-02-02 00:08:14
+  @Last Modified time: 2018-02-02 00:17:39
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentSlider } from '../../api/images/methods.js';
@@ -16,6 +16,19 @@ export default class FixeSlider extends Component {
 			anim : true,
 		}
 		this.x = 0;
+		GetContentSlider.call({}, (err, res) =>{
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
+			}
+			this.setState({'has-success' : true, pictures : res.data});
+		});
 	}
 	animation(flag){
 		if(!this.state.anim) return ;
@@ -33,19 +46,7 @@ export default class FixeSlider extends Component {
 		//window.removeEventListener("keyup", this.handleKeyPress.bind(this), false);
 	}
 	render() {
-		GetContentSlider.call({}, (err, res) =>{
-			this.setState({'is-loading' : false});
-			if (err && err.error === 'validation-error') {
-				this.setState({'has-error' : true});
-				err.details.forEach((fieldError) => {
-					this.setState({
-						["error-"+fieldError.name] : fieldError.type
-					});
-				});
-				return;
-			}
-			this.setState({'has-success' : true, pictures : res.data});
-		});
+		
 
 		return (
 			<div className="slider" style={{

@@ -2,16 +2,18 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:04
-  @Last Modified time: 2018-02-02 00:08:23
+  @Last Modified time: 2018-02-02 00:26:30
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import ReactDom from 'react-dom';
+
 import { UpdateUser } from '../../api/users/methods.js';
 import { config } from '../../startup/config.js';
-import MessageError from '../message/error.js';
 
+import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
+
 class UserForm extends Component {
 	constructor(props){
 		super(props);
@@ -156,6 +158,7 @@ class UserForm extends Component {
 							null
 					}
 				</label>
+				{this.state['is-loading'] ? <FixeWait /> : null }
 				<input 
 					type="submit"
 					value="save" 
