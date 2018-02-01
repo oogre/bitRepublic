@@ -23,19 +23,19 @@ class WalletList extends Component {
 	}
 	renderWallet(wallet){
 		return (
-			<tr key={wallet._id}>
-				<td>
-					ID {Utilities.numberFormat(wallet.number, 6)}
+			<tr className="table__row" key={wallet._id}>
+				<td className="table__cell">
+					<span className="wallet-id">ID {Utilities.numberFormat(wallet.number, 6)}</span>
 				</td>
-				<td>
+				<td className="table__cell">
 					<BitsoilCounter currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} />
-				</td> 
+				</td>
 			</tr>
 		);
 	}
 	renderWallets (){
 		let self = this;
-		return _.filter(self.props.wallets, function(wallet, k){ 
+		return _.filter(self.props.wallets, function(wallet, k){
 			return k >= self.state.skip && k < self.state.skip+config.WALLET_LIST.LIMIT
 		}).map((wallet) => (
 			self.renderWallet(wallet)
@@ -43,19 +43,18 @@ class WalletList extends Component {
 	}
 	render() {
 		return (
-			<div>
-				<table>
-					<tbody>
+			<div className="container">
+				<table className="table table--redistribution">
+					<thead className="table__header">
 						<tr>
-							<th>ID MEMBERS</th>
-							<th>WALLETS</th> 
+							<th className="table__header__cell">ID MEMBERS</th>
+							<th className="table__header__cell">WALLETS</th>
 						</tr>
+					</thead>
+					<tbody className="table__body">
 						{this.renderWallets()}
 					</tbody>
 				</table>
-				
-				<br/>
-				
 
 				<ul>
 					<li style={{ display : this.state.skip > 0 ? "block" : "none" }}>
@@ -65,15 +64,15 @@ class WalletList extends Component {
 						{
 							(this.state.skip + 1)
 						}
-						- 
+						-
 						{
 							Math.min(this.props.count, this.state.skip + config.WALLET_LIST.LIMIT)
-						} 
+						}
 					</li>
 					<li style={{ display : this.state.skip < (this.props.count - config.WALLET_LIST.LIMIT) ? "block" : "none" }}>
 						<button onClick={this.handleSkip.bind(this, config.WALLET_LIST.LIMIT)}>next</button>
 					</li>
-					
+
 				</ul>
 			</div>
 		)
@@ -96,5 +95,5 @@ export default withTracker(() => {
 	return {
 		wallets : wallets.fetch(),
 		count : wallets.count(),
-	};	
+	};
 })(WalletList);

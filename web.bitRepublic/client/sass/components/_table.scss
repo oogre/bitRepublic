@@ -3,6 +3,70 @@
 \*------------------------------------*/
 
 .table {
-  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Table Header
+// ---------------------
+.table__header {
+  border: 1px solid $grey-oslo;
+}
+
+.table__header__cell {
+  padding: 18px;
+  background: $grey-48;
+  color: #fff;
+  font-family: $font-title-sans-serif;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 400;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: "";
+    height: calc(100% - 16px);
+    width: 1px;
+    background: $grey-70;
+    @include vertical-center(absolute);
+    right: 0;
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+}
+
+// Table Body
+// ---------------------
+.table__body {
+  background: $grey-bonjour;
+}
+
+.table__cell {
+  padding: 5px 46px;
+}
+
+.table__row:first-child .table__cell {
+  padding-top: 2rem;
+}
+
+.table__row:last-child .table__cell {
+  padding-bottom: 2rem;
+}
+
+// Table Redistribution
+// --------------------
+.table--redistribution {
   width: 100%;
+  max-width: 730px;
+}
+
+.table--redistribution th {
+  width: 50%;
+}
+
+.wallet-id {
+  font-family: $font-title-ternary-sans-serif;
+  font-size: 1.4rem;
 }
