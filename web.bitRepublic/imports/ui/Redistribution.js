@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withTracker } from 'meteor/react-meteor-data';
 
 import HeaderMenu from './menu/header.js';
 import SliderMenu from './menu/slider.js';
@@ -12,8 +13,9 @@ import UserModal from './user/modal.js';
 import { BitsoilCreate } from '../api/bitsoils/methods.js';
 import { config } from '../startup/config.js';
 
-// App component - represents the whole app
-export default class Redistribution extends Component {
+import FixeWait from './fixe/wait.js';
+
+class Redistribution extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -53,11 +55,11 @@ export default class Redistribution extends Component {
 							"take part of the taxation system."
 						]}>
 								{
-									Meteor.userId() ?
+									this.props.isReady ?
 										<a	className="button--secondary"
-											href={FlowRouter.path("userProfile", {username : Meteor.user().username})}
+											href={FlowRouter.path("userProfile", {username : this.props.currentUser.username})}
 										>
-											{Meteor.user().username}
+											{this.props.currentUser.username}
 										</a>
 									:
 										<a	href="#"
@@ -72,7 +74,8 @@ export default class Redistribution extends Component {
 							</a>
 						</FixePunchline>
 						<FixeShortAbout />
-						<WalletList />
+						{ this.props.isReady ? <WalletList /> : <FixeWait/> }
+						
 					</div>
 				</div>
 				<UserModal
@@ -85,3 +88,12 @@ export default class Redistribution extends Component {
 	}
 }
 
+export default withTracker(() => {
+	let publicWalletReady = FlowRouter.subsReady("public.wallet");
+	let allWalletReady = FlowRouter.subsReady("all.wallet");
+	let isReady = Meteor.user() && publicWalletReady && allWalletReady;
+	return {
+		isReady : isReady,
+		currentUser : Meteor.user()
+	};
+})(Redistribution);

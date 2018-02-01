@@ -10,6 +10,7 @@ import UserMenu from '../menu/user.js';
 import WalletDetail from '../wallet/detail.js';
 import BotInfo from '../bot/info.js';
 import UserAvatar from './avatar.js';
+import FixeWait from '../fixe/wait.js';
 
 // App component - represents the whole app
 class UserProfile extends Component {
@@ -22,9 +23,16 @@ class UserProfile extends Component {
 			<div className="container">
 				<HeaderMenu />
 				<UserMenu />
-				<UserAvatar update={false}/><br/>
-				{this.props.username}<br/>
-				{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
+				{ 
+				this.props.isReady ? 
+					<div>
+						<UserAvatar update={false}/><br/>
+						{this.props.currentUser.username}<br/>
+						{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
+					</div>
+				: 
+					<FixeWait/> 
+				}
 				<BotInfo />
 				<FooterMenu />
 			</div>
@@ -32,14 +40,14 @@ class UserProfile extends Component {
   	}
 }
 export default withTracker(() => {
-	let currentUser = Meteor.user();
-	let username = currentUser ? currentUser.username : null;
-	let userId = currentUser ? currentUser._id : null;
-	let wallet = Wallets.findOne({owner : userId});
+	let myWalletReady = FlowRouter.subsReady("my.wallet");
+	let myFilesImagesReady = FlowRouter.subsReady("my.files.images");
+	let isReady = myWalletReady && Meteor.user() && myFilesImagesReady;
+	
 	return {
-		userId : userId,
-		currentUser : currentUser,
-		username : username,
-		wallet : wallet
+		isReady : isReady,
+		userId : Meteor.userId(),
+		currentUser : Meteor.user(),
+		wallet : Wallets.findOne({owner : Meteor.userId()}, {fields : {number : 1, bitsoil:1}}) 
 	};
 })(UserProfile);

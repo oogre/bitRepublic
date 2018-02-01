@@ -8,7 +8,7 @@ if(Meteor.isServer){
 	});
 
 	Meteor.publish('my.wallet', function myWalletPublication(){
-		return Wallets.find({ type : config.WALLET_TYPE.PERSONNAL, owner : Meteor.userId() });
+		return Wallets.find({ type : config.WALLET_TYPE.PERSONNAL, owner : this.userId });
 	});
 
 	Meteor.publish('all.wallet', function myWalletPublication(){

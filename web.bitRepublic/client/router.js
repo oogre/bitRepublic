@@ -38,7 +38,7 @@ FlowRouter.route('/redistribution', {
 		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
-		//this.register('bitsoils', Meteor.subscribe('bitsoils'));
+		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 		this.register('all.wallet', Meteor.subscribe('all.wallet'));
 	}
 });
@@ -50,7 +50,6 @@ FlowRouter.route('/installation', {
 		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
-		//this.register('bitsoils', Meteor.subscribe('bitsoils'));
 	}
 });
 

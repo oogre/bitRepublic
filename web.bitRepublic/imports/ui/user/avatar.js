@@ -156,19 +156,14 @@ class UserAvatar extends Component {
 	}
 }
 
-
-
 export default withTracker(() => {
-	let currentUser = Meteor.user();
-	let avatar = currentUser && currentUser.profile && currentUser.profile.avatar ? Images.collection.findOne({_id : currentUser.profile.avatar}) : false;//
-	if(avatar){
-		avatar = Images.link(avatar);
-	}
-	else{
-		avatar = "/images/avatar.png";
+	let myFilesImagesReady = FlowRouter.subsReady("my.files.images");
+	let isReady = Meteor.user() && myFilesImagesReady;
+	let avatar = "/images/avatar.png" 
+	if(isReady){
+		avatar = Images.link(Images.collection.findOne({_id : Meteor.user().profile.avatar}));
 	}
 	return {
-		currentUser : currentUser,
 		avatar : avatar
 	};
 })(UserAvatar);

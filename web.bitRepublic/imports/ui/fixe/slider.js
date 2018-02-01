@@ -45,7 +45,7 @@ export default class FixeSlider extends Component {
 			<div className="slider" style={{
 				width: "100%",
     			height: "300px",
-    			overflowX: "scroll",
+    			overflowX: "hidden",
     			overflowY: "hidden"
     		}}>
 				{ 	
