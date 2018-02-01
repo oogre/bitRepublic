@@ -1,0 +1,40 @@
+/*------------------------------------*\
+  > Offset Grid
+\*------------------------------------*/
+
+.offset-grid .offset-grid__wrapper {
+  @include breakpoint($below-md) {
+    padding: 20px;
+  }
+
+  @include breakpoint($md) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.offset-grid__col {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  @include breakpoint($md) {
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+
+// offset-grid--installation
+// ---------------------
+.offset-grid--installation {
+  background: #fff;
+
+  @include breakpoint($md) {
+    background-image: linear-gradient(to right, #fff 0%, #fff 50%, $color-secondary 50%, $color-secondary 100%);
+  }
+}
+
+.offset-grid__col:nth-child(even) {
+  @include breakpoint($below-md) {
+    background: $color-secondary;
+  }
+}

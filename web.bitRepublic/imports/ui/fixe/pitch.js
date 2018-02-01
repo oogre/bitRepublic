@@ -8,17 +8,17 @@ export default class FixePitch extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="pitch">
 				{
-					this.props.title ? 
-						<h2>{this.props.title}</h2>
+					this.props.title ?
+						<h2 className="pitch__title">{this.props.title}</h2>
 					:
 						null
 				}
 				{
-					this.props.description ? 
+					this.props.description ?
 						this.props.description.map((description, k) => (
-							<p key={k}>{description}</p>
+							<p className="pitch__description" key={k}>{description}</p>
 						))
 					:
 						null
