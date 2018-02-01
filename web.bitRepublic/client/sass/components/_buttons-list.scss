@@ -10,4 +10,13 @@
 
 .buttons-list__item {
   display: inline-block;
+  margin: 0 2px 1rem 0;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.buttons-list__item [class*="button"] {
+  min-width: 230px;
 }

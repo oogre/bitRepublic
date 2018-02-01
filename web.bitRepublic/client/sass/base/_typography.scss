@@ -127,3 +127,15 @@ abbr[title] {
   border-bottom: 0;
 }
 
+// Section Intro
+.section-intro {
+  text-align: center;
+  padding: 42px 0;
+}
+
+.section-intro p {
+  font-family: $font-title-sans-serif;
+  font-size: 1.8rem;
+  margin: .8rem 0;
+}
+

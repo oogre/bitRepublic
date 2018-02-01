@@ -42,8 +42,11 @@ export default class Redistribution extends Component {
 					<HeaderMenu />
 					<RedistriutionMenu findOutMore={true} />
 					<div>
-						<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaingn.</p>
-						<p>Join us and let's make the data economy benefits everyone!</p>
+						<div className="section-intro">
+							<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaingn.</p>
+							<p>Join us and let's make the data economy benefits everyone!</p>
+						</div>
+
 						<BitsoilTotalCounter />
 						<FixePunchline description={[
 							"create your personal wallet.",
@@ -51,20 +54,20 @@ export default class Redistribution extends Component {
 						]}>
 								{
 									Meteor.userId() ?
-										<a	className="button button--md hero-banner__button" 
-											href={FlowRouter.path("userProfile", {username : Meteor.user().username})} 
+										<a	className="button--secondary"
+											href={FlowRouter.path("userProfile", {username : Meteor.user().username})}
 										>
 											{Meteor.user().username}
 										</a>
 									:
-										<a	href="#" 
-											className="button button--md hero-banner__button" 
+										<a	href="#"
+											className="button--secondary hero-banner__button"
 											onClick={this.handleOpenModal.bind(this)}
 										>
 											Sign up
 										</a>
 								}
-							<a	className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>
+							<a	className="button--secondary" href={FlowRouter.path("home") + "#taxbot"}>
 								Create your taxbot
 							</a>
 						</FixePunchline>
