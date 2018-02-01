@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - password.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-30 20:10:14
+  @Last Modified time: 2018-02-02 00:08:24
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 import { config } from '../../startup/config.js';

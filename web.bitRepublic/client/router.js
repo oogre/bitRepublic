@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - router.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 23:36:59
+  @Last Modified time: 2018-02-02 00:09:52
+\*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
 
@@ -28,6 +34,11 @@ FlowRouter.route('/about', {
 	action( params ) {
 		render(<About />, document.getElementById('render-target'));
 		Utilities.scrollTo(FlowRouter.current().context.hash);
+	},
+	subscriptions: function(params, queryParams) {
+		this.register('public.bots', Meteor.subscribe('public.bots'));
+		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
 
@@ -40,6 +51,8 @@ FlowRouter.route('/redistribution', {
 	subscriptions: function(params, queryParams) {
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 		this.register('all.wallet', Meteor.subscribe('all.wallet'));
+		this.register('public.bots', Meteor.subscribe('public.bots'));
+		this.register('schedules', Meteor.subscribe('schedules'));
 	}
 });
 
@@ -50,6 +63,9 @@ FlowRouter.route('/installation', {
 		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
+		this.register('public.bots', Meteor.subscribe('public.bots'));
+		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
 
@@ -82,6 +98,8 @@ loginRoutes.route("/user/:username/update", {
 		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {
+		this.register('my.wallet', Meteor.subscribe('my.wallet'));
+		this.register('my.bots', Meteor.subscribe('my.bots'));
 		this.register('my.files.images', Meteor.subscribe('my.files.images'));
 	}
 });

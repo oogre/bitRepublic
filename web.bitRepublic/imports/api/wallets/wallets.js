@@ -1,3 +1,10 @@
+/*----------------------------------------*\
+  bitRepublic - wallets.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 14:33:56
+  @Last Modified time: 2018-02-02 00:05:11
+\*----------------------------------------*/
+
 import { Mongo } from 'meteor/mongo';
 
 import './publications.js';

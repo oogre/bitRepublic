@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - redistribution.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 15:13:25
+  @Last Modified time: 2018-02-02 00:08:13
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import UserModal from '../user/modal.js';
 import { withTracker } from 'meteor/react-meteor-data';

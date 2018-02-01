@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - totalCounter.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 00:34:11
+  @Last Modified time: 2018-02-02 00:08:20
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 

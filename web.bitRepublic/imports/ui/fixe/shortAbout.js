@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - shortAbout.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-30 18:06:20
+  @Last Modified time: 2018-02-02 00:08:18
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 // App component - represents the whole app

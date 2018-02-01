@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - gallery.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 19:55:35
+  @Last Modified time: 2018-02-02 00:08:16
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentGallery } from '../../api/images/methods.js';
 

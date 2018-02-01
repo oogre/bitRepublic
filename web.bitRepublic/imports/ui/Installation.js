@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - Installation.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 20:35:46
+  @Last Modified time: 2018-02-02 00:08:35
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 import HeaderMenu from './menu/header.js';

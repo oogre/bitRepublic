@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - restAPI.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-25 14:46:45
+  @Last Modified time: 2018-02-02 00:07:04
+\*----------------------------------------*/
 //import { Meteor } from 'meteor/meteor';
 //import { BitSoils } from './bitsoils.js';
 

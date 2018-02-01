@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - detail.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-28 13:23:23
+  @Last Modified time: 2018-02-02 00:08:53
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 

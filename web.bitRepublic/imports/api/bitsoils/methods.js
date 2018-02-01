@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - methods.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 13:45:04
+  @Last Modified time: 2018-02-02 00:07:06
+\*----------------------------------------*/
 import { Wallets } from '../wallets/wallets.js';
 import { TempWallets } from '../wallets/wallets.js';
 import {config} from '../../startup/config.js';

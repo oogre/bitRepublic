@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - utilities.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 22:25:19
+  @Last Modified time: 2018-02-02 00:09:35
+\*----------------------------------------*/
 import { check } from 'meteor/check';
 
 export function bitsoilFormat(inputNumber, afterCommaOffest){

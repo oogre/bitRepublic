@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - images.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 23:37:09
+  @Last Modified time: 2018-02-02 00:06:37
+\*----------------------------------------*/
 import { FilesCollection } from 'meteor/ostrio:files';
 import './methods.js';
 import './publications.js';

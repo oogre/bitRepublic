@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - Redistribution.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 16:21:07
+  @Last Modified time: 2018-02-02 00:08:33
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 

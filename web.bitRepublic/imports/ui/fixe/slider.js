@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - slider.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 15:16:48
+  @Last Modified time: 2018-02-02 00:08:14
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentSlider } from '../../api/images/methods.js';
 

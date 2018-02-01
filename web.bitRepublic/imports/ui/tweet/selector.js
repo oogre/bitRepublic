@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - selector.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 21:59:30
+  @Last Modified time: 2018-02-02 00:08:31
+\*----------------------------------------*/
 import React, { Component } from 'react';
 //import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';

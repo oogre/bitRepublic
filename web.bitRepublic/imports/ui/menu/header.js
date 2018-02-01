@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - header.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-30 23:42:39
+  @Last Modified time: 2018-02-02 00:08:12
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import MainMenu from './main.js';
 

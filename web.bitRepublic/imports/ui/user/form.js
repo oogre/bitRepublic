@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - form.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 16:11:04
+  @Last Modified time: 2018-02-02 00:08:23
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import ReactDom from 'react-dom';

@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - option.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-30 18:06:20
+  @Last Modified time: 2018-02-02 00:09:15
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 import BitsoilCounter from '../bitsoil/counter.js';

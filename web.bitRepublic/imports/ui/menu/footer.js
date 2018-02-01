@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - footer.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-25 18:10:49
+  @Last Modified time: 2018-02-02 00:08:02
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 // App component - represents the whole app

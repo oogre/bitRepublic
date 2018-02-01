@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - AccountsUIWrapper.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-25 16:25:48
+  @Last Modified time: 2018-02-02 00:08:32
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDOM  from 'react-dom';
 import { Template } from 'meteor/templating';

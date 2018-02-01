@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - user.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-25 18:45:10
+  @Last Modified time: 2018-02-02 00:08:13
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import UserLogOut from '../user/logout.js';

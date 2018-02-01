@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - avatar.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 16:11:30
+  @Last Modified time: 2018-02-02 00:08:27
+\*----------------------------------------*/
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';

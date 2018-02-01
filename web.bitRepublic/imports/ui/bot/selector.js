@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - selector.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-02 00:09:00
+  @Last Modified time: 2018-02-02 00:09:03
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -150,7 +156,7 @@ class BotSelector extends Component {
 				</div>
 				<div id="tweetSelector" ></div>
 				{ this.props.isReady ? this.renderTweets() : null }
-				<div className="container">
+				<div className={"container " + (this.state.selectedBot ? "" : "hidden")}>
 					<button className="button--primary button--submit"
 						disabled={this.state.validateDisable}
 						onClick={this.handleValidation.bind(this)}>

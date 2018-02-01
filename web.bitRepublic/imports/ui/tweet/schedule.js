@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - schedule.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 18:16:40
+  @Last Modified time: 2018-02-02 00:08:29
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 export default class TweetSchedule extends Component {
@@ -10,10 +16,10 @@ export default class TweetSchedule extends Component {
 		});
 	}
 	renderScheduleRadio(){
+		//defaultChecked={k == 0}
 		return this.props.schedules.map((schedule, k) => (
 			<div className="radio" key={k}>
 				<input id={"schedule_"+this.props.id+"_"+k}
-					defaultChecked={k == 0}
 					type="radio"
 					name={"schedule_"+this.props.id}
 					value={schedule._id}

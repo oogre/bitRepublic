@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - config.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 14:16:42
+  @Last Modified time: 2018-02-02 00:07:30
+\*----------------------------------------*/
 export const config = {
 	WALLET_TYPE : {
 		PUBLIC : 0,

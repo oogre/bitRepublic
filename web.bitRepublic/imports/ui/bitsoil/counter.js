@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - counter.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-29 19:44:39
+  @Last Modified time: 2018-02-02 00:08:19
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 import * as Utilities from '../../utilities.js'

@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - splitter.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 18:34:59
+  @Last Modified time: 2018-02-02 00:08:21
+\*----------------------------------------*/
 import React, { Component } from 'react';
 
 import {config} from '../../startup/config.js';
@@ -9,7 +15,7 @@ export default class BitsoilSplitter extends Component {
 	}
 	format(input){
 		let output = input.split("");
-		while((this.props.minLen && output.length < this.props.minLen) || output.length < ("bitsoil").length){
+		while((this.props.minLen && output.length < this.props.minLen) || output.length < (this.props.size ? this.props.size : "bitsoil").length){
 			output.unshift(this.props.substitution ? this.props.substitution : " ");
 		}
 		return output;

@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - menu.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 18:41:48
+  @Last Modified time: 2018-02-02 00:08:08
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 

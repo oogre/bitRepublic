@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - logout.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-27 02:43:46
+  @Last Modified time: 2018-02-02 00:08:26
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 

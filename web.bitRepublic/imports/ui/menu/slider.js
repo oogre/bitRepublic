@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - slider.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-02-01 15:13:25
+  @Last Modified time: 2018-02-02 00:08:06
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 

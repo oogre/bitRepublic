@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - publications.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 23:31:20
+  @Last Modified time: 2018-02-02 00:06:52
+\*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
 import { Actions } from '../actions/actions.js';

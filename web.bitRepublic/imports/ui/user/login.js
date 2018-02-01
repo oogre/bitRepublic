@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - login.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 19:46:12
+  @Last Modified time: 2018-02-02 00:08:23
+\*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { Meteor } from 'meteor/meteor';

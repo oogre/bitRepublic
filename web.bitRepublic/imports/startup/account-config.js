@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - account-config.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-30 01:13:47
+  @Last Modified time: 2018-02-02 00:07:31
+\*----------------------------------------*/
 import { Accounts } from 'meteor/accounts-base';
 if(Meteor.isServer){
 	Accounts.emailTemplates.siteName = 'bitRepublic';

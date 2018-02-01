@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - users.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-31 14:14:05
+  @Last Modified time: 2018-02-02 00:05:58
+\*----------------------------------------*/
 import './methods.js';
 import './publications.js';
 import './startup.js';

@@ -1,3 +1,9 @@
+/*----------------------------------------*\
+  bitRepublic - startup.js
+  @author Evrard Vincent (vincent@ogre.be)
+  @Date:   2018-01-30 23:27:45
+  @Last Modified time: 2018-02-02 00:06:54
+\*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
 import { Schedules } from './bots.js';
