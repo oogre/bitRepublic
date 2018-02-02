@@ -108,19 +108,17 @@ class UserAvatar extends Component {
 	}
 	renderPicture(){
 		return (
-			<div className="container">
-				<img
-					style={{maxWidth: 100 + 'px'}}
-					src={this.props.avatar}
-					alt="avatar"
-				/>
-			</div>
+			<img className="avatar__picture"
+				style={{maxWidth: 100 + 'px'}}
+				src={this.props.avatar}
+				alt="avatar"
+			/>
 		);
 	}
 	renderProgressBar(){
 		return (
 			<div className="progress progress-bar-default">
-				<div 	style={{width: this.state.progress + '%'}} 
+				<div 	style={{width: this.state.progress + '%'}}
 						aria-valuemax="100" aria-valuemin="0"
 						aria-valuenow={ this.state.progress || 0 } role="progressbar"
 						className="progress-bar"
@@ -136,8 +134,8 @@ class UserAvatar extends Component {
 		return (
 			<div className={
 					"container"+
-					(this.state['is-loading'] ? " loading " : "") + 
-					(this.state['has-success'] ? " success " : "") + 
+					(this.state['is-loading'] ? " loading " : "") +
+					(this.state['has-success'] ? " success " : "") +
 					(this.state['has-error'] ? " error " : "")
 			}>
 				<FileReaderInput as="url" id="my-file-input" onChange={ this.handleChange.bind(this) }>
@@ -145,7 +143,7 @@ class UserAvatar extends Component {
 				</FileReaderInput>
 
 				{ this.state.inProgress ? this.renderProgressBar() : null }
-				
+
 				{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
 				{ this.state["error-avatar"] ? <MessageError error={ this.state["error-avatar"] } messages={ config.FORM.ERRORS.avatar } /> : null }
 			</div>
@@ -154,7 +152,7 @@ class UserAvatar extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
+			<div className="avatar">
 				{ this.props.update ? this.renderFileInput() : this.renderPicture() }
 			</div>
 		);
@@ -164,7 +162,7 @@ class UserAvatar extends Component {
 export default withTracker(() => {
 	let myFilesImagesReady = FlowRouter.subsReady("my.files.images");
 	let isReady = Meteor.user() && myFilesImagesReady;
-	let avatar = "/images/avatar.png" 
+	let avatar = "/images/avatar.png"
 	if(isReady && Meteor.user().profile.avatar){
 		let img = Images.collection.findOne({_id : Meteor.user().profile.avatar});
 		if(img){

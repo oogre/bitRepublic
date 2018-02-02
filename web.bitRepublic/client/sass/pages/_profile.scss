@@ -2,6 +2,21 @@
   > Profile Page
 \*------------------------------------*/
 
+// Profile Header
+// ---------------------
+.profile__header {
+  margin: 92px 0 40px;
+}
+
+// user-summary
+// ---------------------
+
+.user-summary__name {
+  margin-left: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 // Section Profile
 // ---------------------
 .section--profile .section__content {
@@ -24,4 +39,47 @@
 .id-card__item .counter--simple {
   vertical-align: middle;
   margin-left: 1rem;
+}
+
+// user-menu
+// ---------------------
+
+.user-menu {
+  float: right
+}
+
+
+// avatar
+// ---------------------
+.avatar {
+  padding: 0 26px;
+  display: inline-block;
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    background: $grey-82;
+  }
+
+  &:before {
+    top: 35px;
+  }
+
+  &:after {
+    bottom: 35px;
+  }
+}
+
+.avatar__picture {
+  display: block;
+  position: relative;
+  z-index: z(menu);
+  width: 92px;
+  height: 92px;
 }

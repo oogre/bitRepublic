@@ -27,22 +27,26 @@ class UserProfile extends Component {
 	render() {
 		return (
 			<div className="page">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
-					<UserMenu />
-					{
-					this.props.isReady ?
-						<div>
-							<UserAvatar update={false}/><br/>
-							{this.props.currentUser.username}<br/>
-							{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
-						</div>
-					:
-						<FixeWait/>
-					}
+					<div className="profile__header">
+						<UserMenu />
+						{
+						this.props.isReady ?
+							<div className="user-summary">
+								<div className="container">
+									<UserAvatar update={false}/>
+									<span className="user-summary__name">{this.props.currentUser.username}</span>
+									{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
+								</div>
+							</div>
+						:
+							<FixeWait/>
+						}
+					</div>
 					<BotInfo />
+					<FooterMenu />
 				</div>
-				<FooterMenu />
 			</div>
 		);
   	}

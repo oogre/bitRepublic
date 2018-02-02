@@ -29,13 +29,13 @@ class UserMenu extends Component {
 		this.setState({ showModal: false });
 	}
 	render() {
-	    return (
+		return (
 			<div className="container">
-				<button onClick={this.handleOpenModal}>
-					COG
-				</button>
-				<ReactModal 
-					isOpen={this.state.showModal} 
+				<div className="user-menu">
+					<button onClick={this.handleOpenModal}>COG</button>
+				</div>
+				<ReactModal
+					isOpen={this.state.showModal}
 					contentLabel="Minimal Modal Example"
 					onRequestClose={this.handleCloseModal}
 				>
@@ -53,7 +53,7 @@ class UserMenu extends Component {
 				</ReactModal>
 			</div>
 		);
-  	}
+	}
 }
 
 export default withTracker(() => {
