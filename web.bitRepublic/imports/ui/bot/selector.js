@@ -156,7 +156,7 @@ class BotSelector extends Component {
 				</div>
 				<div id="tweetSelector" ></div>
 				{ this.props.isReady ? this.renderTweets() : null }
-				<div className={"container " + (this.state.selectedBot ? "" : "hidden")}>
+				<div className={"container bot-selector__submit" + (this.state.selectedBot ? "" : "hidden")}>
 					<button className="button--primary button--submit"
 						disabled={this.state.validateDisable}
 						onClick={this.handleValidation.bind(this)}>
