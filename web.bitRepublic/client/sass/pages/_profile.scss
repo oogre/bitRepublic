@@ -6,6 +6,7 @@
 // ---------------------
 .profile__header {
   margin: 92px 0 40px;
+  position: relative;
 }
 
 // user-summary
@@ -45,7 +46,18 @@
 // ---------------------
 
 .user-menu {
-  float: right
+  @include vertical-center(absolute);
+  right: 160px;
+  z-index: z('menu');
+}
+
+.user-menu__button {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
 }
 
 

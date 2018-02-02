@@ -30,20 +30,27 @@ class UserProfile extends Component {
 				<HeaderMenu />
 				<div className="page__content">
 					<div className="profile__header">
-						<UserMenu />
-						{
-						this.props.isReady ?
-							<div className="user-summary">
-								<div className="container">
-									<UserAvatar update={false}/>
-									<span className="user-summary__name">{this.props.currentUser.username}</span>
-									{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
+						<div className="container">
+							<UserMenu />
+							{
+							this.props.isReady ?
+								<div className="user-summary">
+									<div className="container">
+										<UserAvatar update={false}/>
+										<span className="user-summary__name">{this.props.currentUser.username}</span>
+									</div>
 								</div>
-							</div>
-						:
-							<FixeWait/>
-						}
+							:
+								<FixeWait/>
+							}
+						</div>
 					</div>
+					{
+					this.props.isReady ?
+						(this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null)
+					:
+						<FixeWait/>
+					}
 					<BotInfo />
 					<FooterMenu />
 				</div>
