@@ -128,6 +128,21 @@
   }
 }
 
+.avatar ._react-file-reader-input {
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 24px;
+    background: url('/images/icons/icon-camera.svg') no-repeat;
+    @include center-align(absolute);
+    z-index: z('menu');
+  }
+}
+
+
 .avatar__picture {
   display: block;
   position: relative;
