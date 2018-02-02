@@ -2,7 +2,7 @@
   bitRepublic - gallery.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:55:35
-  @Last Modified time: 2018-02-02 00:17:01
+  @Last Modified time: 2018-02-02 20:58:15
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentGallery } from '../../api/images/methods.js';
@@ -37,6 +37,11 @@ export default class FixeGallery extends Component {
 	handleSelectPicture (k){
 		this.setState({'selected' : k});
 	}
+	handleClose(){
+		this.setState({
+			'selected' : false
+		});
+	}
 	handleKeyPress(event){
 		if( (!_.isArray(this.state.pictures)) || (!_.isNumber(this.state.selected)) ) return;
 
@@ -49,9 +54,7 @@ export default class FixeGallery extends Component {
 				'selected' : (this.state.selected + 1 + this.state.pictures.length) % this.state.pictures.length
 			});
 		}else if(event.key == "Escape"){
-			this.setState({
-				'selected' : false
-			});
+			this.handleClose();
 		}
 	}
 	componentDidMount(){
@@ -69,11 +72,20 @@ export default class FixeGallery extends Component {
 							{
 								this.state.pictures.map((picture, k) => (
 									<li	className="gallery__list__item" key={k}>
-										<img className={"gallery__picture" + (this.state.selected === k ? "selected" : "")}
-											style={this.state.selected === k ? this.large : {maxWidth: 150 + 'px'}}
-											src={"/"+picture}
-											onClick={this.handleSelectPicture.bind(this, k)}
-											alt="image de bitRepublic"/>
+										<div className="container">
+											{
+												this.state.selected === k ? 
+													<a href="#" className="modal__close" onClick={this.handleClose.bind(this)}>&times;</a>
+												:
+													null
+											}
+											<img className={"gallery__picture" + (this.state.selected === k ? "selected" : "")}
+												style={this.state.selected === k ? this.large : {maxWidth: 150 + 'px'}}
+												src={"/"+picture}
+												onClick={this.handleSelectPicture.bind(this, k)}
+												alt="image de bitRepublic"
+											/>
+										</div>
 									</li>
 								))
 							}

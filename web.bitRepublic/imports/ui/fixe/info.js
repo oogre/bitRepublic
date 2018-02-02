@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2018-02-02 00:17:24
+  @Last Modified time: 2018-02-02 20:39:55
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -35,9 +35,11 @@ export default class FixeInfo extends Component {
 		}];
 
 		let select = 0;
-		_.find(this.data, (e, k)=>{
-			select = k;
-			return e.hash === FlowRouter.current().context.hash;
+
+		_.map(this.data, (e, k)=>{
+			if(e.hash === FlowRouter.current().context.hash){
+				select = k;
+			}
 		});
 
 
@@ -60,8 +62,8 @@ export default class FixeInfo extends Component {
 					<ul className="contents-selector-list">
 						{
 							this.data.map((d, k) => (
-								<li key={k} className={'contents-selector-list__item ' + (this.state.selected === k ? 'selected' : "")}>
-									<a className="contents-selector-list__button" onClick={this.handleClickOnLink.bind(this, k)} href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}>{d.title}</a>
+								<li key={k} className={'contents-selector-list__item '}>
+									<a className={"contents-selector-list__button " + (this.state.selected === k ? 'selected' : "")} onClick={this.handleClickOnLink.bind(this, k)} href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}>{d.title}</a>
 								</li>
 							))
 						}

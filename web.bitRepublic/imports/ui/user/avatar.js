@@ -2,7 +2,7 @@
   bitRepublic - avatar.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:30
-  @Last Modified time: 2018-02-02 00:32:41
+  @Last Modified time: 2018-02-02 20:48:22
 \*----------------------------------------*/
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -17,6 +17,7 @@ class UserAvatar extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			imgError : false,
 			'error-login' : false,
 			'error-image' : false,
 			'is-loading' : false,
@@ -73,7 +74,7 @@ class UserAvatar extends Component {
 						});
 						return;
 					}
-					self.setState({'has-success' : true});
+					self.setState({'has-success' : true, imgError : false});
 				});
 			});
 
@@ -106,12 +107,18 @@ class UserAvatar extends Component {
 			upload.start();
 		});
 	}
+	handleErrorImage (){
+		this.setState({
+			imgError : true
+		});
+	}
 	renderPicture(){
 		return (
 			<img className="avatar__picture"
 				style={{maxWidth: 100 + 'px'}}
-				src={this.props.avatar}
+				src={ this.state.imgError ? this.props.defaultAvatar : this.props.avatar}
 				alt="avatar"
+				onError={this.handleErrorImage.bind(this)}
 			/>
 		);
 	}
@@ -162,7 +169,8 @@ class UserAvatar extends Component {
 export default withTracker(() => {
 	let myFilesImagesReady = FlowRouter.subsReady("my.files.images");
 	let isReady = Meteor.user() && myFilesImagesReady;
-	let avatar = "/images/avatar.png"
+	let defaultAvatar = "/images/avatar.png";
+	let avatar = defaultAvatar;
 	if(isReady && Meteor.user().profile.avatar){
 		let img = Images.collection.findOne({_id : Meteor.user().profile.avatar});
 		if(img){
@@ -170,6 +178,7 @@ export default withTracker(() => {
 		}
 	}
 	return {
+		defaultAvatar : defaultAvatar,
 		avatar : avatar
 	};
 })(UserAvatar);

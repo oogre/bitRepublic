@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-02-02 00:07:50
+  @Last Modified time: 2018-02-02 20:52:26
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -102,7 +102,9 @@ class BotInfo extends Component {
 	renderBot(bot){
 		return (
 			<tr className="table__row" key={bot._id}>
-				<td className="table__cell">Picture</td>
+				<td className="table__cell">
+					<img width="50px" src={bot.model.picture} alt="picture"/>
+				</td>
 				<td className="table__cell nowrap">{bot.model.description}</td>
 				<td className="table__cell">{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
 				<td className="table__cell nowrap">
