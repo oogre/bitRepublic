@@ -35,10 +35,8 @@ class UserProfile extends Component {
 							{
 							this.props.isReady ?
 								<div className="user-summary">
-									<div className="container">
-										<UserAvatar update={false}/>
-										<span className="user-summary__name">{this.props.currentUser.username}</span>
-									</div>
+									<UserAvatar update={false}/>
+									<span className="user-summary__name">{this.props.currentUser.username}</span>
 								</div>
 							:
 								<FixeWait/>

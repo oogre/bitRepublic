@@ -62,16 +62,24 @@
   border-right: 1px solid $grey-iron;
   font-size: 1.2rem;
   font-weight: 600;
-  padding: 35px 15px;
+  padding: 15px;
 
   &:last-child {
     border: 0;
+  }
+
+  @include breakpoint($md) {
+    padding: 35px 15px;
   }
 }
 
 .table--zebra .table__row:first-child .table__cell,
 .table--zebra .table__row:last-child .table__cell {
-  padding: 35px 15px;
+  padding: 15px;
+
+  @include breakpoint($md) {
+    padding: 35px 15px;
+  }
 }
 
 // Table Redistribution
@@ -96,11 +104,12 @@
 // Can be found on profile
 // ---------------------
 .table--bots {
+  display: block;
+  max-width: 100%;
+  overflow-x: scroll;
+
   @include breakpoint($md) {
-    display: block;
     min-width: 966px;
-    max-width: 100%;
-    overflow-x: scroll;
   }
 }
 

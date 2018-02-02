@@ -38,6 +38,11 @@
 }
 
 .id-card__item .counter--simple {
+  @include breakpoint($below-md) {
+    margin: 1rem;
+  }
+
+  display: inline-block;
   vertical-align: middle;
   margin-left: 1rem;
 }
@@ -46,9 +51,14 @@
 // ---------------------
 
 .user-menu {
-  @include vertical-center(absolute);
-  right: 160px;
-  z-index: z('menu');
+  float: right;
+
+  @include breakpoint($md) {
+    float: none;
+    z-index: z('menu');
+    @include vertical-center(absolute);
+    right: 160px;
+  }
 }
 
 .user-menu__button {
@@ -91,7 +101,7 @@
 .avatar__picture {
   display: block;
   position: relative;
-  z-index: z(menu);
+  z-index: z('avatar');
   width: 92px;
   height: 92px;
 }
