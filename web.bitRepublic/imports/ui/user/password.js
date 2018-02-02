@@ -21,7 +21,7 @@ export default class UserPassword extends Component {
 			'has-success' : false
 		};
 	}
-	
+
 	handleResetPassword(e){
 		this.setState({
 			'error-login' : false,
@@ -47,24 +47,24 @@ export default class UserPassword extends Component {
 	render() {
 		//<HeaderMenu />
 		return (
-			<div className="container">
+			<div className="form--password">
 				<label>
-					Send me a mail to 
-					<button 
+					Send me a mail to
+					<button
 						onClick={this.handleResetPassword.bind(this)}
 						className={
-							"button--primary " + 
-							(this.state['is-loading'] ? "loading " : "") + 
-							(this.state['has-success'] ? "success " : "") + 
+							"button--primary " +
+							(this.state['is-loading'] ? "loading " : "") +
+							(this.state['has-success'] ? "success " : "") +
 							(this.state['has-error'] ? "error " : "")
-						} 
+						}
 					>
 						Reset Password
 					</button>
-					{ 	
-						this.state["error-login"] ? 
-							<MessageError 
-								error={this.state["error-login"]} 
+					{
+						this.state["error-login"] ?
+							<MessageError
+								error={this.state["error-login"]}
 								messages={config.FORM.ERRORS.login}
 							/>
 						:

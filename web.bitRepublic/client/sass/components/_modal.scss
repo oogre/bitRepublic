@@ -4,6 +4,10 @@
   https://reactcommunity.org/react-modal/styles/
 \*------------------------------------*/
 
+.ReactModal__Overlay {
+  z-index: z('modal');
+}
+
 // Modal Close
 // ---------------------
 .modal__close {

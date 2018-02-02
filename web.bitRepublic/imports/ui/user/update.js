@@ -27,37 +27,51 @@ export default class UserUpdate extends Component {
 	render() {
 		return (
 			<div className="page">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
-					<UserMenu />
-					<ul>
-						<li>
-							<a 
-								href="#profile" 
-								onClick={this.handleChangeProcess.bind(this, "profile")}
-							>
-								user profile
-							</a>
-						</li>
-						<li>
-							<a 
-								href="#password" 
-								onClick={this.handleChangeProcess.bind(this, "password")}
-							>
-								new password
-							</a>
-						</li>
-					</ul>
-					<div className={this.state.selectedProcess == "profile" ? "" : "hidden"}>
-						<UserAvatar update={true}/>
-						<UserForm />
+					<div className="profile__header">
+						<div className="container">
+							<UserMenu />
+						</div>
 					</div>
-					<div className={this.state.selectedProcess == "password" ? "" : "hidden"}>
-						<UserPassword />
+					<div className="container">
+						<div className="tabs--profile">
+							<ul className="tabs-selector-list">
+								<li className="tabs-selector-list__item">
+									<a
+										className={"tabs-selector-list__button " + (this.state.selectedProcess == "profile" ? "selected" : "")}
+										href="#profile"
+										onClick={this.handleChangeProcess.bind(this, "profile")}
+									>
+										user profile
+									</a>
+								</li>
+								<li className="tabs-selector-list__item">
+									<a
+										className={"tabs-selector-list__button " + (this.state.selectedProcess == "password" ? "selected" : "")}
+										href="#password"
+										onClick={this.handleChangeProcess.bind(this, "password")}
+									>
+										new password
+									</a>
+								</li>
+							</ul>
+							<div className={"tab " + (this.state.selectedProcess == "profile" ? "" : " hidden")}>
+								<div className="tab__content">
+									<UserAvatar update={true}/>
+									<UserForm />
+								</div>
+							</div>
+							<div className={"tab " + (this.state.selectedProcess == "password" ? "" : "hidden")}>
+								<div className="tab__content">
+									<UserPassword />
+								</div>
+							</div>
+						</div>
 					</div>
-					<FooterMenu />
 				</div>
+				<FooterMenu />
 			</div>
 		);
-  	}
+	}
 }

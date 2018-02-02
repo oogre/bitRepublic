@@ -81,9 +81,11 @@ class UserForm extends Component {
 	}
 	renderForm(){
 		return (
-			<form onSubmit={this.handleSubmit.bind(this)}>
-				<label>
-					firstname
+			<form className="form form--profile" onSubmit={this.handleSubmit.bind(this)}>
+				<div className="fields-row">
+					<label className="field__label">
+						First Name:
+					</label>
 					<input
 						type="text"
 						ref="firstname"
@@ -91,18 +93,20 @@ class UserForm extends Component {
 						value={this.state.firstname}
 						onChange={this.handleOnChange.bind(this)}
 					/>
-					{	
-						this.state["error-firstname"] ? 
-							<MessageError 
-								error={this.state["error-firstname"]} 
+					{
+						this.state["error-firstname"] ?
+							<MessageError
+								error={this.state["error-firstname"]}
 								messages={config.FORM.ERRORS.firstname}
 							/>
 						:
 							null
 					}
-				</label>
-				<label>
-					lastname
+				</div>
+				<div className="fields-row">
+					<label className="field__label">
+						Last Name:
+					</label>
 					<input
 						type="text"
 						ref="lastname"
@@ -110,18 +114,20 @@ class UserForm extends Component {
 						value={this.state.lastname}
 						onChange={this.handleOnChange.bind(this)}
 					/>
-					{	
-						this.state["error-lastname"] ? 
-							<MessageError 
-								error={this.state["error-lastname"]} 
+					{
+						this.state["error-lastname"] ?
+							<MessageError
+								error={this.state["error-lastname"]}
 								messages={config.FORM.ERRORS.lastname}
 							/>
 						:
 							null
 					}
-				</label>
-				<label>
-					username
+				</div>
+				<div className="fields-row">
+					<label className="field__label">
+						User Name:
+					</label>
 					<input
 						type="text"
 						ref="username"
@@ -129,18 +135,20 @@ class UserForm extends Component {
 						value={this.state.username}
 						onChange={this.handleOnChange.bind(this)}
 					/>
-					{	
-						this.state["error-username"] ? 
-							<MessageError 
-								error={this.state["error-username"]} 
+					{
+						this.state["error-username"] ?
+							<MessageError
+								error={this.state["error-username"]}
 								messages={config.FORM.ERRORS.username}
 							/>
 						:
 							null
 					}
-				</label>
-				<label>
-					email
+				</div>
+				<div className="fields-row">
+					<label className="field__label">
+						Email:
+					</label>
 					<input
 						type="email"
 						ref="email"
@@ -148,37 +156,37 @@ class UserForm extends Component {
 						value={this.state.email}
 						onChange={this.handleOnChange.bind(this)}
 					/>
-					{	
-						this.state["error-email"] ? 
-							<MessageError 
-								error={this.state["error-email"]} 
+					{
+						this.state["error-email"] ?
+							<MessageError
+								error={this.state["error-email"]}
 								messages={config.FORM.ERRORS.email}
 							/>
 						:
 							null
 					}
-				</label>
-				{this.state['is-loading'] ? <FixeWait /> : null }
-				<input 
-					type="submit"
-					value="save" 
-					className={
-						"button--primary button--submit "+
-						(this.state['is-loading'] ? "loading " : "") + 
-						(this.state['has-success'] ? "success " : "") + 
-						(this.state['has-error'] ? "error " : "")
-					}
-				/>
-				{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
-			</form> 
+				</div>
+				<div className="fields-row text-right">
+					{this.state['is-loading'] ? <FixeWait /> : null }
+					<input
+						type="submit"
+						value="save"
+						className={
+							"button--primary button--submit "+
+							(this.state['is-loading'] ? "loading " : "") +
+							(this.state['has-success'] ? "success " : "") +
+							(this.state['has-error'] ? "error " : "")
+						}
+					/>
+					{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
+				</div>
+			</form>
 		);
 	}
 	render() {
 		//<HeaderMenu />
 		return (
-			<div className="container">
-				{this.props.isReady ? this.renderForm() : <FixeWait />}
-			</div>
+			this.props.isReady ? this.renderForm() : <FixeWait />
 		);
   	}
 }
@@ -191,7 +199,7 @@ export default withTracker(() => {
 	let firstname = currentUser && currentUser.profile ? currentUser.profile.firstname : "";
 	let lastname = currentUser && currentUser.profile ? currentUser.profile.lastname : "";
 	let email = currentUser && currentUser.emails && currentUser.emails[0] ? currentUser.emails[0].address : "";
-	
+
 	return {
 		isReady : isReady,
 		firstname : firstname,

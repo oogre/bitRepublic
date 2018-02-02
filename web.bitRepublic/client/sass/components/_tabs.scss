@@ -26,6 +26,7 @@
 }
 
 .tabs-selector-list__button {
+  display: block;
   padding: 15px;
   background: $grey-95;
   border: none;
@@ -66,9 +67,84 @@
   @include clearfix();
 }
 
-.tab__content {
+// tab--profile
+// ---------------------
+.tabs--profile .tabs-selector-list__item {
+  background: transparent;
+  margin-right: 0;
+
+  @include breakpoint($below-md) {
+    width: 50%;
+  }
+}
+
+.tabs--profile .tabs-selector-list__button {
+  display: block;
+  padding: 0 0 40px;
+  text-align: center;
+  background: transparent;
+  color: $grey-50;
+  border: none;
+  border-top: 0;
+  border-bottom: 0;
+  text-decoration: none;
+  position: relative;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.selected {
+    color: $color-primary;
+    border-bottom-color: $color-primary;
+
+    &:after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      bottom: -2px;
+      right: 0;
+      width: 100%;
+      background: $color-primary;
+    }
+  }
 
 }
 
+.tabs--profile .tab {
+  background: transparent;
+  padding: 50px 0;
+  border-top: 2px solid $grey-82;
+}
 
+.tabs--profile .tab .avatar,
+.tabs--profile .tab .form {
+  @include breakpoint($md) {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
 
+.tabs--profile .tab .form {
+  @include breakpoint($md) {
+    padding-left: 45px;
+    width: 362px;
+  }
+}
+
+.tabs--profile .tab .form .fields-row {
+  margin-bottom: 20px;
+
+  @include breakpoint($md) {
+    margin-bottom: 40px;
+  }
+}
+
+.tabs--profile .tab .form--password {
+  @include breakpoint($md) {
+    padding-left: 189px;
+  }
+}
+
+.form--password .button--primary {
+  margin-left: 1rem;
+}

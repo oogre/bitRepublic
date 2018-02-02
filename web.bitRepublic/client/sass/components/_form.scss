@@ -175,6 +175,14 @@ textarea {
   vertical-align: middle;
 }
 
+// label
+// ---------------------
+.field__label {
+  margin-bottom: .5rem;
+  display: block;
+}
+
+
 // Input File
 // ---------------------
 
@@ -182,95 +190,9 @@ textarea {
   @include rem(font-size, 16px);
 }
 
-// Field
-// ---------------------
-
-.field {
-  position: relative;
-  margin: 0 0 .5em;
-}
-
-.field__label {
-  display: block;
-  margin-bottom: .4em;
-  @include rem(font-size, 16px);
-}
-
-.field__label--optional {
-  @include rem(font-size, 12px);
-  vertical-align: middle;
-}
-
-// field--inline
-
-.field--inline {
-  display: inline-block;
-  margin-right: 1em;
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
-// Field group
-// ---------------------
-
-.field-group {
-  margin: 1.5em 0;
-  padding-left: .5em;
-
-  &:first-of-type {
-    margin-top: 0;
-  }
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-}
-
-.field-group__title {
-  margin: 0 0 0.5em -0.5em;
-  @include rem(font-size, 18px);
-  color: $color-primary;
-}
-
 // Errors
 // ---------------------
 
-.errors {
-  @include rem(font-size, 15px);
-  margin-bottom: 1em;
-}
-
-.error {
-  color: $color-error;
-}
-
-.error p {
-  margin: 0;
-}
-
-// Success
-// ---------------------
-
-.success {
-  background: $color-success;
-  padding: .5em 1em;
-  margin-bottom: 2em;
-  @include rem(font-size, 14px);
-  line-height: 0;
-  border-radius: 2px;
-}
-
-// field-errors
-// ---------------------
-
-.field-error {
-  display: block;
-  margin-top: .5em;
-  color: $color-error;
-  @include rem(font-size, 12px);
-}
 
 .error-message {
   color: $color-error;

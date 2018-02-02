@@ -50,8 +50,8 @@ class UserProfile extends Component {
 						<FixeWait/>
 					}
 					<BotInfo />
-					<FooterMenu />
 				</div>
+				<FooterMenu />
 			</div>
 		);
   	}

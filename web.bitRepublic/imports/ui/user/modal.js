@@ -62,7 +62,7 @@ export default class UserModal extends Component {
 				right             : 0,
 				bottom            : 0,
 				backgroundColor   : 'rgba(40, 40, 40, 0.9)',
-				zIndex           : 2000
+				zIndex            : 9999
 			},
 			content : {
 				position                   : 'absolute',

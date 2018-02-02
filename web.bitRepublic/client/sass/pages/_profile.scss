@@ -5,6 +5,7 @@
 // Profile Header
 // ---------------------
 .profile__header {
+  @include clearfix();
   margin: 92px 0 40px;
   position: relative;
 }
@@ -84,6 +85,7 @@
     content: "";
     display: block;
     width: 100%;
+    max-width: 194px;
     height: 3px;
     left: 0;
     background: $grey-82;
@@ -96,6 +98,17 @@
   &:after {
     bottom: 35px;
   }
+
+  @include breakpoint($below-md) {
+    margin: 0 auto 20px;
+    display: block;
+
+    &:before,
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .avatar__picture {
@@ -104,4 +117,8 @@
   z-index: z('avatar');
   width: 92px;
   height: 92px;
+
+  @include breakpoint($below-md) {
+    margin: 0 auto;
+  }
 }
