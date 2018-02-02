@@ -37,9 +37,20 @@
 .hero-banner .taxrate {
   position: absolute;
 
+  @include breakpoint($below-md) {
+    transform: translateX(-50%);
+    top: 100px;
+    left: 50%;
+  }
+
   @include breakpoint($md) {
+    bottom: 550px;
+    right: 20px;
+  }
+
+  @include breakpoint($lg) {
     bottom: 576px;
-    right: 0;
+    right: 130px;
   }
 }
 
