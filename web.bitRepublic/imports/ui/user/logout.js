@@ -20,7 +20,7 @@ export default class UserLogOut extends Component {
 	}
 	render() {
 		return (
-			<a href="#" onClick={this.handleLogout.bind(this)}>Logout</a>
+			<a href="#" className="dropdown__item__link dropdown__item__link--logout" onClick={this.handleLogout.bind(this)}>Logout</a>
 		);
-  	}
+	}
 }

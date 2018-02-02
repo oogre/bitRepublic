@@ -52,13 +52,16 @@
 // ---------------------
 
 .user-menu {
-  float: right;
+  position: absolute;
+  top: -55px;
+  right: 25px;
+  z-index: z('menu');
 
   @include breakpoint($md) {
     float: none;
-    z-index: z('menu');
     @include vertical-center(absolute);
     right: 160px;
+    top: 0;
   }
 }
 
@@ -69,6 +72,20 @@
   padding: 0;
   cursor: pointer;
   outline: none;
+}
+
+.user-menu .dropdown__content {
+  @include breakpoint($below-md) {
+    left: -226px;
+    top: -25px;
+
+    &:after {
+      left: auto;
+      right: -25px;
+      top: 6px;
+      transform: rotate(90deg);
+    }
+  }
 }
 
 
