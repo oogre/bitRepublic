@@ -109,6 +109,15 @@ h6 {
   }
 }
 
+// Title Profile
+.title--profile {
+  padding: 20px 14px;
+  text-transform: uppercase;
+  background: $color-primary;
+  color: #fff;
+  font-weight: 500;
+}
+
 // Link
 a {
   color: $color-primary;

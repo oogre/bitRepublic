@@ -60,15 +60,15 @@ class BotInfo extends Component {
 	}
 	renderTweet(actions){
 		return _.compact(actions).map((action) => (
-			<li key={action._id}>
+			<li className="table-list__item" key={action._id}>
 				{action.content}
 			</li>
 		));
 	}
 	renderActive(actions){
 		return _.compact(actions).map((action) => (
-			<li key={action._id}>
-				<input 
+			<li className="table-list__item" key={action._id}>
+				<input
 					type="checkbox"
 					readOnly
 					defaultChecked={action.active}
@@ -79,8 +79,8 @@ class BotInfo extends Component {
 	}
 	renderNextActionAt(actions){
 		return _.compact(actions).map((action) => (
-			<li key={action._id}>
-				{ 
+			<li className="table-list__item" key={action._id}>
+				{
 					moment(
 						Utilities.datePlusSeconds(
 							action.nextActivation, action.interval
@@ -92,39 +92,38 @@ class BotInfo extends Component {
 	}
 	renderBitsoil(bot){
 		return _.compact(bot.actions).map((action) => (
-			<li key={action._id}>
-				<BitsoilCounter currencyBefore={true} bitsoil={bot.bitsoil} tax={false} />
-				every {moment.duration(action.interval, "second").humanize()}
+			<li className="table-list__item" key={action._id}>
+				<BitsoilCounter type="simple" currencyBefore={true} bitsoil={bot.bitsoil} tax={false} />
+				<span className="table__cell--counter__label">every {moment.duration(action.interval, "second").humanize()}</span>
 			</li>
 		));
 
 	}
 	renderBot(bot){
 		return (
-			<tr key={bot._id}>
-				<td>Picture</td>
-				<td>{bot.model.description}</td> 
-				<td>{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
-				<td>
-					<ul>
+			<tr className="table__row" key={bot._id}>
+				<td className="table__cell">Picture</td>
+				<td className="table__cell nowrap">{bot.model.description}</td>
+				<td className="table__cell">{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
+				<td className="table__cell nowrap">
+					<ul className="table-list">
 						{ this.renderNextActionAt(bot.actions) }
 					</ul>
 				</td>
-				<td>
-					<ul>
+				<td className="table__cell">
+					<ul className="table-list">
 						{ this.renderActive(bot.actions) }
 					</ul>
 				</td>
-				<td>
-					<ul>
+				<td className="table__cell">
+					<ul className="table-list">
 						{ this.renderTweet(bot.actions) }
 					</ul>
 				</td>
-				<td>
-					<ul>
+				<td className="table__cell nowrap">
+					<ul className="table-list">
 						{ this.renderBitsoil(bot) }
 					</ul>
-					
 				</td>
 			</tr>
 		);
@@ -136,28 +135,30 @@ class BotInfo extends Component {
 	}
 	renderTotal(){
 		return (
-			<tr>
-				<td>total bitsoils</td>
-				<td>
-					<BitsoilCounter currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} /> 
-					every {this.props.totalInterval.humanize()}
+			<tr className="table__row table__row--totals">
+				<td className="table__cell text-right" colSpan="6">total bitsoils</td>
+				<td className="table__cell text-center">
+					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} />
+					<span className="table__cell--counter__label">every {this.props.totalInterval.humanize()}</span>
 				</td>
 			</tr>
 		);
 	}
 	renderTable(){
 		return (
-			<table>
-				<tbody>
+			<table className="table table--zebra table--bots">
+				<thead className="table__header">
 					<tr>
-						<th>Bots</th>
-						<th>Actions</th> 
-						<th>Created at</th>
-						<th>Next action at</th>
-						<th>Active</th>
-						<th>Tweet</th>
-						<th>Bitsoils</th>
+						<th className="table__header__cell">Bots</th>
+						<th className="table__header__cell">Actions</th>
+						<th className="table__header__cell">Created at</th>
+						<th className="table__header__cell">Next action at</th>
+						<th className="table__header__cell">Active</th>
+						<th className="table__header__cell">Tweet</th>
+						<th className="table__header__cell">Bitsoils</th>
 					</tr>
+				</thead>
+				<tbody className="table__body">
 					{this.renderBots()}
 					{this.renderTotal()}
 				</tbody>
@@ -167,14 +168,18 @@ class BotInfo extends Component {
 	render() {
 		return (
 			<div className="container">
-				<h4>bot info</h4>
-				{ this.props.isReady ? this.renderTable() : <FixeWait/> }
-				
-				{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
-				{ this.state["error-action"] ? <MessageError error={ this.state["error-action"] } messages={ config.FORM.ERRORS.action } /> : null }
+				<section className="section--profile">
+					<h2 className="title--profile">Bot info</h2>
+						<div className="section__content">
+							{ this.props.isReady ? this.renderTable() : <FixeWait/> }
+
+							{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
+							{ this.state["error-action"] ? <MessageError error={ this.state["error-action"] } messages={ config.FORM.ERRORS.action } /> : null }
+						</div>
+				</section>
 			</div>
 		);
-  	}
+	}
 }
 
 export default withTracker(() => {
@@ -198,7 +203,7 @@ export default withTracker(() => {
 								});
 		}
 	}
-	
+
 	return {
 		isReady : myBotsReady,
 		bots : bots,

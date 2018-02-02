@@ -33,8 +33,8 @@ class WalletList extends Component {
 				<td className="table__cell">
 					<span className="wallet-id">ID {Utilities.numberFormat(wallet.number, 6)}</span>
 				</td>
-				<td className="table__cell table__cell--counter">
-					<BitsoilCounter currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} />
+				<td className="table__cell text-center">
+					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} />
 				</td>
 			</tr>
 		);

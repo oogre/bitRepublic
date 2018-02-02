@@ -1,0 +1,27 @@
+/*------------------------------------*\
+  > Profile Page
+\*------------------------------------*/
+
+// Section Profile
+// ---------------------
+.section--profile .section__content {
+  margin: 55px 0;
+}
+
+// id-card
+// ---------------------
+.id-card {
+  list-style-type: none;
+  padding: 0;
+}
+
+.id-card__item {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.id-card__item .counter--simple {
+  vertical-align: middle;
+  margin-left: 1rem;
+}

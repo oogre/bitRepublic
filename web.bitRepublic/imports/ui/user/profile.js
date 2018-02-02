@@ -23,23 +23,25 @@ class UserProfile extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+
 	render() {
 		return (
-			<div className="container">
-				<HeaderMenu />
-				<UserMenu />
-				{ 
-				this.props.isReady ? 
-					<div>
-						<UserAvatar update={false}/><br/>
-						{this.props.currentUser.username}<br/>
-						{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
-					</div>
-				: 
-					<FixeWait/> 
-				}
-				<BotInfo />
+			<div className="page">
+				<div className="page__content">
+					<HeaderMenu />
+					<UserMenu />
+					{
+					this.props.isReady ?
+						<div>
+							<UserAvatar update={false}/><br/>
+							{this.props.currentUser.username}<br/>
+							{ this.props.wallet ? <WalletDetail wallet={this.props.wallet}/> : null }
+						</div>
+					:
+						<FixeWait/>
+					}
+					<BotInfo />
+				</div>
 				<FooterMenu />
 			</div>
 		);
@@ -49,11 +51,11 @@ export default withTracker(() => {
 	let myWalletReady = FlowRouter.subsReady("my.wallet");
 	let myFilesImagesReady = FlowRouter.subsReady("my.files.images");
 	let isReady = myWalletReady && Meteor.user() && myFilesImagesReady;
-	
+
 	return {
 		isReady : isReady,
 		userId : Meteor.userId(),
 		currentUser : Meteor.user(),
-		wallet : Wallets.findOne({owner : Meteor.userId()}, {fields : {number : 1, bitsoil:1}}) 
+		wallet : Wallets.findOne({owner : Meteor.userId()}, {fields : {number : 1, bitsoil:1}})
 	};
 })(UserProfile);

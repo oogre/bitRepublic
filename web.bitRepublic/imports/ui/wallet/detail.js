@@ -1,8 +1,8 @@
 /*----------------------------------------*\
-  bitRepublic - detail.js
-  @author Evrard Vincent (vincent@ogre.be)
-  @Date:   2018-01-28 13:23:23
-  @Last Modified time: 2018-02-02 00:08:53
+	bitRepublic - detail.js
+	@author Evrard Vincent (vincent@ogre.be)
+	@Date:   2018-01-28 13:23:23
+	@Last Modified time: 2018-02-02 00:08:53
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -15,15 +15,27 @@ export default class WalletDetail extends Component {
 	constructor(props){
 		super(props);
 	}
-	
+
 	render() {
 		return (
 			<div className="container">
-				<h4>your wallet</h4>
-				id number : {Utilities.numberFormat(this.props.wallet.number, 7)}<br/>
-				amount redistributed : <BitsoilCounter currencyBefore={true} bitsoil={this.props.wallet.bitsoil} tax={false} /><br/>
-				key : {this.props.wallet._id}<br/>
+				<section className="section--profile">
+					<h2 className="title--profile">Your wallet</h2>
+					<div className="section__content">
+						<ul className="id-card">
+							<li className="id-card__item">
+								id number: {Utilities.numberFormat(this.props.wallet.number, 7)}
+							</li>
+							<li className="id-card__item">
+								amount redistributed: <BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.wallet.bitsoil} tax={false} />
+							</li>
+							<li className="id-card__item">
+								key: {this.props.wallet._id}
+							</li>
+						</ul>
+					</div>
+				</section>
 			</div>
 		);
-  	}
+		}
 }

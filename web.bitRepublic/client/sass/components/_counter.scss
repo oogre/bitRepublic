@@ -5,9 +5,11 @@
 .counter,
 .counter--large,
 .counter--xl,
-.counter--tax {
+.counter--tax,
+.counter--simple {
   font-family: $font-counter-sans-serif;
   clear: both;
+  font-weight: 400;
 }
 
 .counter,
@@ -231,4 +233,49 @@
   width: 3.2rem;
   height: 3.2rem;
   font-size: 4.4rem;
+}
+
+// Counter Simple
+// Counter Simple variation (more or less like the default one, but inverted color and no background on row)
+// Use in table and profile
+// ---------------------
+
+.counter--simple {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 20px;
+  position: relative;
+}
+
+.counter--simple .counter__row {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.counter--simple .counter__block,
+.counter--simple .counter__row .counter__block:last-child {
+  color: #fff;
+  background: $grey-thunder;
+  width: 2rem;
+  height: 2rem;
+}
+
+.counter--simple .counter__block__text {
+  font-size: 3rem;
+}
+
+.counter--simple .counter__row .counter__block:first-child {
+  display: none;
+}
+
+.counter--simple:before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 20px;
+  background: url(images/bitsoil-symbol-small.svg) no-repeat;
+  position: absolute;
+  left: 0;
 }

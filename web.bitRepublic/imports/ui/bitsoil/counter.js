@@ -29,7 +29,7 @@ export default class BitsoilCounter extends Component {
 		let length = bitsoil.length > tax.length ? bitsoil.length : tax.length;
 
 		return (
-			<div className={"counter" + (this.props.large ? "--large " : "")}>
+			<div className={"counter" + (this.props.large ? "--large " : "") + (this.props.type ? "--" + this.props.type + " " : "")}>
 				<BitsoilSplitter unBlock={this.props.unBlock} minLen={length} substitution=" " input={bitsoil}/>
 
 				{ 	this.props.tax ?

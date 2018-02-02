@@ -8,10 +8,6 @@
 
 // Table Header
 // ---------------------
-.table__header {
-  border: 1px solid $grey-oslo;
-}
-
 .table__header__cell {
   padding: 18px;
   background: $grey-48;
@@ -55,7 +51,31 @@
   padding-bottom: 2rem;
 }
 
+// Table with alternate row background
+// Use for table table--bots
+// ---------------------
+.table--zebra .table__row:nth-child(even) {
+  background: $blue-aqua-haze;
+}
+
+.table--zebra .table__cell {
+  border-right: 1px solid $grey-iron;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 35px 15px;
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.table--zebra .table__row:first-child .table__cell,
+.table--zebra .table__row:last-child .table__cell {
+  padding: 35px 15px;
+}
+
 // Table Redistribution
+// Can be found on page redistribution
 // --------------------
 .table--redistribution {
   width: 100%;
@@ -72,49 +92,25 @@
   font-size: 1.4rem;
 }
 
+// Table Bots
+// Can be found on profile
+// ---------------------
+.table--bots {
+  @include breakpoint($md) {
+    display: block;
+    min-width: 966px;
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+}
+
 // Table Counter
 // ---------------------
 
-.table__cell--counter {
-  text-align: center;
-}
-
-.table .counter {
-  padding-left: 20px;
-  position: relative;
-}
-
-.table .counter__row {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  margin: 0;
-}
-
-.table .counter__block,
-.table .counter .counter__row .counter__block:last-child {
-  color: #fff;
-  background: $grey-thunder;
-  width: 2rem;
-  height: 2rem;
-}
-
-.table .counter__block__text {
-  font-size: 3rem;
-}
-
-.table .counter .counter__row .counter__block:first-child {
-  display: none;
-}
-
-.table .counter:before {
-  content: "";
-  display: block;
-  width: 15px;
-  height: 20px;
-  background: url(images/bitsoil-symbol-small.svg) no-repeat;
-  position: absolute;
-  left: 0;
+.table__cell--counter__label {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-left: 1rem;
 }
 
 // table-scroller
@@ -129,4 +125,31 @@
   width: 23px;
   height: 23px;
   background: $grey-9;
+}
+
+// Table List
+// List inside a table
+// Can be found in profile table bots
+// ---------------------
+
+.table-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.table-list__item {
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Table row total
+// ---------------------
+.table__row--totals .table__cell {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
