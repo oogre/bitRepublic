@@ -1,0 +1,90 @@
+/*------------------------------------*\
+  > Dropdown
+\*------------------------------------*/
+
+// Dropdown Button
+.dropdown__button {
+  position: relative;
+  cursor: pointer;
+}
+
+// .dropdown__button.open {
+//   &:after {
+//     transform-origin: 50%;
+//     transform: translateY(-50%) rotate(-180deg);
+//     margin-top: -2px;
+//   }
+// }
+
+// Dropdown content
+.dropdown__content {
+  min-width: 195px;
+  position: absolute;
+  margin-top: 26px;
+  padding: 0;
+  border: 1px solid $grey-82;
+  border-radius: 5px;
+  background: #fff;
+  z-index: z('header');
+  left: -76px;
+
+  &:after {
+    content: "";
+    display: block;
+    height: 24px;
+    width: 27px;
+    background: url('/images/dropdown-carret.svg') no-repeat;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// Dropdown list
+.dropdown__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown__item__item {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown__item__link {
+  display: block;
+  width: 100%;
+  padding: 8px 6px;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  color: $grey-63;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+.dropdown__item__link--logout {
+  margin-top: 6px;
+  padding: 8px 6px 8px;
+  border-top: 1px solid $grey-82;
+}
+
+.dropdown__item__link.active {
+  color: $color-primary;
+
+  &:after {
+    display: block;
+    position: absolute;
+    content: "\2713";
+    @include vertical-center(absolute);
+    right: .5em;
+  }
+}
+
