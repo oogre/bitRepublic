@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-02-02 20:52:26
+  @Last Modified time: 2018-02-05 17:02:57
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -25,6 +25,7 @@ class BotInfo extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			'error' : false,
 			'error-login' : false,
 			'error-action' : false,
 			'is-loading' : false,
@@ -34,6 +35,7 @@ class BotInfo extends Component {
 	}
 	handleActiveChange(action){
 		this.setState({
+			'error' : false,
 			'error-login' : false,
 			'error-action' : false,
 			'is-loading' : true,
@@ -55,6 +57,13 @@ class BotInfo extends Component {
 				});
 				return;
 			}
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
+				});
+				return;
+			}
 			console.log(res);
 		});
 	}
@@ -67,13 +76,19 @@ class BotInfo extends Component {
 	}
 	renderActive(actions){
 		return _.compact(actions).map((action) => (
-			<li className="table-list__item" key={action._id}>
+			<li className="table-list__item checkbox" key={action._id}>
 				<input
+					id={"action_" + action._id}
 					type="checkbox"
 					readOnly
-					defaultChecked={action.active}
+					checked={action.active}
 					onChange={this.handleActiveChange.bind(this, action)}
 				/>
+				<label htmlFor={"action_" + action._id} className="">
+					<span className="">
+						test
+					</span>
+				</label>
 			</li>
 		));
 	}
@@ -174,9 +189,9 @@ class BotInfo extends Component {
 					<h2 className="title--profile">Bot info</h2>
 						<div className="section__content">
 							{ this.props.isReady ? this.renderTable() : <FixeWait/> }
-
 							{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
 							{ this.state["error-action"] ? <MessageError error={ this.state["error-action"] } messages={ config.FORM.ERRORS.action } /> : null }
+							{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 						</div>
 				</section>
 			</div>

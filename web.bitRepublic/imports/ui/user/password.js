@@ -2,7 +2,7 @@
   bitRepublic - password.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 20:10:14
-  @Last Modified time: 2018-02-02 00:08:24
+  @Last Modified time: 2018-02-05 15:59:24
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -15,6 +15,7 @@ export default class UserPassword extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			'error' : false,
 			'error-login' : false,
 			'is-loading' : false,
 			'has-error' : false,
@@ -24,6 +25,7 @@ export default class UserPassword extends Component {
 
 	handleResetPassword(e){
 		this.setState({
+			'error' : false,
 			'error-login' : false,
 			'is-loading' : true,
 			'has-error' : false,
@@ -37,6 +39,13 @@ export default class UserPassword extends Component {
 					this.setState({
 						["error-"+fieldError.name] : fieldError.type
 					});
+				});
+				return;
+			}
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
 				});
 				return;
 			}
@@ -61,15 +70,8 @@ export default class UserPassword extends Component {
 					>
 						Reset Password
 					</button>
-					{
-						this.state["error-login"] ?
-							<MessageError
-								error={this.state["error-login"]}
-								messages={config.FORM.ERRORS.login}
-							/>
-						:
-							null
-					}
+					{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
+					{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
 				</label>
 			</div>
 		);

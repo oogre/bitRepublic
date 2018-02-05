@@ -2,7 +2,7 @@
   bitRepublic - avatar.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:30
-  @Last Modified time: 2018-02-02 20:48:22
+  @Last Modified time: 2018-02-05 15:59:32
 \*----------------------------------------*/
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -18,6 +18,7 @@ class UserAvatar extends Component {
 		super(props);
 		this.state = {
 			imgError : false,
+			'error' : false,
 			'error-login' : false,
 			'error-image' : false,
 			'is-loading' : false,
@@ -31,6 +32,7 @@ class UserAvatar extends Component {
 	handleChange(event, results){
 		let self = this;
 		this.setState({
+			'error' : false,
 			'error-login' : false,
 			'error-image' : false,
 			'is-loading' : true,
@@ -71,6 +73,13 @@ class UserAvatar extends Component {
 							self.setState({
 								["error-"+fieldError.name] : fieldError.type
 							});
+						});
+						return;
+					}
+					if(err){
+						this.setState({'has-error' : true});
+						this.setState({
+							["error"] : err.message
 						});
 						return;
 					}
@@ -153,6 +162,7 @@ class UserAvatar extends Component {
 
 				{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
 				{ this.state["error-avatar"] ? <MessageError error={ this.state["error-avatar"] } messages={ config.FORM.ERRORS.avatar } /> : null }
+				{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 			</div>
 
 		);

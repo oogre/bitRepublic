@@ -2,10 +2,11 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:04
-  @Last Modified time: 2018-02-02 00:06:53
+  @Last Modified time: 2018-02-05 16:17:46
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
+import { config } from '../../startup/config.js';
 import { Bots } from './bots.js';
 import { Schedules } from './bots.js';
 import { Actions } from '../actions/actions.js';
@@ -24,10 +25,7 @@ export const CreateBot = new ValidatedMethod({
 		'tweet.$.schedule': { type: String, regEx: SimpleSchema.RegEx.Id }
 	}).validator({clean:true}),
 	mixins: [RateLimiterMixin],
-	rateLimit: {
-		numRequests: 5,
-		timeInterval: 5000,
-	},
+	rateLimit: config.METHODS.RATE_LIMIT.FAST,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.
@@ -111,6 +109,8 @@ export const BotTweetUpdate = new ValidatedMethod({
 		'tweet.schedules.$.content': { type: String },
 		'tweet.schedules.$.value': { type: Number }
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.FAST,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.
@@ -161,6 +161,8 @@ export const BotTweetDelete = new ValidatedMethod({
 		botId: { type: String, regEx: SimpleSchema.RegEx.Id },
 		tweetId: { type: String, regEx: SimpleSchema.RegEx.Id }
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.FAST,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.

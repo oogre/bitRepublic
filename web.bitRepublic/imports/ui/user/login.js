@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-02 00:23:15
+  @Last Modified time: 2018-02-05 16:15:15
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -178,15 +178,7 @@ export default class UserLogIn extends Component {
 							type="submit"
 							value="Login"
 						/>
-						{
-							this.state["error"] ?
-								<MessageError
-									error={this.state["error"]}
-									messages={[]}
-								/>
-							:
-								null
-						}
+						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>
 				</form>
 			</div>

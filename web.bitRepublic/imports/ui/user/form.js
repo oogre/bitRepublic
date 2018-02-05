@@ -2,7 +2,7 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:04
-  @Last Modified time: 2018-02-02 00:26:30
+  @Last Modified time: 2018-02-05 15:59:04
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -22,6 +22,7 @@ class UserForm extends Component {
 			lastname : this.props.lastname,
 			username : this.props.username,
 			email : this.props.email,
+			'error' : false,
 			'error-login' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
@@ -44,6 +45,7 @@ class UserForm extends Component {
 	handleSubmit(event){
 		event.preventDefault();
 		this.setState({
+			'error' : false,
 			'error-login' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
@@ -69,6 +71,13 @@ class UserForm extends Component {
 					this.setState({
 						["error-"+fieldError.name] : fieldError.type
 					});
+				});
+				return;
+			}
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
 				});
 				return;
 			}
@@ -179,6 +188,7 @@ class UserForm extends Component {
 						}
 					/>
 					{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
+					{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 				</div>
 			</form>
 		);

@@ -2,12 +2,52 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-02-02 00:06:02
+  @Last Modified time: 2018-02-05 16:14:32
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
 import { Images } from '../images/images.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
+
+
+export const UserContact  = new ValidatedMethod({
+	name: 'User.methods.contact',
+	validate: new SimpleSchema({
+		'name': { type: String },
+		'email': { type: String, regEx: SimpleSchema.RegEx.Email},
+		'subject': { type: String },
+		'message': { type: String},
+		'newsletterChecked' : {type: Boolean, optional: true}
+	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.SLOW,
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ name, email, subject, message, newsletterChecked }) {
+		console.log(name, email, subject, message, newsletterChecked);
+		if (!this.isSimulation) {
+
+			message += newsletterChecked ? "\nPS : I want to checkin to the nwesletter." : "";
+
+			Email.send({
+				from : email,
+				to : "vincent@ogre.be",
+				subject : "BIT REPUBLIC : " + subject,
+				text : message
+			});
+
+			return {
+				success : true,
+				message : "Your massage has been sent."
+			};
+		}
+	}
+});
+
 
 export const CreateUser = new ValidatedMethod({
 	name: 'Users.methods.create',
@@ -18,10 +58,7 @@ export const CreateUser = new ValidatedMethod({
 		'email': { type: String, regEx: SimpleSchema.RegEx.Email }
 	}).validator({clean:true}),
 	mixins: [RateLimiterMixin],
-	rateLimit: {
-		numRequests: 5,
-		timeInterval: 5000,
-	},
+	rateLimit: config.METHODS.RATE_LIMIT.FAST,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.
@@ -98,6 +135,8 @@ export const ForgotPassword = new ValidatedMethod({
 	validate: new SimpleSchema({
 		'email': { type: String, regEx: SimpleSchema.RegEx.Email }
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.SLOW,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.
@@ -114,6 +153,8 @@ export const ResetPassword = new ValidatedMethod({
 	name: 'Users.methods.reset.password',
 	validate: new SimpleSchema({
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.SLOW,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.
@@ -144,6 +185,8 @@ export const UserSetAvatar = new ValidatedMethod({
 	validate: new SimpleSchema({
 		'avatarId' : {type: String, regEx: SimpleSchema.RegEx.Id }
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.SLOW,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.
@@ -197,6 +240,8 @@ export const UpdateUser = new ValidatedMethod({
 		lastname: { type: String },
 		email: { type: String, regEx: SimpleSchema.RegEx.Email }
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.FAST,
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.

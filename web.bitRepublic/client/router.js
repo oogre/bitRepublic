@@ -2,7 +2,7 @@
   bitRepublic - router.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:36:59
-  @Last Modified time: 2018-02-02 00:09:52
+  @Last Modified time: 2018-02-05 14:23:37
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -13,6 +13,7 @@ import Redistribution from '../imports/ui/Redistribution.js';
 import Installation from '../imports/ui/Installation.js';
 import UserProfile from '../imports/ui/user/profile.js';
 import UserUpdate from '../imports/ui/user/update.js';
+import Contact from '..//imports/ui/Contact.js'
 import About from '../imports/ui/About.js';
 import App from '../imports/ui/App.js';
 
@@ -33,6 +34,20 @@ FlowRouter.route('/about', {
 	name: 'about',
 	action( params ) {
 		render(<About />, document.getElementById('render-target'));
+		Utilities.scrollTo(FlowRouter.current().context.hash);
+	},
+	subscriptions: function(params, queryParams) {
+		this.register('public.bots', Meteor.subscribe('public.bots'));
+		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('public.wallet', Meteor.subscribe('public.wallet'));
+	}
+});
+
+
+FlowRouter.route('/contact', {
+	name: 'contact',
+	action( params ) {
+		render(<Contact />, document.getElementById('render-target'));
 		Utilities.scrollTo(FlowRouter.current().context.hash);
 	},
 	subscriptions: function(params, queryParams) {

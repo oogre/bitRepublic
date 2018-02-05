@@ -2,7 +2,7 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 11:20:37
-  @Last Modified time: 2018-02-02 00:08:29
+  @Last Modified time: 2018-02-05 16:24:25
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -17,6 +17,7 @@ class TweetForm extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			'error' : false,
 			'error-login' : false,
 			'error-admin' : false,
 			'error-bot-model' : false,
@@ -36,6 +37,7 @@ class TweetForm extends Component {
 	handleSubmit(event){
 		event.preventDefault();
 		this.setState({
+			'error' : false,
 			'error-login' : false,
 			'error-admin' : false,
 			'error-bot-model' : false,
@@ -68,6 +70,13 @@ class TweetForm extends Component {
 					this.setState({
 						["error-"+fieldError.name] : fieldError.type
 					});
+				});
+				return;
+			}
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
 				});
 				return;
 			}
@@ -134,35 +143,10 @@ class TweetForm extends Component {
 							(this.state['has-error'] ? "error " : "")
 						}
 					/>
-					{	
-						this.state["error-login"] ? 
-							<MessageError 
-								error={this.state["error-login"]} 
-								messages={config.FORM.ERRORS.login}
-							/>
-						:
-							null
-					}
-					
-					{	
-						this.state["error-admin"] ? 
-							<MessageError 
-								error={this.state["error-admin"]} 
-								messages={config.FORM.ERRORS.admin}
-							/>
-						:
-							null
-					}
-					
-					{	
-						this.state["error-bot-model"] ? 
-							<MessageError 
-								error={this.state["error-bot-model"]} 
-								messages={config.FORM.ERRORS.bot-model}
-							/>
-						:
-							null
-					}
+					{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
+					{ this.state["error-admin"] ? <MessageError error={this.state["error-admin"]} messages={config.FORM.ERRORS.admin} /> : null }
+					{ this.state["error-bot-model"] ? <MessageError error={this.state["error-bot-model"]} messages={config.FORM.ERRORS.bot-model} /> : null }
+					{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 				</form>
 		);
   	}

@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:59:30
-  @Last Modified time: 2018-02-02 00:08:31
+  @Last Modified time: 2018-02-05 16:22:08
 \*----------------------------------------*/
 import React, { Component } from 'react';
 //import ReactDom from 'react-dom';
@@ -22,6 +22,7 @@ class TweetSelector extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			'error' : false,
 			'error-login' : false,
 			'error-admin' : false,
 			'error-bot-model' : false,
@@ -48,6 +49,7 @@ class TweetSelector extends Component {
 	handleTweetDelete(tweetId, event){
 		event.preventDefault();
 		this.setState({
+			'error' : false,
 			'error-login' : false,
 			'error-admin' : false,
 			'error-bot-model' : false,
@@ -69,6 +71,13 @@ class TweetSelector extends Component {
 					this.setState({
 						["error-"+fieldError.name] : fieldError.type
 					});
+				});
+				return;
+			}
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
 				});
 				return;
 			}
@@ -126,44 +135,11 @@ class TweetSelector extends Component {
 						{this.props.isAdmin ? this.renderAddTweet():null}
 					</ul>
 					{this.renderTweets()}
-					{
-						(this.props.isAdmin && this.state.selectedTweet == -1) ?
-							<TweetForm
-								botId={this.props.bot._id}
-								visible={this.state.selectedTweet == -1}
-							/>
-						:
-							null
-					}
-					{
-						this.state["error-login"] ?
-							<MessageError
-								error={this.state["error-login"]}
-								messages={config.FORM.ERRORS.login}
-							/>
-						:
-							null
-					}
-
-					{
-						this.state["error-admin"] ?
-							<MessageError
-								error={this.state["error-admin"]}
-								messages={config.FORM.ERRORS.admin}
-							/>
-						:
-							null
-					}
-
-					{
-						this.state["error-bot-model"] ?
-							<MessageError
-								error={this.state["error-bot-model"]}
-								messages={config.FORM.ERRORS.bot-model}
-							/>
-						:
-							null
-					}
+					{ (this.props.isAdmin && this.state.selectedTweet == -1) ? <TweetForm botId={this.props.bot._id} visible={this.state.selectedTweet == -1} />  : null } 
+					{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
+ 					{ this.state["error-admin"] ? <MessageError error={this.state["error-admin"]} messages={config.FORM.ERRORS.admin} /> : null }
+ 					{ this.state["error-bot-model"] ? <MessageError error={this.state["error-bot-model"]} messages={config.FORM.ERRORS.bot-model} /> : null }
+					{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 				</div>
 			</div>
 		);

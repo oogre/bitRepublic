@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-02 00:25:02
+  @Last Modified time: 2018-02-05 15:58:44
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -17,6 +17,7 @@ export default class UserSignup extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			'error' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
 			'error-email' : false,
@@ -30,6 +31,7 @@ export default class UserSignup extends Component {
 	handleSignup(event){
 		event.preventDefault();
 		this.setState({
+			'error' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
 			'error-email' : false,
@@ -52,6 +54,13 @@ export default class UserSignup extends Component {
 					this.setState({
 						["error-"+fieldError.name] : fieldError.type
 					});
+				});
+				return;
+			}
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
 				});
 				return;
 			}
@@ -152,6 +161,7 @@ export default class UserSignup extends Component {
 							type="submit"
 							value="confirm"
 						/>
+						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>
 				</form>
 			</div>

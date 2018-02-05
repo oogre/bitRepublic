@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-02-02 00:07:30
+  @Last Modified time: 2018-02-05 17:05:58
 \*----------------------------------------*/
 export const config = {
 	WALLET_TYPE : {
@@ -23,8 +23,33 @@ export const config = {
 	WALLET_LIST : {
 		LIMIT : 10
 	},
+	METHODS : {
+		RATE_LIMIT : {
+			SLOW : {
+				numRequests: 1,
+				timeInterval: 60000,
+			},
+			FAST : {
+				numRequests: 1,
+				timeInterval: 5000,
+			},
+			SUPERFAST : {
+				numRequests: 5,
+				timeInterval: 5000,
+			}
+		}
+	},
 	FORM : {
 		ERRORS : {
+			name : {
+				required : "your name is require"
+			},
+			subject : {
+				required : "the subject is require"
+			},
+			message : {
+				required : "the message is require"
+			},
 			firstname : {
 				required : "your firstname is require"
 			},

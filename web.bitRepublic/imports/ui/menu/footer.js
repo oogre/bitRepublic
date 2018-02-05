@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-02-02 00:08:02
+  @Last Modified time: 2018-02-05 14:11:07
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -19,7 +19,7 @@ export default class FooterMenu extends Component {
 					<nav>
 						<ul className="menu menu--footer">
 							<li className="menu__item">
-								<a className="menu__item__link" href="/contact">Contact</a>
+								<a className="menu__item__link" href={FlowRouter.path("contact")}>Contact</a>
 							</li>
 							<li className="menu__item">
 								<a className="menu__item__link" href="#">Supported by</a>
