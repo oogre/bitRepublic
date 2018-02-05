@@ -2,11 +2,12 @@
   bitRepublic - users.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:14:05
-  @Last Modified time: 2018-02-02 00:05:58
+  @Last Modified time: 2018-02-05 18:07:15
 \*----------------------------------------*/
 import './methods.js';
 import './publications.js';
 import './startup.js';
+import './restAPI.js';
 
 import {Wallets} from '../wallets/wallets.js';
 import {config} from '../../startup/config.js';
