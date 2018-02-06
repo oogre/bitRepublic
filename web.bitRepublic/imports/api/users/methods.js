@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-02-05 16:14:32
+  @Last Modified time: 2018-02-06 14:24:43
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -52,10 +52,10 @@ export const UserContact  = new ValidatedMethod({
 export const CreateUser = new ValidatedMethod({
 	name: 'Users.methods.create',
 	validate: new SimpleSchema({
-		'firstname': { type: String },
-		'lastname': { type: String },
-		'country': { type: String },
-		'email': { type: String, regEx: SimpleSchema.RegEx.Email }
+		'firstname':{ type: String },
+		'lastname':	{ type: String },
+		'country':	{ type: String, regEx: SimpleSchema.RegEx.Id },
+		'email':	{ type: String, regEx: SimpleSchema.RegEx.Email }
 	}).validator({clean:true}),
 	mixins: [RateLimiterMixin],
 	rateLimit: config.METHODS.RATE_LIMIT.FAST,
@@ -118,6 +118,9 @@ export const LoginUser = new ValidatedMethod({
 		'email': { type: String, regEx: SimpleSchema.RegEx.Email },
 		'password': { type: String }
 	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.SUPERFAST,
+	
 	// This is optional, but you can use this to pass options into Meteor.apply every
 	// time this method is called.  This can be used, for instance, to ask meteor not
 	// to retry this method if it fails.

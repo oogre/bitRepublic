@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-02-05 19:08:45
+  @Last Modified time: 2018-02-06 13:28:40
 \*----------------------------------------*/
 //import { Meteor } from 'meteor/meteor';
 //import { BitSoils } from './bitsoils.js';
@@ -74,7 +74,7 @@ if(Meteor.isServer){
 					bitsoil : -1
 				}
 			}).fetch().map((wallet)=>{
-				wallet._id = wallet._id.toUpperCase();
+				wallet._id = wallet._id;
 				wallet.bitsoil = parseFloat(wallet.bitsoil.toFixed(6));
 				return wallet;
 			});

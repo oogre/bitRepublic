@@ -2,18 +2,23 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-05 15:58:44
+  @Last Modified time: 2018-02-06 14:34:27
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import { withTracker } from 'meteor/react-meteor-data';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 import { CreateUser } from '../../api/users/methods.js';
 import { config } from '../../startup/config.js';
 
+import { Targets } from '../../api/targets/targets.js';
+
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 
-export default class UserSignup extends Component {
+class UserSignup extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -24,7 +29,8 @@ export default class UserSignup extends Component {
 			'error-country' : false,
 			'is-loading' : false,
 			'has-error' : false,
-			'has-success' : false
+			'has-success' : false,
+			selectedOption : ''
 		};
 	}
 
@@ -44,7 +50,7 @@ export default class UserSignup extends Component {
 			firstname : ReactDom.findDOMNode(this.refs.firstname).value,
 			lastname : ReactDom.findDOMNode(this.refs.lastname).value,
 			email : ReactDom.findDOMNode(this.refs.email).value,
-			country : ReactDom.findDOMNode(this.refs.country).value
+			country : this.state.selectedOption.value
 		}
 		CreateUser.call(data, (err, res) =>{
 			this.setState({'is-loading' : false});
@@ -68,7 +74,7 @@ export default class UserSignup extends Component {
 			ReactDom.findDOMNode(this.refs.firstname).value = '';
 			ReactDom.findDOMNode(this.refs.lastname).value = '';
 			ReactDom.findDOMNode(this.refs.email).value = '';
-			ReactDom.findDOMNode(this.refs.country).value = '';
+			this.setState({ selectedOption : ''});
 
 			alert(res.message);
 			if(_.isFunction(this.props.onSuccess)){
@@ -76,8 +82,12 @@ export default class UserSignup extends Component {
 			}
 		});
 	}
-
+	handleChangeCountry(selectedOption){
+		this.setState({ selectedOption : selectedOption});
+	}
 	render() {
+		const { selectedOption } = this.state;
+  		const value = selectedOption && selectedOption.value;
 		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
 				<form className="login-user" onSubmit={this.handleSignup.bind(this)}>
@@ -133,11 +143,11 @@ export default class UserSignup extends Component {
 							}
 						</div>
 						<div className="fields-column">
-							<input
-								type="text"
-								ref="country"
-								name="country"
-								placeholder="your country"
+							<Select
+								name="countries"
+								value={value}
+								options={this.props.countries}
+								onChange={this.handleChangeCountry.bind(this)}
 							/>
 							{ 	this.state["error-country"] ?
 									<MessageError
@@ -168,3 +178,28 @@ export default class UserSignup extends Component {
 		);
 	}
 }
+export default withTracker(() => {
+	let targetsReady = FlowRouter.subsReady("targets");
+	let isReady = targetsReady;
+	let countries = [];
+	if(isReady){
+		countries = Targets.find({}, {fields : {name : 1}}).fetch().map((target)=>{
+			return {
+				value : target._id,
+				label : target.name
+			}
+		});
+	}
+	return {
+		countries : countries,
+		isReady : isReady
+	};
+})(UserSignup);
+/*
+<input
+								type="text"
+								ref="country"
+								name="country"
+								placeholder="your country"
+							/>
+*/

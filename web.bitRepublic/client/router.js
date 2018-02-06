@@ -2,7 +2,7 @@
   bitRepublic - router.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:36:59
-  @Last Modified time: 2018-02-05 14:23:37
+  @Last Modified time: 2018-02-06 13:47:55
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -26,6 +26,7 @@ FlowRouter.route( '/', {
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('targets', Meteor.subscribe('targets'));
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
@@ -39,6 +40,7 @@ FlowRouter.route('/about', {
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('targets', Meteor.subscribe('targets'));
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
@@ -53,6 +55,7 @@ FlowRouter.route('/contact', {
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('targets', Meteor.subscribe('targets'));
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
@@ -68,6 +71,7 @@ FlowRouter.route('/redistribution', {
 		this.register('all.wallet', Meteor.subscribe('all.wallet'));
 		this.register('public.bots', Meteor.subscribe('public.bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('targets', Meteor.subscribe('targets'));
 	}
 });
 
@@ -80,6 +84,7 @@ FlowRouter.route('/installation', {
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
 		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('targets', Meteor.subscribe('targets'));
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
 	}
 });
@@ -102,6 +107,7 @@ loginRoutes.route("/user/:username", {
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));
 		this.register('my.bots', Meteor.subscribe('my.bots'));
+		this.register('targets', Meteor.subscribe('targets'));
 		this.register('my.files.images', Meteor.subscribe('my.files.images'));
 	}
 });
@@ -115,6 +121,7 @@ loginRoutes.route("/user/:username/update", {
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));
 		this.register('my.bots', Meteor.subscribe('my.bots'));
+		this.register('targets', Meteor.subscribe('targets'));
 		this.register('my.files.images', Meteor.subscribe('my.files.images'));
 	}
 });

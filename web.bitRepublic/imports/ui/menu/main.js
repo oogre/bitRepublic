@@ -2,7 +2,7 @@
   bitRepublic - main.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:48:05
-  @Last Modified time: 2018-02-02 00:08:10
+  @Last Modified time: 2018-02-06 14:36:38
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -65,7 +65,7 @@ class MainMenu extends Component {
 						<a className="menu__item__link" href={FlowRouter.path("installation")}>Installation</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href="#">WHO WE ARE</a>
+						<a className="menu__item__link" href={FlowRouter.path("contact")}>WHO WE ARE</a>
 					</li>
 					<li className="menu__item">
 						{
