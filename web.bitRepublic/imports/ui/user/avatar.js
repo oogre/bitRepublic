@@ -2,7 +2,7 @@
   bitRepublic - avatar.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:30
-  @Last Modified time: 2018-02-05 15:59:32
+  @Last Modified time: 2018-02-11 16:18:54
 \*----------------------------------------*/
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -64,27 +64,7 @@ class UserAvatar extends Component {
 					});
 					return;
 				}
-				self.setState({'is-loading' : true});
-				UserSetAvatar.call({avatarId : res._id}, (err, res) =>{
-					self.setState({'is-loading' : false});
-					if (err && err.error === 'validation-error') {
-						self.setState({'has-error' : true});
-						err.details.forEach((fieldError) => {
-							self.setState({
-								["error-"+fieldError.name] : fieldError.type
-							});
-						});
-						return;
-					}
-					if(err){
-						this.setState({'has-error' : true});
-						this.setState({
-							["error"] : err.message
-						});
-						return;
-					}
-					self.setState({'has-success' : true, imgError : false});
-				});
+				self.setState({'has-success' : true, imgError : false});
 			});
 
 
