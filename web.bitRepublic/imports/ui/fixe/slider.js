@@ -2,10 +2,10 @@
   bitRepublic - slider.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:16:48
-  @Last Modified time: 2018-02-02 00:17:39
+  @Last Modified time: 2018-02-11 18:35:24
 \*----------------------------------------*/
 import React, { Component } from 'react';
-import { GetContentSlider } from '../../api/images/methods.js';
+import { GetContentGallery } from '../../api/images/methods.js';
 
 // App component - represents the whole app
 export default class FixeSlider extends Component {
@@ -16,7 +16,7 @@ export default class FixeSlider extends Component {
 			anim : true,
 		}
 		this.x = 0;
-		GetContentSlider.call({}, (err, res) =>{
+		GetContentGallery.call({folder:"slider"}, (err, res) =>{
 			this.setState({'is-loading' : false});
 			if (err && err.error === 'validation-error') {
 				this.setState({'has-error' : true});
@@ -68,7 +68,7 @@ export default class FixeSlider extends Component {
 								this.state.pictures.map((picture, k) => (
 									<li	key={k} style={{ display: "inline-block"}}>
 										<img
-											src={"/"+picture}
+											src={picture}
 											alt="image de bitRepublic"
 											style={{ maxHeight: "300px"}}
 										/>
@@ -79,7 +79,7 @@ export default class FixeSlider extends Component {
 								this.state.pictures.map((picture, k) => (
 									<li	key={k} style={{ display: "inline-block"}}>
 										<img
-											src={"/"+picture}
+											src={picture}
 											alt="image de bitRepublic"
 											style={{ maxHeight: "300px"}}
 										/>
@@ -90,7 +90,7 @@ export default class FixeSlider extends Component {
 								this.state.pictures.map((picture, k) => (
 									<li	key={k} style={{ display: "inline-block"}}>
 										<img
-											src={"/"+picture}
+											src={picture}
 											alt="image de bitRepublic"
 											style={{ maxHeight: "300px"}}
 										/>

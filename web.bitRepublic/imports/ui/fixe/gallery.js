@@ -2,7 +2,7 @@
   bitRepublic - gallery.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:55:35
-  @Last Modified time: 2018-02-02 20:58:15
+  @Last Modified time: 2018-02-11 18:35:07
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentGallery } from '../../api/images/methods.js';
@@ -20,7 +20,7 @@ export default class FixeGallery extends Component {
 			maxWidth: "100%",
     		maxHeight: "100%"
 		}
-		GetContentGallery.call({}, (err, res) =>{
+		GetContentGallery.call({folder:"fixe"}, (err, res) =>{
 			this.setState({'is-loading' : false});
 			if (err && err.error === 'validation-error') {
 				this.setState({'has-error' : true});
@@ -81,7 +81,7 @@ export default class FixeGallery extends Component {
 											}
 											<img className={"gallery__picture" + (this.state.selected === k ? "selected" : "")}
 												style={this.state.selected === k ? this.large : {maxWidth: 150 + 'px'}}
-												src={"/"+picture}
+												src={picture}
 												onClick={this.handleSelectPicture.bind(this, k)}
 												alt="image de bitRepublic"
 											/>
