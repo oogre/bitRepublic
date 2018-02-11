@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-06 14:34:27
+  @Last Modified time: 2018-02-08 13:21:44
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -131,7 +131,7 @@ class UserSignup extends Component {
 								type="email"
 								ref="email"
 								name="email"
-								placeholder="yout email"
+								placeholder="your email"
 							/>
 							{ 	this.state["error-email"] ?
 									<MessageError

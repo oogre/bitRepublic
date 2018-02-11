@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:59:30
-  @Last Modified time: 2018-02-05 16:22:08
+  @Last Modified time: 2018-02-08 13:19:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
 //import ReactDom from 'react-dom';
@@ -94,7 +94,7 @@ class TweetSelector extends Component {
 					className={'tabs-selector-list__button' + (this.state.selectedTweet == k ? ' selected' : '')}
 					onClick={this.handleTweetSelected.bind(this, k)}
 				>
-					<span className="tabs-selector-list__button__prefix">tweet</span> #{k}
+					<span className="tabs-selector-list__button__prefix">tweet</span> #{k+1}
 				</button>
 				{
 					this.props.isAdmin ? this.renderDeleteTweetButton(tweet._id) : null
@@ -110,7 +110,7 @@ class TweetSelector extends Component {
 	renderTweets(){
 		return this.props.bot.tweets.map((tweet, k) => (
 			<TweetOption
-				k={k}
+				k={this.props.k}
 				visible={this.state.selectedTweet == k}
 				key={this.props.bot._id+"_"+k}
 				id={this.props.bot._id+"_"+k}

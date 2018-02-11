@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-02-02 21:05:05
+  @Last Modified time: 2018-02-08 13:21:04
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -134,7 +134,7 @@ class BotSelector extends Component {
 	renderTweets(){
 		return this.props.bots.map((bot, k) => (
 			<TweetSelector
-				k={k+1}
+				k={k}
 				onTweetSelectorScheduleChange={this.handleTweetSelectorScheduleChange.bind(this)}
 				visible={this.state.selectedBot && this.state.selectedBot._id == bot._id}
 				key={"tweet_"+bot._id}
@@ -160,7 +160,7 @@ class BotSelector extends Component {
 					<button className="button--primary button--submit"
 						disabled={this.state.validateDisable}
 						onClick={this.handleValidation.bind(this)}>
-							validate
+							activate me
 					</button>
 				</div>
 				<UserModal

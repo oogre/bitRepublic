@@ -2,16 +2,15 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-02-02 00:06:04
+  @Last Modified time: 2018-02-08 13:28:26
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 	if(Meteor.isServer){
 		if(!Meteor.users.findOne({username : "admin"})){
-			if(!process.env.ADMIN_MAIL || !process.env.ADMIN_PWD || !process.env.USER_DEFAULT_PWD){
+			if(!process.env.ADMIN_MAIL || !process.env.ADMIN_PWD){
 				console.log("TO CREATE ADMIN USER SETUP 'ADMIN_MAIL' AND 'ADMIN_PWD' AS process.env");
-				console.log("TO CREATE DEFAULT USER PASSWORD SETUP 'USER_DEFAULT_PWD' AS process.env");
 			} else {
 				console.log("INSERT ADMIN");
 				let adminUserData = {

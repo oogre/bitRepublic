@@ -2,7 +2,7 @@
   bitRepublic - header.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:42:39
-  @Last Modified time: 2018-02-02 00:08:12
+  @Last Modified time: 2018-02-08 13:55:57
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import MainMenu from './main.js';
@@ -18,7 +18,7 @@ export default class HeaderMenu extends Component {
 			<header className="main-header">
 				<div className="container">
 					<h1 className="logo logo--header">
-						<a href="/">
+						<a href={FlowRouter.path("home")}>
 							<img className="logo--header__picture" src="/images/logo-animated.gif" alt="#Bitsoil Tax"/>
 						</a>
 					</h1>

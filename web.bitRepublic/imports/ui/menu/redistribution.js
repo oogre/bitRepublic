@@ -2,33 +2,13 @@
   bitRepublic - redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-02-02 00:08:13
+  @Last Modified time: 2018-02-07 21:47:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
-import UserModal from '../user/modal.js';
-import { withTracker } from 'meteor/react-meteor-data';
 
-import { BitsoilCreate } from '../../api/bitsoils/methods.js';
-import { config } from '../../startup/config.js';
-
-class RedistriutionMenu extends Component {
+export default class RedistriutionMenu extends Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			modal : 0
-		}
-	}
-	handleOpenModal(){
-		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
-		this.state.modal.handleOpenModal();
-	}
-	handleModalMounted(modal){
-		this.setState({ modal: modal});
-		modal.onClose(function(userId){
-			if(userId && Meteor.user()){
-				FlowRouter.go("userProfile", {username : Meteor.user().username})
-			}
-		});
 	}
 
 	render() {
@@ -40,23 +20,12 @@ class RedistriutionMenu extends Component {
 							<h2 className="hero-banner__title">TAKE PART TO THE REDISTRIBTION MECHANISM</h2>
 							<ul className="buttons-list">
 								<li className="buttons-list__item">
-									{
-										this.props.userId ?
-											<a
-												className="button--secondary hero-banner__button"
-												href={FlowRouter.path("userProfile", {username : this.props.username})}
-											>
-												{this.props.username}
-											</a>
-										:
-											<a
-												href="#"
-												className="button--secondary hero-banner__button"
-												onClick={this.handleOpenModal.bind(this)}
-											>
-												Generate yout wallet
-											</a>
-									}
+									<a
+										href={FlowRouter.path("redistribution")}
+										className="button--secondary hero-banner__button"
+									>
+										Generate yout wallet
+									</a>
 								</li>
 								<li className="buttons-list__item">
 									{
@@ -81,24 +50,7 @@ class RedistriutionMenu extends Component {
 						</div>
 					</div>
 				</div>
-				<UserModal
-					process="signup"
-					onMounted={this.handleModalMounted.bind(this)}
-				/>
 			</div>
 		);
 	}
 }
-
-
-export default withTracker(() => {
-	let currentUser = Meteor.user();
-	let username = currentUser ? currentUser.username : null;
-	let userId = currentUser ? currentUser._id : null;
-
-	return {
-		userId : userId,
-		currentUser : currentUser,
-		username : username
-	};
-})(RedistriutionMenu);
