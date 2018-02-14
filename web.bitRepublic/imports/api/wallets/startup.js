@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:53
-  @Last Modified time: 2018-02-02 00:05:06
+  @Last Modified time: 2018-02-14 21:33:14
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';
@@ -18,6 +18,19 @@ Meteor.startup(() => {
 				type : config.WALLET_TYPE.PUBLIC,
 				bitsoil : 0
 			});
+			console.log("PUBLIC WALLET CREATED");
 		}
+
+		if(!Wallets.findOne({ type : config.WALLET_TYPE.CONSUME, owner : { $exists:false } })){
+			Wallets.insert({
+				createdAt : new Date(),
+				updatedAt : new Date(),
+				type : config.WALLET_TYPE.CONSUME,
+				bitsoilDistributed : 0
+			});
+			console.log("CONSUME WALLET CREATED");
+		}
+
+		
 	}
 });

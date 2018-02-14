@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-02-08 13:28:26
+  @Last Modified time: 2018-02-14 22:26:14
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -30,7 +30,6 @@ Meteor.startup(() => {
 				let adminId =  Accounts.createUser(adminUserData);
 				Roles.addUsersToRoles(adminId, ['admin'])
 			}
-
 		}
 	}
 });

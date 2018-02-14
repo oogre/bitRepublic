@@ -2,13 +2,14 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-02-05 17:05:58
+  @Last Modified time: 2018-02-14 21:36:41
 \*----------------------------------------*/
 export const config = {
 	WALLET_TYPE : {
 		PUBLIC : 0,
-		PERSONNAL : 1,
-		BOT : 2
+		CONSUME : 1,
+		BOT : 2,
+		PERSONNAL : 3
 	},
 	TAX_RATE : 0.0427,
 	BOT_INFO_TOTAL_INTERVAL: 60 * 60 * 24,

@@ -2,12 +2,11 @@
   bitRepublic - users.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:14:05
-  @Last Modified time: 2018-02-14 18:51:41
+  @Last Modified time: 2018-02-14 23:22:40
 \*----------------------------------------*/
 import './methods.js';
 import './publications.js';
 import './startup.js';
-import './restAPI.js';
 
 import { Random } from 'meteor/random';
 
