@@ -2,7 +2,7 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 11:20:37
-  @Last Modified time: 2018-02-14 14:08:56
+  @Last Modified time: 2018-02-14 16:06:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -29,7 +29,6 @@ class TweetForm extends Component {
 			'has-success' : false
 		}
 	}
-
 	handleTweetSchedule(event){
 		event.tweet = this.props.tweet._id
 		this.props.onScheduleChange(event);
