@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-02-08 13:21:04
+  @Last Modified time: 2018-02-13 12:45:44
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -22,7 +22,6 @@ import TweetSelector from '../tweet/selector.js';
 import BotOption from './option.js';
 import UserModal from '../user/modal.js';
 import FixeWait from '../fixe/wait.js';
-
 
 class BotSelector extends Component {
 	constructor(props){

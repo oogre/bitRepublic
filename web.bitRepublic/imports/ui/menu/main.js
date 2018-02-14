@@ -2,14 +2,13 @@
   bitRepublic - main.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:48:05
-  @Last Modified time: 2018-02-06 14:36:38
+  @Last Modified time: 2018-02-13 13:30:27
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import UserModal from '../user/modal.js';
-import { BitsoilCreate } from '../../api/bitsoils/methods.js';
-import { config } from '../../startup/config.js';
+import * as Utilities from '../../utilities.js'
 
 class MainMenu extends Component {
 	constructor(props){
@@ -33,11 +32,11 @@ class MainMenu extends Component {
 		});
 	}
 	handleOpenModal(){
-		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
+		Utilities.CreateBitsoil();
 		this.state.modal.handleOpenModal();
 	}
 	handleOpenMobileMenu(){
-		BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
+		Utilities.CreateBitsoil();
 		this.setState({
 			mobileMenu: !this.state.mobileMenu
 		});

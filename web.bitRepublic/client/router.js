@@ -2,7 +2,7 @@
   bitRepublic - router.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:36:59
-  @Last Modified time: 2018-02-08 13:54:12
+  @Last Modified time: 2018-02-13 13:36:31
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -21,7 +21,8 @@ FlowRouter.route( '/campaign', {
 	name: 'home',
 	action( params ) {
 		render(<App />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
@@ -35,7 +36,8 @@ FlowRouter.route('/about', {
 	name: 'about',
 	action( params ) {
 		render(<About />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
@@ -50,7 +52,8 @@ FlowRouter.route('/contact', {
 	name: 'contact',
 	action( params ) {
 		render(<Contact />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
@@ -64,7 +67,8 @@ FlowRouter.route('/redistribution', {
 	name: 'redistribution',
 	action( params ) {
 		render(<Redistribution />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('public.wallet', Meteor.subscribe('public.wallet'));
@@ -79,7 +83,8 @@ FlowRouter.route('/installation', {
 	name: 'installation',
 	action( params ) {
 		render(<Installation />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('public.bots', Meteor.subscribe('public.bots'));
@@ -102,7 +107,8 @@ loginRoutes.route("/user/:username", {
 	name: "userProfile",
 	action: function(params) {
 		render(<UserProfile />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));
@@ -116,7 +122,8 @@ loginRoutes.route("/user/:username/update", {
 	name: "userUpdate",
 	action: function(params) {
 		render(<UserUpdate />, document.getElementById('render-target'));
-		Utilities.scrollTo(FlowRouter.current().context.hash);
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
 	},
 	subscriptions: function(params, queryParams) {
 		this.register('my.wallet', Meteor.subscribe('my.wallet'));

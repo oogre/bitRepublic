@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-02-06 13:28:40
+  @Last Modified time: 2018-02-13 01:35:47
 \*----------------------------------------*/
 //import { Meteor } from 'meteor/meteor';
 //import { BitSoils } from './bitsoils.js';
@@ -42,7 +42,7 @@ if(Meteor.isServer){
 
 			if(wallet){
 				return {
-					success : true,
+					"status": "success",
 					data : parseFloat(wallet.bitsoil.toFixed(6))
 				};
 			};
@@ -63,21 +63,24 @@ if(Meteor.isServer){
 	*/
 	Api.addRoute('bitsoil/wallets', {authRequired: true}, {
 		get: function () {
-			return Wallets.find({
-				type : config.WALLET_TYPE.PERSONNAL
-			}, {
-				fields : {
-					bitsoil : 1,
-					updatedAt : 1
-				},
-				sort : {
-					bitsoil : -1
-				}
-			}).fetch().map((wallet)=>{
-				wallet._id = wallet._id;
-				wallet.bitsoil = parseFloat(wallet.bitsoil.toFixed(6));
-				return wallet;
-			});
+			return {
+				"status": "success",
+				data : Wallets.find({
+							type : config.WALLET_TYPE.PERSONNAL
+						}, {
+							fields : {
+								bitsoil : 1,
+								updatedAt : 1
+							},
+							sort : {
+								bitsoil : -1
+							}
+						}).fetch().map((wallet)=>{
+							wallet._id = wallet._id;
+							wallet.bitsoil = parseFloat(wallet.bitsoil.toFixed(6));
+							return wallet;
+						})
+			}
 		}
 	});
 
@@ -103,8 +106,8 @@ if(Meteor.isServer){
 			BitsoilCreate.call(data);
 
 			return {
-				success : true,
-				message : "Bitsoil created"
+				"status": "success",
+				data : "Bitsoil created"
 			};
 		}
 	});

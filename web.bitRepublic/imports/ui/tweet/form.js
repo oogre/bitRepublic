@@ -2,7 +2,7 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 11:20:37
-  @Last Modified time: 2018-02-05 16:24:25
+  @Last Modified time: 2018-02-14 14:08:56
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -88,18 +88,20 @@ class TweetForm extends Component {
 	}
 	renderCheckboxSchedule(){
 		return this.props.schedules.map((schedule, k) => (
-			<div key={k}>
-				<label>
-					<input
-						type="checkbox"
-						readOnly
-						ref={"schedule" + "_" + k}
-						value={k}
-					/>
-					{schedule.content}
+			<li className="table-list__item checkbox" key={schedule._id}>
+				<input
+					id={"schedule_" + schedule._id}
+					type="checkbox"
+					readOnly
+					ref={"schedule" + "_" + k}
+					value={k}
+				/>
+				<label htmlFor={"schedule_" + schedule._id} className="">
+					<span className="">
+						{schedule.content}
+					</span>
 				</label>
-				<br/>
-			</div>
+			</li>
 		));
 	}
 	render() {
@@ -123,7 +125,9 @@ class TweetForm extends Component {
 							null
 					}
 					<br/>
-					{this.renderCheckboxSchedule()}
+					<ul className="table-list">
+						{ this.renderCheckboxSchedule() }
+					</ul>
 					{	
 						this.state["error-tweet.schedules"] ? 
 							<MessageError 
