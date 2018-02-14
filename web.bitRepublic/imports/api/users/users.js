@@ -2,12 +2,14 @@
   bitRepublic - users.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:14:05
-  @Last Modified time: 2018-02-05 18:07:15
+  @Last Modified time: 2018-02-14 18:51:41
 \*----------------------------------------*/
 import './methods.js';
 import './publications.js';
 import './startup.js';
 import './restAPI.js';
+
+import { Random } from 'meteor/random';
 
 import {Wallets} from '../wallets/wallets.js';
 import {config} from '../../startup/config.js';
@@ -16,38 +18,40 @@ import {config} from '../../startup/config.js';
 
 if(Meteor.isServer){
 	const personnalWalletReq = {
-		type : config.WALLET_TYPE.PERSONNAL, 
+		type : config.WALLET_TYPE.PERSONNAL,
 		owner : { $exists:true}
 	};
-
-	Meteor.users.find({}).observeChanges({
-		added(id, user) {
-
+	Meteor.users.find({}).observe({
+		added(user) {
 			if(!user.roles || !user.roles.includes("user")){
-				Roles.addUsersToRoles(id, ['user']);
+				Roles.addUsersToRoles(user._id, ['user']);
+				console.log("Roles attributed to '" + user.username + "' is 'user'");
 			}
+			if(Wallets.find({$and : [{owner : user._id},personnalWalletReq]}).count() > 0) return;
 
-
-			if(Wallets.find({$and : [{owner : id},personnalWalletReq]}).count() > 0) return;
-			console.log("create wallet for "+user.username);
 			let walletId = Wallets.insert({
 				createdAt : new Date(),
 				updatedAt : new Date(),
 				type : config.WALLET_TYPE.PERSONNAL,
-				owner : id,
+				owner : user._id,
 				bitsoil : 0,
-				number : (Wallets.find(personnalWalletReq).count() + 1)
+				key : Random.id(32),
+				number : (Wallets.find({
+					type : config.WALLET_TYPE.PERSONNAL, 
+					owner : { $exists:true }
+				}).count() + 1)
 			});
 			Meteor.users.update({
-				_id : id
+				_id : user._id
 			}, {
 				$set : {
 					wallet : walletId
 				}
-			})
+			});
+			console.log("Wallet created for '" + user.username + "' has id : '" + walletId + "'");
 		},
-		removed(id) {
-			Wallets.remove({owner : id});
+		removed(user) {
+			Wallets.remove({owner : user._id});
 		}
 	});
 }

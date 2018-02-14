@@ -2,7 +2,7 @@
   bitRepublic - publications.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:50
-  @Last Modified time: 2018-02-02 00:04:58
+  @Last Modified time: 2018-02-14 18:41:00
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';
@@ -11,11 +11,19 @@ import {config} from '../../startup/config.js';
 
 if(Meteor.isServer){
 	Meteor.publish('public.wallet', function publicWalletPublication(){
-		return Wallets.find({ type : config.WALLET_TYPE.PUBLIC, owner : { $exists:false } });
+		return Wallets.find({ 
+			type : config.WALLET_TYPE.PUBLIC, 
+			owner : { 
+				$exists:false 
+			} 
+		});
 	});
 
 	Meteor.publish('my.wallet', function myWalletPublication(){
-		return Wallets.find({ type : config.WALLET_TYPE.PERSONNAL, owner : this.userId });
+		return Wallets.find({ 
+			type : config.WALLET_TYPE.PERSONNAL, 
+			owner : this.userId 
+		});
 	});
 
 	Meteor.publish('all.wallet', function myWalletPublication(){
@@ -23,7 +31,9 @@ if(Meteor.isServer){
 				type : config.WALLET_TYPE.PERSONNAL
 			}, {
 				type : config.WALLET_TYPE.PUBLIC, 
-				owner : { $exists:false }
+				owner : { 
+					$exists:false 
+				}
 			}]
 		});
 	});

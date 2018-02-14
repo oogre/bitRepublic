@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-02-02 00:08:33
+  @Last Modified time: 2018-02-14 18:44:11
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -61,7 +61,7 @@ class Redistribution extends Component {
 							"take part of the taxation system."
 						]}>
 								{
-									this.props.isReady ?
+									this.props.currentUser ?
 										<a	className="button--secondary"
 											href={FlowRouter.path("userProfile", {username : this.props.currentUser.username})}
 										>
@@ -97,7 +97,7 @@ class Redistribution extends Component {
 export default withTracker(() => {
 	let publicWalletReady = FlowRouter.subsReady("public.wallet");
 	let allWalletReady = FlowRouter.subsReady("all.wallet");
-	let isReady = Meteor.user() && publicWalletReady && allWalletReady;
+	let isReady = publicWalletReady && allWalletReady;
 	return {
 		isReady : isReady,
 		currentUser : Meteor.user()
