@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:04
-  @Last Modified time: 2018-02-15 11:45:57
+  @Last Modified time: 2018-02-15 15:41:17
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -71,7 +71,7 @@ export const CreateBot = new ValidatedMethod({
 							return t._id == tweet.tweetId
 						}).content,
 				createdAt : new Date(),
-				nextActivation : Utilities.nowPlusSeconds(60),
+				nextActivation : new Date(),
 				interval : _.find(schedules, (schedule)=>{
 							return schedule._id == tweet.schedule;
 						}).value,

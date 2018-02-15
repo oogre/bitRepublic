@@ -2,7 +2,7 @@
   bitRepublic - utilities.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:25:19
-  @Last Modified time: 2018-02-13 13:36:03
+  @Last Modified time: 2018-02-15 16:50:40
 \*----------------------------------------*/
 import { check } from 'meteor/check';
 import { BitsoilCreate } from './api/bitsoils/methods.js';
@@ -34,6 +34,13 @@ export function numberFormat(inputNumber, len){
 		outputNumber = "0"+outputNumber;
 	}
 	return outputNumber;
+}
+export function log(content){
+	console.log(new Date(), content);
+}
+
+export function warn(content){
+	console.warn(new Date(), content);
 }
 
 export function nowPlusSeconds(seconds){

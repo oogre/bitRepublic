@@ -2,28 +2,34 @@
   bitRepublic - engin.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-15 11:41:25
-  @Last Modified time: 2018-02-15 12:13:00
+  @Last Modified time: 2018-02-15 16:54:43
 \*----------------------------------------*/
 
 import { Actions } from '../actions/actions.js';
-import * as Utilities from '../../utilities.js'
 import { BitsoilCreate } from '../bitsoils/methods.js';
+import * as Utilities from '../../utilities.js';
 import { config } from '../../startup/config.js';
+
 
 if(Meteor.isServer){
 	Meteor.setInterval(function(){
-		console.log("Activation");
+		Utilities.log("Activation");
+		let date = new Date();
 		Actions.find({
 			nextActivation :{
-				$lt : new Date()
+				$lte : date
 			},
 			active: true,
+		},{
+			fields : {
+				interval : true,
+				bitsoil  :true
+			}
 		}).fetch().map(function(action){
-			console.warn("imports/api/actions/engin.js : "+"Action executed : Do not forget to call custom Twiter API for '" + action._id + "'");
-			
+			Utilities.warn("imports/api/actions/engin.js : "+"Action executed : Do not forget to call custom Twiter API for '" + action._id + "'");
 			Actions.update(action._id, {
 				$set : {
-					nextActivation : Utilities.nowPlusSeconds(action.interval)
+					nextActivation : new Date(date.getTime() + (action.interval - 5)*1000)
 				}
 			});
 			BitsoilCreate.call({bitsoil : action.bitsoil});

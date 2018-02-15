@@ -2,7 +2,7 @@
   bitRepublic - users.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:14:05
-  @Last Modified time: 2018-02-14 23:22:40
+  @Last Modified time: 2018-02-15 16:07:58
 \*----------------------------------------*/
 import './methods.js';
 import './publications.js';
@@ -20,19 +20,19 @@ if(Meteor.isServer){
 		type : config.WALLET_TYPE.PERSONNAL,
 		owner : { $exists:true}
 	};
-	Meteor.users.find({}).observe({
-		added(user) {
+	Meteor.users.find({}).observeChanges({
+		added(id, user) {
 			if(!user.roles || !user.roles.includes("user")){
-				Roles.addUsersToRoles(user._id, ['user']);
+				Roles.addUsersToRoles(id, ['user']);
 				console.log("Roles attributed to '" + user.username + "' is 'user'");
 			}
-			if(Wallets.find({$and : [{owner : user._id},personnalWalletReq]}).count() > 0) return;
+			if(Wallets.find({$and : [{owner : id},personnalWalletReq]}).count() > 0) return;
 
 			let walletId = Wallets.insert({
 				createdAt : new Date(),
 				updatedAt : new Date(),
 				type : config.WALLET_TYPE.PERSONNAL,
-				owner : user._id,
+				owner : id,
 				bitsoil : 0,
 				key : Random.id(32),
 				number : (Wallets.find({
@@ -41,7 +41,7 @@ if(Meteor.isServer){
 				}).count() + 1)
 			});
 			Meteor.users.update({
-				_id : user._id
+				_id : id
 			}, {
 				$set : {
 					wallet : walletId
@@ -49,8 +49,8 @@ if(Meteor.isServer){
 			});
 			console.log("Wallet created for '" + user.username + "' has id : '" + walletId + "'");
 		},
-		removed(user) {
-			Wallets.remove({owner : user._id});
+		removed(id, user) {
+			Wallets.remove({owner : id});
 		}
 	});
 }

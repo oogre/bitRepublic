@@ -2,7 +2,7 @@
   bitRepublic - wallets.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:33:56
-  @Last Modified time: 2018-02-14 22:58:24
+  @Last Modified time: 2018-02-15 16:54:09
 \*----------------------------------------*/
 
 import { Mongo } from 'meteor/mongo';
@@ -11,6 +11,7 @@ import './publications.js';
 import './restAPI.js';
 import './startup.js';
 
+import * as Utilities from '../../utilities.js'
 import {config} from '../../startup/config.js';
 
 export const Wallets = new Mongo.Collection('wallets');
@@ -50,7 +51,7 @@ if(Meteor.isServer){
 					updatedAt : new Date()
 				}
 			});
-			console.log(countBitsoil + " bitsoils redistributed to '" + wallet._id + "'");
+			Utilities.log(countBitsoil + " bitsoils redistributed to " + wallet._id);
 
 			Wallets.update({
 				type : config.WALLET_TYPE.CONSUME
