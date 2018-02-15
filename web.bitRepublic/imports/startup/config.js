@@ -2,9 +2,12 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-02-14 21:36:41
+  @Last Modified time: 2018-02-15 13:54:31
 \*----------------------------------------*/
 export const config = {
+	ACTION : {
+		INTERVAL : 60000
+	},
 	WALLET_TYPE : {
 		PUBLIC : 0,
 		CONSUME : 1,
