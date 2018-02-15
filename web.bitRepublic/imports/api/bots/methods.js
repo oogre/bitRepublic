@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:04
-  @Last Modified time: 2018-02-05 16:17:46
+  @Last Modified time: 2018-02-15 11:45:57
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -10,7 +10,7 @@ import { config } from '../../startup/config.js';
 import { Bots } from './bots.js';
 import { Schedules } from './bots.js';
 import { Actions } from '../actions/actions.js';
-import * as Utilities from '../../utilities.js'
+import * as Utilities from '../../utilities.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
 
 

@@ -2,7 +2,7 @@
   bitRepublic - bots.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-26 23:09:20
-  @Last Modified time: 2018-02-14 17:38:00
+  @Last Modified time: 2018-02-15 11:34:15
 \*----------------------------------------*/
 import { Mongo } from 'meteor/mongo';
 

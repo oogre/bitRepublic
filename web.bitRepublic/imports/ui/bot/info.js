@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-02-05 17:02:57
+  @Last Modified time: 2018-02-15 12:05:36
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -94,7 +94,13 @@ class BotInfo extends Component {
 	}
 	renderNextActionAt(actions){
 		return _.compact(actions).map((action) => (
-			<li className="table-list__item" key={action._id}>
+			<li 
+				className="table-list__item" 
+				key={action._id}
+				style={{
+					textDecoration: action.active ? "none":"line-through"
+				}}
+			>
 				{
 					moment(
 						Utilities.datePlusSeconds(
