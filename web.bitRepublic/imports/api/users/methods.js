@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-02-06 14:24:43
+  @Last Modified time: 2018-02-20 14:55:30
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -35,7 +35,7 @@ export const UserContact  = new ValidatedMethod({
 
 			Email.send({
 				from : email,
-				to : "vincent@ogre.be",
+				to : process.env.CONTACT,
 				subject : "BIT REPUBLIC : " + subject,
 				text : message
 			});
@@ -47,7 +47,6 @@ export const UserContact  = new ValidatedMethod({
 		}
 	}
 });
-
 
 export const CreateUser = new ValidatedMethod({
 	name: 'Users.methods.create',

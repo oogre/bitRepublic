@@ -2,7 +2,7 @@
   bitRepublic - router.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:36:59
-  @Last Modified time: 2018-02-13 13:36:31
+  @Last Modified time: 2018-02-20 13:26:52
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';

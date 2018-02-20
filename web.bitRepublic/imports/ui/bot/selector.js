@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-02-13 12:45:44
+  @Last Modified time: 2018-02-20 12:56:51
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -66,6 +66,7 @@ class BotSelector extends Component {
 			}
 			this.setState({'has-success' : true});
 			if(Meteor.user()){
+				alert("Thank You. I will do the job...");
 				FlowRouter.go("userProfile", {username : Meteor.user().username})
 			}
 		});
@@ -165,6 +166,7 @@ class BotSelector extends Component {
 				<UserModal
 					process="signup"
 					onMounted={this.handleModalMounted.bind(this)}
+					title="Thank you. I will do the job. I will send the tweet postcards for you. Please fill in the form if you will stay updated about the results."
 				/>
 			</div>
 		);

@@ -2,7 +2,7 @@
   bitRepublic - modal.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-02 00:08:22
+  @Last Modified time: 2018-02-20 13:01:44
 \*----------------------------------------*/
 import React, { Component } from 'react';
 // https://reactcommunity.org/react-modal/
@@ -91,6 +91,12 @@ export default class UserModal extends Component {
 					<div className="modal__wrapper">
 						<div className="modal__container">
 							<a className="modal__close" href="#" onClick={this.handleCloseModal.bind(this)}>&times;</a>
+							{
+								this.props.title ? 
+									<h2>{this.props.title}</h2>
+								:
+									""
+							}
 							<UserLogIn visible={this.state.selectedProcess == "login"} onSuccess={this.handleCloseModal.bind(this)}/>
 							<UserSignup visible={this.state.selectedProcess == "signup"} onSuccess={this.handleCloseModal.bind(this)}/>
 							<div className="field__row text-right">

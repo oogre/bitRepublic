@@ -108,6 +108,7 @@
 .menu--header .menu__item__link {
   color: $color-text;
 
+  &.active,
   &:hover,
   &:focus {
     color: $color-primary;

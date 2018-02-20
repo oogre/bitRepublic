@@ -2,7 +2,7 @@
   bitRepublic - main.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:48:05
-  @Last Modified time: 2018-02-13 13:30:27
+  @Last Modified time: 2018-02-20 12:45:06
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -18,7 +18,6 @@ class MainMenu extends Component {
 			mobileMenu: false
 		}
 	}
-
 	handleLogout(event){
 		event.preventDefault();
 		Meteor.logout();
@@ -52,25 +51,25 @@ class MainMenu extends Component {
 				</button>
 				<ul className={"menu menu--header" + " " + (this.state.mobileMenu ? "visible" : "")}>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("about")}>About</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "about" ? "active" : "")} href={FlowRouter.path("about")}>About</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "home" ? "active" : "")} href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("redistribution")} >Take part of the redistribution</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "redistribution" ? "active" : "")} href={FlowRouter.path("redistribution")} >Take part of the redistribution</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("installation")}>Installation</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "installation" ? "active" : "")} href={FlowRouter.path("installation")}>Installation</a>
 					</li>
 					<li className="menu__item">
-						<a className="menu__item__link" href={FlowRouter.path("contact")}>WHO WE ARE</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "contact" ? "active" : "")} href={FlowRouter.path("contact")}>WHO WE ARE</a>
 					</li>
 					<li className="menu__item">
 						{
 							this.props.userId ?
 							<a 
-								className="menu__item__link" 
+								className={"menu__item__link " + (FlowRouter.current().route.name == "userProfile" ? "active" : "") + " " + (FlowRouter.current().route.name == "userUpdate" ? "active" : "")}
 								href={FlowRouter.path("userProfile", {username : this.props.username})} 
 							>
 								{this.props.username}

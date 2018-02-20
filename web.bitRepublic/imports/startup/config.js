@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-02-15 13:54:31
+  @Last Modified time: 2018-02-20 14:20:48
 \*----------------------------------------*/
 export const config = {
 	ACTION : {
@@ -72,7 +72,13 @@ export const config = {
 				required : "your country is require"
 			},
 			password : {
-				required : "your password is require"
+				required : "your password is require",
+				tooShort : "your password is too short.",
+				tooLong : "your password is too long.",
+			},
+			"password-check" : {
+				required : "your password is require",
+				corrupted : "passwords has to match"
 			},
 			login : {
 				'needed' : "you have to be logged in to perform this action"
