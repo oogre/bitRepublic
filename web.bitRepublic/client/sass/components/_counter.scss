@@ -215,13 +215,19 @@
 .counter--tax .counter__row {
   padding: 0;
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .counter--tax__row:first-child {
   background: $red-cardinal;
-  margin-bottom: 1.5rem;
   text-align: right;
-  font-size: 3rem;
+  margin-bottom: 0.2rem;
+  font-size: 1.8rem;
+
+  @include breakpoint($md) {
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+  }
 }
 
 .counter--tax .counter__row {
@@ -235,9 +241,15 @@
 
 .counter--tax .counter__row .counter__block {
   background: $red-cardinal;
-  width: 3.2rem;
-  height: 3.2rem;
-  font-size: 4.4rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 3rem;
+
+  @include breakpoint($md) {
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 4.4rem;
+  }
 }
 
 // Counter Simple
