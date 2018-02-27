@@ -92,7 +92,7 @@ export default class UserModal extends Component {
 						<div className="modal__container">
 							<a className="modal__close" href="#" onClick={this.handleCloseModal.bind(this)}>&times;</a>
 							{
-								this.props.title ? 
+								this.props.title ?
 									<h2>{this.props.title}</h2>
 								:
 									""

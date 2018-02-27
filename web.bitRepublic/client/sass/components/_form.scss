@@ -146,7 +146,7 @@ textarea {
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   border-radius: 3px;
-  
+
 }
 
 // Fake Checked mark aspect
@@ -190,6 +190,19 @@ textarea {
 
 .input--file {
   @include rem(font-size, 16px);
+}
+
+// Input Select
+// ---------------------
+
+.Select .Select-control {
+  border-radius: 0;
+  min-height: 50px;
+}
+
+.Select-placeholder,
+.Select--single > .Select-control .Select-value {
+  line-height: 48px;
 }
 
 // Errors
