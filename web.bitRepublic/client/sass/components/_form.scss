@@ -201,7 +201,18 @@ textarea {
   min-height: 50px;
 }
 
-.Select-placeholder,
+.Select .Select-input {
+  min-height: 48px;
+}
+
+.Select .Select-input input {
+  height: 100%;
+  padding: 0;
+  line-height: 48px;
+}
+
+.Select .Select-placeholder,
+.Select--single .Select-placeholder,
 .Select--single > .Select-control .Select-value {
   line-height: 48px;
 }
