@@ -123,12 +123,39 @@
 // Hero Banner Redistribution
 // ---------------------
 .hero-banner--redistribution {
-  background: url('/images/banner-redistribution.png') no-repeat center 0;
+  background: no-repeat center 0;
   background-size: cover;
+
+  @include breakpoint($xs-only) {
+    background-image: url('/images/banner-redistribution-sm.png');
+    min-height: 640px;
+  }
+
+  @include breakpoint($sm) {
+    background-image: url('/images/banner-redistribution-md.png');
+    min-height: 360px;
+  }
+
+  @include breakpoint($md) {
+    background-image: url('/images/banner-redistribution.png');
+    min-height: 507px;
+  }
 }
 
 .hero-banner--redistribution .container {
-  min-height: 507px;
+  max-width: 152px;
+  margin: 0 auto;
+
+  @include breakpoint($xs-only) {
+  }
+
+  @include breakpoint($sm) {
+    max-width: 426px;
+  }
+
+  @include breakpoint($md) {
+    max-width: none;
+  }
 }
 
 .hero-banner--redistribution .hero-banner__content {
@@ -136,13 +163,25 @@
 }
 
 .hero-banner--redistribution .hero-banner__title {
-  margin-top: 176px;
-  margin-bottom: 46px;
-  font-size: 2.4rem;
+  margin-top: 258px;
+  font-size: 2rem;
   color: #fff;
 
   &:after {
     display: none;
+  }
+
+  @include breakpoint($sm) {
+    max-width: 300px;
+    margin: 162px auto 15px;
+    font-size: 1.7rem;
+  }
+
+  @include breakpoint($md) {
+    max-width: none;
+    margin-top: 176px;
+    margin-bottom: 46px;
+    font-size: 2.4rem;
   }
 }
 
