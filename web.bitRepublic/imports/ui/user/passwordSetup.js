@@ -70,7 +70,7 @@ export default class UserPasswordSetup extends Component {
 			});
 			return false;
 		}
-		
+
 		Accounts.resetPassword(this.props.token, data.password, (err) => {
 			this.setState({'is-loading' : false});
 			if (err) {
@@ -114,6 +114,7 @@ export default class UserPasswordSetup extends Component {
 				transform                  : 'translate(-50%, -50%)',
 				border                     : '0',
 				backgroundColor   		   : 'rgba(255, 255, 255, 0.9)',
+				color                      : '#342e30',
 				overflow                   : 'auto',
 				WebkitOverflowScrolling    : 'touch',
 				borderRadius               : '0',

@@ -72,6 +72,7 @@ export default class UserModal extends Component {
 				bottom                     : '0',
 				border                     : '0',
 				background                 : 'transparent',
+				color                      : '#ffffff',
 				overflow                   : 'auto',
 				WebkitOverflowScrolling    : 'touch',
 				borderRadius               : '0',
