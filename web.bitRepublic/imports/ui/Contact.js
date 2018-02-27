@@ -95,8 +95,8 @@ export default class Contact extends Component {
 								<div className="tab__content">
 									<form className="form form--profile" onSubmit={this.handleSubmit.bind(this)}>
 										<div className="fields-row">
-											<h5>BITSOIL TAX CAMPAIGN</h5>
-											<label className="field__label">
+											<h5 className="title--quaternary">BITSOIL TAX CAMPAIGN</h5>
+											<label className="field__label field__label--contact">
 												@: contact@bitsoilcampaign.net
 											</label>
 											<input

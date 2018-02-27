@@ -13,7 +13,6 @@
   border: 0;
   border-radius: 0;
   width: 100%;
-  text-transform: uppercase;
   background: $grey-98;
   line-height: 1;
   border: 1px solid $grey-9;
@@ -25,8 +24,8 @@
 [type="email"],
 [type="password"],
 [type="date"],
-[type="number"],
-textarea {
+[type="number"] {
+  text-transform: uppercase;
   @include inputText();
 }
 
@@ -34,6 +33,7 @@ textarea {
 // ---------------------
 
 textarea {
+  @include inputText();
   min-height: 250px;
 }
 
@@ -183,6 +183,11 @@ textarea {
 .field__label {
   margin-bottom: .5rem;
   display: block;
+}
+
+.field__label--contact {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
 }
 
 
