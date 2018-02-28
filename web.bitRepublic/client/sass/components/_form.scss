@@ -13,19 +13,19 @@
   border: 0;
   border-radius: 0;
   width: 100%;
-  text-transform: uppercase;
   background: $grey-98;
   line-height: 1;
   border: 1px solid $grey-9;
   outline-color: $color-primary;
+  color: $color-text;
 }
 
 [type="text"],
 [type="email"],
 [type="password"],
 [type="date"],
-[type="number"],
-textarea {
+[type="number"] {
+  text-transform: uppercase;
   @include inputText();
 }
 
@@ -33,6 +33,7 @@ textarea {
 // ---------------------
 
 textarea {
+  @include inputText();
   min-height: 250px;
 }
 
@@ -146,7 +147,7 @@ textarea {
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   border-radius: 3px;
-  
+
 }
 
 // Fake Checked mark aspect
@@ -184,12 +185,41 @@ textarea {
   display: block;
 }
 
+.field__label--contact {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
 
 // Input File
 // ---------------------
 
 .input--file {
   @include rem(font-size, 16px);
+}
+
+// Input Select
+// ---------------------
+
+.Select .Select-control {
+  border-radius: 0;
+  min-height: 50px;
+}
+
+.Select .Select-input {
+  min-height: 48px;
+}
+
+.Select .Select-input input {
+  height: 100%;
+  padding: 0;
+  line-height: 48px;
+}
+
+.Select .Select-placeholder,
+.Select--single .Select-placeholder,
+.Select--single > .Select-control .Select-value {
+  line-height: 48px;
 }
 
 // Errors

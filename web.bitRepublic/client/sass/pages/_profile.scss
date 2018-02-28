@@ -59,9 +59,9 @@
 
   @include breakpoint($md) {
     float: none;
-    @include vertical-center(absolute);
     right: 160px;
-    top: 0;
+    top: inherit;
+    bottom: 0;
   }
 }
 

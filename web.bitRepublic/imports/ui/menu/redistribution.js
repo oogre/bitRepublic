@@ -18,7 +18,7 @@ export default class RedistriutionMenu extends Component {
 					<div className="container">
 						<div className="hero-banner__content">
 							<h2 className="hero-banner__title">TAKE PART TO THE REDISTRIBTION MECHANISM</h2>
-							<ul className="buttons-list">
+							<ul className="buttons-list buttons-list--redistribution">
 								<li className="buttons-list__item">
 									<a
 										href={FlowRouter.path("redistribution")}

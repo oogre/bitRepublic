@@ -22,7 +22,7 @@ export default class SliderMenu extends Component {
 					<BitsoilTaxrate />
 					<div className="hero-banner__content">
 						<h2 className="hero-banner__title">Make the data economy benefits all</h2>
-						<ul className="buttons-list">
+						<ul className="buttons-list buttons-list--bitsoil">
 							<li className="buttons-list__item">
 								<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
 							</li>

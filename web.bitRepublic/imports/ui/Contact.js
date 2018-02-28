@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-02-20 15:07:07
+  @Last Modified time: 2018-02-28 14:49:23
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -95,8 +95,8 @@ export default class Contact extends Component {
 								<div className="tab__content">
 									<form className="form form--profile" onSubmit={this.handleSubmit.bind(this)}>
 										<div className="fields-row">
-											<h5>BITSOIL TAX CAMPAIGN</h5>
-											<label className="field__label">
+											<h5 className="title--quaternary">BITSOIL TAX CAMPAIGN</h5>
+											<label className="field__label field__label--contact">
 												@: contact@bitsoil.tax
 											</label>
 											<input

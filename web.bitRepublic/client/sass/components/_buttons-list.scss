@@ -20,3 +20,46 @@
 .buttons-list__item [class*="button"] {
   min-width: 230px;
 }
+
+// buttons-list--bitsoil
+// ---------------------
+
+.buttons-list--bitsoil .buttons-list__item {
+  @include breakpoint($below-md) {
+    display: block;
+    margin: 0 0 4px;
+  }
+}
+
+.buttons-list--bitsoil .buttons-list__item [class*="button"] {
+  @include breakpoint($below-md) {
+    min-width: 0;
+    width: 100%;
+    max-width: 148px;
+    margin: 0 auto;
+    padding: 1.2rem 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+// buttons-list--redistribution
+// ---------------------
+
+.buttons-list--redistribution .buttons-list__item {
+  @include breakpoint($below-sm) {
+    display: block;
+    margin: 0 0 4px;
+  }
+}
+
+.buttons-list--redistribution .buttons-list__item [class*="button"] {
+  @include breakpoint($below-sm) {
+    padding: 1.2rem .5rem;
+  }
+
+  @include breakpoint($below-md) {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+}

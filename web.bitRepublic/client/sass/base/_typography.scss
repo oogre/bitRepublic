@@ -34,7 +34,7 @@ h6 {
 }
 
 .title--primary,
-.title--secondary {
+.title--secondary {
   color: #fff;
   padding: 20px;
 
@@ -107,6 +107,12 @@ h6 {
       left: -103px;
     }
   }
+}
+
+// Quaternary
+.title--quaternary {
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 // Title Profile
