@@ -18,14 +18,30 @@
   border: 1px solid $grey-9;
   outline-color: $color-primary;
   color: $color-text;
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    text-transform: uppercase;
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    text-transform: uppercase;
+  }
+
+  &:-ms-input-placeholder { /* IE 10+ */
+    text-transform: uppercase;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    text-transform: uppercase;
+  }
 }
 
 [type="text"],
 [type="email"],
 [type="password"],
 [type="date"],
-[type="number"] {
-  text-transform: uppercase;
+[type="number"],
+textarea {
   @include inputText();
 }
 
@@ -33,7 +49,6 @@
 // ---------------------
 
 textarea {
-  @include inputText();
   min-height: 250px;
 }
 
