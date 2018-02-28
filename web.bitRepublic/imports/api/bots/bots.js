@@ -2,7 +2,7 @@
   bitRepublic - bots.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-26 23:09:20
-  @Last Modified time: 2018-02-15 16:56:54
+  @Last Modified time: 2018-02-21 16:49:31
 \*----------------------------------------*/
 import { Mongo } from 'meteor/mongo';
 
@@ -26,6 +26,9 @@ if(Meteor.isServer){
 	}).observeChanges({
 		added(id, bot) {
 			Utilities.warn("imports/api/bots/bots.js : "+"New bot created : Do not forget to call custom Twiter API for " + id);
+			
+			
+
 			let user = Meteor.users.findOne(bot.owner, {
 				fields : {
 					emails : true,
