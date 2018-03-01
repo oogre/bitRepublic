@@ -58,6 +58,16 @@
   vertical-align: middle;
 }
 
+// Modal Input
+// ---------------------
+.modal__container [type="text"],
+.modal__container [type="email"],
+.modal__container [type="password"],
+.modal__container [type="date"],
+.modal__container [type="number"] {
+  border: 1px solid $grey-9;
+}
+
 // Modal Link
 // ---------------------
 .modal__link {
