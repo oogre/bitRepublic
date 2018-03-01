@@ -74,6 +74,14 @@
   outline: none;
 }
 
+.user-menu__button svg {
+  fill: $grey-50;
+
+  &:hover {
+    fill: $color-primary;
+  }
+}
+
 .user-menu .dropdown__content {
   @include breakpoint($below-md) {
     left: -226px;
