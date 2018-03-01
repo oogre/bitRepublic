@@ -52,6 +52,8 @@ textarea {
   min-height: 250px;
 }
 
+// Checkbox & radio
+// ---------------------
 
 // Hide default input
 [type="checkbox"]:not(:checked),
@@ -120,7 +122,7 @@ textarea {
 [type="radio"]:focus:not(:checked) + label:after {
   opacity: 1;
   transform: scale(1);
-  background: #000;
+  background: $grey-50;
 }
 
 // Checked
@@ -162,7 +164,8 @@ textarea {
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   border-radius: 3px;
-
+  left: 0;
+  @include vertical-center(absolute);
 }
 
 // Fake Checked mark aspect
@@ -170,7 +173,11 @@ textarea {
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   border-radius: 2px;
-  margin-top: 3px;
+  @include vertical-center(absolute);
+}
+
+.checkbox label {
+  padding-left: 2.5rem;
 }
 
 // Radio Specific
