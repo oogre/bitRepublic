@@ -68,6 +68,15 @@
   border: 1px solid $grey-9;
 }
 
+.modal__container .Select-control,
+.modal__container .Select.is-open > .Select-control {
+  border-color: $grey-9;
+}
+
+.modal__container .Select-menu-outer {
+  border-color: $grey-9;
+}
+
 // Modal Link
 // ---------------------
 .modal__link {
