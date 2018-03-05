@@ -43,16 +43,16 @@
   padding: 5px 46px;
 }
 
+.table__cell.nowrap {
+  min-width: 150px;
+}
+
 .table__row:first-child .table__cell {
   padding-top: 2rem;
 }
 
 .table__row:last-child .table__cell {
   padding-bottom: 2rem;
-}
-
-.table__cell--long-content {
-  max-width: 270px;
 }
 
 // Table with alternate row background
@@ -110,7 +110,7 @@
 .table--bots {
   display: block;
   max-width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   @include breakpoint($md) {
     min-width: 966px;

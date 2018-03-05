@@ -126,9 +126,9 @@ class BotInfo extends Component {
 				<td className="table__cell">
 					<img width="50px" src={bot.model.picture} alt="picture"/>
 				</td>
-				<td className="table__cell table__cell--long-content">{bot.model.description}</td>
-				<td className="table__cell nowrap">{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
-				<td className="table__cell nowrap">
+				<td className="table__cell">{bot.model.description}</td>
+				<td className="table__cell nowrap text-center">{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
+				<td className="table__cell nowrap text-center">
 					<ul className="table-list">
 						{ this.renderNextActionAt(bot.actions) }
 					</ul>
@@ -138,7 +138,7 @@ class BotInfo extends Component {
 						{ this.renderActive(bot.actions) }
 					</ul>
 				</td>
-				<td className="table__cell table__cell--long-content">
+				<td className="table__cell">
 					<ul className="table-list">
 						{ this.renderTweet(bot.actions) }
 					</ul>
