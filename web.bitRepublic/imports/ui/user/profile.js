@@ -2,7 +2,7 @@
   bitRepublic - profile.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:01:12
-  @Last Modified time: 2018-02-14 18:26:11
+  @Last Modified time: 2018-02-28 15:25:35
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -10,6 +10,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import * as Utilities from '../../utilities.js'
 import { Wallets } from '../../api/wallets/wallets.js';
 
+import BitsoilSplitter from '../bitsoil/splitter.js';
 import HeaderMenu from '../menu/header.js';
 import FooterMenu from '../menu/footer.js';
 import UserMenu from '../menu/user.js';
@@ -36,7 +37,11 @@ class UserProfile extends Component {
 							this.props.isReady ?
 								<div className="user-summary">
 									<UserAvatar update={false}/>
-									<span className="user-summary__name">{this.props.currentUser.username}</span>
+									<span className="user-summary__name">
+										<div className="counter--simple">
+											<BitsoilSplitter substitution="" input={this.props.currentUser.username}/>
+										</div>
+									</span>
 								</div>
 							:
 								<FixeWait/>

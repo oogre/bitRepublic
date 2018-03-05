@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-08 13:21:44
+  @Last Modified time: 2018-02-28 17:33:42
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -144,6 +144,7 @@ class UserSignup extends Component {
 						</div>
 						<div className="fields-column">
 							<Select
+								inputProps={{autoComplete: 'off'}}
 								name="countries"
 								value={value}
 								options={this.props.countries}

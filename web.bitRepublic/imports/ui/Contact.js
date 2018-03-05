@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-02-28 14:49:23
+  @Last Modified time: 2018-02-28 15:13:31
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -88,7 +88,7 @@ export default class Contact extends Component {
 						<div className="tabs--profile">
 							<ul className="tabs-selector-list">
 								<li className="tabs-selector-list__item">
-									<a className="tabs-selector-list__button" href="#">CONTACT</a>
+									<a className="selected tabs-selector-list__button" href="#">CONTACT</a>
 								</li>
 							</ul>
 							<div className="tab">
