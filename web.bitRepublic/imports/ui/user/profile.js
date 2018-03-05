@@ -38,7 +38,7 @@ class UserProfile extends Component {
 								<div className="user-summary">
 									<UserAvatar update={false}/>
 									<span className="user-summary__name">
-										<div className="counter--simple">
+										<div className="counter--simple counter--no-currency">
 											<BitsoilSplitter substitution="" input={this.props.currentUser.username}/>
 										</div>
 									</span>

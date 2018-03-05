@@ -283,7 +283,7 @@
   font-size: 3rem;
 }
 
-.counter--simple .counter__row .counter__block:first-child {
+.counter--simple:not(.counter--no-currency) .counter__row .counter__block:first-child {
   display: none;
 }
 
@@ -296,3 +296,13 @@
   position: absolute;
   left: 0;
 }
+
+// counter--no-currency
+// Hide the currency symbole of the counter
+.counter--simple.counter--no-currency:before {
+  display: none;
+}
+
+// .counter--simple.counter--no-currency .counter__row .counter__block:first-child {
+//   display: inline;
+// }
