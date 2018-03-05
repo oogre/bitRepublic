@@ -15,17 +15,33 @@
   width: 100%;
   background: $grey-98;
   line-height: 1;
-  border: 1px solid $grey-9;
+  border: 1px solid $grey-70;
   outline-color: $color-primary;
   color: $color-text;
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    text-transform: uppercase;
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    text-transform: uppercase;
+  }
+
+  &:-ms-input-placeholder { /* IE 10+ */
+    text-transform: uppercase;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    text-transform: uppercase;
+  }
 }
 
 [type="text"],
 [type="email"],
 [type="password"],
 [type="date"],
-[type="number"] {
-  text-transform: uppercase;
+[type="number"],
+textarea {
   @include inputText();
 }
 
@@ -33,10 +49,11 @@
 // ---------------------
 
 textarea {
-  @include inputText();
   min-height: 250px;
 }
 
+// Checkbox & radio
+// ---------------------
 
 // Hide default input
 [type="checkbox"]:not(:checked),
@@ -105,7 +122,7 @@ textarea {
 [type="radio"]:focus:not(:checked) + label:after {
   opacity: 1;
   transform: scale(1);
-  background: #000;
+  background: $grey-50;
 }
 
 // Checked
@@ -147,7 +164,8 @@ textarea {
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   border-radius: 3px;
-
+  left: 0;
+  @include vertical-center(absolute);
 }
 
 // Fake Checked mark aspect
@@ -155,7 +173,11 @@ textarea {
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   border-radius: 2px;
-  margin-top: 3px;
+  @include vertical-center(absolute);
+}
+
+.checkbox label {
+  padding-left: 2.5rem;
 }
 
 // Radio Specific

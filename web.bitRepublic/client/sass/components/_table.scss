@@ -51,6 +51,10 @@
   padding-bottom: 2rem;
 }
 
+.table__cell--long-content {
+  max-width: 270px;
+}
+
 // Table with alternate row background
 // Use for table table--bots
 // ---------------------
