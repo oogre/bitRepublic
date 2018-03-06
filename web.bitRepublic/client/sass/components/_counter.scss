@@ -111,8 +111,7 @@
 }
 
 .counter__unblock .counter__block__text {
-  bottom: 0;
-  transform: translate(50% 0);
+  bottom: .5rem;
 }
 
 // Counter Large
@@ -146,6 +145,7 @@
 
 .counter--large .counter__unblock {
   margin-left: 0;
+  margin-right: .8rem;
 }
 
 // Counter XL
