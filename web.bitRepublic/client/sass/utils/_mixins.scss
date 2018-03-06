@@ -9,17 +9,17 @@
 // Article: https://medium.com/developing-with-sass/refactoring-my-simple-sass-breakpoint-mixin-71205dd6badd
 // Use ex: @include breakpoint($md);
 
-$sm: (min: $screen-sm-min);
-$md: (min: $screen-md-min);
-$lg: (min: $screen-lg-min);
-$xl: (min: $screen-xl-min);
+$sm: (min: $screen-sm-min + 1);
+$md: (min: $screen-md-min + 1);
+$lg: (min: $screen-lg-min + 1);
+$xl: (min: $screen-xl-min + 1);
 
 $xs-only: (max:  $screen-xs-max);
 $sm-only: (min: map-get($sm, min), max: map-get($md, min) - 1);
 
-$below-sm: (max:  $screen-sm-min - 1);
-$below-md: (max:  $screen-md-min - 1);
-$below-lg: (max:  $screen-lg-min - 1);
+$below-sm: (max:  $screen-sm-min);
+$below-md: (max:  $screen-md-min);
+$below-lg: (max:  $screen-lg-min);
 
 @mixin breakpoint($map) {
   $query: '';

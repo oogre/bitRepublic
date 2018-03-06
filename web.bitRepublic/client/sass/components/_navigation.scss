@@ -65,13 +65,18 @@
 
   @include breakpoint($md) {
     display: inline-block;
+    right: 2.5rem;
+    text-align: right;
   }
 
   @include breakpoint($lg) {
     position: absolute;
     bottom: 0;
-    right: 10px;
-    right: 0;
+    max-width: 64vw;
+  }
+
+  @include breakpoint($xl) {
+    right: 0
   }
 }
 
