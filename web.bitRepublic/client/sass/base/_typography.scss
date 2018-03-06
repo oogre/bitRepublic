@@ -78,16 +78,16 @@ h6 {
     content: '';
     display: block;
     height: 2px;
-    width: 36px;
+    width: 26px;
     background: $color-secondary;
   }
 
   &:after {
-    right: -52px;
+    right: -35px;
   }
 
   &:before {
-    left: -52px;
+    left: -35px;
   }
 
   @include breakpoint($md) {
