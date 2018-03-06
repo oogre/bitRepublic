@@ -106,7 +106,7 @@ export default class UserPasswordSetup extends Component {
 				top                        : '50%',
 				left                       : '50%',
 				minWidth				   :  "300px",
-				maxWidth				   :  "600px",
+				maxWidth				   :  "460px",
 				width				   	   :  "50% ",
 				right                      : 'auto',
 				bottom                     : 'auto',
@@ -128,6 +128,7 @@ export default class UserPasswordSetup extends Component {
 				<ReactModal
 					isOpen={this.state.showModal || this.props.open}
 					style={modalStyle}
+					className="modal--tiny"
 				>
 					<div className="modal__wrapper">
 						<div className="modal__container">
@@ -175,7 +176,7 @@ export default class UserPasswordSetup extends Component {
 								<div className="fields-row">
 									<input
 										className={
-											"button--primary " +
+											"button--primary--fw" +
 											(this.state['is-loading'] ? "loading " : "") +
 											(this.state['has-success'] ? "success " : "") +
 											(this.state['has-error'] ? "error " : "")

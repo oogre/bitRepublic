@@ -100,3 +100,14 @@
 .modal__container .fields-row:last-child {
   margin-bottom: 1rem;
 }
+
+// Modal Tiny
+// Smaller modal (Use for reset password)
+// ---------------------
+.modal--tiny .modal__wrapper {
+  padding: 40px 66px;
+}
+
+.modal--tiny .fields-row {
+  margin-bottom: 22px;
+}

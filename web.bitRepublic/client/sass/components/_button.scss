@@ -65,6 +65,12 @@
   padding: 2rem 3rem;
 }
 
+%button-size-full-width {
+  font-size: 1.4rem;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
 // Button definition
 // ---------------------
 
@@ -91,6 +97,10 @@
 
 .button--primary--md {
   @extend %button-size-medium;
+}
+
+.button--primary--fw {
+  @extend %button-size-full-width;
 }
 
 
