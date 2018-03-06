@@ -14,7 +14,7 @@
 // ---------------------
 
 .user-summary__name {
-  margin-left: 20px;
+  // margin-left: 20px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -55,6 +55,7 @@
   position: absolute;
   top: -55px;
   right: 25px;
+  line-height: 0;
   z-index: z('menu');
 
   @include breakpoint($md) {
@@ -72,6 +73,7 @@
   padding: 0;
   cursor: pointer;
   outline: none;
+  line-height: 0;
 }
 
 .user-menu__button svg {
@@ -103,6 +105,7 @@
   padding: 0 26px;
   display: inline-block;
   position: relative;
+  vertical-align: bottom;
 
   &:before,
   &:after {
