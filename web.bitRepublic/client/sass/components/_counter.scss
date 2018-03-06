@@ -78,6 +78,24 @@
   color: $orange-macaroni-and-cheese;
 }
 
+// $ Sign for counter (default) and counter--large
+// ---------------------
+.counter .counter__row:first-child .counter__block:last-child:after,
+.counter--large .counter__row:first-child .counter__block:last-child:after {
+  content: "";
+  display: block;
+  width: calc(100% - 5px);
+  height: 100%;
+  background: url(images/bitsoil-symbol-small-sand.svg) no-repeat;
+  position: absolute;
+  right: 0;
+}
+
+.counter .counter__row:first-child .counter__block:last-child .counter__block__text,
+.counter--large .counter__row:first-child .counter__block:last-child .counter__block__text {
+  display: none;
+}
+
 // Counter Unblock
 // Individual character of the counter rendered "outside" a block
 // For comma, point etc
@@ -292,7 +310,7 @@
   display: block;
   width: 15px;
   height: 20px;
-  background: url(images/bitsoil-symbol-small.svg) no-repeat;
+  background: url(images/bitsoil-symbol-small-grey.svg) no-repeat;
   position: absolute;
   left: 0;
 }
