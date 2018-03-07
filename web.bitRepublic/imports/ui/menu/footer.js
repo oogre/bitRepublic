@@ -17,37 +17,37 @@ export default class FooterMenu extends Component {
 			<footer className="main-footer">
 				<div className="container">
 					<nav>
-						<ul className="menu menu--footer">
-							<li className="menu__item">
-								<a className="menu__item__link" href={FlowRouter.path("contact")}>Contact</a>
-							</li>
-							<li className="menu__item">
-								<a className="menu__item__link" href="mailto:info@larbitslab.be">info@larbitslab.be</a>
-							</li>
-							<li className="menu__item">
-								<p className="menu__item__text">Licensed under Creative Commons</p>
-							</li>
-							<li className="menu__item">
-								<p className="menu__item__text">SUPPORTED BY</p>
+						<div className="grid">
+							<div className="column small-3">
+								<a className="menu--footer__title" href={FlowRouter.path("contact")}>Contact</a>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
-										<p className="menu__item__text">Flemish community</p>
-									</li>
-									<li className="menu__item">
-										<p className="menu__item__text">XXXXXXXXXXXXXX</p>
+										<a className="menu__item__link" href="mailto:info@larbitslab.be">info@larbitslab.be</a>
 									</li>
 								</ul>
-							</li>
-							<li className="menu__item">
-								<p className="menu__item__text">Partners</p>
+							</div>
+							<div className="column small-3">
+								<p className="menu--footer__title">Supported By</p>
+								<ul className="menu menu--footer">
+									<li className="menu__item">
+										<a className="menu__item__link">Flemish community</a>
+									</li>
+									<li className="menu__item">
+										<a className="menu__item__link">XXXXXXXXXXXXXX</a>
+									</li>
+								</ul>
+							</div>
+							<div className="column small-3">
+								<p className="menu--footer__title">Partners</p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
 										<a className="menu__item__link" href="mailto:info@larbitslab.be">XXXXXXXXXXXXXX</a>
 									</li>
 								</ul>
-							</li>
-						</ul>
+							</div>
+						</div>
 					</nav>
+					<p className="">Licensed under Creative Commons</p>
 				</div>
 			</footer>
 		);

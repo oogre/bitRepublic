@@ -166,18 +166,39 @@
   }
 }
 
-// menu--footer
+// Menu Footer
 // ---------------------
+.menu--footer__title {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
 
+a.menu--footer__title {
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
 
-.menu--footer .menu__item__text,
-.menu--footer .menu__item__link {
-  color: $grey-93;
+.menu--footer .menu__item {
+  display: block;
+  padding: 0;
+
+  &:after {
+    display: none;
+  }
 }
 
 .menu--footer .menu__item__link {
+  color: #fff;
+  text-transform: initial;
+
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     color: $color-primary;
   }
 }

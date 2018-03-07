@@ -1,0 +1,20 @@
+/*------------------------------------*\
+  > Grid
+  Basic grid system (constent wip)
+\*------------------------------------*/
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column {
+
+}
+
+// Size
+// ---------------------
+.small-3 {
+  width: 33%;
+}
