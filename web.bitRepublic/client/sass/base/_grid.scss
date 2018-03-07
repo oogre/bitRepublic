@@ -4,17 +4,19 @@
 \*------------------------------------*/
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  @include breakpoint($md) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
 
-.column {
+.column-3 {
+  @include breakpoint($below-sm) {
+    margin-bottom: 2rem;
+  }
 
-}
-
-// Size
-// ---------------------
-.small-3 {
-  width: 33%;
+  @include breakpoint($md) {
+    width: 33%;
+  }
 }

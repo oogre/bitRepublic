@@ -18,7 +18,7 @@ export default class FooterMenu extends Component {
 				<div className="container">
 					<nav>
 						<div className="grid">
-							<div className="column small-3">
+							<div className="column-3">
 								<a className="menu--footer__title" href={FlowRouter.path("contact")}>Contact</a>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
@@ -26,7 +26,7 @@ export default class FooterMenu extends Component {
 									</li>
 								</ul>
 							</div>
-							<div className="column small-3">
+							<div className="column-3">
 								<p className="menu--footer__title">Supported By</p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
@@ -37,7 +37,7 @@ export default class FooterMenu extends Component {
 									</li>
 								</ul>
 							</div>
-							<div className="column small-3">
+							<div className="column-3">
 								<p className="menu--footer__title">Partners</p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
