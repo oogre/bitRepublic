@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-02-02 00:08:44
+  @Last Modified time: 2018-03-14 12:17:33
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -19,12 +19,12 @@ class WalletList extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			skip : 0,
+			currentPage : 0,
 		}
 	}
 	handleSkip(c){
 		this.setState({
-			skip : this.state.skip + c
+			currentPage : c
 		});
 	}
 	renderWallet(wallet){
@@ -40,11 +40,10 @@ class WalletList extends Component {
 		);
 	}
 	renderWallets (){
-		let self = this;
-		return _.filter(self.props.wallets, function(wallet, k){
-			return k >= self.state.skip && k < self.state.skip+config.WALLET_LIST.LIMIT
+		return _.filter(this.props.wallets, (wallet, k) => {
+			return k >= this.state.currentPage * config.WALLET_LIST.LIMIT && k < (this.state.currentPage+1) * config.WALLET_LIST.LIMIT
 		}).map((wallet) => (
-			self.renderWallet(wallet)
+			this.renderWallet(wallet)
 		));
 	}
 	render() {
@@ -70,22 +69,19 @@ class WalletList extends Component {
 					</table>
 
 					<ul className="table-scroller">
-						<li style={{ display : this.state.skip > 0 ? "block" : "none" }}>
-							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, -config.WALLET_LIST.LIMIT)}>prev</button>
+						<li style={{ display : this.state.currentPage > 0 ? "block" : "none" }}>
+							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
 						</li>
-						<li>
-							{
-								(this.state.skip + 1)
-							}
-							-
-							{
-								Math.min(this.props.count, this.state.skip + config.WALLET_LIST.LIMIT)
-							}
+						{	
+							Array(this.props.pages).fill().map((action, k) => (
+								<li key={k} className={k == this.state.currentPage ? "selected" : "" }>
+									<button className="table-scroller__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</button>
+								</li>
+							))
+						}
+						<li style={{ display : this.state.currentPage < this.props.pages-1  ? "block" : "none" }}>
+							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</button>
 						</li>
-						<li style={{ display : this.state.skip < (this.props.count - config.WALLET_LIST.LIMIT) ? "block" : "none" }}>
-							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, config.WALLET_LIST.LIMIT)}>next</button>
-						</li>
-
 					</ul>
 				</div>
 			</div>
@@ -106,8 +102,9 @@ export default withTracker(() => {
 			updatedAt : -1
 		}
 	});
+
 	return {
-		wallets : wallets.fetch(),
-		count : wallets.count(),
+		pages : Math.ceil(wallets.count()/config.WALLET_LIST.LIMIT),
+		wallets : wallets.fetch()
 	};
 })(WalletList);

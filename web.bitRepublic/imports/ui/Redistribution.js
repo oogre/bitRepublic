@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-02-14 18:44:11
+  @Last Modified time: 2018-03-14 12:17:50
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -80,7 +80,7 @@ class Redistribution extends Component {
 							</a>
 						</FixePunchline>
 						<FixeShortAbout />
-						{ this.props.isReady ? <WalletList /> : <FixeWait/> }
+						{ this.props.isReady ? <WalletList/> : <FixeWait/> }
 						
 					</div>
 				</div>
