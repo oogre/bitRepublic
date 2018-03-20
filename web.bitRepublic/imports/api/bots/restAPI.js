@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-16 00:23:43
-  @Last Modified time: 2018-02-14 23:22:23
+  @Last Modified time: 2018-03-14 15:44:43
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -24,9 +24,8 @@ if(Meteor.isServer){
 		*
 		* @apiHeader {String} X-Auth-Token auth_token
 		* @apiHeader {String} X-User-Id user_id
-		* @apiHeader {String} bot._id
-		* @apiHeader {String} Twitter-Auth-Token
-		* @apiHeader {String} Twitter-User-Id
+		* @apiHeader {String} tweet._id
+		* @apiHeader {String} action._id
 		*
 		* @apiSuccess {String} status : success
 		*

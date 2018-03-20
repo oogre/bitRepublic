@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:27:45
-  @Last Modified time: 2018-02-02 00:06:54
+  @Last Modified time: 2018-03-20 15:25:11
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -28,7 +28,7 @@ Meteor.startup(() => {
 	if(Meteor.isServer){
 		if(Schedules.find({}).count() < 1){
 			console.log(" INSERT SCHEDULES");
-			Schedules.insert({
+			/*Schedules.insert({
 				content : "Never",
 				value : 0
 			});
@@ -39,7 +39,7 @@ Meteor.startup(() => {
 			Schedules.insert({
 				content : "Once an hour",
 				value : 60 * 60
-			});
+			});*/
 			Schedules.insert({
 				content : "Once a day",
 				value : 60 * 60 * 24
@@ -51,6 +51,18 @@ Meteor.startup(() => {
 			Schedules.insert({
 				content : "Once a month",
 				value : 60 * 60 * 24 * 30
+			});
+			Schedules.insert({
+				content : "Once a year",
+				value : 60 * 60 * 24 * 30 * 365
+			});
+			Schedules.insert({
+				content : "Once a centuary",
+				value : 60 * 60 * 24 * 30 * 365 * 100
+			});
+			Schedules.insert({
+				content : "Once a millenium",// exprimé en seconde + countdown
+				value : 60 * 60 * 24 * 30 * 365 * 1000
 			});
 		}
 
@@ -76,7 +88,7 @@ Meteor.startup(() => {
 				model : true,
 				title : [
 					"Claim a bitsoiltax",
-					"Time to GAFAM to pay"
+					"Time to net giants to pay"
 				],
 				signup : true,
 				picture : "/images/bots/bot-gafam.gif",

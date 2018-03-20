@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-02-20 12:56:51
+  @Last Modified time: 2018-03-20 16:37:07
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -132,6 +132,7 @@ class BotSelector extends Component {
 		);
 	}
 	renderTweets(){
+		
 		return this.props.bots.map((bot, k) => (
 			<TweetSelector
 				k={k}
