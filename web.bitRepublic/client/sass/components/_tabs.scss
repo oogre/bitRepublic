@@ -116,6 +116,16 @@
   border-top: 2px solid $grey-82;
 }
 
+.tabs--profile .tab .avatar:before,
+.tabs--profile .tab .avatar:after {
+  left: 50%;
+}
+
+.tabs--profile .tab .avatar:before,
+.tabs--profile .tab .avatar:after {
+  transform: translateX(-50%);
+}
+
 .tabs--profile .tab .avatar,
 .tabs--profile .tab .form {
   @include breakpoint($md) {
