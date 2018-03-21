@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-28 17:33:42
+  @Last Modified time: 2018-03-21 18:18:15
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -17,6 +17,7 @@ import { Targets } from '../../api/targets/targets.js';
 
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
+import Alert from '../Alert.js';
 
 class UserSignup extends Component {
 	constructor(props){
@@ -30,7 +31,10 @@ class UserSignup extends Component {
 			'is-loading' : false,
 			'has-error' : false,
 			'has-success' : false,
-			selectedOption : ''
+			selectedOption : '',
+			success : false,
+			'has-userId' : false,
+			message : ""
 		};
 	}
 
@@ -74,13 +78,21 @@ class UserSignup extends Component {
 			ReactDom.findDOMNode(this.refs.firstname).value = '';
 			ReactDom.findDOMNode(this.refs.lastname).value = '';
 			ReactDom.findDOMNode(this.refs.email).value = '';
-			this.setState({ selectedOption : ''});
-
-			alert(res.message);
-			if(_.isFunction(this.props.onSuccess)){
-				this.props.onSuccess(res.data);
-			}
+			
+			this.setState({
+				selectedOption : '',
+				'success' : true,
+				'has-userId' : res.data,
+				message : res.message
+			});
 		});
+	}
+
+	handleAlertSuccess(){
+		this.setState({'success' : false});
+		if(_.isFunction(this.props.onSuccess)){
+			this.props.onSuccess(this.state['has-userId']);
+		}
 	}
 	handleChangeCountry(selectedOption){
 		this.setState({ selectedOption : selectedOption});
@@ -175,6 +187,7 @@ class UserSignup extends Component {
 						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>
 				</form>
+				<Alert open={this.state.success} message={this.state.message} onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);
 	}

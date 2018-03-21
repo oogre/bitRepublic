@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-03-20 16:37:07
+  @Last Modified time: 2018-03-21 17:57:42
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -22,6 +22,7 @@ import TweetSelector from '../tweet/selector.js';
 import BotOption from './option.js';
 import UserModal from '../user/modal.js';
 import FixeWait from '../fixe/wait.js';
+import Alert from '../Alert.js';
 
 class BotSelector extends Component {
 	constructor(props){
@@ -34,7 +35,8 @@ class BotSelector extends Component {
 			validateBotData : {},
 			'is-loading' : true,
 			'has-error' : false,
-			'has-success' : false
+			'has-success' : false,
+			success : false,
 		}
 	}
 
@@ -66,12 +68,17 @@ class BotSelector extends Component {
 			}
 			this.setState({'has-success' : true});
 			if(Meteor.user()){
-				alert("Thank You. I will do the job...");
-				FlowRouter.go("userProfile", {username : Meteor.user().username})
+
+				//alert("Thank You. I will do the job...");
+				this.setState({'success' : true});
 			}
 		});
 	}
 
+	handleAlertSuccess(){
+		this.setState({'success' : false});
+		FlowRouter.go("userProfile", {username : Meteor.user().username});
+	}
 	handleValidation(){
 		if(!this.state.validateDisable){
 			BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
@@ -169,6 +176,7 @@ class BotSelector extends Component {
 					onMounted={this.handleModalMounted.bind(this)}
 					title="Thank you. I will do the job. I will send the tweet postcards for you. Please fill in the form if you will stay updated about the results."
 				/>
+				<Alert open={this.state.success} message="Thank You. I will do the job..." onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);
 	}
@@ -181,7 +189,7 @@ export default withTracker(() => {
 	return {
 		userId : Meteor.userId(),
 		isReady : publicBotsReady && scheduleReady,
-		scheduleNeverId : scheduleReady ? Schedules.findOne({value : 0})._id : 0,
+		scheduleNeverId : 0,//scheduleReady ? Schedules.findOne({value : 0})._id : 0,
 		bitsoil : TempWallets.findOne({type : config.WALLET_TYPE.BOT}, {fields : {bitsoil : 1}}).bitsoil,
 		bots : publicBotsReady ? Bots.find( {model : true} ).fetch() : []
 	};

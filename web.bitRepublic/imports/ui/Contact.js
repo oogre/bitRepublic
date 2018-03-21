@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-02-28 15:13:31
+  @Last Modified time: 2018-03-21 18:14:54
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -14,7 +14,7 @@ import HeaderMenu from './menu/header.js';
 import FooterMenu from './menu/footer.js';
 import MessageError from './message/error.js';
 import FixeWait from './fixe/wait.js';
-
+import Alert from './Alert.js';
 
 // App component - represents the whole app
 export default class Contact extends Component {
@@ -28,7 +28,9 @@ export default class Contact extends Component {
 			'error-message' : false,
 			'is-loading' : false,
 			'has-error' : false,
-			'has-success' : false
+			'has-success' : false,
+			success : false,
+			message : "",
 		};
 	}
 	handleSubmit(event){
@@ -75,9 +77,17 @@ export default class Contact extends Component {
 			ReactDom.findDOMNode(this.refs.message).value = "";
 			ReactDom.findDOMNode(this.refs.newsletterCheckbox).checked = false;
 			this.setState({'has-success' : true});
-			alert(res.message);
+			this.setState({
+				'has-success' : true, 
+				'success' : true,
+				message : res.message
+			});
 		});
 		return false;
+	}
+
+	handleAlertSuccess(){
+		this.setState({'success' : false});
 	}
 	render() {
 		return (
@@ -213,6 +223,7 @@ export default class Contact extends Component {
 					</div>
 				</div>
 				<FooterMenu />
+				<Alert open={this.state.success} message={this.state.message} onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);
 	}
