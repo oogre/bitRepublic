@@ -2,7 +2,7 @@
   bitRepublic - engin.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-15 11:41:25
-  @Last Modified time: 2018-02-21 16:49:06
+  @Last Modified time: 2018-03-14 16:27:42
 \*----------------------------------------*/
 
 import { Actions } from '../actions/actions.js';
@@ -28,16 +28,12 @@ if(Meteor.isServer){
 		}).fetch().map(function(action){
 			Utilities.warn("imports/api/actions/engin.js : "+"Action executed : Do not forget to call custom Twiter API for " + action._id);
 			
-			
-
 			Actions.update(action._id, {
 				$set : {
 					nextActivation : new Date(date.getTime() + (action.interval - 5)*1000)
 				}
 			});
 			BitsoilCreate.call({bitsoil : action.bitsoil});
-
-
 		});
 	}, config.ACTION.INTERVAL);
 }

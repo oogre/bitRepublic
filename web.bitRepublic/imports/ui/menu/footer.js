@@ -2,9 +2,50 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-02-05 17:28:21
+  @Last Modified time: 2018-03-21 20:29:49
 \*----------------------------------------*/
 import React, { Component } from 'react';
+import {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  VKShareButton,
+  OKShareButton,
+  RedditShareButton,
+  TumblrShareButton,
+  LivejournalShareButton,
+  EmailShareButton,
+} from 'react-share';
+import {
+  FacebookShareCount,
+  GooglePlusShareCount,
+  LinkedinShareCount,
+  PinterestShareCount,
+  VKShareCount,
+  OKShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+} from 'react-share';
+import {
+  FacebookIcon,
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon,
+  GooglePlusIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  VKIcon,
+  OKIcon,
+  RedditIcon,
+  TumblrIcon,
+  LivejournalIcon,
+  MailruIcon,
+  EmailIcon,
+} from 'react-share';
 
 // App component - represents the whole app
 export default class FooterMenu extends Component {
@@ -47,6 +88,13 @@ export default class FooterMenu extends Component {
 							</div>
 						</div>
 					</nav>
+					<a target="_blank" href={"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href)}>
+						<FacebookIcon size={32} round={true} />
+					</a>
+
+					<a target="_blank" href={"https://www.tumblr.com/widgets/share/tool?canonicalUrl="+encodeURIComponent(location.href)}>
+						<TwitterIcon size={32} round={true} />
+					</a>
 					<p className="">Licensed under Creative Commons</p>
 				</div>
 			</footer>

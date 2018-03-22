@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:03:00
-  @Last Modified time: 2018-02-02 00:05:29
+  @Last Modified time: 2018-03-14 15:40:05
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';

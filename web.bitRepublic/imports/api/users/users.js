@@ -2,7 +2,7 @@
   bitRepublic - users.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:14:05
-  @Last Modified time: 2018-02-15 16:07:58
+  @Last Modified time: 2018-03-20 15:18:38
 \*----------------------------------------*/
 import './methods.js';
 import './publications.js';
@@ -34,7 +34,7 @@ if(Meteor.isServer){
 				type : config.WALLET_TYPE.PERSONNAL,
 				owner : id,
 				bitsoil : 0,
-				key : Random.id(32),
+				key : Random.hexString(64),
 				number : (Wallets.find({
 					type : config.WALLET_TYPE.PERSONNAL, 
 					owner : { $exists:true }

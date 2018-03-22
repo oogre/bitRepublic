@@ -2,12 +2,13 @@
   bitRepublic - actions.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-28 18:14:59
-  @Last Modified time: 2018-02-15 16:28:10
+  @Last Modified time: 2018-03-14 15:40:51
 \*----------------------------------------*/
 import { Mongo } from 'meteor/mongo';
 
 import './methods.js';
 import './engin.js';
+import './restAPI.js';
 
 import { Bots } from '../bots/bots.js';
 

@@ -2,13 +2,14 @@
   bitRepublic - password.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 20:10:14
-  @Last Modified time: 2018-02-05 15:59:24
+  @Last Modified time: 2018-03-21 18:15:21
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
 import { config } from '../../startup/config.js';
 import { ResetPassword } from '../../api/users/methods.js';
 import MessageError from '../message/error.js';
+import Alert from '../Alert.js';
 
 // App component - represents the whole app
 export default class UserPassword extends Component {
@@ -19,7 +20,9 @@ export default class UserPassword extends Component {
 			'error-login' : false,
 			'is-loading' : false,
 			'has-error' : false,
-			'has-success' : false
+			'has-success' : false,
+			success : false,
+			message : ""
 		};
 	}
 
@@ -49,9 +52,17 @@ export default class UserPassword extends Component {
 				});
 				return;
 			}
-			this.setState({'has-success' : true});
-			alert(res.message);
+			this.setState({
+				'has-success' : true,
+				'success' : true,
+				message : res.message
+			});
 		});
+	}
+
+
+	handleAlertSuccess(){
+		this.setState({'success' : false});
 	}
 	render() {
 		//<HeaderMenu />
@@ -71,6 +82,7 @@ export default class UserPassword extends Component {
 				</button>
 				{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 				{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
+				<Alert open={this.state.success} message={this.state.message} onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);
   	}

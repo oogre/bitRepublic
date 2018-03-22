@@ -2,7 +2,7 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:04
-  @Last Modified time: 2018-02-05 15:59:04
+  @Last Modified time: 2018-03-21 18:19:26
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -13,6 +13,8 @@ import { config } from '../../startup/config.js';
 
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
+
+import Alert from '../Alert.js';
 
 class UserForm extends Component {
 	constructor(props){
@@ -30,7 +32,9 @@ class UserForm extends Component {
 			'error-email' : false,
 			'is-loading' : false,
 			'has-error' : false,
-			'has-success' : false
+			'has-success' : false,
+			success : false,
+			message : ""
 		};
 	}
 	componentWillReceiveProps(nextProps) {
@@ -81,9 +85,15 @@ class UserForm extends Component {
 				});
 				return;
 			}
-			this.setState({'has-success' : true});
-			alert(res.message);
+			this.setState({
+				'has-success' : true, 
+				'success' : true,
+				message : res.message
+			});
 		});
+	}
+	handleAlertSuccess(){
+		this.setState({'success' : false});
 	}
 	handleOnChange(e){
 		this.setState({[e.target.name]: e.target.value})
@@ -190,6 +200,7 @@ class UserForm extends Component {
 					{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }
 					{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 				</div>
+				<Alert open={this.state.success} message={this.state.message} onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</form>
 		);
 	}

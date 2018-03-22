@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-05 16:15:15
+  @Last Modified time: 2018-03-21 18:15:50
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -15,7 +15,7 @@ import { ForgotPassword } from '../../api/users/methods.js';
 
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
-
+import Alert from '../Alert.js';
 
 export default class UserLogIn extends Component {
 	constructor(props){
@@ -26,10 +26,14 @@ export default class UserLogIn extends Component {
 			'error-password' : false,
 			'is-loading' : false,
 			'has-error' : false,
-			'has-success' : false
+			'has-success' : false,
+			success : false,
 		};
 	}
-
+	handleAlertSuccess(){
+		this.setState({'success' : false});
+	}
+	
 	handleLogin(event){
 		event.preventDefault();
 		this.setState({
@@ -113,7 +117,7 @@ export default class UserLogIn extends Component {
 					});
 					return;
 				}
-				alert("You'll receive soon an email to reset your password.");
+				this.setState({'success' : true});
 			});
 		});
 
@@ -181,6 +185,7 @@ export default class UserLogIn extends Component {
 						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>
 				</form>
+				<Alert open={this.state.success} message="You'll receive soon an email to reset your password." onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);
 	}
