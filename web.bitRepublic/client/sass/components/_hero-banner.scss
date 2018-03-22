@@ -52,7 +52,12 @@
 
   @include breakpoint($lg) {
     bottom: 576px;
+    left: 88vw;
+  }
+
+  @include breakpoint($xl) {
     right: 130px;
+    left: inherit;
   }
 }
 
