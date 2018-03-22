@@ -78,7 +78,7 @@ export default class Contact extends Component {
 			ReactDom.findDOMNode(this.refs.newsletterCheckbox).checked = false;
 			this.setState({'has-success' : true});
 			this.setState({
-				'has-success' : true, 
+				'has-success' : true,
 				'success' : true,
 				message : res.message
 			});
@@ -179,7 +179,7 @@ export default class Contact extends Component {
 										</div>
 
 										<div className="fields-row">
-											<label class="field__label field__label--contact">Newsletter</label>
+											<label className="field__label field__label--contact">Newsletter</label>
 											<div className="checkbox">
 												<input
 													id="newsletterCheckbox"
