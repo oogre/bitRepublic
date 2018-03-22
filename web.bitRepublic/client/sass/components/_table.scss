@@ -126,9 +126,9 @@
   margin-left: 1rem;
 }
 
-// table-scroller
+// table-pagination
 // ---------------------
-.table-scroller {
+.table-pagination {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -136,10 +136,33 @@
   margin-bottom: 1rem;
 }
 
-.table-scroller__button {
-  width: 23px;
-  height: 23px;
-  background: $grey-9;
+.table-pagination__item {
+  display: inline-block;
+  margin: 0 .4rem;
+  padding: 0 .8rem 0 0;
+  border-right: 1px solid $grey-70;
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.table-pagination__button {
+  background: transparent;
+  border: 0;
+  display: inline-block;
+  color: $color-text;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  -webkit-appearance: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-primary;
+    outline-color: $color-primary;
+  }
 }
 
 // Table List

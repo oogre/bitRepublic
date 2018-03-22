@@ -68,19 +68,19 @@ class WalletList extends Component {
 						</tbody>
 					</table>
 
-					<ul className="table-scroller">
-						<li style={{ display : this.state.currentPage > 0 ? "block" : "none" }}>
-							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
+					<ul className="table-pagination">
+						<li className="table-pagination__item" style={{ display : this.state.currentPage > 0 ? "inline-block" : "none" }}>
+							<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
 						</li>
-						{	
+						{
 							Array(this.props.pages).fill().map((action, k) => (
-								<li key={k} className={k == this.state.currentPage ? "selected" : "" }>
-									<button className="table-scroller__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</button>
+								<li key={k} className={(k == this.state.currentPage ? "selected" : "" ) + " table-pagination__item"}>
+									<button className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</button>
 								</li>
 							))
 						}
-						<li style={{ display : this.state.currentPage < this.props.pages-1  ? "block" : "none" }}>
-							<button className="table-scroller__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</button>
+						<li className="table-pagination__item" style={{ display : this.state.currentPage < this.props.pages-1  ? "inline-block" : "none" }}>
+							<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</button>
 						</li>
 					</ul>
 				</div>
