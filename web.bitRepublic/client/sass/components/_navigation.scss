@@ -58,12 +58,12 @@
 // ---------------------
 
 .menu--header {
-  @include breakpoint($below-md) {
+  @include breakpoint($below-lg) {
     display: none;
     margin-top: 16px;
   }
 
-  @include breakpoint($md) {
+  @include breakpoint($lg) {
     display: inline-block;
     right: 2.5rem;
     text-align: right;
@@ -81,7 +81,7 @@
 }
 
 .menu--header .menu__item {
-  @include breakpoint($below-md) {
+  @include breakpoint($below-lg) {
     display: block;
     padding: 0;
     border-bottom: 1px solid $blue-geyser;
@@ -119,7 +119,7 @@
     color: $color-primary;
   }
 
-  @include breakpoint($below-md) {
+  @include breakpoint($below-lg) {
     display: block;
     width: 100%;
     padding: 15px 0;
@@ -127,7 +127,7 @@
 }
 
 .menu--header .menu__item:last-child .menu__item__link {
-  @include breakpoint($below-md) {
+  @include breakpoint($below-lg) {
     padding-bottom: 0;
   }
 }
@@ -148,7 +148,7 @@
     top: 30px;
   }
 
-  @include breakpoint($md) {
+  @include breakpoint($lg) {
     display: none;
   }
 }
