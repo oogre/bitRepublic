@@ -76,22 +76,22 @@
 // ---------------------
 
 @font-face {
-    font-family: 'Inversionz Unboxed';
-    src: local('InversionzUnboxed'), local('InversionzUnboxed'),
-        url('/fonts/inversionz/InversionzUnboxed.woff2') format('woff2'),
-        url('/fonts/inversionz/InversionzUnboxed.woff') format('woff');
+    font-family: 'Inversionz Custom';
+    src: local('InversionzCustom'), local('InversionzCustom'),
+        url('/fonts/inversionz/InversionzCustom.woff2') format('woff2'),
+        url('/fonts/inversionz/InversionzCustom.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-// Inversionz
-// ---------------------
+// // Inversionz
+// // ---------------------
 
-@font-face {
-    font-family: 'Inversionz';
-    src: local('Inversionz'), local('Inversionz'),
-        url('/fonts/inversionz/Inversionz.woff2') format('woff2'),
-        url('/fonts/inversionz/Inversionz.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Inversionz';
+//     src: local('Inversionz'), local('Inversionz'),
+//         url('/fonts/inversionz/Inversionz.woff2') format('woff2'),
+//         url('/fonts/inversionz/Inversionz.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+// }
