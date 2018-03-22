@@ -168,21 +168,24 @@ export default class Contact extends Component {
 											}
 										</div>
 
-										<h5>Newsletter</h5>
-										<div className="checkbox">
-											<input
-												id="newsletterCheckbox"
-												ref="newsletterCheckbox"
-												name="newsletterCheckbox"
-												type="checkbox"
-												readOnly
-											/>
-											<label htmlFor="newsletterCheckbox" className="">
-												<span className="">
-													Receive our latest newsletter
-												</span>
-											</label>
+										<div className="fields-row">
+											<label class="field__label field__label--contact">Newsletter</label>
+											<div className="checkbox">
+												<input
+													id="newsletterCheckbox"
+													ref="newsletterCheckbox"
+													name="newsletterCheckbox"
+													type="checkbox"
+													readOnly
+												/>
+												<label htmlFor="newsletterCheckbox" className="">
+													<span className="">
+														Receive our latest newsletter
+													</span>
+												</label>
+											</div>
 										</div>
+
 										<div className="fields-row text-right">
 											{this.state['is-loading'] ? <FixeWait /> : null }
 											<input
