@@ -68,6 +68,7 @@
 
 .counter__block__text {
   @include center-align(absolute);
+  line-height: 100%;
 }
 
 .counter .counter__row .counter__block:last-child,

@@ -3,12 +3,14 @@
 \*------------------------------------*/
 
 .main-header {
+  position: fixed;
   padding: 15px 0;
   width: 100%;
   z-index: z('header');
   background: rgba(250, 250, 250, .95);
 
   @include breakpoint($md) {
+    position: absolute;
     background: rgba(250, 250, 250, .8);
   }
 }
@@ -27,15 +29,5 @@
   @include breakpoint($below-md) {
     display: block;
     width: 100%;
-  }
-}
-
-// Variation for homepage
-// ---------------------
-.page--home .main-header {
-  position: fixed;
-
-  @include breakpoint($md) {
-    position: absolute;
   }
 }
