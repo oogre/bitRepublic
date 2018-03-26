@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-03-21 20:31:13
+  @Last Modified time: 2018-03-26 16:01:38
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -53,7 +53,7 @@ export default class FooterMenu extends Component {
 						<FacebookIcon size={32} round={true} />
 					</a>
 
-					<a target="_blank" href={"https://www.tumblr.com/widgets/share/tool?canonicalUrl="+encodeURIComponent(location.href)}>
+					<a target="_blank" href={"https://twitter.com/share?url="+encodeURIComponent(location.href)}>
 						<TwitterIcon size={32} round={true} />
 					</a>
 					<p className="">Licensed under Creative Commons</p>
