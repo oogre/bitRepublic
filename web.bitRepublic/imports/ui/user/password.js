@@ -53,7 +53,7 @@ export default class UserPassword extends Component {
 				return;
 			}
 			this.setState({
-				'has-success' : true, 
+				'has-success' : true,
 				'success' : true,
 				message : res.message
 			});
@@ -68,22 +68,20 @@ export default class UserPassword extends Component {
 		//<HeaderMenu />
 		return (
 			<div className="form--password">
-				<label>
-					Send me a mail to
-					<button
-						onClick={this.handleResetPassword.bind(this)}
-						className={
-							"button--primary " +
-							(this.state['is-loading'] ? "loading " : "") +
-							(this.state['has-success'] ? "success " : "") +
-							(this.state['has-error'] ? "error " : "")
-						}
-					>
-						Reset Password
-					</button>
-					{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
-					{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
-				</label>
+				<p>Send me a mail to reset password.</p>
+				<button
+					onClick={this.handleResetPassword.bind(this)}
+					className={
+						"button--primary " +
+						(this.state['is-loading'] ? "loading " : "") +
+						(this.state['has-success'] ? "success " : "") +
+						(this.state['has-error'] ? "error " : "")
+					}
+				>
+					Reset Password
+				</button>
+				{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
+				{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
 				<Alert open={this.state.success} message={this.state.message} onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);

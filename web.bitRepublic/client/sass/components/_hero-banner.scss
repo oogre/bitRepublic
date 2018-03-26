@@ -52,7 +52,12 @@
 
   @include breakpoint($lg) {
     bottom: 576px;
-    right: 130px;
+    left: 88vw;
+  }
+
+  @include breakpoint($xl) {
+    right: 100px;
+    left: inherit;
   }
 }
 
@@ -70,23 +75,24 @@
   margin: 0 auto;
   padding: 0;
 
-  background: url('/images/banner-bitsoil-sm.png') no-repeat center 0;
+  background: url('/images/banner-bitsoil-sm.gif') no-repeat center 0;
   min-height: 640px;
 
   @include breakpoint($md) {
-    background: url('/images/banner-bitsoil.png') no-repeat center 0;
+    background: url('/images/banner-bitsoil.gif') no-repeat center 0;
     min-height: 770px;
   }
 }
 
 .hero-banner--bitsoil .hero-banner__content {
   background: rgba(250, 250, 250, .7);
-  max-width: calc(235px);
+  max-width: 235px;
   padding: 0 1rem 2rem;
   bottom: 136px;
 
   @include breakpoint($md) {
     max-width: 740px;
+    bottom: 102px;
     padding: 0 1rem 64px;
   }
 }
