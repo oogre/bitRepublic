@@ -56,7 +56,7 @@
   }
 
   @include breakpoint($xl) {
-    right: 130px;
+    right: 100px;
     left: inherit;
   }
 }
@@ -75,11 +75,11 @@
   margin: 0 auto;
   padding: 0;
 
-  background: url('/images/banner-bitsoil-sm.png') no-repeat center 0;
+  background: url('/images/banner-bitsoil-sm.gif') no-repeat center 0;
   min-height: 640px;
 
   @include breakpoint($md) {
-    background: url('/images/banner-bitsoil.png') no-repeat center 0;
+    background: url('/images/banner-bitsoil.gif') no-repeat center 0;
     min-height: 770px;
   }
 }
