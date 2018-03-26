@@ -39,11 +39,14 @@
 // artwork-tax-logo
 // ---------------------
 .total-counter .counter--xl .artwork-tax-logo {
+
   @include breakpoint($below-md) {
-    width: 35px;
+    width: 4.3rem;
+    height: 4.3rem;
+    margin-right: 3px;
   }
 
   @include breakpoint($md) {
-    width: 97px;
+    margin-right: 9px;
   }
 }
