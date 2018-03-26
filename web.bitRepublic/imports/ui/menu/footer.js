@@ -2,50 +2,11 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-03-21 20:29:49
+  @Last Modified time: 2018-03-21 20:31:13
 \*----------------------------------------*/
 import React, { Component } from 'react';
-import {
-  FacebookShareButton,
-  GooglePlusShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  PinterestShareButton,
-  VKShareButton,
-  OKShareButton,
-  RedditShareButton,
-  TumblrShareButton,
-  LivejournalShareButton,
-  EmailShareButton,
-} from 'react-share';
-import {
-  FacebookShareCount,
-  GooglePlusShareCount,
-  LinkedinShareCount,
-  PinterestShareCount,
-  VKShareCount,
-  OKShareCount,
-  RedditShareCount,
-  TumblrShareCount,
-} from 'react-share';
-import {
-  FacebookIcon,
-  TwitterIcon,
-  TelegramIcon,
-  WhatsappIcon,
-  GooglePlusIcon,
-  LinkedinIcon,
-  PinterestIcon,
-  VKIcon,
-  OKIcon,
-  RedditIcon,
-  TumblrIcon,
-  LivejournalIcon,
-  MailruIcon,
-  EmailIcon,
-} from 'react-share';
+
+import { FacebookIcon, TwitterIcon } from 'react-share';
 
 // App component - represents the whole app
 export default class FooterMenu extends Component {
