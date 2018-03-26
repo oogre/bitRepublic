@@ -18,9 +18,9 @@ export default class TweetOption extends Component {
 	}
 	render() {
 			return (
-			<div className={"tab"+ " " + (this.props.visible ? "" : "hidden")}
+			<div className={"tab"+ " " + (this.props.visible ? "" : "hidden") + " " + this.props.k}
 			style={{
-				backgroundImage: 'url(/images/postcard-bot/postcardBot'+this.props.k+'.png)',
+				backgroundImage: 'url(/images/postcard-bot/postcardBot'+this.props.k+'.gif)',
 				backgroundSize: 'contain',
 				backgroundRepeat: 'no-repeat'
 			}}>

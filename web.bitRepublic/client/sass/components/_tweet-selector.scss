@@ -37,7 +37,8 @@
   @include breakpoint($md) {
     flex-wrap: wrap;
     min-height: 490px;
-    width: 340px;
+    width: 30vw;
+    max-width: 340px;
     padding: 228px 33px 33px 0;
     float: right;
     background: url('/images/bot-stamp.svg') no-repeat right 30px top 33px;
