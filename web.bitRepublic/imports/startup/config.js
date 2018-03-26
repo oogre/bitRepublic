@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-02-28 15:10:16
+  @Last Modified time: 2018-03-26 14:15:05
 \*----------------------------------------*/
 export const config = {
 	ACTION : {
