@@ -2,7 +2,7 @@
   bitRepublic - engin.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-15 11:41:25
-  @Last Modified time: 2018-03-26 15:41:21
+  @Last Modified time: 2018-03-26 15:46:53
 \*----------------------------------------*/
 
 import { Actions } from '../actions/actions.js';
@@ -58,6 +58,8 @@ if(Meteor.isServer){
 		}).fetch().map(function(action){
 			action.bot = Bots.findOne({_id:action.bot});
 			if(action.bot){
+				console.warn("/action/engin", "DO NOT FORGET TO CHANGE THE tweet_target");
+				console.warn("/action/engin", "DO NOT FORGET TO CHANGE THE tweet_pic_id");
 				HTTP.call('POST', process.env.TWEETER_BOT_URI+'/api/submit_task', {
 					auth: process.env.TWEETER_BOT_USER+":"+process.env.TWEETER_BOT_PWD,
 					headers : {
@@ -71,8 +73,6 @@ if(Meteor.isServer){
 						tweet_target:"ogre_vince",
 						tweet_pic_id:"bot0"
 					}
-					console.warn("/action/engin", "DO NOT FORGET TO CHANGE THE tweet_target");
-					console.warn("/action/engin", "DO NOT FORGET TO CHANGE THE tweet_pic_id");
 				}, function(err, res){
 					console.warn("Tweet engin has runned for", action._id);
 					if (err){
