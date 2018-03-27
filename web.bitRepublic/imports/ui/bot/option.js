@@ -19,7 +19,7 @@ export default class BotOption extends Component {
 
 	render() {
 			return (
-			<div className="card">
+			<li className="card">
 				<header className="card__header">
 					<h5 className="card__title">{this.props.bot.title[0]}</h5>
 					<h6 className="card__subtitle">{this.props.bot.title[1]}</h6>
@@ -34,7 +34,7 @@ export default class BotOption extends Component {
 				<footer className="card__footer">
 					<button  className="button--ternary" onClick={this.botSelected.bind(this)} >Choose a Tweet</button>
 				</footer>
-			</div>
+			</li>
 		);
 	}
 }
