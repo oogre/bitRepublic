@@ -51,10 +51,12 @@ export default class FooterMenu extends Component {
 					</nav>
 					<a target="_blank" href={"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href)}>
 						<FacebookIcon size={32} round={true} />
+						<span className="sr-only">Facebook</span>
 					</a>
 
 					<a target="_blank" href={"https://twitter.com/share?url="+encodeURIComponent(location.href)}>
 						<TwitterIcon size={32} round={true} />
+						<span className="sr-only">Twitter</span>
 					</a>
 					<p className="">Licensed under Creative Commons</p>
 				</div>

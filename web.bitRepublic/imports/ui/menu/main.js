@@ -40,7 +40,7 @@ class MainMenu extends Component {
 			mobileMenu: !this.state.mobileMenu
 		});
 	}
-	
+
 	render() {
 			return (
 			<nav>
@@ -48,6 +48,7 @@ class MainMenu extends Component {
 					<div className="bar"></div>
 					<div className="bar"></div>
 					<div className="bar"></div>
+					<span className="sr-only">Open Menu</span>
 				</button>
 				<ul className={"menu menu--header" + " " + (this.state.mobileMenu ? "visible" : "")}>
 					<li className="menu__item">
@@ -68,9 +69,9 @@ class MainMenu extends Component {
 					<li className="menu__item">
 						{
 							this.props.userId ?
-							<a 
+							<a
 								className={"menu__item__link " + (FlowRouter.current().route.name == "userProfile" ? "active" : "") + " " + (FlowRouter.current().route.name == "userUpdate" ? "active" : "")}
-								href={FlowRouter.path("userProfile", {username : this.props.username})} 
+								href={FlowRouter.path("userProfile", {username : this.props.username})}
 							>
 								{this.props.username}
 							</a>
