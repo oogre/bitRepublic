@@ -129,43 +129,95 @@
 // Hero Banner Redistribution
 // ---------------------
 .hero-banner--redistribution {
-  background: no-repeat center 0;
-  background-size: cover;
+  background: $purple-martinique;
+  background-repeat: no-repeat;
+  background-position: 50%;
 
   @include breakpoint($xs-only) {
-    background-image: url('/images/banner-redistribution-sm.png');
+    background-image: url('/images/redistribution/xs/banner-redistribution.png');
     min-height: 640px;
-  }
-
-  @include breakpoint($sm) {
-    background-image: url('/images/banner-redistribution-md.png');
-    min-height: 360px;
+    background-size: auto 100%;
+    background-position: 100% 0;
   }
 
   @include breakpoint($md) {
-    background-image: url('/images/banner-redistribution.png');
+    background-image: url('/images/redistribution/sm/banner-redistribution.png');
     min-height: 507px;
+  }
+
+  @include breakpoint($lg) {
+    background-image: url('/images/redistribution/md/banner-redistribution.png');
+    min-height: 507px;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    background-repeat: no-repeat;
+    top: 0;
+    height: 100%;
+  }
+
+  &:before {
+    left: 0;
+    width: 164px;
+    z-index: z('bannerDecoration') + 1;
+
+    @include breakpoint($xs-only) {
+      background-image: url('/images/redistribution/xs/banner-redistribution-hand.png');
+    }
+
+    @include breakpoint($md) {
+      background-image: url('/images/redistribution/sm/banner-redistribution-hand.png');
+    }
+
+    @include breakpoint($lg) {
+      background: url('/images/redistribution/md/banner-redistribution-hand.png');
+    }
+  }
+
+  &:after {
+    right: 0;
+    height: 100%;
+    width: 833px;
+    z-index: z('bannerDecoration');
+
+    @include breakpoint($xs-only) {
+      display: none;
+    }
+
+    @include breakpoint($md) {
+      background-image: url('/images/redistribution/sm/banner-redistribution-planet.png');
+      background-position: 100% 0;
+    }
+
+    @include breakpoint($lg) {
+      background: url('/images/redistribution/md/banner-redistribution-planet.png');
+    }
   }
 }
 
 .hero-banner--redistribution .container {
-  max-width: 152px;
+  background: no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  z-index: z('bannerContent');
   margin: 0 auto;
 
-  @include breakpoint($xs-only) {
-  }
-
-  @include breakpoint($sm) {
-    max-width: 426px;
+  @include breakpoint($below-md) {
+    max-width: 152px;
   }
 
   @include breakpoint($md) {
-    max-width: none;
+    max-width: 40%;
   }
 }
 
 .hero-banner--redistribution .hero-banner__content {
   background: transparent;
+  z-index: z('bannerContent');
 }
 
 .hero-banner--redistribution .hero-banner__title {
@@ -177,13 +229,13 @@
     display: none;
   }
 
-  @include breakpoint($sm) {
+  @include breakpoint($md) {
     max-width: 300px;
     margin: 162px auto 15px;
     font-size: 1.7rem;
   }
 
-  @include breakpoint($md) {
+  @include breakpoint($lg) {
     max-width: none;
     margin-top: 176px;
     margin-bottom: 46px;
