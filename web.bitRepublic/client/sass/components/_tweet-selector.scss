@@ -30,11 +30,16 @@
 
 // Tweet selector tab
 // ---------------------
+.tweets-selector .tab {
+  position: relative;
+}
+
 .tweets-selector .tab__content {
   text-align: left;
   padding: 20px;
 
   @include breakpoint($md) {
+    position: relative;
     flex-wrap: wrap;
     min-height: 490px;
     width: 30vw;
@@ -46,10 +51,14 @@
   }
 }
 
-.tweets-selector .tab {
+.tweets-selector .tab__picture {
   @include breakpoint($below-md) {
-    // Important is required for overiding inline style from JS
-    background-image: none !important;
+    width: 100%;
+  }
+
+  @include breakpoint($md) {
+    position: absolute;
+    left: 0;
   }
 }
 
