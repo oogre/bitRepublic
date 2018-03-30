@@ -46,13 +46,13 @@
   }
 
   @include breakpoint($md) {
-    bottom: 550px;
+    bottom: 576px;
     right: 20px;
   }
 
   @include breakpoint($lg) {
     bottom: 576px;
-    left: 88vw;
+    left: 84vw;
   }
 
   @include breakpoint($xl) {
