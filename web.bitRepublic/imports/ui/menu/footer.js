@@ -49,13 +49,20 @@ export default class FooterMenu extends Component {
 							</div>
 						</div>
 					</nav>
-					<a target="_blank" href={"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href)}>
-						<FacebookIcon size={32} round={true} />
-					</a>
-
-					<a target="_blank" href={"https://twitter.com/share?url="+encodeURIComponent(location.href)}>
-						<TwitterIcon size={32} round={true} />
-					</a>
+					<ul className="buttons-list">
+						<li className="buttons-list__item">
+							<a target="_blank" href={"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href)}>
+								<FacebookIcon size={32} round={true} />
+								<span className="sr-only">Facebook</span>
+							</a>
+						</li>
+						<li className="buttons-list__item">
+							<a target="_blank" href={"https://twitter.com/share?url="+encodeURIComponent(location.href)}>
+								<TwitterIcon size={32} round={true} />
+								<span className="sr-only">Twitter</span>
+							</a>
+						</li>
+					</ul>
 					<p className="">Licensed under Creative Commons</p>
 				</div>
 			</footer>

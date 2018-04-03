@@ -68,7 +68,7 @@ export default class Alert extends Component {
 					<div className="modal__wrapper">
 						<div className="modal__container">
 							<div className="fields-row">
-								{this.props.message}
+								<p>{this.props.message}</p>
 								<button
 									onClick={this.handleSuccess.bind(this)}
 									className="button--primary--fw">

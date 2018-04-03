@@ -103,10 +103,22 @@ textarea {
   position: absolute;
   width: 7px;
   height: 7px;
-  top: 6px;
   left: 5px;
   color: $color-primary;
   transition: all .2s;
+}
+
+[type="checkbox"]:not(:checked) + label:hover:after,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  top: 6px;
+}
+
+[type="radio"]:not(:checked) + label:hover:after,
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  top: 50%;
+  margin-top: -3px;
 }
 
 [type="checkbox"]:not(:checked) + label:after,
