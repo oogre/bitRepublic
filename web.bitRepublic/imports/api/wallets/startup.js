@@ -2,12 +2,13 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:53
-  @Last Modified time: 2018-02-14 21:33:14
+  @Last Modified time: 2018-04-03 13:56:35
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';
 import { Wallets } from './wallets.js';
 import {config} from '../../startup/config.js';
+import * as Utilities from '../../utilities.js';
 
 Meteor.startup(() => {
 	if(Meteor.isServer){
@@ -16,7 +17,9 @@ Meteor.startup(() => {
 				createdAt : new Date(),
 				updatedAt : new Date(),
 				type : config.WALLET_TYPE.PUBLIC,
-				bitsoil : 0
+				bitsoil : 0,
+				key : Utilities.genPrivateKey(),
+				publicKey : Utilities.genPubKey()
 			});
 			console.log("PUBLIC WALLET CREATED");
 		}
@@ -26,7 +29,11 @@ Meteor.startup(() => {
 				createdAt : new Date(),
 				updatedAt : new Date(),
 				type : config.WALLET_TYPE.CONSUME,
-				bitsoilDistributed : 0
+				publicKeys : [],
+				bitsoilToConsume : [],
+				key : Utilities.genPrivateKey(),
+				publicKey : Utilities.genPubKey()
+				
 			});
 			console.log("CONSUME WALLET CREATED");
 		}

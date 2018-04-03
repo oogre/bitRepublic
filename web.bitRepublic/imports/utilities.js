@@ -2,12 +2,12 @@
   bitRepublic - utilities.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:25:19
-  @Last Modified time: 2018-02-15 16:50:40
+  @Last Modified time: 2018-04-03 14:55:51
 \*----------------------------------------*/
 import { check } from 'meteor/check';
 import { BitsoilCreate } from './api/bitsoils/methods.js';
 import { config } from './startup/config.js';
-
+import { Random } from 'meteor/random';
 
 
 export function CreateBitsoil(){
@@ -59,6 +59,12 @@ export function setupView(){
 		scrollTop: 0
 	}, 0);
 	scrollTo(FlowRouter.current().context.hash);
+}
+export function genPubKey(){
+	return (Math.random()<0.5 ? "1" : "3") + Random.hexString(31);
+}
+export function genPrivateKey(){
+	return Random.hexString(64);
 }
 export function scrollTo(hash){
 	let h = $("#"+hash);

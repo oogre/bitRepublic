@@ -2,12 +2,13 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-02-14 23:14:05
+  @Last Modified time: 2018-04-03 13:49:23
 \*----------------------------------------*/
 
 
 import {config} from '../../startup/config.js';
 import { Wallets } from '../wallets/wallets.js';
+import moment from 'moment';
 
 if(Meteor.isServer){
 	let Api = new Restivus({
@@ -124,25 +125,42 @@ if(Meteor.isServer){
 		*     }
 		*/
 		get: {
-			authRequired: true,
+			authRequired: false,
 			action : function () {
-				let res = Wallets.update({
+				let toConsume = Wallets.findOne({
 					type : config.WALLET_TYPE.CONSUME,
-					bitsoilToConsume : {
-						$gt : 0
-					}
 				}, {
-					$inc : {
-						bitsoilToConsume : -1
-					},
-					$set : {
-						updatedAt : new Date()
+					fields : {
+						bitsoilToConsume : 1,
+						publicKeys : 1
 					}
 				});
-
+				if(toConsume.bitsoilToConsume.length > 0 && toConsume.publicKeys.length > 0 ){
+					let bitsoil = toConsume.bitsoilToConsume.pop();
+					let publicKey = toConsume.publicKeys.pop();
+					Wallets.update({
+						type : config.WALLET_TYPE.CONSUME,
+					}, {
+						$pop : {
+							bitsoilToConsume : -1,
+							publicKeys : -1
+						},
+						$set : {
+							updatedAt : new Date()
+						}
+					});
+					return {
+						"status": "success",
+						data : {
+							bitsoil : bitsoil,
+							publicKey : publicKey,
+							date : moment().format('DD-MM-YYYY HH:mm:ss')
+						}
+					}	
+				}
 				return {
 					"status": "success",
-					data : 0 !== res
+					data : false
 				}
 			}
 		}

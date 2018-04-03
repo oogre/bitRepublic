@@ -2,10 +2,11 @@
   bitRepublic - wallets.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:33:56
-  @Last Modified time: 2018-02-15 16:54:09
+  @Last Modified time: 2018-04-03 13:55:36
 \*----------------------------------------*/
 
 import { Mongo } from 'meteor/mongo';
+
 
 import './publications.js';
 import './restAPI.js';
@@ -23,6 +24,20 @@ if(Meteor.isServer){
 		type : config.WALLET_TYPE.PERSONNAL, 
 		owner : { $exists:true}
 	};
+
+	/*
+	Wallets.find({
+		publicKey : {
+			$exists : false
+		}
+	}).forEach(wallet => {
+		Wallets.update(wallet._id, {
+			$set : {
+				publicKey : Utilities.genPubKey()
+			}
+		});
+	});
+	*/
 
 	Wallets.find({ type : config.WALLET_TYPE.PUBLIC, owner : { $exists:false } }).observe({
 		changed(newWallet, oldWallet){
@@ -56,8 +71,9 @@ if(Meteor.isServer){
 			Wallets.update({
 				type : config.WALLET_TYPE.CONSUME
 			}, {
-				$inc : {
-					bitsoilToConsume : 1
+				$push : {
+					publicKeys : wallet.publicKey,
+					bitsoilToConsume : countBitsoil
 				},
 				$set : {
 					updatedAt : new Date()

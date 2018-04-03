@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 13:45:04
-  @Last Modified time: 2018-02-13 12:45:20
+  @Last Modified time: 2018-04-03 16:08:49
 \*----------------------------------------*/
 import { Wallets } from '../wallets/wallets.js';
 import { TempWallets } from '../wallets/wallets.js';
