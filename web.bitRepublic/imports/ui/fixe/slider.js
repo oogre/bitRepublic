@@ -35,7 +35,7 @@ export default class FixeSlider extends Component {
 		$('.slider').animate({
 			scrollLeft: flag ? ($('.slider ul').width() - window.innerWidth) : 0
 		}, 10000);
-		
+
 		setTimeout(this.animation.bind(this, !flag), 11000)
 	}
 	componentDidMount(){
@@ -46,7 +46,7 @@ export default class FixeSlider extends Component {
 		//window.removeEventListener("keyup", this.handleKeyPress.bind(this), false);
 	}
 	render() {
-		
+
 
 		return (
 			<div className="slider" style={{
@@ -55,9 +55,9 @@ export default class FixeSlider extends Component {
     			overflowX: "hidden",
     			overflowY: "hidden"
     		}}>
-				{ 	
+				{
 					this.state.pictures ?
-						<ul style={{
+						<ul className="slider__list" style={{
 							height: "100%",
 							margin: "0",
 							padding: "0",
@@ -66,7 +66,7 @@ export default class FixeSlider extends Component {
 						}}>
 							{
 								this.state.pictures.map((picture, k) => (
-									<li	key={k} style={{ display: "inline-block"}}>
+									<li key={k} style={{ display: "inline-block"}}>
 										<img
 											src={picture}
 											alt="image de bitRepublic"
@@ -77,7 +77,7 @@ export default class FixeSlider extends Component {
 							}
 							{
 								this.state.pictures.map((picture, k) => (
-									<li	key={k} style={{ display: "inline-block"}}>
+									<li key={k} style={{ display: "inline-block"}}>
 										<img
 											src={picture}
 											alt="image de bitRepublic"
@@ -88,7 +88,7 @@ export default class FixeSlider extends Component {
 							}
 							{
 								this.state.pictures.map((picture, k) => (
-									<li	key={k} style={{ display: "inline-block"}}>
+									<li key={k} style={{ display: "inline-block"}}>
 										<img
 											src={picture}
 											alt="image de bitRepublic"
