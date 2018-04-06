@@ -18,7 +18,7 @@ export default class About extends Component {
 
 	render() {
 		return (
-			<div className="page">
+			<div className="page page--home">
 				<div className="page__content">
 					<HeaderMenu />
 					<SliderMenu />

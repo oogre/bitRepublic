@@ -156,6 +156,7 @@
 // ---------------------
 .counter--xl .counter__prefix {
   background: $color-primary;
+  position: relative;
 
   @include breakpoint($below-md) {
     width: 4.3rem;

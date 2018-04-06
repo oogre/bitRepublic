@@ -54,6 +54,19 @@
   }
 }
 
+// Button Unstyled
+@mixin button-unstyled() {
+  display: inline-block;
+  border: 0;
+  padding: 0;
+
+  // Hover, focus, active interactions
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    outline-color: $color-primary;
+  }
+}
+
 // Size Variation
 %button-size-default {
   padding: 1.4rem 2.8rem;
@@ -143,6 +156,12 @@
 
 .button--danger {
   @extend %button-size-default;
+}
+
+// Button Unstyled
+%button--unstyled,
+[class*='button--unstyled'] {
+  @include button-unstyled();
 }
 
 // Disable state
