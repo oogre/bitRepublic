@@ -2,15 +2,35 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:03:00
-  @Last Modified time: 2018-03-14 15:40:05
+  @Last Modified time: 2018-04-05 12:20:33
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';
 
 if(Meteor.isServer){
-	let Api = new Restivus({
+	export const Api = new Restivus({
 		useDefaultAuth: true,
-		prettyJson: true
+		prettyJson: true,
+		onLoggedIn: function () {
+			console.log(this.user.username + ' (' + this.userId + ') logged in by API');
+			let user = Meteor.users.findOne(this.userId);
+			let flag = false;
+			user.services.resume.loginTokens = user.services.resume.loginTokens.reverse();
+			user.services.resume.loginTokens = user.services.resume.loginTokens.filter((data, n) => {
+				if(data.when)return true;
+				else if(!flag){
+					flag = true;
+					return true;
+				}
+				return false;
+			});
+			user.services.resume.loginTokens = user.services.resume.loginTokens.reverse();
+			Meteor.users.update(this.userId, {
+				$set : {
+					"services.resume.loginTokens" : user.services.resume.loginTokens
+				}
+			});
+		}
 	});
 	/**
 	* @api {post} /api/login/

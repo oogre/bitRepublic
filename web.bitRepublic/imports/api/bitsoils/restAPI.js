@@ -2,20 +2,16 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-04-03 13:49:23
+  @Last Modified time: 2018-04-05 11:56:15
 \*----------------------------------------*/
 
 
 import {config} from '../../startup/config.js';
 import { Wallets } from '../wallets/wallets.js';
 import moment from 'moment';
+import {Api} from '../restAPI.js';
 
-if(Meteor.isServer){
-	let Api = new Restivus({
-		useDefaultAuth: true,
-		prettyJson: true
-	});
-
+if(Meteor.isServer){	
 	Api.addRoute('bitsoil', {
 		/**
 		* @api {get} /api/bitsoil
@@ -125,7 +121,7 @@ if(Meteor.isServer){
 		*     }
 		*/
 		get: {
-			authRequired: false,
+			authRequired: true,
 			action : function () {
 				let toConsume = Wallets.findOne({
 					type : config.WALLET_TYPE.CONSUME,

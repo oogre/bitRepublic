@@ -2,18 +2,14 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-16 00:23:43
-  @Last Modified time: 2018-03-14 15:44:43
+  @Last Modified time: 2018-04-05 11:56:40
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
-
+import {Api} from '../restAPI.js';
 
 if(Meteor.isServer){
-	let Api = new Restivus({
-		useDefaultAuth: true,
-		prettyJson: true
-	});
-
+	
 	Api.addRoute('bot/confirm', {
 		/**
 		* @api {get} /api/bot/confirm

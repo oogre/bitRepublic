@@ -2,19 +2,15 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:44
-  @Last Modified time: 2018-02-14 23:14:56
+  @Last Modified time: 2018-04-05 11:56:50
 \*----------------------------------------*/
 
 import { Wallets } from './wallets.js';
 import * as Utilities from '../../utilities.js'
 import {config} from '../../startup/config.js';
+import {Api} from '../restAPI.js';
 
 if(Meteor.isServer){
-	let Api = new Restivus({
-		useDefaultAuth: true,
-		prettyJson: true
-	});
-
 	Api.addRoute('wallets', {
 		/**
 		* @api {post} /api/wallet
