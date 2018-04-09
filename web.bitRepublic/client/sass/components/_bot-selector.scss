@@ -19,7 +19,8 @@
   position: relative;
   min-height: 502px;
   padding: 34px 0 40px;
-  background: url('/images/tax-collector-bot-bg.png') no-repeat center bottom 40px$grey-bonjour;
+  // background: url('/images/tax-collector-bot-bg.png') no-repeat center bottom 40px$grey-bonjour;
+  background: url('/images/bots/bot-tax-collector.gif') no-repeat center top;
 }
 
 .bot-selector__counter:before {
@@ -29,12 +30,11 @@
   height: 359px;
   top: 15px;
   position: absolute;
-  background: url('/images/bots/bot-tax-collector.gif') no-repeat center top;
 }
 
 .bot-selector__counter .counter--large {
   position: relative;
-  top: 292px;
+  top: 273px;
 }
 
 .bot-selector .cards-list {
