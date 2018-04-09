@@ -130,23 +130,23 @@
 // ---------------------
 .hero-banner--redistribution {
   background: $purple-martinique;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   background-position: 50%;
 
-  @include breakpoint($xs-only) {
-    background-image: url('/images/redistribution/xs/banner-redistribution.png');
-    min-height: 640px;
+  @include breakpoint($below-md) {
+    background-image: url('/images/redistribution/sm/banner-redistribution-bg.png');
+    min-height: 360px;
     background-size: auto 100%;
     background-position: 100% 0;
   }
 
   @include breakpoint($md) {
-    background-image: url('/images/redistribution/sm/banner-redistribution.png');
-    min-height: 507px;
+    background-image: url('/images/redistribution/md/banner-redistribution-bg.png');
+    min-height: 759px;
   }
 
   @include breakpoint($lg) {
-    background-image: url('/images/redistribution/md/banner-redistribution.png');
+    background-image: url('/images/redistribution/lg/banner-redistribution-bg.png');
     min-height: 507px;
   }
 
@@ -156,8 +156,6 @@
     content: '';
     display: block;
     background-repeat: no-repeat;
-    top: 0;
-    height: 100%;
   }
 
   &:before {
@@ -165,16 +163,25 @@
     width: 164px;
     z-index: z('bannerDecoration') + 1;
 
-    @include breakpoint($xs-only) {
-      background-image: url('/images/redistribution/xs/banner-redistribution-hand.png');
-    }
-
-    @include breakpoint($md) {
+    @include breakpoint($below-md) {
+      width: 360px;
+      height: 269px;
+      bottom: 0;
       background-image: url('/images/redistribution/sm/banner-redistribution-hand.png');
     }
 
+    @include breakpoint($md) {
+      top: 0;
+      width: 242px;
+      height: 760px;
+      background-image: url('/images/redistribution/md/banner-redistribution-hand.png');
+      background-size: 100%;
+    }
+
     @include breakpoint($lg) {
-      background: url('/images/redistribution/md/banner-redistribution-hand.png');
+      width: 164px;
+      height: 100%;
+      background: url('/images/redistribution/lg/banner-redistribution-hand.png');
     }
   }
 
@@ -183,18 +190,20 @@
     height: 100%;
     width: 833px;
     z-index: z('bannerDecoration');
+    top: 0;
 
-    @include breakpoint($xs-only) {
-      display: none;
+    @include breakpoint($below-md) {
+      background-image: url('/images/redistribution/sm/banner-redistribution-planet.png');
+      background-position: 100% 100%;
     }
 
     @include breakpoint($md) {
-      background-image: url('/images/redistribution/sm/banner-redistribution-planet.png');
+      background-image: url('/images/redistribution/md/banner-redistribution-planet.png');
       background-position: 100% 0;
     }
 
     @include breakpoint($lg) {
-      background: url('/images/redistribution/md/banner-redistribution-planet.png');
+      background-image: url('/images/redistribution/lg/banner-redistribution-planet.png');
     }
   }
 }
@@ -206,23 +215,35 @@
   z-index: z('bannerContent');
   margin: 0 auto;
 
-  @include breakpoint($below-md) {
-    max-width: 152px;
+  @include breakpoint($below-sm) {
+    max-width: calc(100% - 80px);
   }
 
-  @include breakpoint($md) {
-    max-width: 40%;
+  @include breakpoint($sm) {
+    max-width: 50%;
+  }
+
+  @include breakpoint($lg) {
+    max-width: none;
   }
 }
 
 .hero-banner--redistribution .hero-banner__content {
   background: transparent;
   z-index: z('bannerContent');
+
+  @include breakpoint($below-sm) {
+    text-align: left;
+    // max-width: 50%;
+    margin: 0;
+    left: 0;
+    transform: none;
+  }
 }
 
 .hero-banner--redistribution .hero-banner__title {
-  margin-top: 258px;
-  font-size: 2rem;
+  margin-top: 40px;
+  font-size: 1.8rem;
   color: #fff;
 
   &:after {
@@ -230,16 +251,34 @@
   }
 
   @include breakpoint($md) {
-    max-width: 300px;
-    margin: 162px auto 15px;
-    font-size: 1.7rem;
+    max-width: none;
+    margin-top: 300px;
+    margin-bottom: 46px;
+    font-size: 2.4rem;
   }
 
   @include breakpoint($lg) {
-    max-width: none;
     margin-top: 176px;
-    margin-bottom: 46px;
-    font-size: 2.4rem;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 82px;
+      height: 82px;
+      background: url('/images/redistribution/lg/banner-redistribution-title-deco.png');
+      top: -15px;
+      left: -45px;
+    }
+  }
+}
+
+.hero-banner--redistribution .buttons-list {
+
+  @include breakpoint($below-sm) {
+    max-width: 50%;
   }
 }
 
