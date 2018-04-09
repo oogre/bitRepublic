@@ -2,11 +2,12 @@
   bitRepublic - modal.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-02-20 13:01:44
+  @Last Modified time: 2018-04-09 17:52:41
 \*----------------------------------------*/
 import React, { Component } from 'react';
 // https://reactcommunity.org/react-modal/
 import ReactModal from 'react-modal';
+
 
 import UserSignup from './signup.js';
 import UserLogIn from './login.js';
@@ -18,11 +19,20 @@ export default class UserModal extends Component {
 		super(props);
 		this.state = {
 			showModal: false,
-			selectedProcess : this.props.process
+			selectedProcess : this.props.process,
+			login : false
 		};
 		this.closeCallBack = null;
 		this.handleOpenModal = this.handleOpenModal.bind(this);
 		this.handleCloseModal = this.handleCloseModal.bind(this);
+	}
+
+
+	handleForgotPassword(event){
+		if(this.state.selectedProcess){
+			console.log("YO");
+			this.state.login.handleForgotPassword(event);
+		}
 	}
 
 	componentDidMount () {
@@ -50,6 +60,9 @@ export default class UserModal extends Component {
 		});
 		this.closeCallBack(_.isString(event) ? event : false);
 		return false;
+	}
+	handleLonginMounted(login){
+		this.setState({ login: login});
 	}
 
 	render() {
@@ -98,9 +111,14 @@ export default class UserModal extends Component {
 								:
 									""
 							}
-							<UserLogIn visible={this.state.selectedProcess == "login"} onSuccess={this.handleCloseModal.bind(this)}/>
+							<UserLogIn 
+								onMounted={this.handleLonginMounted.bind(this)} 
+								visible={this.state.selectedProcess == "login"} 
+								onSuccess={this.handleCloseModal.bind(this)}
+							/>
 							<UserSignup visible={this.state.selectedProcess == "signup"} onSuccess={this.handleCloseModal.bind(this)}/>
 							<div className="field__row text-right">
+								
 								<a
 									className={"modal__link" + " " + (this.state.selectedProcess == "signup" ? "" : "hidden")}
 									href="#"
@@ -108,13 +126,23 @@ export default class UserModal extends Component {
 								>
 									Login
 								</a>
-								<a
-									className={"modal__link" + " " + (this.state.selectedProcess == "login" ? "" : "hidden")}
-									href="#"
-									onClick={this.handleChangeProcess.bind(this, "signup")}
+
+								<span
+									className={this.state.selectedProcess == "login" ? "" : "hidden"}
 								>
-									Signup
-								</a>
+									<a 	className="modal__link"
+										onClick={this.handleForgotPassword.bind(this)}>
+										forgot password ?
+									</a>
+									<span> | </span>
+									<a
+										className="modal__link"
+										href="#"
+										onClick={this.handleChangeProcess.bind(this, "signup")}
+									>
+										Signup
+									</a>
+								</span>
 							</div>
 						</div>
 					</div>

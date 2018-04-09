@@ -2,16 +2,16 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-03-21 18:15:50
+  @Last Modified time: 2018-04-09 17:50:31
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 
 import { config } from '../../startup/config.js';
-
-import { LoginUser } from '../../api/users/methods.js';
 import { ForgotPassword } from '../../api/users/methods.js';
+import { LoginUser } from '../../api/users/methods.js';
+
 
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
@@ -32,6 +32,55 @@ export default class UserLogIn extends Component {
 	}
 	handleAlertSuccess(){
 		this.setState({'success' : false});
+	}
+
+	componentDidMount () {
+		if (this.props.onMounted) {
+			this.props.onMounted(this)
+		}
+	}
+
+	handleForgotPassword(event){
+		console.log("LO");
+		event.preventDefault();
+		this.setState({
+			'error' : false,
+			'error-email' : false,
+			'error-password' : false,
+			'is-loading' : true,
+			'has-error' : false,
+			'has-success' : false
+		});
+
+		const data = {
+			email : ReactDom.findDOMNode(this.refs.email).value
+		};
+
+		ForgotPassword.call(data, (err, res) => {
+			this.setState({'is-loading' : false});
+			if (err && err.error === 'validation-error') {
+				this.setState({'has-error' : true});
+				err.details.forEach((fieldError) => {
+					this.setState({
+						["error-"+fieldError.name] : fieldError.type
+					});
+				});
+				return;
+			}
+			this.setState({'is-loading' : true});
+			Accounts.forgotPassword(data, (err) => {
+				this.setState({'is-loading' : false});
+				if(err){
+					this.setState({
+						'has-error' : true,
+						error : err.reason
+					});
+					return;
+				}
+				this.setState({'success' : true});
+			});
+		});
+		return false;
 	}
 	
 	handleLogin(event){
@@ -81,50 +130,6 @@ export default class UserLogIn extends Component {
 		});
 	}
 
-	handleForgotPassword(event){
-		event.preventDefault();
-		this.setState({
-			'error' : false,
-			'error-email' : false,
-			'error-password' : false,
-			'is-loading' : true,
-			'has-error' : false,
-			'has-success' : false
-		});
-
-		const data = {
-			email : ReactDom.findDOMNode(this.refs.email).value
-		};
-
-		ForgotPassword.call(data, (err, res) => {
-			this.setState({'is-loading' : false});
-			if (err && err.error === 'validation-error') {
-				this.setState({'has-error' : true});
-				err.details.forEach((fieldError) => {
-					this.setState({
-						["error-"+fieldError.name] : fieldError.type
-					});
-				});
-				return;
-			}
-			this.setState({'is-loading' : true});
-			Accounts.forgotPassword(data, (err) => {
-				this.setState({'is-loading' : false});
-				if(err){
-					this.setState({
-						'has-error' : true,
-						error : err.reason
-					});
-					return;
-				}
-				this.setState({'success' : true});
-			});
-		});
-
-
-		return false;
-	}
-
 
 	render() {
 		return (
@@ -169,9 +174,6 @@ export default class UserLogIn extends Component {
 					</div>
 					{this.state['is-loading'] ? <FixeWait /> : null }
 					<div className="fields-row text-right">
-						<a className="modal__link" onClick={this.handleForgotPassword.bind(this)}>
-							forgot password ?
-						</a>
 						<input
 							className={
 								"button--primary " +
