@@ -82,11 +82,16 @@
   line-height: 0;
   z-index: z('menu');
 
+
   @include breakpoint($md) {
     float: none;
-    right: 160px;
     top: inherit;
     bottom: 0;
+    right: 20px;
+  }
+
+  @include breakpoint($lg) {
+    right: 160px;
   }
 }
 
