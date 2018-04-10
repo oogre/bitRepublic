@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2018-02-02 20:39:55
+  @Last Modified time: 2018-04-09 18:18:48
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -63,7 +63,13 @@ export default class FixeInfo extends Component {
 						{
 							this.data.map((d, k) => (
 								<li key={k} className={'contents-selector-list__item '}>
-									<a className={"contents-selector-list__button " + (this.state.selected === k ? 'selected' : "")} onClick={this.handleClickOnLink.bind(this, k)} href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}>{d.title}</a>
+									<a 
+										className={"contents-selector-list__button " + (this.state.selected === k ? 'selected' : "")} 
+										onClick={this.handleClickOnLink.bind(this, k)} 
+										href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}
+									>
+										{d.title}
+									</a>
 								</li>
 							))
 						}

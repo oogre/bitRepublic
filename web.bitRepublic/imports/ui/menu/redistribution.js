@@ -2,7 +2,7 @@
   bitRepublic - redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-02-07 21:47:46
+  @Last Modified time: 2018-04-10 10:40:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -20,30 +20,41 @@ export default class RedistriutionMenu extends Component {
 							<h2 className="hero-banner__title">TAKE PART TO THE REDISTRIBTION MECHANISM</h2>
 							<ul className="buttons-list buttons-list--redistribution">
 								<li className="buttons-list__item">
-									<a
-										href={FlowRouter.path("redistribution")}
-										className="button--secondary hero-banner__button"
-									>
-										Generate yout wallet
-									</a>
+									{
+										FlowRouter.current().path == FlowRouter.path("redistribution") ? 
+											<a
+												href={FlowRouter.path("redistribution") + "#redistributionInfo"}
+												className="button--secondary hero-banner__button"
+											>
+												FIND OUT MORE
+											</a>
+										: 
+											<a
+												href={FlowRouter.path("redistribution")}
+												className="button--secondary hero-banner__button"
+											>
+												TAKE PART OF THE REDISTRIBUTION
+											</a>
+									}
+									
 								</li>
 								<li className="buttons-list__item">
 									{
-										this.props.findOutMore ?
+										FlowRouter.current().path == FlowRouter.path("redistribution") ? 
+											<a
+												className="button--secondary hero-banner__button"
+												href={FlowRouter.path("home") + "#taxbot"}
+											>
+												GENERATE YOUR WALLET
+											</a>
+										:
 											<a
 												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("about")}
 											>
 												Find out more
 											</a>
-
-										:
-											<a
-												className="button--secondary hero-banner__button"
-												href={FlowRouter.path("home") + "#taxbot"}
-											>
-												Create your taxbot
-											</a>
+											
 									}
 								</li>
 							</ul>

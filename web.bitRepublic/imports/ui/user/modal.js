@@ -2,7 +2,7 @@
   bitRepublic - modal.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-09 17:52:41
+  @Last Modified time: 2018-04-10 19:51:19
 \*----------------------------------------*/
 import React, { Component } from 'react';
 // https://reactcommunity.org/react-modal/
@@ -11,6 +11,7 @@ import ReactModal from 'react-modal';
 
 import UserSignup from './signup.js';
 import UserLogIn from './login.js';
+import TargetSelector from '../target/selector.js';
 
 ReactModal.setAppElement('body');
 
@@ -52,17 +53,17 @@ export default class UserModal extends Component {
 		this.setState({ selectedProcess: selectedProcess })
 	}
 
-	handleCloseModal (event) {
+	handleCloseModal (event, target) {
 		if(_.isObject(event))event.preventDefault();
 		this.setState({
 			showModal: false,
 			selectedProcess: this.props.process
 		});
-		this.closeCallBack(_.isString(event) ? event : false);
+		this.closeCallBack(_.isString(event) ? event : false, target);
 		return false;
 	}
 	handleLonginMounted(login){
-		this.setState({ login: login});
+		this.setState({ login: login });
 	}
 
 	render() {
@@ -93,7 +94,6 @@ export default class UserModal extends Component {
 				padding                    : '20px'
 			}
 		}
-
 		return (
 			<div className="container">
 				<ReactModal
@@ -113,37 +113,65 @@ export default class UserModal extends Component {
 							}
 							<UserLogIn 
 								onMounted={this.handleLonginMounted.bind(this)} 
-								visible={this.state.selectedProcess == "login"} 
+								visible={Meteor.userId() || this.state.selectedProcess == "login"} 
 								onSuccess={this.handleCloseModal.bind(this)}
-							/>
-							<UserSignup visible={this.state.selectedProcess == "signup"} onSuccess={this.handleCloseModal.bind(this)}/>
-							<div className="field__row text-right">
-								
-								<a
-									className={"modal__link" + " " + (this.state.selectedProcess == "signup" ? "" : "hidden")}
-									href="#"
-									onClick={this.handleChangeProcess.bind(this, "login")}
-								>
-									Login
-								</a>
+							>
+								{
+									this.props.selectedBot ? 
+										<TargetSelector 
+											process={this.props.selectedBot.target}
+										/>
+									: 
+										null
+								}
+							</UserLogIn>
+							<UserSignup 
+								visible={!Meteor.userId() && this.state.selectedProcess == "signup"} 
+								onSuccess={this.handleCloseModal.bind(this)}
+							>
+								{
+									this.props.selectedBot ? 
+										<TargetSelector 
+											process={this.props.selectedBot.target}
+										/>
+									: 
+										null
+								}
+							</UserSignup>
 
-								<span
-									className={this.state.selectedProcess == "login" ? "" : "hidden"}
-								>
-									<a 	className="modal__link"
-										onClick={this.handleForgotPassword.bind(this)}>
-										forgot password ?
-									</a>
-									<span> | </span>
-									<a
-										className="modal__link"
-										href="#"
-										onClick={this.handleChangeProcess.bind(this, "signup")}
-									>
-										Signup
-									</a>
-								</span>
-							</div>
+							
+							{
+								Meteor.userId() ?
+									null
+								:
+									<div className="field__row text-right">
+										<a
+											className={"modal__link" + " " + (this.state.selectedProcess == "signup" ? "" : "hidden")}
+											href="#"
+											onClick={this.handleChangeProcess.bind(this, "login")}
+										>
+											Log in
+										</a>
+
+										<span
+											className={this.state.selectedProcess == "login" ? "" : "hidden"}
+										>
+											<a 	className="modal__link"
+												onClick={this.handleForgotPassword.bind(this)}>
+												forgot password ?
+											</a>
+											<span> | </span>
+											<a
+												className="modal__link"
+												href="#"
+												onClick={this.handleChangeProcess.bind(this, "signup")}
+											>
+												Sign up
+											</a>
+										</span>
+									</div>
+							}
+							
 						</div>
 					</div>
 				</ReactModal>

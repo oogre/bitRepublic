@@ -2,9 +2,12 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-03-26 14:15:05
+  @Last Modified time: 2018-04-10 11:06:49
 \*----------------------------------------*/
 export const config = {
+	TARGET : {
+		SPREADSHEET : "1FU74p-OzAEqeeg70nzW2HYjaYDkP0a8bSgdj6SE73kI"
+	},
 	ACTION : {
 		INTERVAL : 60000
 	},
@@ -68,8 +71,8 @@ export const config = {
 				required : "your username is require",
 				'already-exists' : "your username is already recorded",
 			},
-			country : {
-				required : "your country is require"
+			target : {
+				required : "your target is require"
 			},
 			password : {
 				required : "your password is require",

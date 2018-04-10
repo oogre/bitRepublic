@@ -2,7 +2,7 @@
   256x256x256 - Alert.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-03-21 17:21:07
-  @Last Modified time: 2018-04-03 15:14:21
+  @Last Modified time: 2018-04-10 15:03:51
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -33,7 +33,7 @@ export default class Info extends Component {
 				left              : 0,
 				right             : 0,
 				bottom            : 0,
-				backgroundColor   : 'rgba(40, 40, 40, 0.9)',
+				backgroundColor   : 'rgba(40, 40, 40, 0.3)',
 				zIndex            : 9999
 			},
 			content : {
@@ -48,7 +48,7 @@ export default class Info extends Component {
 				marginRight           	   : '-50%',
 				transform                  : 'translate(-50%, -50%)',
 				border                     : '0',
-				backgroundColor   		   : 'rgba(255, 255, 255, 0.9)',
+				backgroundColor   		   : 'rgba(255, 255, 255, 1.0)',
 				color                      : '#342e30',
 				overflow                   : 'auto',
 				WebkitOverflowScrolling    : 'touch',

@@ -2,7 +2,7 @@
   bitRepublic - logout.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-27 02:43:46
-  @Last Modified time: 2018-02-05 16:13:02
+  @Last Modified time: 2018-04-10 18:13:36
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
@@ -22,7 +22,7 @@ export default class UserLogOut extends Component {
 	}
 	render() {
 		return (
-			<a href="#" className="dropdown__item__link dropdown__item__link--logout" onClick={this.handleLogout.bind(this)}>Logout</a>
+			<a href="#" className="dropdown__item__link dropdown__item__link--logout" onClick={this.handleLogout.bind(this)}>Log out</a>
 		);
 	}
 }

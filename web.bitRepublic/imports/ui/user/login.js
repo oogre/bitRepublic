@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-09 17:50:31
+  @Last Modified time: 2018-04-10 19:52:39
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -24,10 +24,12 @@ export default class UserLogIn extends Component {
 			'error' : false,
 			'error-email' : false,
 			'error-password' : false,
+			'error-target' : false,
 			'is-loading' : false,
 			'has-error' : false,
 			'has-success' : false,
 			success : false,
+			target : null
 		};
 	}
 	handleAlertSuccess(){
@@ -47,6 +49,7 @@ export default class UserLogIn extends Component {
 			'error' : false,
 			'error-email' : false,
 			'error-password' : false,
+			'error-target' : false,
 			'is-loading' : true,
 			'has-error' : false,
 			'has-success' : false
@@ -82,17 +85,39 @@ export default class UserLogIn extends Component {
 		});
 		return false;
 	}
-	
+	handleTarget(value){
+		this.setState({ target : value});
+	}
+
 	handleLogin(event){
 		event.preventDefault();
 		this.setState({
 			'error' : false,
 			'error-email' : false,
 			'error-password' : false,
+			'error-target' : false,
 			'is-loading' : true,
 			'has-error' : false,
 			'has-success' : false
 		});
+
+		if(this.props.children && _.isEmpty(this.state.target)){
+			this.setState({
+				'is-loading' : false,
+				'has-error' : true, 
+				'error-target' : "required"
+			});
+			if(Meteor.userId()){
+				return;
+			}
+		}
+
+		if(Meteor.userId()){
+			if(_.isFunction(this.props.onSuccess)){
+				this.props.onSuccess(Meteor.userId(), this.state.target);
+			}
+			return;
+		}
 
 		const data = {
 			email : ReactDom.findDOMNode(this.refs.email).value,
@@ -108,6 +133,8 @@ export default class UserLogIn extends Component {
 						["error-"+fieldError.name] : fieldError.type
 					});
 				});
+			}
+			if(this.state['has-error']){
 				return;
 			}
 			this.setState({'is-loading' : true});
@@ -118,13 +145,15 @@ export default class UserLogIn extends Component {
 						'has-error' : true,
 						error : err.reason
 					});
+				}
+				if(this.state['has-error']){
 					return;
 				}
 				this.setState({'has-success' : true});
 				ReactDom.findDOMNode(this.refs.email).value = '';
 				ReactDom.findDOMNode(this.refs.password).value = '';
 				if(_.isFunction(this.props.onSuccess)){
-					this.props.onSuccess(Meteor.userId());
+					this.props.onSuccess(Meteor.userId(), this.state.target);
 				}
 			});
 		});
@@ -132,46 +161,74 @@ export default class UserLogIn extends Component {
 
 
 	render() {
+		var self     = this;
 		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
 				
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
-					<div className="fields-row">
-						<div className="fields-column">
-							<input
-								type="email"
-								ref="email"
-								name="email"
-								placeholder="Type your email"
-							/>
-							{
-								this.state["error-email"] ?
-									<MessageError
-										error={this.state["error-email"]}
-										messages={config.FORM.ERRORS.email}
+					{
+						Meteor.userId() ? 
+							null 
+						: 
+							<div className="fields-row">
+								<div className="fields-column">
+									<input
+										type="email"
+										ref="email"
+										name="email"
+										placeholder="Type your email"
 									/>
-								:
-									null
-							}
-						</div>
-						<div className="fields-column">
-							<input
-								type="password"
-								ref="password"
-								name="password"
-								placeholder="Type your password"
-							/>
-							{
-								this.state["error-password"] ?
-									<MessageError
-										error={this.state["error-password"]}
-										messages={config.FORM.ERRORS.password}
+									{
+										this.state["error-email"] ?
+											<MessageError
+												error={this.state["error-email"]}
+												messages={config.FORM.ERRORS.email}
+											/>
+										:
+											null
+									}
+								</div>
+								<div className="fields-column">
+									<input
+										type="password"
+										ref="password"
+										name="password"
+										placeholder="Type your password"
 									/>
-								:
-									null
-							}
-						</div>
-					</div>
+									{
+										this.state["error-password"] ?
+											<MessageError
+												error={this.state["error-password"]}
+												messages={config.FORM.ERRORS.password}
+											/>
+										:
+											null
+									}
+								</div>
+							</div>
+					}
+					
+					{
+						this.props.children ? 
+							<div className="fields-row">
+								<div className="fields-column">
+									{
+										React.Children.map(this.props.children, (child, k) => (
+											<div key={k}>
+												{
+													React.cloneElement(child, {                    
+														onTargetSelected: self.handleTarget.bind(self),
+														error : self.state["error-target"]
+													})
+												}
+											</div>
+										))
+									}
+								</div>
+							</div>
+						:
+							null
+					}
 					{this.state['is-loading'] ? <FixeWait /> : null }
 					<div className="fields-row text-right">
 						<input
@@ -182,7 +239,7 @@ export default class UserLogIn extends Component {
 								(this.state['has-error'] ? "error " : "")
 							}
 							type="submit"
-							value="Login"
+							value={Meteor.userId() ? "Activation" : "Log in"}
 						/>
 						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>

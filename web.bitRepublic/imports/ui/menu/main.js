@@ -2,7 +2,7 @@
   bitRepublic - main.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:48:05
-  @Last Modified time: 2018-02-20 12:45:06
+  @Last Modified time: 2018-04-10 18:12:59
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -76,7 +76,7 @@ class MainMenu extends Component {
 								{this.props.username}
 							</a>
 						:
-							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Login</a>
+							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Log in</a>
 						}
 						<UserModal
 							process="login"

@@ -2,24 +2,19 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-03-21 18:18:15
+  @Last Modified time: 2018-04-10 18:55:58
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
 
 import { CreateUser } from '../../api/users/methods.js';
 import { config } from '../../startup/config.js';
-
-import { Targets } from '../../api/targets/targets.js';
 
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 import Alert from '../Alert.js';
 
-class UserSignup extends Component {
+export default class UserSignup extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -27,14 +22,15 @@ class UserSignup extends Component {
 			'error-firstname' : false,
 			'error-lastname' : false,
 			'error-email' : false,
-			'error-country' : false,
+			'error-target' : false,
 			'is-loading' : false,
 			'has-error' : false,
 			'has-success' : false,
 			selectedOption : '',
 			success : false,
 			'has-userId' : false,
-			message : ""
+			message : "",
+			target : null
 		};
 	}
 
@@ -44,17 +40,25 @@ class UserSignup extends Component {
 			'error' : false,
 			'error-firstname' : false,
 			'error-lastname' : false,
+			'error-target' : false,
 			'error-email' : false,
-			'error-country' : false,
 			'is-loading' : true,
 			'has-error' : false,
 			'has-success' : false
 		});
+
+		if(this.props.children && _.isEmpty(this.state.target)){
+			this.setState({
+				'is-loading' : false,
+				'has-error' : true, 
+				'error-target' : "required"
+			});
+		}
+
 		const data = {
 			firstname : ReactDom.findDOMNode(this.refs.firstname).value,
 			lastname : ReactDom.findDOMNode(this.refs.lastname).value,
-			email : ReactDom.findDOMNode(this.refs.email).value,
-			country : this.state.selectedOption.value
+			email : ReactDom.findDOMNode(this.refs.email).value
 		}
 		CreateUser.call(data, (err, res) =>{
 			this.setState({'is-loading' : false});
@@ -65,15 +69,17 @@ class UserSignup extends Component {
 						["error-"+fieldError.name] : fieldError.type
 					});
 				});
-				return;
 			}
 			if(err){
 				this.setState({'has-error' : true});
 				this.setState({
 					["error"] : err.message
 				});
+			}
+			if(this.state['has-error']){
 				return;
 			}
+
 			this.setState({'has-success' : true});
 			ReactDom.findDOMNode(this.refs.firstname).value = '';
 			ReactDom.findDOMNode(this.refs.lastname).value = '';
@@ -91,18 +97,26 @@ class UserSignup extends Component {
 	handleAlertSuccess(){
 		this.setState({'success' : false});
 		if(_.isFunction(this.props.onSuccess)){
-			this.props.onSuccess(this.state['has-userId']);
+			this.props.onSuccess(this.state['has-userId'], this.state.target);
 		}
 	}
-	handleChangeCountry(selectedOption){
+	handleChangeTarget(selectedOption){
 		this.setState({ selectedOption : selectedOption});
+	}
+	handleTarget(value){
+		this.setState({ target : value});
 	}
 	render() {
 		const { selectedOption } = this.state;
   		const value = selectedOption && selectedOption.value;
-		return (
+  		var self     = this;
+  		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
-				<form className="login-user" onSubmit={this.handleSignup.bind(this)}>
+				<form 
+					className="login-user" 
+					onSubmit={this.handleSignup.bind(this)}
+					autoComplete="false"
+				>
 					<div className="fields-row">
 						<div className="fields-column">
 							<input
@@ -138,6 +152,28 @@ class UserSignup extends Component {
 						</div>
 					</div>
 					<div className="fields-row">
+						{
+							this.props.children ? 
+								<div className="fields-column">
+									{
+										React.Children.map(this.props.children, (child, k) => (
+											<div key={k}>
+												{
+													React.cloneElement(child, {                    
+														onTargetSelected: self.handleTarget.bind(self),
+														error : self.state["error-target"]
+													})
+												}
+											</div>
+										))
+									}
+								</div>
+							:
+								null
+						}
+						
+
+						
 						<div className="fields-column">
 							<input
 								type="email"
@@ -149,23 +185,6 @@ class UserSignup extends Component {
 									<MessageError
 										error={this.state["error-email"]}
 										messages={config.FORM.ERRORS.email}
-									/>
-								:
-									null
-							}
-						</div>
-						<div className="fields-column">
-							<Select
-								inputProps={{autoComplete: 'off'}}
-								name="countries"
-								value={value}
-								options={this.props.countries}
-								onChange={this.handleChangeCountry.bind(this)}
-							/>
-							{ 	this.state["error-country"] ?
-									<MessageError
-										error={this.state["error-country"]}
-										messages={config.FORM.ERRORS.country}
 									/>
 								:
 									null
@@ -192,28 +211,3 @@ class UserSignup extends Component {
 		);
 	}
 }
-export default withTracker(() => {
-	let targetsReady = FlowRouter.subsReady("targets");
-	let isReady = targetsReady;
-	let countries = [];
-	if(isReady){
-		countries = Targets.find({}, {fields : {name : 1}}).fetch().map((target)=>{
-			return {
-				value : target._id,
-				label : target.name
-			}
-		});
-	}
-	return {
-		countries : countries,
-		isReady : isReady
-	};
-})(UserSignup);
-/*
-<input
-								type="text"
-								ref="country"
-								name="country"
-								placeholder="your country"
-							/>
-*/

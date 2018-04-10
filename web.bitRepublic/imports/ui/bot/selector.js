@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-03-21 17:57:42
+  @Last Modified time: 2018-04-10 19:55:05
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -50,7 +50,7 @@ class BotSelector extends Component {
 		Utilities.scrollTo("tweetSelector");
 	}
 
-	handleBotCreation(userId){
+	handleBotCreation(userId, target){
 		userId = userId || this.props.userId;
 		if(!userId && this.state.selectedBot.signup)return;
 
@@ -58,7 +58,8 @@ class BotSelector extends Component {
 			userId: userId,
 			'bitsoil': this.state.validateBotData.bitsoil,
 			'botModelId': this.state.validateBotData.botId,
-			'tweet': this.state.validateBotData.tweet
+			'tweet': this.state.validateBotData.tweet,
+			target : target
 		}
 		CreateBot.call(data, (err, res)=>{
 			this.setState({'is-loading' : false});
@@ -68,7 +69,6 @@ class BotSelector extends Component {
 			}
 			this.setState({'has-success' : true});
 			if(Meteor.user()){
-
 				//alert("Thank You. I will do the job...");
 				this.setState({'success' : true});
 			}
@@ -82,12 +82,12 @@ class BotSelector extends Component {
 	handleValidation(){
 		if(!this.state.validateDisable){
 			BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
-			if(this.props.userId){
-				this.handleBotCreation(this.props.userId);
-			}else{
-				this.state.modal.onClose(this.handleBotCreation.bind(this));
-				this.state.modal.handleOpenModal();
-			}
+			//if(this.props.userId){
+			//	this.handleBotCreation(this.props.userId);
+			//}else{
+			this.state.modal.onClose(this.handleBotCreation.bind(this));
+			this.state.modal.handleOpenModal();
+			//}
 		}
 	}
 
@@ -172,6 +172,7 @@ class BotSelector extends Component {
 					</button>
 				</div>
 				<UserModal
+					selectedBot={this.state.selectedBot}
 					process="signup"
 					onMounted={this.handleModalMounted.bind(this)}
 					title="Thank you. I will do the job. I will send the tweet postcards for you. Please fill in the form if you will stay updated about the results."

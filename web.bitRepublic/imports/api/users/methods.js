@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-02-20 14:55:30
+  @Last Modified time: 2018-04-10 10:49:08
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -53,7 +53,6 @@ export const CreateUser = new ValidatedMethod({
 	validate: new SimpleSchema({
 		'firstname':{ type: String },
 		'lastname':	{ type: String },
-		'country':	{ type: String, regEx: SimpleSchema.RegEx.Id },
 		'email':	{ type: String, regEx: SimpleSchema.RegEx.Email }
 	}).validator({clean:true}),
 	mixins: [RateLimiterMixin],
@@ -64,7 +63,7 @@ export const CreateUser = new ValidatedMethod({
 	applyOptions: {
 		noRetry: true,
 	},
-	run({ firstname, lastname, email, country }) {
+	run({ firstname, lastname, email }) {
 		if (!this.isSimulation) {
 			if(Meteor.users.find({'emails.address':new RegExp(email, "i")}).count() > 0){
 				const errors = [{
@@ -96,8 +95,7 @@ export const CreateUser = new ValidatedMethod({
 				email : email,
 				profile : {
 					firstname,
-					lastname,
-					country
+					lastname
 				}
 			});
 			Accounts.sendEnrollmentEmail(userId);

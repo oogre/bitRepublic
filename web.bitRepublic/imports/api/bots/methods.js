@@ -2,13 +2,14 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:04
-  @Last Modified time: 2018-02-15 15:41:17
+  @Last Modified time: 2018-04-10 19:27:59
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
 import { config } from '../../startup/config.js';
 import { Bots } from './bots.js';
 import { Schedules } from './bots.js';
+import { Targets } from '../targets/targets.js';
 import { Actions } from '../actions/actions.js';
 import * as Utilities from '../../utilities.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
@@ -22,7 +23,10 @@ export const CreateBot = new ValidatedMethod({
 		'botModelId': { type: String, regEx: SimpleSchema.RegEx.Id },
 		'tweet': { type: [Object], minCount: 1},
 		'tweet.$.tweetId': { type: String, regEx: SimpleSchema.RegEx.Id },
-		'tweet.$.schedule': { type: String, regEx: SimpleSchema.RegEx.Id }
+		'tweet.$.schedule': { type: String, regEx: SimpleSchema.RegEx.Id },
+		target : { type : Object },
+		'target.value' : { type: String },
+		'target.label' : { type: String }
 	}).validator({clean:true}),
 	mixins: [RateLimiterMixin],
 	rateLimit: config.METHODS.RATE_LIMIT.FAST,
@@ -32,7 +36,8 @@ export const CreateBot = new ValidatedMethod({
 	applyOptions: {
 		noRetry: true,
 	},
-	run({ userId, bitsoil, botModelId, tweet }) {
+	run({ userId, bitsoil, botModelId, tweet, target }) {
+		
 		const botModel = Bots.findOne({
 			model : true,
 			_id : botModelId
@@ -54,6 +59,31 @@ export const CreateBot = new ValidatedMethod({
 		}
 		const schedules = Schedules.find({}).fetch();
 
+		if(SimpleSchema.RegEx.Id.test(target.value)){
+			target = Targets.findOne(target.value, {
+				fields : {
+					twitter_account : 1
+				}
+			});
+			if(!target){
+				const errors = [{
+					name: 'target',
+					type: 'needed'
+				}];
+				throw new ValidationError(errors);
+			}
+			if(!_.isArray(target.twitter_account)){
+				const errors = [{
+					name: 'target',
+					type: 'corrupted'
+				}];
+				throw new ValidationError(errors);
+			}
+			target = target.twitter_account;
+		}else{
+			target = target.value.split(/, ?/g);
+		}
+		
 		const botId = Bots.insert({
 			createdAt : new Date(),
 			owner : userId,
@@ -76,6 +106,7 @@ export const CreateBot = new ValidatedMethod({
 							return schedule._id == tweet.schedule;
 						}).value,
 				bitsoil: bitsoil,
+				target : target
 			});
 		});
 
