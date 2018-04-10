@@ -59,6 +59,12 @@
   padding-bottom: 2rem;
 }
 
+// Table footer
+// ---------------------
+.table__footer {
+  background: $grey-bonjour;
+}
+
 // Table with alternate row background
 // Use for table table--bots
 // ---------------------
@@ -173,6 +179,10 @@
   &:last-child {
     border-right: 0;
   }
+}
+
+.table-pagination__item.selected .table-pagination__button {
+  color: $color-primary;
 }
 
 .table-pagination__button {
