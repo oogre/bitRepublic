@@ -93,11 +93,22 @@
 .card__counter {
   margin-bottom: 20px;
   margin-top: -22px;
+  margin-top: -9vw;
 
+  @include breakpoint($sm) {
+    margin-top: -22px;
+    margin-top: -8.5vw;
+  }
 
   @include breakpoint($md) {
     margin-bottom: 50px;
     margin-top: -40px;
+    margin-top: -4.5vw;
+  }
+
+  @include breakpoint($lg) {
+    margin-top: -40px;
+    margin-top: -3vw;
   }
 
   @include breakpoint($xl) {
