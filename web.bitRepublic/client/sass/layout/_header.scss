@@ -23,7 +23,7 @@
 // ---------------------
 .logo--header {
   @include breakpoint($below-sm) {
-    max-width: 170px;
+    max-width: 200px;
   }
 
   @include breakpoint($sm) {
