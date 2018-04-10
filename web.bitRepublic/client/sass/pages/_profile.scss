@@ -122,6 +122,13 @@
   }
 }
 
+// page--update specific style for user-menu
+.page--update .user-menu {
+  @include breakpoint($md) {
+    top: 30px;
+  }
+}
+
 
 // avatar
 // ---------------------

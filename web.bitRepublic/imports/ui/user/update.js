@@ -26,7 +26,7 @@ export default class UserUpdate extends Component {
 	}
 	render() {
 		return (
-			<div className="page">
+			<div className="page page--update">
 				<HeaderMenu />
 				<div className="page__content">
 					<div className="profile__header">
