@@ -27,8 +27,12 @@
 // artwork-bitsoil-symbol
 // ---------------------
 .total-counter .counter--xl .artwork-bitsoil-symbol {
-  @include breakpoint($below-md) {
+  @include breakpoint($below-sm) {
     height: 35px;
+  }
+
+  @include breakpoint($sm) {
+    height: 63px;
   }
 
   @include breakpoint($md) {
@@ -41,13 +45,21 @@
 .total-counter .counter--xl .artwork-tax-logo {
   display: block;
 
-  @include breakpoint($below-md) {
+  @include breakpoint($below-sm) {
     width: 4.3rem;
     height: 4.3rem;
     margin-right: 3px;
   }
 
+  @include breakpoint($sm) {
+    width: 8.3rem;
+    height: 8.3rem;
+    margin-right: 3px;
+  }
+
   @include breakpoint($md) {
+    width: 100%;
+    height: 100%;
     margin-right: 9px;
   }
 }
