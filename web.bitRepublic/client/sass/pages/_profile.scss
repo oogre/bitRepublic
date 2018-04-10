@@ -64,12 +64,17 @@
   margin-left: 1rem;
 }
 
+.id-card__item__label {
+  float: left;
+}
+
 .id-card__item__key {
   font-weight: 400;
-  display: block;
   width: 100%;
   overflow: visible;
   word-wrap: break-word;
+  font-size: 1.4rem;
+  margin-left: .5em;
 }
 
 // user-menu
