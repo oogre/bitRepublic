@@ -140,7 +140,7 @@
   max-width: 100%;
   overflow-x: auto;
 
-  @include breakpoint($md) {
+  @include breakpoint($lg) {
     min-width: 966px;
   }
 }
