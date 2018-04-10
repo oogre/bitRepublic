@@ -14,9 +14,25 @@
 // ---------------------
 
 .user-summary__name {
-  // margin-left: 20px;
   font-weight: 600;
   text-transform: uppercase;
+
+  @include breakpoint($below-md) {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+.user-summary__name .counter--simple {
+  @include breakpoint($below-md) {
+    padding: 0;
+  }
+}
+
+.user-summary .counter__block {
+  margin-bottom: 3px;
 }
 
 // Section Profile
