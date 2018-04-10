@@ -135,9 +135,9 @@
 // Hamburger button
 .menu--header__mobile-trigger {
   position: absolute;
-  top: 20px;
-  right: 2.5rem;
-  padding: 0;
+  top: 1.2rem;
+  right: 1.7rem;
+  padding: .8rem;
   margin: 0;
   cursor: pointer;
   outline-color: $color-primary;
@@ -145,7 +145,11 @@
   border: 0;
 
   @include breakpoint($sm) {
-    top: 30px;
+    top: 2.5rem;
+  }
+
+  @include breakpoint($md) {
+    top: 3.8rem;
   }
 
   @include breakpoint($lg) {

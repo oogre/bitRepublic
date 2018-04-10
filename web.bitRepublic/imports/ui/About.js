@@ -20,8 +20,8 @@ export default class About extends Component {
 	render() {
 		return (
 			<div className="page page--home">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
 					<SliderMenu />
 					<FixeShortAbout />
 					<FixePunchline description={["design your tax collector bot", "claim a #bitsoiltax"]}>

@@ -24,8 +24,8 @@ export default class Installation extends Component {
 	render() {
 		return (
 			<div className="page">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
 					<MenuMenu
 						title="enter the republic"
 						description={[

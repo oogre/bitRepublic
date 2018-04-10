@@ -66,23 +66,29 @@ class WalletList extends Component {
 						<tbody className="table__body">
 							{this.renderWallets()}
 						</tbody>
+						<tfoot class="table__footer">
+							<tr>
+								<td colspan="2">
+									<ul className="table-pagination">
+										<li className="table-pagination__item" style={{ visibility : this.state.currentPage > 0 ? "visible" : "hidden" }}>
+											<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
+										</li>
+										{
+											Array(this.props.pages).fill().map((action, k) => (
+												<li key={k} className={(k == this.state.currentPage ? "selected" : " " ) + " table-pagination__item"}>
+													<button className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</button>
+												</li>
+											))
+										}
+										<li className="table-pagination__item" style={{ visibility : this.state.currentPage < this.props.pages-1  ? "visible" : "hidden" }}>
+											<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</button>
+										</li>
+									</ul>
+								</td>
+							</tr>
+						</tfoot>
 					</table>
 
-					<ul className="table-pagination">
-						<li className="table-pagination__item" style={{ display : this.state.currentPage > 0 ? "inline-block" : "none" }}>
-							<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
-						</li>
-						{
-							Array(this.props.pages).fill().map((action, k) => (
-								<li key={k} className={(k == this.state.currentPage ? "selected" : "" ) + " table-pagination__item"}>
-									<button className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</button>
-								</li>
-							))
-						}
-						<li className="table-pagination__item" style={{ display : this.state.currentPage < this.props.pages-1  ? "inline-block" : "none" }}>
-							<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</button>
-						</li>
-					</ul>
 				</div>
 			</div>
 		)

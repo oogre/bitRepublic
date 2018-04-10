@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-04-09 18:13:58
+  @Last Modified time: 2018-04-10 15:18:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -46,8 +46,8 @@ class Redistribution extends Component {
 	render() {
 		return (
 			<div className="page">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
 					<RedistriutionMenu/>
 					<div>
 						<div className="section-intro">
@@ -82,7 +82,7 @@ class Redistribution extends Component {
 						<div id="redistributionInfo"></div>
 						<FixeShortAbout />
 						{ this.props.isReady ? <WalletList/> : <FixeWait/> }
-						
+
 					</div>
 				</div>
 				<UserModal

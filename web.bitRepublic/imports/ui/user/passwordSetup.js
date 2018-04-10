@@ -176,7 +176,7 @@ export default class UserPasswordSetup extends Component {
 								<div className="fields-row">
 									<input
 										className={
-											"button--primary--fw" +
+											"button--primary--fw " +
 											(this.state['is-loading'] ? "loading " : "") +
 											(this.state['has-success'] ? "success " : "") +
 											(this.state['has-error'] ? "error " : "")

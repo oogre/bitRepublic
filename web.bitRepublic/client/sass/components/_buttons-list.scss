@@ -59,7 +59,8 @@
 
   @include breakpoint($below-md) {
     display: block;
-    min-width: 0;
-    width: 100%;
+    padding: 1.4rem 1rem;
+    width: 160px;
+    min-width: inherit;
   }
 }

@@ -40,7 +40,7 @@
   @include breakpoint($below-md) {
     width: 298px;
     transform: translateX(-50%);
-    bottom: 14px;
+    bottom: 6px;
     left: 50%;
     text-align: right;
   }
@@ -213,14 +213,16 @@
   background-size: cover;
   position: relative;
   z-index: z('bannerContent');
-  margin: 0 auto;
 
-  @include breakpoint($below-sm) {
-    max-width: calc(100% - 80px);
+  @include breakpoint($below-md) {
+    width: calc(100% - 80px);
+    max-width: 360px;
+    margin: 0 20px;
   }
 
-  @include breakpoint($sm) {
+  @include breakpoint($md) {
     max-width: 50%;
+    margin: 0 auto;
   }
 
   @include breakpoint($lg) {
@@ -232,7 +234,7 @@
   background: transparent;
   z-index: z('bannerContent');
 
-  @include breakpoint($below-sm) {
+  @include breakpoint($below-md) {
     text-align: left;
     // max-width: 50%;
     margin: 0;
@@ -276,8 +278,7 @@
 }
 
 .hero-banner--redistribution .buttons-list {
-
-  @include breakpoint($below-sm) {
+  @include breakpoint($below-md) {
     max-width: 50%;
   }
 }

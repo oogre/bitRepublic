@@ -111,3 +111,22 @@
 .modal--tiny .fields-row {
   margin-bottom: 22px;
 }
+
+// Modal Input
+// ---------------------
+.modal--tiny .modal__container [type="text"],
+.modal--tiny .modal__container [type="email"],
+.modal--tiny .modal__container [type="password"],
+.modal--tiny .modal__container [type="date"],
+.modal--tiny .modal__container [type="number"] {
+  border: 1px solid $grey-82;
+}
+
+.modal--tiny .modal__container .Select-control,
+.modal--tiny .modal__container .Select.is-open > .Select-control {
+  border-color: $grey-82;
+}
+
+.modal--tiny .modal__container .Select-menu-outer {
+  border-color: $grey-82;
+}
