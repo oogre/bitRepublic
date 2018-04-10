@@ -24,8 +24,8 @@ export default class App extends Component {
 	render() {
 		return (
 			<div className="page page--home">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
 					<SliderMenu />
 					<BitsoilTotalCounter />
 					<FixePunchline description={[

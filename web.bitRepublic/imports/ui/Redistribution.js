@@ -46,8 +46,8 @@ class Redistribution extends Component {
 	render() {
 		return (
 			<div className="page">
+				<HeaderMenu />
 				<div className="page__content">
-					<HeaderMenu />
 					<RedistriutionMenu findOutMore={true} />
 					<div>
 						<div className="section-intro">
@@ -81,7 +81,7 @@ class Redistribution extends Component {
 						</FixePunchline>
 						<FixeShortAbout />
 						{ this.props.isReady ? <WalletList/> : <FixeWait/> }
-						
+
 					</div>
 				</div>
 				<UserModal
