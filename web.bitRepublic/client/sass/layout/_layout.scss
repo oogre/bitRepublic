@@ -25,6 +25,15 @@ body {
 
 .page__content {
   flex: 1 0 auto;
+  margin-top: 40px;
+
+  @include breakpoint($sm) {
+    margin-top: 60px;
+  }
+
+  @include breakpoint($md) {
+    margin-top: 0;
+  }
 }
 
 .page__content {
