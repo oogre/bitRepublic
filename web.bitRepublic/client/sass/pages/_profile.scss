@@ -64,8 +64,12 @@
   margin-left: 1rem;
 }
 
-.id-card__item__key  {
+.id-card__item__key {
   font-weight: 400;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  word-wrap: break-word;
 }
 
 // user-menu
