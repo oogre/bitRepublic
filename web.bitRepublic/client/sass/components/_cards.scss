@@ -92,12 +92,10 @@
 
 .card__counter {
   margin-bottom: 20px;
-  margin-top: -22px;
-  margin-top: -9vw;
+  margin-top: -10%;
 
   @include breakpoint($sm) {
-    margin-top: -22px;
-    margin-top: -8.5vw;
+    margin-top: -12%;
   }
 
   @include breakpoint($md) {
@@ -108,11 +106,32 @@
 
   @include breakpoint($lg) {
     margin-top: -40px;
-    margin-top: -3vw;
+    margin-top: -2.8vw;
   }
 
   @include breakpoint($xl) {
-    margin-top: -45px;
+    margin-top: -40px;
+  }
+}
+
+// Variation of counter size for card__counter
+.card__counter .counter__block {
+  @include breakpoint($xs-only) {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 3px;
+    font-size: 2.8rem;
+  }
+
+  @include breakpoint($sm-only) {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 4px;
+    font-size: 3.2rem;
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 }
 
