@@ -8,9 +8,13 @@
   width: 100%;
   z-index: z('header');
   background: #fff;
+  // min-height: 100px;
+  height: auto;
 
   @include breakpoint($md) {
     position: static;
+    box-sizing: content-box;
+    // position: relative;
   }
 }
 
