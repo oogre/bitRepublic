@@ -15,6 +15,7 @@ $lg: (min: $screen-lg-min + 1);
 $lg-intermediate: (min: 1130px + 1);
 $xl: (min: $screen-xl-min + 1);
 
+$xs-tiny-only: (max: 340px + 1);
 $xs-only: (max:  $screen-xs-max);
 $sm-only: (min: map-get($sm, min), max: map-get($md, min) - 1);
 

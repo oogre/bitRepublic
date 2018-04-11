@@ -21,26 +21,26 @@ export default class RedistriutionMenu extends Component {
 							<ul className="buttons-list buttons-list--redistribution">
 								<li className="buttons-list__item">
 									{
-										FlowRouter.current().path == FlowRouter.path("redistribution") ? 
+										FlowRouter.current().path == FlowRouter.path("redistribution") ?
 											<a
 												href={FlowRouter.path("redistribution") + "#redistributionInfo"}
 												className="button--secondary hero-banner__button"
 											>
 												FIND OUT MORE
 											</a>
-										: 
+										:
 											<a
 												href={FlowRouter.path("redistribution")}
 												className="button--secondary hero-banner__button"
 											>
-												TAKE PART OF THE REDISTRIBUTION
+												Join the campaign
 											</a>
 									}
-									
+
 								</li>
 								<li className="buttons-list__item">
 									{
-										FlowRouter.current().path == FlowRouter.path("redistribution") ? 
+										FlowRouter.current().path == FlowRouter.path("redistribution") ?
 											<a
 												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("home") + "#taxbot"}
@@ -54,7 +54,7 @@ export default class RedistriutionMenu extends Component {
 											>
 												Find out more
 											</a>
-											
+
 									}
 								</li>
 							</ul>
