@@ -12,6 +12,7 @@
 $sm: (min: $screen-sm-min + 1);
 $md: (min: $screen-md-min + 1);
 $lg: (min: $screen-lg-min + 1);
+$lg-intermediate: (min: 1130px + 1);
 $xl: (min: $screen-xl-min + 1);
 
 $xs-only: (max:  $screen-xs-max);

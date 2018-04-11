@@ -46,18 +46,23 @@
   }
 
   @include breakpoint($md) {
-    bottom: 576px;
+    bottom: 675px;
     right: 20px;
+    left: inherit;
   }
 
   @include breakpoint($lg) {
-    bottom: 576px;
-    left: 84vw;
+    bottom: 645px;
+    // right: 80px;
+  }
+
+  @include breakpoint($lg-intermediate) {
+    bottom: 565px;
+    right: 20px;
   }
 
   @include breakpoint($xl) {
-    right: 100px;
-    left: inherit;
+    right: 80px;
   }
 }
 
@@ -67,7 +72,11 @@
   background: url('/images/banner-bitsoil-background-sm.png') repeat-x center 0;
 
   @include breakpoint($md) {
-    background: url('/images/banner-bitsoil-background.png') repeat-x center 0;
+    background-image: none;
+  }
+
+  @include breakpoint($lg) {
+    background-image: url('/images/banner-bitsoil-background.png');
   }
 }
 
@@ -79,8 +88,12 @@
   min-height: 640px;
 
   @include breakpoint($md) {
-    background: url('/images/banner-bitsoil.gif') no-repeat center 0;
+    background-image: url('/images/banner-bitsoil-md.gif');
     min-height: 770px;
+  }
+
+  @include breakpoint($lg) {
+    background-image: url('/images/banner-bitsoil.gif');
   }
 }
 
@@ -92,8 +105,12 @@
 
   @include breakpoint($md) {
     max-width: 740px;
-    bottom: 102px;
+    bottom: 170px;
     padding: 0 1rem 64px;
+  }
+
+  @include breakpoint($lg) {
+    bottom: 102px;
   }
 }
 
