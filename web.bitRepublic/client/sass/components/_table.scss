@@ -33,6 +33,15 @@
   }
 }
 
+// Table head large
+.table__header__cell--large {
+  min-width: 150px;
+}
+
+.table__header__cell--xl {
+  min-width: 235px;
+}
+
 // Table Body
 // ---------------------
 .table__body {
