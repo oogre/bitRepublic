@@ -49,6 +49,7 @@ h6 {
     font-size: 2rem;
   }
 
+  line-height: 1.6;
   font-weight: 500;
   font-size: 2.6rem;
   background: $color-primary;
@@ -154,3 +155,13 @@ abbr[title] {
   margin: .8rem 0;
 }
 
+// Text-block
+// Simple text block that display text centered in the page
+.text-block {
+  // text-align: center;
+  font-weight: 200;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 32px auto;
+  max-width: 80%;
+}

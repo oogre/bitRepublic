@@ -153,7 +153,12 @@ class BotSelector extends Component {
 	render() {
 		return (
 			<div id="taxbot" className="bot-selector clearfix">
-				<h2 className="title--primary">Design your tax collector bot</h2>
+				<h2 className="title--primary">Make the data economy benefits all <br/> Design your taxbot</h2>
+				<div className="container">
+					<div className="text-block">
+						<p>Ever be part of a campaign led by bots? Want to be part of it? Join us, start now, tailor your bot or band of bots with a set of actions to perform. How? First customize your social bot by mashing predefined tasks and bot profiles. Next choose a claim-postcard to tweet as well as the target and running time of your bot. That’s all!</p>
+					</div>
+				</div>
 				<div className="bot-selector__counter">
 					<BitsoilCounter unBlock="." large={true} bitsoil={this.props.bitsoil} tax={true} />
 				</div>
