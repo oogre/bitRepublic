@@ -95,7 +95,7 @@ export default class UserModal extends Component {
 			}
 		}
 		return (
-			<div className="container">
+			<div className="container container--login-box">
 				<ReactModal
 					isOpen={this.state.showModal || this.props.open}
 					contentLabel="Minimal Modal Example"
@@ -111,35 +111,35 @@ export default class UserModal extends Component {
 								:
 									""
 							}
-							<UserLogIn 
-								onMounted={this.handleLonginMounted.bind(this)} 
-								visible={Meteor.userId() || this.state.selectedProcess == "login"} 
+							<UserLogIn
+								onMounted={this.handleLonginMounted.bind(this)}
+								visible={Meteor.userId() || this.state.selectedProcess == "login"}
 								onSuccess={this.handleCloseModal.bind(this)}
 							>
 								{
-									this.props.selectedBot ? 
-										<TargetSelector 
+									this.props.selectedBot ?
+										<TargetSelector
 											process={this.props.selectedBot.target}
 										/>
-									: 
+									:
 										null
 								}
 							</UserLogIn>
-							<UserSignup 
-								visible={!Meteor.userId() && this.state.selectedProcess == "signup"} 
+							<UserSignup
+								visible={!Meteor.userId() && this.state.selectedProcess == "signup"}
 								onSuccess={this.handleCloseModal.bind(this)}
 							>
 								{
-									this.props.selectedBot ? 
-										<TargetSelector 
+									this.props.selectedBot ?
+										<TargetSelector
 											process={this.props.selectedBot.target}
 										/>
-									: 
+									:
 										null
 								}
 							</UserSignup>
 
-							
+
 							{
 								Meteor.userId() ?
 									null
@@ -171,7 +171,7 @@ export default class UserModal extends Component {
 										</span>
 									</div>
 							}
-							
+
 						</div>
 					</div>
 				</ReactModal>

@@ -174,11 +174,11 @@ class BotInfo extends Component {
 					<tr>
 						<th className="table__header__cell">Bots</th>
 						<th className="table__header__cell">Actions</th>
-						<th className="table__header__cell">Created at</th>
-						<th className="table__header__cell">Next action at</th>
+						<th className="table__header__cell table__header__cell--large">Created at</th>
+						<th className="table__header__cell table__header__cell--large">Next action at</th>
 						<th className="table__header__cell">Active</th>
 						<th className="table__header__cell">Tweet</th>
-						<th className="table__header__cell">Bitsoils</th>
+						<th className="table__header__cell table__header__cell--xl">Bitsoils</th>
 					</tr>
 				</thead>
 				<tbody className="table__body">

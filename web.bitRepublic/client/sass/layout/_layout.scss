@@ -41,6 +41,8 @@ body {
   overflow: hidden;
 }
 
+// container
+// ---------------------
 .container {
   margin: 0 auto;
   position: relative;
@@ -53,3 +55,8 @@ body {
   }
 }
 
+// Variation for container--login-box
+// Hide it by default (should display on click on log in)
+.container--login-box {
+  display: none;
+}

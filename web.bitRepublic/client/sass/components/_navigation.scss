@@ -76,7 +76,7 @@
   }
 
   @include breakpoint($xl) {
-    right: 0
+    right: 1.5rem;
   }
 }
 

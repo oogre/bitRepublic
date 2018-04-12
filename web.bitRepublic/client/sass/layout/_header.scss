@@ -8,9 +8,13 @@
   width: 100%;
   z-index: z('header');
   background: #fff;
+  // min-height: 100px;
+  height: auto;
 
   @include breakpoint($md) {
     position: static;
+    box-sizing: content-box;
+    // position: relative;
   }
 }
 
@@ -19,15 +23,27 @@
 //   background: $blue-link-water;
 // }
 
+// logo
+// ---------------------
+.logo {
+  margin: 0;
+}
+
 // Logo header
 // ---------------------
 .logo--header {
+  margin-left: 0;
+
   @include breakpoint($below-sm) {
     max-width: 200px;
   }
 
   @include breakpoint($sm) {
     max-width: 270px;
+  }
+
+  @include breakpoint($xl) {
+    margin-left: 1.5rem;
   }
 }
 
