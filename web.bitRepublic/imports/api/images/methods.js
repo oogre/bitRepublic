@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:18:05
-  @Last Modified time: 2018-02-11 18:46:27
+  @Last Modified time: 2018-04-11 18:31:15
 \*----------------------------------------*/
 import cp from 'child_process'
 import { exec } from 'child_process'

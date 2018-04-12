@@ -2,25 +2,42 @@
   bitRepublic - gallery.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:55:35
-  @Last Modified time: 2018-02-11 18:35:07
+  @Last Modified time: 2018-04-12 10:49:27
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { GetContentGallery } from '../../api/images/methods.js';
+import { withTracker } from 'meteor/react-meteor-data';
+import ReactDom from 'react-dom';
+
+import { Data } from '../../api/data/data.js';
+import { SaveData } from '../../api/data/methods.js';
+
+import embed from "embed-video"
+
+import FixeWait from '../fixe/wait.js';
 
 // App component - represents the whole app
-export default class FixeGallery extends Component {
+class FixeGallery extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			pictures : false,
-			selected : false,
-
+			video : false
 		}
-		this.large = {
-			maxWidth: "100%",
-    		maxHeight: "100%"
-		}
-		GetContentGallery.call({folder:"fixe"}, (err, res) =>{
+	}
+	onSubmit(event){
+		event.preventDefault();
+		this.onChange({
+			target : ReactDom.findDOMNode(this.refs.videoUrl)
+		});
+		return false;
+	}
+	onChange(event){
+		let url = event.target.value;
+		let data = {
+			type : "video.gallery",
+			value : url
+		};
+		SaveData.call(data, (err, res)=>{
 			this.setState({'is-loading' : false});
 			if (err && err.error === 'validation-error') {
 				this.setState({'has-error' : true});
@@ -31,69 +48,81 @@ export default class FixeGallery extends Component {
 				});
 				return;
 			}
-			this.setState({'has-success' : true, pictures : res.data});
+			if(err){
+				this.setState({'has-error' : true});
+				this.setState({
+					["error"] : err.message
+				});
+				return;
+			}
+			this.setState({'has-success' : true});
 		});
-	}
-	handleSelectPicture (k){
-		this.setState({'selected' : k});
-	}
-	handleClose(){
-		this.setState({
-			'selected' : false
-		});
-	}
-	handleKeyPress(event){
-		if( (!_.isArray(this.state.pictures)) || (!_.isNumber(this.state.selected)) ) return;
-
-		if(event.key == "ArrowLeft"){
-			this.setState({
-				'selected' : (this.state.selected - 1 + this.state.pictures.length) % this.state.pictures.length
-			});
-		}else if(event.key == "ArrowRight"){
-			this.setState({
-				'selected' : (this.state.selected + 1 + this.state.pictures.length) % this.state.pictures.length
-			});
-		}else if(event.key == "Escape"){
-			this.handleClose();
-		}
-	}
-	componentDidMount(){
-		window.addEventListener('keyup', this.handleKeyPress.bind(this), false);
-	}
-	componentWillUnmount(){
-		window.removeEventListener("keyup", this.handleKeyPress.bind(this), false);
 	}
 	render() {
 		return (
 			<div className="gallery">
 				{
-					this.state.pictures ?
-						<ul className="gallery__list">
+					this.props.isReady ?
+						<div>
+							<div 
+								className="content" 
+								dangerouslySetInnerHTML={
+									{
+										__html: this.props.embedVideo
+									}
+								}
+							>
+							</div>
 							{
-								this.state.pictures.map((picture, k) => (
-									<li	className="gallery__list__item" key={k}>
-										<div className="container">
-											{
-												this.state.selected === k ? 
-													<a href="#" className="modal__close" onClick={this.handleClose.bind(this)}>&times;</a>
-												:
-													null
-											}
-											<img className={"gallery__picture" + (this.state.selected === k ? "selected" : "")}
-												style={this.state.selected === k ? this.large : {maxWidth: 150 + 'px'}}
-												src={picture}
-												onClick={this.handleSelectPicture.bind(this, k)}
-												alt="image de bitRepublic"
-											/>
-										</div>
-									</li>
-								))
+								this.props.isAdmin ? 
+									<form
+										className="container"
+										onSubmit={this.onSubmit.bind(this)}
+									>
+										<input
+											type="text"
+											ref="videoUrl"
+											defaultValue={this.props.video}
+											placeholder="Past url of the video to render"
+											onBlur={this.onChange.bind(this)}
+										/>
+									</form>
+								: 
+									null
 							}
-						</ul>
+						</div>
 					:
-						null
+						<FixeWait />
 				}
 			</div>
 		);
 	}
 }
+export default withTracker(() => {
+	let dataReady = FlowRouter.subsReady("data");
+	let video = "";
+	let embedVideo = "";
+	if(dataReady){
+		video = Data.findOne({ type : "video.gallery"});
+		if(_.isObject(video)){
+			if(!_.isEmpty(video.value)){
+				video = video.value;
+			}else{
+				video = video.default;
+			}
+		}
+		if(SimpleSchema.RegEx.Url.test(video)){
+			embedVideo = embed(video, {
+							attr:{
+								width:600, height:300
+							}
+						});
+		}
+	}
+	return {
+		isReady : dataReady,
+		isAdmin : Meteor.user() && Meteor.user().roles.includes("admin"),
+		video : video,
+		embedVideo : embedVideo,
+	};
+})(FixeGallery);

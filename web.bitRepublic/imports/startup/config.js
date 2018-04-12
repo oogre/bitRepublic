@@ -2,9 +2,12 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-04-10 11:06:49
+  @Last Modified time: 2018-04-11 18:59:49
 \*----------------------------------------*/
 export const config = {
+	VIDEO_GALLERY : {
+		DEFAULT : "https://vimeo.com/261994272"
+	},
 	TARGET : {
 		SPREADSHEET : "1FU74p-OzAEqeeg70nzW2HYjaYDkP0a8bSgdj6SE73kI"
 	},

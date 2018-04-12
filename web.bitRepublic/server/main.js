@@ -2,7 +2,7 @@
   bitRepublic - main.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 00:00:33
-  @Last Modified time: 2018-02-02 00:10:20
+  @Last Modified time: 2018-04-11 18:50:21
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';
@@ -15,6 +15,7 @@ import '../imports/api/wallets/wallets.js';
 import '../imports/api/users/users.js';
 import '../imports/api/actions/actions.js';
 import '../imports/api/images/images.js';
+import '../imports/api/data/data.js';
 
 
 Meteor.startup(() => {
