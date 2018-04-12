@@ -39,7 +39,7 @@
 
   @include breakpoint($md) {
     width: 200px;
-    margin: 0 0 45px 74px;
+    margin: 0 0 -30px 74px;
 
     &:nth-child(3n+1) {
       clear: left;
