@@ -7,18 +7,44 @@
   // padding: 58px 0;
   background: $grey-baltic-sea;
   color: #fff;
-  padding: 58px 0;
+  padding: 54px 0;
+}
+
+.main-footer .container {
+  max-width: 748px;
+  padding: 0;
+
+  @include breakpoint($below-md) {
+    padding: 0 2.5rem;
+  }
 }
 
 .main-footer .column {
-  border-right: 1px solid $grey-57;
-  padding: 0 62px;
+  width: 100%;
+  margin-bottom: 25px;
 
-  &:first-child {
-    padding-left: 0;
+  @include breakpoint($sm) {
+    float: left;
   }
 
-  &:last-child {
-    border-right: 0;
+  @include breakpoint($sm-only) {
+    width: calc(50% - 20px);
+    margin: 0 0 20px 20px;
+
+    &:nth-child(2n+1) {
+      clear: left;
+      margin-left: 0;
+    }
+  }
+
+  @include breakpoint($md) {
+    width: 200px;
+    margin: 0 0 45px 74px;
+
+    &:nth-child(3n+1) {
+      clear: left;
+      margin-left: 0;
+    }
   }
 }
+

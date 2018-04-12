@@ -173,9 +173,13 @@
 // Menu Footer
 // ---------------------
 .menu--footer__title {
+  display: block;
+  width: 100%;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $grey-48;
   text-transform: uppercase;
   color: #fff;
-  margin: 0;
 }
 
 a.menu--footer__title {

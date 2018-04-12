@@ -17,6 +17,6 @@
   }
 
   @include breakpoint($md) {
-    width: 33%;
+    width: calc(33% - 37px);
   }
 }

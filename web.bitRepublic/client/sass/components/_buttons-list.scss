@@ -65,3 +65,32 @@
     font-size: 1.1rem;
   }
 }
+
+// buttons-list--footer
+// ---------------------
+.buttons-list--footer .buttons-list__item {
+  margin-right: 16px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.buttons-list--footer .buttons-list__link svg {
+  fill: $grey-56;
+}
+
+.buttons-list--footer .buttons-list__link:hover svg,
+.buttons-list--footer .buttons-list__link:focus svg {
+  fill: $grey-84;
+}
+
+// buttons-list--license
+// ---------------------
+.buttons-list--license svg{
+  margin-right: 2px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
