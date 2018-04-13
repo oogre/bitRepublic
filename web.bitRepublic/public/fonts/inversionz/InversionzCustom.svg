@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20170731 at Tue Mar 13 14:12:12 2018
+Created by FontForge 20170731 at Fri Apr 13 10:38:51 2018
  By Aleksey,,,
 Copyright Darrell Flood 2014-2017
 </metadata>
@@ -20,7 +20,7 @@ Copyright Darrell Flood 2014-2017
     cap-height="448"
     bbox="0 0 576 682"
     underline-thickness="51"
-    underline-position="-225"
+    underline-position="-325"
     unicode-range="U+0020-2122"
   />
 <missing-glyph horiz-adv-x="374" 
@@ -123,7 +123,7 @@ d="M480 448v-320h-320v128h64v-64h192v256h64z" />
     <glyph glyph-name="K" unicode="K" 
 d="M160 128v320h64v-128l163 128h93l-192 -164l192 -156h-94l-162 128v-128h-64z" />
     <glyph glyph-name="L" unicode="L" 
-d="M480 128h-320v320h64v-256h192v64h64v-128z" />
+d="M154 128h320v64h-256v256h-64v-320z" />
     <glyph glyph-name="M" unicode="M" 
 d="M160 128v320h320v-320h-64v256h-64v-256h-64v256h-64v-256h-64z" />
     <glyph glyph-name="N" unicode="N" 
@@ -187,7 +187,7 @@ d="M416 448v-256h-192v64h-64v-128h320v320h-64z" />
     <glyph glyph-name="k" unicode="k" 
 d="M224 128v128l162 -128h94l-192 156l192 164h-93l-163 -128v128h-64v-320h64z" />
     <glyph glyph-name="l" unicode="l" 
-d="M480 256h-64v-64h-192v256h-64v-320h320v128z" />
+d="M154 128h320v64h-256v256h-64v-320z" />
     <glyph glyph-name="m" unicode="m" 
 d="M224 128v256h64v-256h64v256h64v-256h64v320h-320v-320h64z" />
     <glyph glyph-name="n" unicode="n" 
@@ -368,8 +368,6 @@ d="M128 448v-320h320v320h-64v-256h-192v256h-64zM351 576h-64l-64 -128h64z" />
 d="M128 448v-320h320v320h-64v-256h-192v256h-64zM256 448l34 40l30 -40h64l-95 128l-97 -128h64z" />
     <glyph glyph-name="udieresis" unicode="&#xfc;" 
 d="M128 448v-320h320v320h-64v-256h-192v256h-64zM192 544v-64h63v64h-63zM319 544v-64h63v64h-63z" />
-    <glyph glyph-name="Hcircumflex" unicode="&#x124;" horiz-adv-x="1024" 
-d="M414 319h-187v63h187v-63v-65v-126h65v317h-317v-317h65v126h187v65z" />
     <glyph glyph-name="OE" unicode="&#x152;" 
 d="M576 448v-64h-256v-64h192v-64h-192v-64h256v-64h-576v320h576zM256 192v192h-192v-192h192z" />
     <glyph glyph-name="oe" unicode="&#x153;" 
