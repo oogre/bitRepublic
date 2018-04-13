@@ -6,6 +6,8 @@
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
+import Utilities from '../../utilities';
+
 // App component - represents the whole app
 export default class FixeInfo extends Component {
 	constructor(props){
@@ -50,7 +52,11 @@ export default class FixeInfo extends Component {
 
 
 	}
-	handleClickOnLink(k){
+	handleClickOnLink(k, event){
+		event.preventDefault();
+
+		Utilities.scrollTo('contentListItemContainer', 100);
+
 		this.setState({
 			selected : k
 		});
@@ -63,9 +69,9 @@ export default class FixeInfo extends Component {
 						{
 							this.data.map((d, k) => (
 								<li key={k} className={'contents-selector-list__item '}>
-									<a 
-										className={"contents-selector-list__button " + (this.state.selected === k ? 'selected' : "")} 
-										onClick={this.handleClickOnLink.bind(this, k)} 
+									<a
+										className={"contents-selector-list__button " + (this.state.selected === k ? 'selected' : "")}
+										onClick={this.handleClickOnLink.bind(this, k)}
 										href={FlowRouter.path("installation") + "#" + d.title.split(" ").join("_")}
 									>
 										{d.title}
@@ -75,7 +81,7 @@ export default class FixeInfo extends Component {
 						}
 					</ul>
 
-					<div className="contents-list__item">
+					<div id="contentListItemContainer" className="contents-list__item">
 						{
 							this.data.map((d, k) => (
 								<div id={d.hash} key={k} className={this.state.selected === k ? "" : "hidden"}>

@@ -17,11 +17,11 @@ export function CreateBitsoil(){
 export function bitsoilFormat(inputNumber, afterCommaOffest){
 	check(inputNumber, Number);
 	if(!_.isNumber(afterCommaOffest)) afterCommaOffest = 0;
-	
+
 	inputNumber = inputNumber.toFixed(6 + afterCommaOffest);
 	let stringNumber = inputNumber+"";
 	let outputNumber = (stringNumber.charAt(0) != "0" ? "0" : "") + stringNumber;
-	
+
 	return outputNumber;
 }
 
@@ -68,11 +68,11 @@ export function genPubKey(){
 export function genPrivateKey(){
 	return Random.hexString(64);
 }
-export function scrollTo(hash){
+export function scrollTo(hash, offset = 0){
 	let h = $("#"+hash);
 	if(!!h.length){
 		$('html, body').animate({
-			scrollTop: h.offset().top
+			scrollTop: h.offset().top - offset
 		}, 666 );
 	}
 }
