@@ -66,6 +66,10 @@ export default class Info extends Component {
 					onRequestClose={this.handleSuccess.bind(this)}
 					className="modal--tiny"
 				>
+					<div className="modal__header">
+						<svg width="7" height="31" viewBox="0 0 7 31" xmlns="http://www.w3.org/2000/svg"><title>icon-info</title><g fill="#F1F5F8" fillRule="evenodd"><path d="M0 0h7v7H0zM0 13h7v18H0z"/></g></svg>
+						<a className="modal__close" href="#" onClick={this.handleSuccess.bind(this)}>&times;</a>
+					</div>
 					<div className="modal__wrapper">
 						<div className="modal__container">
 							<div className="fields-row">
