@@ -66,9 +66,9 @@ class WalletList extends Component {
 						<tbody className="table__body">
 							{this.renderWallets()}
 						</tbody>
-						<tfoot class="table__footer">
+						<tfoot className="table__footer">
 							<tr>
-								<td colspan="2">
+								<td colSpan="2">
 									<ul className="table-pagination">
 										<li className="table-pagination__item" style={{ visibility : this.state.currentPage > 0 ? "visible" : "hidden" }}>
 											<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
