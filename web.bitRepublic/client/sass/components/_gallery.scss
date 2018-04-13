@@ -5,8 +5,11 @@
 // Gallery
 // ---------------------
 .gallery {
-  padding: 72px 72px 47px;
-  padding-right: 0;
+  padding: 36px;
+
+  @include breakpoint($sm) {
+    padding: 72px 0 72px 47px;
+  }
 }
 
 // Gallery List
@@ -44,3 +47,39 @@
   width: 150px;
   height: 150px;
 }
+
+// Gallery Video
+// ---------------------
+.gallery--video {
+  padding: 36px;
+
+  @include breakpoint($md) {
+    padding-right: 0;
+  }
+
+  @include breakpoint($lg) {
+    padding: 72px;
+    padding-right: 72px;
+  }
+}
+
+.video__wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.video__wrapper iframe,
+.video__wrapper object,
+.video__wrapper embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// <div class='embed-container'><iframe src='https://player.vimeo.com/video/11712103' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
