@@ -26,7 +26,7 @@ export default class RedistriutionMenu extends Component {
 												href={FlowRouter.path("redistribution") + "#redistributionInfo"}
 												className="button--secondary hero-banner__button"
 											>
-												FIND OUT MORE
+												Find out more
 											</a>
 										:
 											<a
@@ -45,7 +45,7 @@ export default class RedistriutionMenu extends Component {
 												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("home") + "#taxbot"}
 											>
-												GENERATE YOUR WALLET
+												Genereate your wallet
 											</a>
 										:
 											<a

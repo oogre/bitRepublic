@@ -64,6 +64,11 @@
     min-width: inherit;
     font-size: 1.1rem;
   }
+
+  @include breakpoint($sm-only) {
+    width: 155px;
+    min-width: inherit;
+  }
 }
 
 // buttons-list--footer
