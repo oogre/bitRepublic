@@ -125,7 +125,11 @@
 }
 
 .modal--tiny .modal__wrapper {
-  padding: 40px 66px;
+  padding: 20px;
+
+  @include breakpoint($md) {
+    padding: 40px 66px;
+  }
 }
 
 .modal--tiny .fields-row {
