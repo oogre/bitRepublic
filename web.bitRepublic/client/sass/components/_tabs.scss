@@ -69,6 +69,12 @@
 
 // tab--profile
 // ---------------------
+.tabs--profile .tabs-selector-list {
+  @include breakpoint($below-md) {
+    padding-top: 20px;
+  }
+}
+
 .tabs--profile .tabs-selector-list__item {
   background: transparent;
   margin-right: 0;
