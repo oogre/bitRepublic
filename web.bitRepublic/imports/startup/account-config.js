@@ -2,7 +2,7 @@
   bitRepublic - account-config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 01:13:47
-  @Last Modified time: 2018-02-20 14:47:30
+  @Last Modified time: 2018-04-14 10:17:13
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -18,6 +18,8 @@ if(Meteor.isServer){
 			return `Welcome to bitRepublic, ${user.profile.firstname}`;
 		},
 		text(user, url) {
+			console.log(user);
+			console.log(url);
 			return `Hey ${user.profile.firstname}! Create your password and login by following this link: ${url}`;
 		}
 	};
@@ -40,6 +42,7 @@ if(Meteor.isServer){
 			const onComplete = () => {
 				done();
 				FlowRouter.go('home');
+				FlowRouter.reload();
 			};
 			render(<UserPasswordSetup token={token} onComplete={onComplete}/>, document.getElementById('render-target'));
 		}, 100);

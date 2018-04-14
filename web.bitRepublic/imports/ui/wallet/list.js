@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-03-14 12:17:33
+  @Last Modified time: 2018-04-12 11:02:33
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -66,9 +66,9 @@ class WalletList extends Component {
 						<tbody className="table__body">
 							{this.renderWallets()}
 						</tbody>
-						<tfoot class="table__footer">
+						<tfoot className="table__footer">
 							<tr>
-								<td colspan="2">
+								<td colSpan="2">
 									<ul className="table-pagination">
 										<li className="table-pagination__item" style={{ visibility : this.state.currentPage > 0 ? "visible" : "hidden" }}>
 											<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>

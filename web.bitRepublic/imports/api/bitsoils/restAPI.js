@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-04-05 11:56:15
+  @Last Modified time: 2018-04-12 13:12:22
 \*----------------------------------------*/
 
 
@@ -98,7 +98,7 @@ if(Meteor.isServer){
 		}
 	});
 
-	Api.addRoute('bitsoil/consume', {
+	Api.addRoute('bitsoil/consume/:type', {
 		/**
 		* @api {post} /api/bitsoil/consume
 		* @apiName ConsumeBitsoil
@@ -120,27 +120,49 @@ if(Meteor.isServer){
 		*       "data": true
 		*     }
 		*/
+/*
+		"toConsume.byPrinter.publicKeys" : wallet.publicKey,
+		"toConsume.byPrinter.bitsoil" : countBitsoil,
+		"toConsume.bySpeaker.publicKeys" : wallet.publicKey,
+		"toConsume.bySpeaker.bitsoil" : countBitsoil
+*/
 		get: {
 			authRequired: true,
 			action : function () {
-				let toConsume = Wallets.findOne({
-					type : config.WALLET_TYPE.CONSUME,
-				}, {
-					fields : {
-						bitsoilToConsume : 1,
-						publicKeys : 1
+				let type = this.urlParams.type;
+				if(type != "printer" && type != "speaker"){
+					return {
+						"status": "fail",
+						message : "unknow type parameter"
 					}
-				});
-				if(toConsume.bitsoilToConsume.length > 0 && toConsume.publicKeys.length > 0 ){
-					let bitsoil = toConsume.bitsoilToConsume.pop();
-					let publicKey = toConsume.publicKeys.pop();
+				}
+				type = type == "printer" ? "byPrinter" : "bySpeaker";
+
+				let fieldsRequest = {
+					fields : {}
+				}
+				fieldsRequest.fields["toConsume_"+type+"_publicKeys"]=1;
+				fieldsRequest.fields["toConsume_"+type+"_bitsoils"]=1;
+
+				let wallet = Wallets.findOne({
+					type : config.WALLET_TYPE.CONSUME,
+				}, fieldsRequest);
+				
+
+				if(	wallet["toConsume_"+type+"_publicKeys"].length > 0 
+				&& 	wallet["toConsume_"+type+"_bitsoils"].length > 0 
+				){
+					let bitsoil = wallet["toConsume_"+type+"_bitsoils"].pop();
+					let publicKey = wallet["toConsume_"+type+"_publicKeys"].pop();
+
+					let request = {};
+					request["toConsume_"+type+"_publicKeys"] = -1;
+					request["toConsume_"+type+"_bitsoils"] = -1;
+
 					Wallets.update({
 						type : config.WALLET_TYPE.CONSUME,
 					}, {
-						$pop : {
-							bitsoilToConsume : -1,
-							publicKeys : -1
-						},
+						$pop : request,
 						$set : {
 							updatedAt : new Date()
 						}

@@ -2,7 +2,7 @@
   bitRepublic - wallets.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:33:56
-  @Last Modified time: 2018-04-03 13:55:36
+  @Last Modified time: 2018-04-12 13:03:05
 \*----------------------------------------*/
 
 import { Mongo } from 'meteor/mongo';
@@ -72,8 +72,10 @@ if(Meteor.isServer){
 				type : config.WALLET_TYPE.CONSUME
 			}, {
 				$push : {
-					publicKeys : wallet.publicKey,
-					bitsoilToConsume : countBitsoil
+					"toConsume_byPrinter_publicKeys" : wallet.publicKey,
+					"toConsume_byPrinter_bitsoils" : countBitsoil,
+					"toConsume_bySpeaker_publicKeys" : wallet.publicKey,
+					"toConsume_bySpeaker_bitsoils" : countBitsoil
 				},
 				$set : {
 					updatedAt : new Date()

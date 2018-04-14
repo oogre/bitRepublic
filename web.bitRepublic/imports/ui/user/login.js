@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-10 19:52:39
+  @Last Modified time: 2018-04-12 11:09:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -150,8 +150,7 @@ export default class UserLogIn extends Component {
 					return;
 				}
 				this.setState({'has-success' : true});
-				ReactDom.findDOMNode(this.refs.email).value = '';
-				ReactDom.findDOMNode(this.refs.password).value = '';
+				
 				if(_.isFunction(this.props.onSuccess)){
 					this.props.onSuccess(Meteor.userId(), this.state.target);
 				}

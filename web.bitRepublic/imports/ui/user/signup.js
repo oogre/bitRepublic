@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-10 18:55:58
+  @Last Modified time: 2018-04-12 11:16:08
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -80,12 +80,8 @@ export default class UserSignup extends Component {
 				return;
 			}
 
-			this.setState({'has-success' : true});
-			ReactDom.findDOMNode(this.refs.firstname).value = '';
-			ReactDom.findDOMNode(this.refs.lastname).value = '';
-			ReactDom.findDOMNode(this.refs.email).value = '';
-			
 			this.setState({
+				'has-success' : true,
 				selectedOption : '',
 				'success' : true,
 				'has-userId' : res.data,
@@ -100,12 +96,15 @@ export default class UserSignup extends Component {
 			this.props.onSuccess(this.state['has-userId'], this.state.target);
 		}
 	}
+
 	handleChangeTarget(selectedOption){
 		this.setState({ selectedOption : selectedOption});
 	}
+
 	handleTarget(value){
 		this.setState({ target : value});
 	}
+
 	render() {
 		const { selectedOption } = this.state;
   		const value = selectedOption && selectedOption.value;

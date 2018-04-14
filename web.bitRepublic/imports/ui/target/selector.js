@@ -2,7 +2,7 @@
   larbitsSisters - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-04-10 10:51:24
-  @Last Modified time: 2018-04-10 19:23:27
+  @Last Modified time: 2018-04-12 11:27:14
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -47,7 +47,7 @@ class TargetSelector extends Component {
 				this.props.targets.length > 0 ? 
   					<div>
 						<Select
-							placeholder="Target"
+							placeholder={"Choose your " + (this.props.process == "politics" ? "leader" : "ceo") }
 							inputProps={{autoComplete: 'off'}}
 							name="target"
 							value={value}
@@ -70,7 +70,7 @@ class TargetSelector extends Component {
 							type="text"
 							ref="friendList"
 							name="friendList"
-							placeholder="friends"
+							placeholder="Entre twitter username (@larbitslab, @ogre_vince) "
 							onChange={this.handleChangeText.bind(this)}
 						/>
 						{ 	this.state["error-friends"] ?

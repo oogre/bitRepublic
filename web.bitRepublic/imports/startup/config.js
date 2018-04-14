@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-04-11 18:59:49
+  @Last Modified time: 2018-04-12 10:59:25
 \*----------------------------------------*/
 export const config = {
 	VIDEO_GALLERY : {
@@ -31,7 +31,7 @@ export const config = {
 		MAX : 1.0
 	},
 	WALLET_LIST : {
-		LIMIT : 2
+		LIMIT : 10
 	},
 	METHODS : {
 		RATE_LIMIT : {

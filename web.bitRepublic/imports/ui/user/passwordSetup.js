@@ -2,7 +2,7 @@
   dev - enrollment.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-20 13:29:36
-  @Last Modified time: 2018-02-20 14:50:00
+  @Last Modified time: 2018-04-14 10:17:29
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -81,8 +81,8 @@ export default class UserPasswordSetup extends Component {
 				return;
 			}
 			this.setState({'has-success' : true});
-			ReactDom.findDOMNode(this.refs.password).value = '';
-			ReactDom.findDOMNode(this.refs["password-check"]).value = '';
+			//ReactDom.findDOMNode(this.refs.password).value = '';
+			//ReactDom.findDOMNode(this.refs["password-check"]).value = '';
 			if (_.isFunction(this.props.onComplete)) {
 				this.props.onComplete();
 			}
@@ -90,7 +90,6 @@ export default class UserPasswordSetup extends Component {
 		return false;
 	}
 	render() {
-		console.log(this.props.token);
 		const modalStyle = {
 			overlay : {
 				position          : 'fixed',
