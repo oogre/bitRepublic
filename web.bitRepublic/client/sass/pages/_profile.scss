@@ -8,6 +8,10 @@
   @include clearfix();
   margin: 92px 0 40px;
   position: relative;
+
+  @include breakpoint($md-only) {
+    padding-top: 100px;
+  }
 }
 
 // user-summary
@@ -22,7 +26,6 @@
     width: 100%;
     text-align: center;
   }
-
 }
 
 .user-summary__name .counter--simple {
