@@ -2,7 +2,7 @@
   larbitsSisters - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-04-10 10:51:24
-  @Last Modified time: 2018-04-18 16:19:30
+  @Last Modified time: 2018-04-18 16:23:40
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -39,7 +39,6 @@ class TargetSelector extends Component {
 		this.props.onTargetSelected(selectedOption);
 	}
 	render() {
-		alert((new isMobile.Class()).any);
 		const { selectedOption } = this.state;
   		const value = selectedOption && selectedOption.value;
   		return (
@@ -52,7 +51,7 @@ class TargetSelector extends Component {
 							inputProps={{autoComplete: 'off'}}
 							name="target"
 							value={value}
-							searchable = {(new isMobile.Class()).any}
+							searchable = {!(new isMobile.Class()).any}
 							options={this.props.targets}
 							onChange={this.handleChangeTarget.bind(this)}
 							autoComplete="false"
