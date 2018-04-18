@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-04-12 13:12:22
+  @Last Modified time: 2018-04-17 17:08:55
 \*----------------------------------------*/
 
 
@@ -130,13 +130,27 @@ if(Meteor.isServer){
 			authRequired: true,
 			action : function () {
 				let type = this.urlParams.type;
-				if(type != "printer" && type != "speaker"){
+				if(type != "printer" && type != "speaker" && type != "fan"){
 					return {
 						"status": "fail",
 						message : "unknow type parameter"
 					}
 				}
-				type = type == "printer" ? "byPrinter" : "bySpeaker";
+
+				switch(type){
+					case "printer" :
+						type = "byPrinter";
+					break;
+					case "speaker" : 
+						type = "bySpeaker";
+					break;
+					case "fan" : 
+						type = "byFan";
+					break;
+					default :
+					break;
+				}
+				
 
 				let fieldsRequest = {
 					fields : {}

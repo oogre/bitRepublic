@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:53
-  @Last Modified time: 2018-04-12 13:05:05
+  @Last Modified time: 2018-04-17 17:09:48
 \*----------------------------------------*/
 
 import { Meteor } from 'meteor/meteor';
@@ -33,6 +33,8 @@ Meteor.startup(() => {
 				"toConsume_byPrinter_bitsoils" : [],
 				"toConsume_bySpeaker_publicKeys" : [],
 				"toConsume_bySpeaker_bitsoils" : [],
+				"toConsume_byFan_publicKeys" : [],
+				"toConsume_byFan_bitsoils" : [],
 				key : Utilities.genPrivateKey(),
 				publicKey : Utilities.genPubKey()
 				
