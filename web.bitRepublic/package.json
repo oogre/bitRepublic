@@ -12,6 +12,7 @@
     "embed-video": "^2.0.4",
     "fast-lorem-ipsum": "^1.1.0",
     "glamor": "^2.20.40",
+    "ismobilejs": "^0.4.1",
     "meteor-node-stubs": "^0.3.2",
     "moment": "^2.20.1",
     "react": "^16.2.0",

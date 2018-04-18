@@ -2,7 +2,7 @@
   bitRepublic - redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-04-18 12:11:27
+  @Last Modified time: 2018-04-18 14:59:08
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -17,7 +17,7 @@ export default class RedistriutionMenu extends Component {
 				<div className="hero-banner hero-banner--redistribution">
 					<div className="container">
 						<div className="hero-banner__content">
-							<h2 className="hero-banner__title">TAKE PART TO THE REDISTRIBTION MECHANISM</h2>
+							<h2 className="hero-banner__title">TAKE PART OF THE REDISTRIBUTION MECHANISM</h2>
 							<ul className="buttons-list buttons-list--redistribution">
 								<li className="buttons-list__item">
 									{

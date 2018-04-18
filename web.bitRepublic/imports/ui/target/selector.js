@@ -2,7 +2,7 @@
   larbitsSisters - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-04-10 10:51:24
-  @Last Modified time: 2018-04-18 12:22:33
+  @Last Modified time: 2018-04-18 16:08:32
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -10,7 +10,7 @@ import ReactDom from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-
+import isMobile from 'ismobilejs';
 import { config } from '../../startup/config.js';
 
 import { Targets } from '../../api/targets/targets.js';
@@ -51,6 +51,7 @@ class TargetSelector extends Component {
 							inputProps={{autoComplete: 'off'}}
 							name="target"
 							value={value}
+							searchable = {isMobile.any}
 							options={this.props.targets}
 							onChange={this.handleChangeTarget.bind(this)}
 							autoComplete="false"

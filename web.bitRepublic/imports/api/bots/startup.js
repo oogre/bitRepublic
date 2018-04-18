@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:27:45
-  @Last Modified time: 2018-04-18 12:44:20
+  @Last Modified time: 2018-04-18 14:55:11
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -59,10 +59,6 @@ Meteor.startup(() => {
 			Schedules.insert({
 				content : "Once every "+(60 * 60 * 24 * 7 * 30 * 365 * 100)+" seconds", // centuary
 				value : 60 * 60 * 24 * 30 * 365 * 100
-			});
-			Schedules.insert({
-				content : "Once every "+(60 * 60 * 24 * 7 * 30 * 365 * 100 * 1000)+" seconds", // millnium
-				value : 60 * 60 * 24 * 30 * 365 * 1000
 			});
 		}
 
