@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-04-10 10:49:08
+  @Last Modified time: 2018-04-18 12:08:25
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -101,7 +101,7 @@ export const CreateUser = new ValidatedMethod({
 			Accounts.sendEnrollmentEmail(userId);
 			return {
 				success : true,
-				message : "Your account is up to be created \nYou'll receive soon an email to complete your subscription.",
+				message : "Your account is up to be created. You'll receive soon an email to complete your subscription.",
 				data : userId
 			};
 		}

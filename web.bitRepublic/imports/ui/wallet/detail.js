@@ -27,7 +27,7 @@ export default class WalletDetail extends Component {
 								id number: {Utilities.numberFormat(this.props.wallet.number, 7)}
 							</li>
 							<li className="id-card__item">
-								amount redistributed: <BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.wallet.bitsoil} tax={false} />
+								Value of your Wallet: <BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.wallet.bitsoil} tax={false} />
 							</li>
 							<li className="id-card__item">
 							<span className="id-card__item__label">key:</span> <span className="id-card__item__key">{this.props.wallet.key}</span>

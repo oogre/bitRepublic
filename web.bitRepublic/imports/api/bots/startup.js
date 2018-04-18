@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:27:45
-  @Last Modified time: 2018-03-20 17:04:16
+  @Last Modified time: 2018-04-18 12:44:20
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -102,7 +102,7 @@ Meteor.startup(() => {
 			Bots.insert({
 				model : true,
 				title : [
-					"Join the bitsoil campain",
+					"Join the bitsoil campaign",
 					"Invite your friends"
 				],
 				signup : false,

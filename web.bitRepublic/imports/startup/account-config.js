@@ -2,7 +2,7 @@
   bitRepublic - account-config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 01:13:47
-  @Last Modified time: 2018-04-14 10:17:13
+  @Last Modified time: 2018-04-18 12:51:14
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -11,8 +11,8 @@ import { Accounts } from 'meteor/accounts-base';
 import UserPasswordSetup from './../ui/user/passwordSetup.js'
 
 if(Meteor.isServer){
-	Accounts.emailTemplates.siteName = 'bitRepublic';
-	Accounts.emailTemplates.from = 'bitRepublic <no-reply@ogre.be>';
+	Accounts.emailTemplates.siteName = 'bitsoil.tax';
+	Accounts.emailTemplates.from = 'bitsoil tax campaign <noreply@bitsoil.tax>';
 	Accounts.emailTemplates.enrollAccount = {
 		subject(user) {
 			return `Welcome to bitRepublic, ${user.profile.firstname}`;
@@ -24,8 +24,8 @@ if(Meteor.isServer){
 		}
 	};
 
-	Accounts.emailTemplates.siteName = 'bitRepublic';
-	Accounts.emailTemplates.from = 'bitRepublic <no-reply@ogre.be>';
+	Accounts.emailTemplates.siteName = 'bitsoil.tax';
+	Accounts.emailTemplates.from = 'bitsoil tax campaign <noreply@bitsoil.tax>';
 	Accounts.emailTemplates.resetPassword = {
 		subject(user) {
 			return `Password Reset to bitRepublic, ${user.profile.firstname}`;

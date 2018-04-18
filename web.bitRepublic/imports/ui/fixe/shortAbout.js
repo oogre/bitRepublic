@@ -2,7 +2,7 @@
   bitRepublic - shortAbout.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:06:20
-  @Last Modified time: 2018-02-02 00:08:18
+  @Last Modified time: 2018-04-18 12:20:26
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -17,7 +17,7 @@ export default class FixeShortAbout extends Component {
 			<div id="shortAbout" className="short-about">
 				<div className="container">
 					<div className="short-about__col">
-						<h3 className="short-about__title">the campain</h3>
+						<h3 className="short-about__title">the campaign</h3>
 						<p className="short-about__content">The Bitsoil Popup Tax & Hack campaign is intended to mobilize users of social media platforms to claim a micro-tax on their data and thereby call for a fair distribution of the wealth of the digital economy. The campaign is led by a band of cheerful trolling social media bots on Twitter. Their goal is to make users aware of the value of their data.</p>
 						<h3 className="short-about__title">Create your band of tax bots</h3>
 						<p className="short-about__content">On the BitSoil website, participants can create their own troupe of tax collector bots tailored with a set of predefined actions and send them to leaders and influencers of this world as for instance to the CEO’s of the top 10 biggest tech giants or to the Prime Minister of his choice but also to friends.</p>

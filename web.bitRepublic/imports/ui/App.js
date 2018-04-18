@@ -2,7 +2,7 @@
   bitRepublic - App.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-03-21 17:35:15
+  @Last Modified time: 2018-04-18 12:13:33
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -29,9 +29,9 @@ export default class App extends Component {
 					<SliderMenu />
 					<BitsoilTotalCounter />
 					<FixePunchline description={[
-						"over € 1 billion in lost taxes on people's browsing activity.",
-						"bitsoil the new oil of the digital economy.",
-						"time to claim your share."
+						"over € 1 billion in lost taxes on people's browsing activity",
+						"bitsoil the new oil of the digital economy",
+						"time to claim your share"
 					]}/>
 					<FixeShortAbout />
 					<BotSelector />

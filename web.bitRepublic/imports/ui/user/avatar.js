@@ -2,7 +2,7 @@
   bitRepublic - avatar.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:30
-  @Last Modified time: 2018-02-11 16:18:54
+  @Last Modified time: 2018-04-18 12:38:22
 \*----------------------------------------*/
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -103,12 +103,26 @@ class UserAvatar extends Component {
 	}
 	renderPicture(){
 		return (
-			<img className="avatar__picture"
-				style={{maxWidth: 100 + 'px'}}
-				src={ this.state.imgError ? this.props.defaultAvatar : this.props.avatar}
-				alt="avatar"
-				onError={this.handleErrorImage.bind(this)}
-			/>
+			<div className="avatar__picture"
+				style={{
+					maxWidth: 100 + 'px',
+					backgroundImage: 'url('+(this.state.imgError ? this.props.defaultAvatar : this.props.avatar)+')',
+    				backgroundSize: 'cover',
+    				backgroundPosition: 'center'
+				}}
+			>
+				<img
+					style={{
+						opacity: 0,
+						position : "absolute",
+						width : 0,
+						height : 0
+					}}
+					src={ this.state.imgError ? this.props.defaultAvatar : this.props.avatar}
+					onError={this.handleErrorImage.bind(this)}
+				/>
+			</div>
+
 		);
 	}
 	renderProgressBar(){

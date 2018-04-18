@@ -2,7 +2,7 @@
   bitRepublic - images.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:09
-  @Last Modified time: 2018-02-11 16:16:59
+  @Last Modified time: 2018-04-18 12:43:20
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { FilesCollection } from 'meteor/ostrio:files';

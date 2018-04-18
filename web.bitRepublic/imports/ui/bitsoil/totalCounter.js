@@ -2,7 +2,7 @@
   bitRepublic - totalCounter.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 00:34:11
-  @Last Modified time: 2018-04-03 16:03:54
+  @Last Modified time: 2018-04-18 12:20:17
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -63,7 +63,7 @@ class BitsoilTotalCounter extends Component {
 							</div>
 							<Info
 								open={this.state.info}
-								message="The Bitsoil Tax campaingn aims to mobilize users of social media platforms and other tech tools to claim a microtax on their data and therein make a call for fair distribution of the wealth of the digital economy."
+								message="The Bitsoil Tax campaign aims to mobilize users of social media platforms and other tech tools to claim a microtax on their data and therein make a call for fair distribution of the wealth of the digital economy."
 								onSuccess={this.handleInfoClose.bind(this)}
 							/>
 						</div>

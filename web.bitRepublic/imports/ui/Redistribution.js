@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-04-10 15:18:46
+  @Last Modified time: 2018-04-18 12:20:40
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -51,14 +51,14 @@ class Redistribution extends Component {
 					<RedistriutionMenu/>
 					<div>
 						<div className="section-intro">
-							<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaingn.</p>
+							<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.</p>
 							<p>Join us and let's make the data economy benefits everyone!</p>
 						</div>
 
 						<BitsoilTotalCounter />
 						<FixePunchline description={[
-							"create your personal wallet.",
-							"take part of the taxation system."
+							"create your personal wallet",
+							"take part of the taxation system"
 						]}>
 								{
 									this.props.currentUser ?

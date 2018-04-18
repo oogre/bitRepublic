@@ -2,7 +2,7 @@
   larbitsSisters - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-04-10 10:51:24
-  @Last Modified time: 2018-04-12 11:27:14
+  @Last Modified time: 2018-04-18 12:22:33
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -108,7 +108,7 @@ export default withTracker(self => {
 		.map( target => {
 			return {
 				value : target._id,
-				label : target.name + ", " + target.role +  " of " + target.from
+				label : target.name.trim() + ", " + target.role.trim() +  " of " + target.from.trim()
 			}
 		});
 	}

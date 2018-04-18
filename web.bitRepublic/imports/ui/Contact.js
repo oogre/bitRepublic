@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-03-21 18:14:54
+  @Last Modified time: 2018-04-18 12:28:10
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -107,7 +107,7 @@ export default class Contact extends Component {
 										<div className="fields-row">
 											<h5 className="title--quaternary">BITSOIL TAX CAMPAIGN</h5>
 											<label className="field__label field__label--contact">
-												@: contact@bitsoil.tax
+												@: campaign@bitsoil.tax
 											</label>
 											<input
 												type="text"
