@@ -73,7 +73,6 @@
 
   @include breakpoint($md) {
     background-image: none;
-    padding-top: 100px;
   }
 
   @include breakpoint($lg) {
