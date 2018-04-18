@@ -64,4 +64,54 @@
     min-width: inherit;
     font-size: 1.1rem;
   }
+
+  @include breakpoint($sm-only) {
+    width: 155px;
+    min-width: inherit;
+  }
+}
+
+// buttons-list--footer
+// ---------------------
+.buttons-list--footer .buttons-list__item {
+  margin-right: 16px;
+  vertical-align: top;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.buttons-list--footer .buttons-list__link svg {
+  fill: $grey-86;
+}
+
+.buttons-list--footer .buttons-list__link:hover svg,
+.buttons-list--footer .buttons-list__link:focus svg {
+  fill: $grey-74;
+}
+
+// Specific case for icon-flanders-state-of-the-art
+
+.icon-flanders-state-of-the-art__foreground {
+  fill: $grey-21;
+}
+
+.icon-flanders-state-of-the-art__background {
+  fill: $grey-86;
+}
+
+.buttons-list__link--fsoa:hover .icon-flanders-state-of-the-art__background,
+.buttons-list__link--fsoa:focus .icon-flanders-state-of-the-art__background {
+  fill: $grey-74;
+}
+
+// buttons-list--license
+// ---------------------
+.buttons-list--license svg {
+  margin-right: 2px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }

@@ -71,17 +71,17 @@ class WalletList extends Component {
 								<td colSpan="2">
 									<ul className="table-pagination">
 										<li className="table-pagination__item" style={{ visibility : this.state.currentPage > 0 ? "visible" : "hidden" }}>
-											<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</button>
+											<a className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage - 1 )}>&lt;</a>
 										</li>
 										{
 											Array(this.props.pages).fill().map((action, k) => (
 												<li key={k} className={(k == this.state.currentPage ? "selected" : " " ) + " table-pagination__item"}>
-													<button className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</button>
+													<a className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</a>
 												</li>
 											))
 										}
 										<li className="table-pagination__item" style={{ visibility : this.state.currentPage < this.props.pages-1  ? "visible" : "hidden" }}>
-											<button className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</button>
+											<a className="table-pagination__button" onClick={this.handleSkip.bind(this, this.state.currentPage + 1 )}>&gt;</a>
 										</li>
 									</ul>
 								</td>

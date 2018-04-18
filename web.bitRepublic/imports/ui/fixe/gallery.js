@@ -60,12 +60,12 @@ class FixeGallery extends Component {
 	}
 	render() {
 		return (
-			<div className="gallery">
+			<div className="gallery gallery--video">
 				{
 					this.props.isReady ?
 						<div>
-							<div 
-								className="content" 
+							<div
+								className="video__wrapper"
 								dangerouslySetInnerHTML={
 									{
 										__html: this.props.embedVideo
@@ -74,7 +74,7 @@ class FixeGallery extends Component {
 							>
 							</div>
 							{
-								this.props.isAdmin ? 
+								this.props.isAdmin ?
 									<form
 										className="container"
 										onSubmit={this.onSubmit.bind(this)}
@@ -87,7 +87,7 @@ class FixeGallery extends Component {
 											onBlur={this.onChange.bind(this)}
 										/>
 									</form>
-								: 
+								:
 									null
 							}
 						</div>
@@ -112,11 +112,7 @@ export default withTracker(() => {
 			}
 		}
 		if(SimpleSchema.RegEx.Url.test(video)){
-			embedVideo = embed(video, {
-							attr:{
-								width:600, height:300
-							}
-						});
+			embedVideo = embed(video);
 		}
 	}
 	return {

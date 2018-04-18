@@ -73,10 +73,12 @@
 
   @include breakpoint($md) {
     background-image: none;
+    padding-top: 100px;
   }
 
   @include breakpoint($lg) {
     background-image: url('/images/banner-bitsoil-background.png');
+    padding-top: 0;
   }
 }
 

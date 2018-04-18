@@ -104,15 +104,39 @@
 // Modal Tiny
 // Smaller modal (Use for reset password)
 // ---------------------
+.modal--tiny .modal__header {
+  background: $grey-57;
+  position: relative;
+  padding: 16px 22px 10px;
+  width: calc(100% + 40px);
+  margin: -20px -20px 0;
+  @include clearfix();
+}
+
+.modal--tiny .modal__header .modal__close{
+  @include vertical-center(absolute);
+  right: 20px;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    color: $grey-82;
+  }
+}
+
 .modal--tiny .modal__wrapper {
-  padding: 40px 66px;
+  padding: 20px;
+
+  @include breakpoint($md) {
+    padding: 40px 66px;
+  }
 }
 
 .modal--tiny .fields-row {
   margin-bottom: 22px;
 }
 
-// Modal Input
+// Modal Input in Tiny
 // ---------------------
 .modal--tiny .modal__container [type="text"],
 .modal--tiny .modal__container [type="email"],
