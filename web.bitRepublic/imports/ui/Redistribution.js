@@ -50,9 +50,11 @@ class Redistribution extends Component {
 				<div className="page__content">
 					<RedistriutionMenu/>
 					<div>
-						<div className="section-intro">
-							<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.</p>
-							<p>Join us and let's make the data economy benefits everyone!</p>
+						<div className="container">
+							<div className="section-intro">
+								<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.</p>
+								<p>Join us and let's make the data economy benefits everyone!</p>
+							</div>
 						</div>
 
 						<BitsoilTotalCounter />

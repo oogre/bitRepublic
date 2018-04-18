@@ -59,6 +59,19 @@
   @include breakpoint($md) {
     position: absolute;
     left: 0;
+    // width: 100%;
+  }
+
+  @include breakpoint($lg) {
+    width: inherit;
+  }
+}
+
+// Adaptation for netgiant postcard (tweets-selector--ceos)
+.tweets-selector--ceos .tab__picture {
+  @include breakpoint($md-only) {
+    width: 100%;
+    bottom: 0;
   }
 }
 

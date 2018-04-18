@@ -129,14 +129,14 @@ class TweetSelector extends Component {
 	}
 	render() {
 		return (
-			<div className={"tweets-selector" + " " + (this.props.visible ? "" : "hidden")}>
+			<div className={"tweets-selector" + " " + (this.props.visible ? "" : "hidden") + " tweets-selector--" + this.props.bot.target}>
 				<div className="tweets-selector__content">
 					<ul className="tabs-selector-list">
 						{this.renderTweetButtons()}
 						{this.props.isAdmin ? this.renderAddTweet():null}
 					</ul>
 					{this.renderTweets()}
-					{ (this.props.isAdmin && this.state.selectedTweet == -1) ? <TweetForm botId={this.props.bot._id} visible={this.state.selectedTweet == -1} />  : null } 
+					{ (this.props.isAdmin && this.state.selectedTweet == -1) ? <TweetForm botId={this.props.bot._id} visible={this.state.selectedTweet == -1} />  : null }
 					{ this.state["error-login"] ? <MessageError error={this.state["error-login"]} messages={config.FORM.ERRORS.login} /> : null }
  					{ this.state["error-admin"] ? <MessageError error={this.state["error-admin"]} messages={config.FORM.ERRORS.admin} /> : null }
  					{ this.state["error-bot-model"] ? <MessageError error={this.state["error-bot-model"]} messages={config.FORM.ERRORS.bot-model} /> : null }

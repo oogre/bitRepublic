@@ -2,6 +2,10 @@
   > Header
 \*------------------------------------*/
 
+.test-block {
+  background: #ff0066;
+}
+
 .main-header {
   position: fixed;
   padding: 15px 0;
@@ -10,8 +14,8 @@
   background: #fff;
   height: auto;
 
-  @include breakpoint($lg) {
-    position: static;
+  @include breakpoint($md) {
+    position: relative;
   }
 }
 

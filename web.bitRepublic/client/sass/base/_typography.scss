@@ -91,6 +91,10 @@ h6 {
     left: -35px;
   }
 
+  @include breakpoint($sm) {
+    font-size: 1.8rem;
+  }
+
   @include breakpoint($md) {
     margin: 0 auto;
     font-size: 2.6rem;
