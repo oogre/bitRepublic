@@ -267,6 +267,16 @@ textarea {
   line-height: 48px;
 }
 
+.Select .Select-option.is-focused {
+  background-color: lighten($blue-cornflower, 5%);
+}
+
+.Select .Select-option.is-selected,
+.Select .Select-option.is-selected.is-focused {
+  background-color: $blue-cornflower;
+}
+
+
 // Errors
 // ---------------------
 
