@@ -21,7 +21,7 @@ export default class WalletDetail extends Component {
 			<div className="container">
 				<section className="section--profile">
 					<h2 className="title--profile">Your wallet</h2>
-					<div className="section__content">
+					<div className="section__content section__content--id">
 						<ul className="id-card">
 							<li className="id-card__item">
 								id number: {Utilities.numberFormat(this.props.wallet.number, 7)}
