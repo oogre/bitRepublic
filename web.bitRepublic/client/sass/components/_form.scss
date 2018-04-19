@@ -85,8 +85,8 @@ textarea {
   vertical-align: middle;
   background: transparent;
   border: 1px solid #000;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -101,12 +101,19 @@ textarea {
   content: '';
   display: inline-block;
   position: absolute;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   left: 5px;
   color: $color-primary;
   transition: all .2s;
 }
+
+.checkbox--toggle:not(:checked) + label:hover:after,
+.checkbox--toggle:not(:checked) + label:after,
+.checkbox--toggle:checked + label:after {
+  background-color: $red-guardsman;
+}
+
 
 [type="checkbox"]:not(:checked) + label:hover:after,
 [type="checkbox"]:not(:checked) + label:after,
@@ -127,6 +134,11 @@ textarea {
   transform: scale(0);
 }
 
+.checkbox--toggle:not(:checked) + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Hover style */
 [type="checkbox"]:not(:checked) + label:hover:after,
 /*[type="checkbox"]:focus:not(:checked) + label:after,*/
@@ -142,7 +154,7 @@ textarea {
 [type="radio"]:checked + label:after {
   opacity: 1;
   transform: scale(1);
-  background: #000;
+  background: $green-fun;
 }
 
 /* disabled checkbox */
@@ -175,7 +187,7 @@ textarea {
 // Fake checkbox Aspect
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
-  border-radius: 3px;
+  // border-radius: 3px;
   left: 0;
   @include vertical-center(absolute);
 }
@@ -184,7 +196,6 @@ textarea {
 [type="checkbox"]:not(:checked) + label:hover:after,
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  border-radius: 2px;
   @include vertical-center(absolute);
 }
 

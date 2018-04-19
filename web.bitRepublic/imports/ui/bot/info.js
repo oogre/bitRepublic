@@ -83,6 +83,7 @@ class BotInfo extends Component {
 					readOnly
 					checked={action.active}
 					onChange={this.handleActiveChange.bind(this, action)}
+					className="checkbox--toggle"
 				/>
 				<label htmlFor={"action_" + action._id} className="">
 					<span className="">
