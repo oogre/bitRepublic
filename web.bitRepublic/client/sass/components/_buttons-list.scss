@@ -74,7 +74,7 @@
 // buttons-list--footer
 // ---------------------
 .buttons-list--footer .buttons-list__item {
-  margin-right: 16px;
+  margin-right: 25px;
   vertical-align: top;
 
   &:last-child {
@@ -83,12 +83,12 @@
 }
 
 .buttons-list--footer .buttons-list__link svg {
-  fill: $grey-86;
+  fill: $grey-50;
 }
 
 .buttons-list--footer .buttons-list__link:hover svg,
 .buttons-list--footer .buttons-list__link:focus svg {
-  fill: $grey-74;
+  fill: $grey-86;
 }
 
 // Specific case for icon-flanders-state-of-the-art
@@ -98,12 +98,12 @@
 }
 
 .icon-flanders-state-of-the-art__background {
-  fill: $grey-86;
+  fill: $grey-50;
 }
 
 .buttons-list__link--fsoa:hover .icon-flanders-state-of-the-art__background,
 .buttons-list__link--fsoa:focus .icon-flanders-state-of-the-art__background {
-  fill: $grey-74;
+  fill: $grey-86;
 }
 
 // buttons-list--license
