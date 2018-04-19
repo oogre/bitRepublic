@@ -25,7 +25,7 @@
 // ---------------------
 
 .buttons-list--bitsoil .buttons-list__item {
-  @include breakpoint($below-sm) {
+  @include breakpoint($below-md) {
     display: block;
     margin: 0 0 4px;
   }
