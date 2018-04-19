@@ -112,6 +112,9 @@ class BotInfo extends Component {
 		));
 	}
 	renderBitsoil(bot){
+
+		console.log(bot);
+
 		return _.compact(bot.actions).map((action) => (
 			<li className="table-list__item" key={action._id}>
 				<BitsoilCounter type="simple" currencyBefore={true} bitsoil={bot.bitsoil} tax={false} />
@@ -124,7 +127,7 @@ class BotInfo extends Component {
 		return (
 			<tr className="table__row" key={bot._id}>
 				<td className="table__cell">
-					<img width="50px" src={bot.model.picture} alt="picture"/>
+					<img width="100px" src={bot.model.picture} alt={"Bot " + bot.model.target}/>
 				</td>
 				<td className="table__cell">{bot.model.description}</td>
 				<td className="table__cell nowrap text-center">{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
