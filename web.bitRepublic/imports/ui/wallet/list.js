@@ -47,6 +47,7 @@ class WalletList extends Component {
 		));
 	}
 	render() {
+
 		return (
 			<div>
 				<h2 className="title--primary">The redistribution mechanism</h2>
@@ -66,7 +67,7 @@ class WalletList extends Component {
 						<tbody className="table__body">
 							{this.renderWallets()}
 						</tbody>
-						<tfoot className="table__footer">
+						<tfoot className="table__footer" style={{ visibility : this.props.pages > 1 ? "visible" : "hidden" }}>
 							<tr>
 								<td colSpan="2">
 									<ul className="table-pagination">

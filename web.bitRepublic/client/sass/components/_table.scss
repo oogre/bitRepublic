@@ -184,6 +184,7 @@
   margin: 0 .4rem;
   padding: 0 .8rem 0 0;
   border-right: 1px solid $grey-70;
+  line-height: 1;
 
   &:last-child {
     border-right: 0;
@@ -198,6 +199,7 @@
   background: transparent;
   border: 0;
   display: inline-block;
+  font-size: 1.4rem;
   color: $color-text;
   padding: 0;
   margin: 0;
