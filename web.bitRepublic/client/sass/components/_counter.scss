@@ -160,8 +160,8 @@
   position: relative;
 
   @include breakpoint($below-sm) {
-    width: 4.3rem;
-    height: 4.3rem;
+    width: 4.9rem;
+    height: 4.9rem;
     margin-right: 3px;
   }
 
@@ -209,10 +209,10 @@
   }
 
   @include breakpoint($below-sm) {
-    width: 2rem;
-    height: 2rem;
+    width: 2.3rem;
+    height: 2.3rem;
     margin-right: 3px;
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   @include breakpoint($sm) {
