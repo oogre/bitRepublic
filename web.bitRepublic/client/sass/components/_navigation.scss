@@ -58,18 +58,15 @@
 // ---------------------
 
 .menu--header {
-  @include breakpoint($below-lg) {
+  @include breakpoint($below-lg-intermediate-alt) {
     display: none;
     margin-top: 16px;
   }
 
-  @include breakpoint($lg) {
+  @include breakpoint($lg-intermediate-alt) {
     display: inline-block;
     right: 2.5rem;
     text-align: right;
-  }
-
-  @include breakpoint($lg) {
     position: absolute;
     bottom: 0;
     max-width: 64vw;
@@ -81,7 +78,7 @@
 }
 
 .menu--header .menu__item {
-  @include breakpoint($below-lg) {
+  @include breakpoint($below-lg-intermediate-alt) {
     display: block;
     padding: 0;
     border-bottom: 1px solid $blue-geyser;
@@ -119,7 +116,7 @@
     color: $color-primary;
   }
 
-  @include breakpoint($below-lg) {
+  @include breakpoint($below-lg-intermediate-alt) {
     display: block;
     width: 100%;
     padding: 15px 0;
@@ -127,7 +124,7 @@
 }
 
 .menu--header .menu__item:last-child .menu__item__link {
-  @include breakpoint($below-lg) {
+  @include breakpoint($below-lg-intermediate-alt) {
     padding-bottom: 0;
   }
 }
@@ -152,7 +149,7 @@
     top: 3.8rem;
   }
 
-  @include breakpoint($lg) {
+  @include breakpoint($lg-intermediate-alt) {
     display: none;
   }
 }
