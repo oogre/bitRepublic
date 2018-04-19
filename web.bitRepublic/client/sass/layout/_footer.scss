@@ -56,3 +56,18 @@
   margin: 0 0 0 auto;
 }
 
+
+// Gluon Logo Specific
+// ---------------------
+
+.icon-gluon {
+  width: 93px;
+  height: 22px;
+  background: url('images/footer/partner/gluon-sprite.png') -10px -52px no-repeat;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-position: -10px -10px;
+  }
+}

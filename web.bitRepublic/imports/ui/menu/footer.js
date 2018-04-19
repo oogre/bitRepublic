@@ -61,6 +61,13 @@ export default class FooterMenu extends Component {
 						<div className="column">
 							<div className="column__content">
 								<p className="menu--footer__title">Partners</p>
+								<ul className="buttons-list buttons-list--footer buttons-list--license">
+									<li className="buttons-list__item">
+										<a className="buttons-list__link" target="_blank" title="gluon" href="http://gluon.be/">
+											<div className="icon-gluon"></div>
+										</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 						<div className="column">
