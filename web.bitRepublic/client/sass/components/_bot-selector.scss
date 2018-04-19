@@ -43,9 +43,14 @@
 
 .bot-selector .button--submit {
   float: right;
-  margin: 24px 0;
+  margin: 0 0 24px;
 }
 
 .bot-selector__submit {
+  background: $grey-91;
+}
+
+.bot-selector__submit .container {
   max-width: 824px;
+  @include clearfix();
 }
