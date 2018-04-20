@@ -35,24 +35,22 @@ export default class FooterMenu extends Component {
 								<ul className="buttons-list buttons-list--footer">
 									<li className="buttons-list__item">
 										<a target="_blank" className="buttons-list__link" href={"https://twitter.com/share?url="+encodeURIComponent(location.href)}>
-											{/*<TwitterIcon size={32} round={true} />*/}
-											<svg width="34px" height="27px" data-name="icon-twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.22 27"><title>Twitter</title><path d="M33.22 3.2a13.63 13.63 0 0 1-3.91 1.07A6.84 6.84 0 0 0 32.3.5 13.64 13.64 0 0 1 28 2.15a6.82 6.82 0 0 0-11.64 6.22 19.35 19.35 0 0 1-14-7.12 6.82 6.82 0 0 0 2.11 9.1 6.79 6.79 0 0 1-3.09-.85v.09a6.82 6.82 0 0 0 5.42 6.67 6.83 6.83 0 0 1-3.08.12 6.82 6.82 0 0 0 6.37 4.73A13.67 13.67 0 0 1 1.63 24 13.8 13.8 0 0 1 0 23.93 19.29 19.29 0 0 0 10.45 27C23 27 29.84 16.61 29.84 7.61v-.88a13.85 13.85 0 0 0 3.4-3.53" /></svg>
+											<svg width="25px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.25 19.71"><title>Twitter</title><path d="M24.25 2.33a10 10 0 0 1-2.86.78A5 5 0 0 0 23.58.36a10 10 0 0 1-3.16 1.21 5 5 0 0 0-8.48 4.54A14.13 14.13 0 0 1 1.69.91a5 5 0 0 0 1.54 6.64A5 5 0 0 1 1 6.93V7a5 5 0 0 0 4 4.88 5 5 0 0 1-2.28.12 5 5 0 0 0 4.65 3.46 10 10 0 0 1-6.18 2.13A10.07 10.07 0 0 1 0 17.47a14.08 14.08 0 0 0 7.63 2.24A14.06 14.06 0 0 0 21.78 5.55v-.64a10.11 10.11 0 0 0 2.48-2.58" data-name="icon-twitter"/></svg>
 										</a>
 									</li>
 									<li className="buttons-list__item">
 										<a target="_blank" className="buttons-list__link" href={"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href)}>
-											{/*<FacebookIcon size={32} round={true} />*/}
-											<svg width="14px" height="27px" data-name="icon-facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.66 27"><title>Facebook</title><path d="M8.87 27V14.68h4l.6-4.8h-4.6V6.82c0-1.39.38-2.34 2.32-2.34h2.48V.19A32.25 32.25 0 0 0 10.05 0C6.48 0 4 2.24 4 6.34v3.54H0v4.8h4V27z" /></svg>
+											<svg width="10px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.97 19.71"><title>Facebook</title><path d="M6.47 19.71v-9h2.94l.44-3.5H6.47V5c0-1 .27-1.71 1.69-1.71H10V.14A23.54 23.54 0 0 0 7.34 0C4.73 0 2.95 1.63 2.95 4.63v2.59H0v3.5h2.95v9z" data-name="icon-facebook"/></svg>
 										</a>
 									</li>
 									<li className="buttons-list__item">
-										<a target="_blank" className="buttons-list__link" href={"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href)}>
-											<svg width="27px" height="27px" data-name="icon-instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27"><title>Instagram</title><path d="M19.55 0H7.45A7.46 7.46 0 0 0 0 7.45v12.1A7.46 7.46 0 0 0 7.45 27h12.1A7.46 7.46 0 0 0 27 19.55V7.45A7.46 7.46 0 0 0 19.55 0m5.05 19.55a5.06 5.06 0 0 1-5.05 5.05H7.45a5.06 5.06 0 0 1-5.05-5.05V7.45A5.06 5.06 0 0 1 7.45 2.4h12.1a5.06 5.06 0 0 1 5.05 5.05z" /><path d="M13 6.54a7 7 0 1 0 7 7 7 7 0 0 0-7-7m0 11.52a4.56 4.56 0 1 1 4.56-4.56A4.57 4.57 0 0 1 13 18.06M20.25 4.51A1.76 1.76 0 1 0 21.5 5a1.76 1.76 0 0 0-1.24-.51" /></svg>
+										<a target="_blank" className="buttons-list__link" href="">
+											<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.71 19.71"><title>Instagram</title><g data-name="icon-instagram"><path d="M14.27 0H5.44A5.45 5.45 0 0 0 0 5.44v8.83a5.44 5.44 0 0 0 5.44 5.44h8.83a5.45 5.45 0 0 0 5.44-5.44V5.44A5.45 5.45 0 0 0 14.27 0M18 14.27A3.69 3.69 0 0 1 14.27 18H5.44a3.69 3.69 0 0 1-3.69-3.69V5.44a3.69 3.69 0 0 1 3.69-3.69h8.83A3.69 3.69 0 0 1 18 5.44z"/><path d="M9.49 4.78a5.08 5.08 0 1 0 5.08 5.08 5.08 5.08 0 0 0-5.08-5.08m0 8.41a3.33 3.33 0 1 1 3.33-3.33 3.33 3.33 0 0 1-3.33 3.33m5.3-9.9a1.28 1.28 0 1 0 .91.38 1.29 1.29 0 0 0-.91-.38"/></g></svg>
 										</a>
 									</li>
 									<li className="buttons-list__item">
 										<a target="" className="buttons-list__link" href="/contact">
-											<svg width="38px" height="27px" data-name="icon-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.67 20.12"><title>Contact us</title><path d="M29.9 20.12H.75L0 19.37V.75L.75 0H29.9l.75.75v18.62zm-28.4-1.5h27.65V1.5H1.5z"/><path d="M29.92 20.12H.78a.75.75 0 0 1-.45-1.35l12.12-9.14a.75.75 0 1 1 .9 1.2L3 18.62h24.68l-10.35-7.8a.75.75 0 1 1 .9-1.2l12.14 9.14a.75.75 0 0 1-.45 1.35z"/><path d="M15.34 12.48a.75.75 0 0 1-.45-.15L.3 1.35A.75.75 0 0 1 .75 0H29.9a.75.75 0 0 1 .45 1.35l-14.56 11a.75.75 0 0 1-.45.13zM3 1.5l12.34 9.29L27.66 1.5z"/></svg>
+											<svg width="31px" height="21px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.67 20.12"><title>Mail Us</title><g data-name="icon-mail"><path d="M29.9 20.12H.75L0 19.37V.75L.75 0H29.9l.75.75v18.62zm-28.4-1.5h27.65V1.5H1.5z"/><path d="M29.92 20.12H.78a.75.75 0 0 1-.45-1.35l12.12-9.14a.75.75 0 0 1 .9 1.2L3 18.62h24.68l-10.35-7.79a.75.75 0 0 1 .9-1.2l12.14 9.14a.75.75 0 0 1-.45 1.35z"/><path d="M15.34 12.48a.75.75 0 0 1-.45-.15L.3 1.35A.75.75 0 0 1 .75 0H29.9a.75.75 0 0 1 .45 1.35l-14.56 11a.75.75 0 0 1-.45.13zM3 1.5l12.34 9.29L27.66 1.5z"/></g></svg>
 										</a>
 									</li>
 								</ul>
