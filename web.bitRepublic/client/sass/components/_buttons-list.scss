@@ -69,6 +69,10 @@
     width: 155px;
     min-width: inherit;
   }
+
+  @include breakpoint($lg) {
+    min-width: 200px;
+  }
 }
 
 // buttons-list--footer
