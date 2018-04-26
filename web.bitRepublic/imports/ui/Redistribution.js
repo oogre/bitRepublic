@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-04-26 16:40:38
+  @Last Modified time: 2018-04-26 18:16:15
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -13,7 +13,7 @@ import FooterMenu from './menu/footer.js';
 import RedistriutionMenu from './menu/redistribution.js';
 import BitsoilTotalCounter from './bitsoil/totalCounter.js';
 import FixePunchline from './fixe/punchline.js';
-import FixeShortAbout from './fixe/shortAbout.js';
+import FixeShortAboutRedistribution from './fixe/shortAboutRedistribution.js';
 import WalletList from './wallet/list.js';
 import UserModal from './user/modal.js';
 import { BitsoilCreate } from '../api/bitsoils/methods.js';
@@ -83,7 +83,7 @@ class Redistribution extends Component {
 							</a>
 						</FixePunchline>
 						<div id="redistributionInfo"></div>
-						<FixeShortAbout />
+						<FixeShortAboutRedistribution />
 						{ this.props.isReady ? <WalletList/> : <FixeWait/> }
 
 					</div>

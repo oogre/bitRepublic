@@ -2,7 +2,7 @@
   bitRepublic - totalCounter.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 00:34:11
-  @Last Modified time: 2018-04-18 12:20:17
+  @Last Modified time: 2018-04-26 18:56:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -21,12 +21,29 @@ class BitsoilTotalCounter extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			info : false
+			info : false,
+			hover : [
+				false, 
+				false
+			],
+			message : "",
+			messages : [
+				"This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign. Join us and let’s make the data economy benefits everyone!",
+				"The Bitsoil Tax campaign aims to mobilize users of social media platforms and other tech tools to claim a micro tax on their data and therein make a call for fair distribution of the wealth of the digital economy."
+			]
 		}
 	}
-	handleInfo(){
+	toggleHover(over, id){
+		let tmp = this.state.hover;
+		tmp[id] = over;
 		this.setState({
-			info : true
+			hover : tmp
+		});
+	}
+	handleInfo(id){
+		this.setState({
+			info : true,
+			message : this.state.messages[id]
 		});
 	}
 	handleInfoClose(){
@@ -41,8 +58,9 @@ class BitsoilTotalCounter extends Component {
 					this.props.isReady ?
 						<div>
 							<div className="counter--xl">
-								<button className="button--unstyled counter__prefix" onClick={this.handleInfo.bind(this)}>
-									<svg className="artwork-bitsoil-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.84 98.38"><title>Bitsoil Symbol</title><polygon points="63.84 17.26 63.84 81.13 44.65 81.13 44.65 98.38 38.27 98.38 38.27 81.13 25.66 81.13 25.66 98.38 19.28 98.38 19.28 81.13 0 81.13 0 74.75 57.45 74.75 57.45 23.64 6.38 23.64 6.38 62.1 44.65 62.1 44.65 52.48 12.77 52.48 12.77 30.14 51.07 30.14 51.07 36.52 19.15 36.52 19.15 46.1 51.07 46.1 51.07 52.48 51.04 52.48 51.04 62.1 51.07 62.1 51.07 68.48 0 68.48 0 17.26 19.14 17.26 19.14 0 25.52 0 25.52 17.26 38.27 17.26 38.27 0 44.65 0 44.65 17.26 63.84 17.26" fill="#fffcfb"/></svg>
+								<button onMouseEnter={this.toggleHover.bind(this, true, 0)} onMouseLeave={this.toggleHover.bind(this, false, 0)} className="button--unstyled counter__prefix" onClick={this.handleInfo.bind(this, 0)}>
+									<svg className={(this.state.hover[0] ? "invisible": "" )+" artwork-bitsoil-symbol"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.84 98.38"><title>Bitsoil Symbol</title><polygon points="63.84 17.26 63.84 81.13 44.65 81.13 44.65 98.38 38.27 98.38 38.27 81.13 25.66 81.13 25.66 98.38 19.28 98.38 19.28 81.13 0 81.13 0 74.75 57.45 74.75 57.45 23.64 6.38 23.64 6.38 62.1 44.65 62.1 44.65 52.48 12.77 52.48 12.77 30.14 51.07 30.14 51.07 36.52 19.15 36.52 19.15 46.1 51.07 46.1 51.07 52.48 51.04 52.48 51.04 62.1 51.07 62.1 51.07 68.48 0 68.48 0 17.26 19.14 17.26 19.14 0 25.52 0 25.52 17.26 38.27 17.26 38.27 0 44.65 0 44.65 17.26 63.84 17.26" fill="#fffcfb"/></svg>
+									<svg className={(this.state.hover[0] ? "": "invisible" )+" over artwork-bitsoil-symbol"} width="98" height="98" viewBox="0 0 7 31" xmlns="http://www.w3.org/2000/svg"><title>icon-info</title><g fill="#F1F5F8" fillRule="evenodd"><path d="M0 0h7v7H0zM0 13h7v18H0z"></path></g></svg>
 								</button>
 
 								<div className="counter__content">
@@ -52,8 +70,9 @@ class BitsoilTotalCounter extends Component {
 							</div>
 
 							<div className="counter--xl">
-								<button className="button--unstyled counter__prefix" onClick={this.handleInfo.bind(this)}>
-									<img className="artwork-tax-logo" src="/images/hand-purse-animated-with-bg.gif" alt="" />
+								<button onMouseEnter={this.toggleHover.bind(this, true, 1)} onMouseLeave={this.toggleHover.bind(this, false, 1)} className="button--unstyled counter__prefix" onClick={this.handleInfo.bind(this, 1)}>
+									<img className={(this.state.hover[1] ? "invisible": "" )+" artwork-tax-logo"} src="/images/hand-purse-animated-with-bg.gif" alt="" />
+									<svg className={(this.state.hover[1] ? "": "invisible" )+" over artwork-bitsoil-symbol"} width="98" height="98" viewBox="0 0 7 31" xmlns="http://www.w3.org/2000/svg"><title>icon-info</title><g fill="#F1F5F8" fillRule="evenodd"><path d="M0 0h7v7H0zM0 13h7v18H0z"></path></g></svg>
 								</button>
 
 								<div className="counter__content">
@@ -63,7 +82,7 @@ class BitsoilTotalCounter extends Component {
 							</div>
 							<Info
 								open={this.state.info}
-								message="The Bitsoil Tax campaign aims to mobilize users of social media platforms and other tech tools to claim a microtax on their data and therein make a call for fair distribution of the wealth of the digital economy."
+								message={this.state.message}
 								onSuccess={this.handleInfoClose.bind(this)}
 							/>
 						</div>
