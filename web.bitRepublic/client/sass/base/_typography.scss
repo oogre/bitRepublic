@@ -162,10 +162,14 @@ abbr[title] {
 // Text-block
 // Simple text block that display text centered in the page
 .text-block {
-  // text-align: center;
+  text-align: left;
   font-weight: 200;
   font-size: 1.6rem;
   line-height: 1.6;
   margin: 32px auto;
   max-width: 80%;
+
+  @include breakpoint($md) {
+    text-align: center;
+  }
 }
