@@ -1,0 +1,17 @@
+/*
+* @Author: Evrard Vincent
+* @Date:   2018-04-26 19:16:21
+* @Last Modified by:   vincent
+* @Last Modified time: 2018-04-26 19:17:43
+*/
+.tweet-schedule [type="radio"]:not(:checked) + label:before, 
+.tweet-schedule [type="radio"]:checked + label:before{
+	-webkit-border-radius: 0;
+    border-radius: 0;
+}
+.tweet-schedule [type="radio"]:not(:checked) + label:hover:after, 
+.tweet-schedule [type="radio"]:not(:checked) + label:after, 
+.tweet-schedule [type="radio"]:checked + label:after{
+	-webkit-border-radius: 0;
+    border-radius: 0;
+}

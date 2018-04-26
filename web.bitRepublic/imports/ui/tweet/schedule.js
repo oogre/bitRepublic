@@ -2,7 +2,7 @@
   bitRepublic - schedule.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 18:16:40
-  @Last Modified time: 2018-03-20 18:10:57
+  @Last Modified time: 2018-04-26 19:10:03
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
