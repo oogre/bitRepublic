@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-04-18 12:08:25
+  @Last Modified time: 2018-04-26 17:26:09
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -288,10 +288,8 @@ export const UpdateUser = new ValidatedMethod({
 			},{
 				$set : {
 					username : username,
-					profile : {
-						firstname : firstname,
-						lastname : lastname,
-					},
+					"profile.firstname" : firstname,
+					"profile.lastname" : lastname,
 					emails : [{
 						address : email,
 					}]
