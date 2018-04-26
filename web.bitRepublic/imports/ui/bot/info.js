@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-02-28 15:37:18
+  @Last Modified time: 2018-04-23 20:08:18
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -163,7 +163,7 @@ class BotInfo extends Component {
 	renderTotal(){
 		return (
 			<tr className="table__row table__row--totals">
-				<td className="table__cell text-right" colSpan="6">total bitsoils</td>
+				<td className="table__cell text-right" colSpan="6">bitsoils/day</td>
 				<td className="table__cell text-center">
 					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} />
 					<div className="table__cell--counter__label text-right">every {this.props.totalInterval.humanize()}</div>

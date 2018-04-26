@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-04-18 12:20:40
+  @Last Modified time: 2018-04-26 16:40:38
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -58,6 +58,7 @@ class Redistribution extends Component {
 						</div>
 
 						<BitsoilTotalCounter />
+						<div id="redistributionLogin"></div>
 						<FixePunchline description={[
 							"create your personal wallet",
 							"take part of the taxation system"

@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-03-26 16:01:38
+  @Last Modified time: 2018-04-26 17:03:05
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -24,14 +24,14 @@ export default class FooterMenu extends Component {
 								<p className="menu--footer__title">Contact</p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
-										<a className="menu__item__link" href={FlowRouter.path("contact")}>mailus@bitsoil.tax</a>
+										<a className="menu__item__link" href={FlowRouter.path("contact")}>campaign@bitsoil.tax</a>
 									</li>
 								</ul>
 							</div>
 						</div>
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Spread the word :</p>
+								<p className="menu--footer__title">Spread the word</p>
 								<ul className="buttons-list buttons-list--footer">
 									<li className="buttons-list__item">
 										<a target="_blank" className="buttons-list__link" href={"https://twitter.com/share?url="+encodeURIComponent(location.href)}>
@@ -44,18 +44,16 @@ export default class FooterMenu extends Component {
 										</a>
 									</li>
 									<li className="buttons-list__item">
-										<a target="_blank" className="buttons-list__link" href="">
-											<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.71 19.71"><title>Instagram</title><g data-name="icon-instagram"><path d="M14.27 0H5.44A5.45 5.45 0 0 0 0 5.44v8.83a5.44 5.44 0 0 0 5.44 5.44h8.83a5.45 5.45 0 0 0 5.44-5.44V5.44A5.45 5.45 0 0 0 14.27 0M18 14.27A3.69 3.69 0 0 1 14.27 18H5.44a3.69 3.69 0 0 1-3.69-3.69V5.44a3.69 3.69 0 0 1 3.69-3.69h8.83A3.69 3.69 0 0 1 18 5.44z"/><path d="M9.49 4.78a5.08 5.08 0 1 0 5.08 5.08 5.08 5.08 0 0 0-5.08-5.08m0 8.41a3.33 3.33 0 1 1 3.33-3.33 3.33 3.33 0 0 1-3.33 3.33m5.3-9.9a1.28 1.28 0 1 0 .91.38 1.29 1.29 0 0 0-.91-.38"/></g></svg>
-										</a>
-									</li>
-									<li className="buttons-list__item">
-										<a target="" className="buttons-list__link" href="/contact">
-											<svg width="31px" height="21px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.67 20.12"><title>Mail Us</title><g data-name="icon-mail"><path d="M29.9 20.12H.75L0 19.37V.75L.75 0H29.9l.75.75v18.62zm-28.4-1.5h27.65V1.5H1.5z"/><path d="M29.92 20.12H.78a.75.75 0 0 1-.45-1.35l12.12-9.14a.75.75 0 0 1 .9 1.2L3 18.62h24.68l-10.35-7.79a.75.75 0 0 1 .9-1.2l12.14 9.14a.75.75 0 0 1-.45 1.35z"/><path d="M15.34 12.48a.75.75 0 0 1-.45-.15L.3 1.35A.75.75 0 0 1 .75 0H29.9a.75.75 0 0 1 .45 1.35l-14.56 11a.75.75 0 0 1-.45.13zM3 1.5l12.34 9.29L27.66 1.5z"/></g></svg>
+										<a target="_blank" className="buttons-list__link" href={"https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title=bitsoil.tax%2Fcampaign&summary=bitsoil.tax%2Fcampaign&source=bitsoil.tax%2Fcampaign"}>
+											<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430.117 430.117"><title>Linked-in</title><g data-name="icon-linkedin"><path d="M430.117,261.543V420.56h-92.188V272.193c0-37.271-13.334-62.707-46.703-62.707c-25.473,0-40.632,17.142-47.301,33.724c-2.432,5.928-3.058,14.179-3.058,22.477V420.56h-92.219c0,0,1.242-251.285,0-277.32h92.21v39.309c-0.187,0.294-0.43,0.611-0.606,0.896h0.606v-0.896c12.251-18.869,34.13-45.824,83.102-45.824C384.633,136.724,430.117,176.361,430.117,261.543z M52.183,9.558C20.635,9.558,0,30.251,0,57.463c0,26.619,20.038,47.94,50.959,47.94h0.616c32.159,0,52.159-21.317,52.159-47.94C103.128,30.251,83.734,9.558,52.183,9.558z M5.477,420.56h92.184v-277.32H5.477V420.56z"/></g></svg>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</div>
+
+
+
 						<div className="column">
 							<div className="column__content">
 								<p className="menu--footer__title">Partners</p>

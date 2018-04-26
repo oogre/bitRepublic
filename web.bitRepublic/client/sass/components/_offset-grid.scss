@@ -29,7 +29,7 @@
   background: #fff;
 
   @include breakpoint($md) {
-    background-image: linear-gradient(to right, #fff 0%, #fff 50%, $color-secondary 50%, $color-secondary 100%);
+    
   }
 }
 

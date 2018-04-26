@@ -2,7 +2,7 @@
   bitRepublic - redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-04-18 14:59:08
+  @Last Modified time: 2018-04-26 16:41:05
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -24,7 +24,7 @@ export default class RedistriutionMenu extends Component {
 										FlowRouter.current().path == FlowRouter.path("redistribution") ?
 											<a
 												className="button--secondary hero-banner__button"
-												href={FlowRouter.path("home") + "#taxbot"}
+												href={FlowRouter.path("redistribution") + "#redistributionLogin"}
 											>
 												Genereate your wallet
 											</a>

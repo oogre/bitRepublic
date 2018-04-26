@@ -2,7 +2,7 @@
   bitRepublic - utilities.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:25:19
-  @Last Modified time: 2018-04-10 18:11:52
+  @Last Modified time: 2018-04-26 16:47:33
 \*----------------------------------------*/
 import { check } from 'meteor/check';
 import { BitsoilCreate } from './api/bitsoils/methods.js';
@@ -55,7 +55,13 @@ export function datePlusSeconds(date, seconds){
 	return new Date(date.getTime() + seconds*1000);
 }
 export function setupView(){
-	if(FlowRouter.current().path == FlowRouter.path("home")){
+	if(FlowRouter.current().context.hash == ""){
+		$('html, body').animate({
+			scrollTop: 0
+		}, 666 );
+	}else if(
+		FlowRouter.current().path == FlowRouter.path("home") 
+	||	FlowRouter.current().path == FlowRouter.path("redistribution")){
 		$('html, body').animate({
 			scrollTop: 0
 		}, 0);

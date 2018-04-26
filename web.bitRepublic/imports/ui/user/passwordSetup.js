@@ -2,7 +2,7 @@
   dev - enrollment.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-20 13:29:36
-  @Last Modified time: 2018-04-14 10:17:29
+  @Last Modified time: 2018-04-23 20:43:54
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -133,9 +133,6 @@ export default class UserPasswordSetup extends Component {
 						<div className="modal__container">
 							<form className="login-user" onSubmit={this.handleSetPwd.bind(this)}>
 								<div className="fields-row">
-									<label className="field__label">
-										Password:
-									</label>
 									<input
 										type="password"
 										ref="password"
@@ -153,9 +150,6 @@ export default class UserPasswordSetup extends Component {
 									}
 								</div>
 								<div className="fields-row">
-									<label className="field__label">
-										Retype Password:
-									</label>
 									<input
 										type="password"
 										ref="password-check"
