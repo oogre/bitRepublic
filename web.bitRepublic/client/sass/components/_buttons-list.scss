@@ -10,7 +10,7 @@
 
 .buttons-list__item {
   display: inline-block;
-  margin: 0 2px 1rem 0;
+  margin: 0 2px 1.5rem 0;
 
   &:last-child {
     margin-right: 0;
@@ -108,6 +108,25 @@
 .buttons-list__link--fsoa:hover .icon-flanders-state-of-the-art__background,
 .buttons-list__link--fsoa:focus .icon-flanders-state-of-the-art__background {
   fill: $grey-86;
+}
+
+// Specific case for icon-fundamental-research
+.buttons-list__item--fsoa {
+  float: left;
+}
+
+.icon-flanders-state-of-the-art__background {
+  fill: $grey-50;
+}
+
+.icon-fundamental-research-caret {
+  stroke: $grey-50;
+}
+
+.buttons-list__link:hover .icon-fundamental-research-caret,
+.buttons-list__link:focus .icon-fundamental-research-caret {
+  fill: $grey-86;
+  stroke: $grey-86;
 }
 
 // buttons-list--license
