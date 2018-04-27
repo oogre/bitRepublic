@@ -42,6 +42,7 @@
   min-height: 100%;
   width: 100%;
   min-width: 100%;
+  padding: 20px;
 
   @include breakpoint($md) {
     margin: 0 auto;
@@ -50,6 +51,8 @@
     max-width: 778px;
   }
 }
+
+// modal__wrapper
 
 // Modal-container
 // ---------------------
@@ -83,6 +86,8 @@
   cursor: pointer;
   color: #fff;
   font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: $font-title-sans-serif;
 }
 
 // Modal Submit
@@ -99,6 +104,38 @@
 // ---------------------
 .modal__container .fields-row:last-child {
   margin-bottom: 1rem;
+}
+
+// Modal Login
+// Use for login/signup modal
+// ---------------------
+.modal--login .modal__wrapper {
+  background: url('/images/login/login-background-sm.png') no-repeat 100% 100% $purple-martinique;
+  padding: 2rem 3rem;
+}
+
+.modal--login .icon-bitsoil-tax {
+  display: block;
+  margin: 0 auto 25px;
+}
+
+.modal--login .modal__share {
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.modal--login .modal__share__text {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modal--login .button--secondary {
+  padding: 1rem 2.4rem;
+}
+
+.modal--login .modal__footer {
+  position: absolute;
+  bottom: 1.5rem;
 }
 
 // Modal Tiny

@@ -104,7 +104,7 @@ export default class UserLogIn extends Component {
 		if(this.props.children && _.isEmpty(this.state.target)){
 			this.setState({
 				'is-loading' : false,
-				'has-error' : true, 
+				'has-error' : true,
 				'error-target' : "required"
 			});
 			if(Meteor.userId()){
@@ -150,7 +150,7 @@ export default class UserLogIn extends Component {
 					return;
 				}
 				this.setState({'has-success' : true});
-				
+
 				if(_.isFunction(this.props.onSuccess)){
 					this.props.onSuccess(Meteor.userId(), this.state.target);
 				}
@@ -163,12 +163,12 @@ export default class UserLogIn extends Component {
 		var self     = this;
 		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
-				
+
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					{
-						Meteor.userId() ? 
-							null 
-						: 
+						Meteor.userId() ?
+							null
+						:
 							<div className="fields-row">
 								<div className="fields-column">
 									<input
@@ -206,16 +206,16 @@ export default class UserLogIn extends Component {
 								</div>
 							</div>
 					}
-					
+
 					{
-						this.props.children ? 
+						this.props.children ?
 							<div className="fields-row">
 								<div className="fields-column">
 									{
 										React.Children.map(this.props.children, (child, k) => (
 											<div key={k}>
 												{
-													React.cloneElement(child, {                    
+													React.cloneElement(child, {
 														onTargetSelected: self.handleTarget.bind(self),
 														error : self.state["error-target"]
 													})
@@ -232,7 +232,7 @@ export default class UserLogIn extends Component {
 					<div className="fields-row text-right">
 						<input
 							className={
-								"button--primary " +
+								"button--secondary " +
 								(this.state['is-loading'] ? "loading " : "") +
 								(this.state['has-success'] ? "success " : "") +
 								(this.state['has-error'] ? "error " : "")

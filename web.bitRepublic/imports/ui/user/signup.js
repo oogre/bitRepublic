@@ -50,7 +50,7 @@ export default class UserSignup extends Component {
 		if(this.props.children && _.isEmpty(this.state.target)){
 			this.setState({
 				'is-loading' : false,
-				'has-error' : true, 
+				'has-error' : true,
 				'error-target' : "required"
 			});
 		}
@@ -111,8 +111,8 @@ export default class UserSignup extends Component {
   		var self     = this;
   		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
-				<form 
-					className="login-user" 
+				<form
+					className="login-user"
 					onSubmit={this.handleSignup.bind(this)}
 					autoComplete="false"
 				>
@@ -152,13 +152,13 @@ export default class UserSignup extends Component {
 					</div>
 					<div className="fields-row">
 						{
-							this.props.children ? 
+							this.props.children ?
 								<div className="fields-column">
 									{
 										React.Children.map(this.props.children, (child, k) => (
 											<div key={k}>
 												{
-													React.cloneElement(child, {                    
+													React.cloneElement(child, {
 														onTargetSelected: self.handleTarget.bind(self),
 														error : self.state["error-target"]
 													})
@@ -170,9 +170,9 @@ export default class UserSignup extends Component {
 							:
 								null
 						}
-						
 
-						
+
+
 						<div className="fields-column">
 							<input
 								type="email"
@@ -194,7 +194,7 @@ export default class UserSignup extends Component {
 					<div className="fields-row text-right">
 						<input
 							className={
-								"button--primary " +
+								"button--secondary " +
 								(this.state['is-loading'] ? "loading " : "") +
 								(this.state['has-success'] ? "success " : "") +
 								(this.state['has-error'] ? "error " : "")

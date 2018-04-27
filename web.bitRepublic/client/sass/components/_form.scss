@@ -45,6 +45,13 @@ textarea {
   @include inputText();
 }
 
+// Variation for modal--login input text
+.modal--login [type="text"],
+.modal--login [type="email"],
+.modal--login [type="password"] {
+  padding: .7rem 1.2rem;
+}
+
 // textarea
 // ---------------------
 
@@ -316,4 +323,10 @@ textarea {
       margin: 0 auto;
     }
   }
+}
+
+// variation for modal--login
+
+.modal--login .fields-column {
+  margin-bottom: 1.5rem;
 }

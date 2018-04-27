@@ -95,6 +95,27 @@
   fill: $grey-86;
 }
 
+// buttons-list--modal
+// ---------------------
+.buttons-list--modal .buttons-list__item {
+  margin-right: 1.8rem;
+  margin-bottom: 0;
+  vertical-align: top;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.buttons-list--modal .buttons-list__link svg {
+  fill: $grey-93;
+}
+
+.buttons-list--modal .buttons-list__link:hover svg,
+.buttons-list--modal .buttons-list__link:focus svg {
+  fill: $grey-50;
+}
+
 // Specific case for icon-flanders-state-of-the-art
 
 .icon-flanders-state-of-the-art__foreground {
