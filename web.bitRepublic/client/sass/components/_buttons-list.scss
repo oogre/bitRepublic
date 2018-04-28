@@ -102,6 +102,7 @@
   margin-bottom: 0;
   vertical-align: top;
 
+
   &:last-child {
     margin-right: 0;
   }
@@ -109,6 +110,35 @@
 
 .buttons-list--modal .buttons-list__link svg {
   fill: $grey-93;
+  height: 20px;
+
+  @include breakpoint($md) {
+    height: 28px;
+  }
+}
+
+.buttons-list--modal .icon-twitter {
+  width: 25px;
+
+  @include breakpoint($md) {
+    height: 33px;
+  }
+}
+
+.buttons-list--modal .icon-facebook {
+  width: 10px;
+
+  @include breakpoint($md) {
+    height: 18px;
+  }
+}
+
+.buttons-list--modal .icon-linkedin {
+  width: 20px;
+
+  @include breakpoint($md) {
+    height: 28px;
+  }
 }
 
 .buttons-list--modal .buttons-list__link:hover svg,

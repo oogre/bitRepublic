@@ -112,21 +112,88 @@
 .modal--login .modal__wrapper {
   background: url('/images/login/login-background-sm.png') no-repeat 100% 100% $purple-martinique;
   padding: 2rem 3rem;
+
+  @include breakpoint($md) {
+    height: auto;
+    min-height: 652px;
+    max-width: 908px;
+    background-image: url('/images/login/login-background-md.png');
+    padding: 5.6rem 12rem;
+    @include center-align(absolute);
+  }
+}
+
+.modal--login .modal__container {
+  @include breakpoint($md) {
+    vertical-align: top;
+  }
+}
+
+.modal--login .modal__close {
+  @include breakpoint($md) {
+    top: 5px;
+    right: 22px;
+  }
 }
 
 .modal--login .icon-bitsoil-tax {
   display: block;
   margin: 0 auto 25px;
+  width: 135px;
+  height: 109px;
+
+  @include breakpoint($md) {
+    margin: 0;
+    float: left;
+    width: 240px;
+    height: 194px;
+  }
+}
+
+.modal--login .login-user {
+  @include breakpoint($md) {
+    float: right;
+    width: 50%;
+  }
+}
+
+.modal--login .login-user .fields-column {
+  @include breakpoint($md) {
+    float: none;
+    width: 100%;
+    margin-bottom: 34px;
+  }
+}
+
+.modal--login .field__row--extra-link {
+  text-align: right;
+
+  @include breakpoint($md) {
+    text-align: right;
+    clear: right;
+  }
 }
 
 .modal--login .modal__share {
   margin: 4rem auto 0;
   text-align: center;
+
+  @include breakpoint($md) {
+    width: 100%;
+    max-width: 205px;
+    clear: left;
+    margin: -16px 0 0;
+    float: left;
+  }
 }
 
 .modal--login .modal__share__text {
   font-size: 1rem;
   margin: 0;
+
+  @include breakpoint($md) {
+    font-size: 1.5rem;
+  }
 }
 
 .modal--login .button--secondary {
@@ -136,6 +203,12 @@
 .modal--login .modal__footer {
   position: absolute;
   bottom: 1.5rem;
+
+  @include breakpoint($md) {
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
 }
 
 // Modal Tiny
