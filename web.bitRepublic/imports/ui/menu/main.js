@@ -64,7 +64,7 @@ class MainMenu extends Component {
 						<a className={"menu__item__link " + (FlowRouter.current().route.name == "installation" ? "active" : "")} href={FlowRouter.path("installation")}>Installation</a>
 					</li>
 					<li className="menu__item">
-						<a className={"menu__item__link " + (FlowRouter.current().route.name == "contact" ? "active" : "")} href={FlowRouter.path("contact")}>WHO WE ARE</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "whoweare" ? "active" : "")} href={FlowRouter.path("whoweare")}>Who We Are</a>
 					</li>
 					<li className="menu__item">
 						{
