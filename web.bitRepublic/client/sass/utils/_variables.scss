@@ -96,6 +96,8 @@ $screen-sm-min:             480px;
 $screen-md-min:             768px;
 // Large screen / wide desktop
 $screen-lg-min:             1024px;
+// Specific for header
+$screen-lg-header:          1265px;
 // Extra large screen / very wide desktop
 $screen-xl-min:             1300px;
 // So media queries don't overlap when required, provide a maximum
