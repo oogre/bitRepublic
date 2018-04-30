@@ -2,7 +2,7 @@
   bitRepublic - Installation.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 20:35:46
-  @Last Modified time: 2018-02-02 00:08:35
+  @Last Modified time: 2018-04-30 14:37:52
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -29,23 +29,30 @@ export default class Installation extends Component {
 					<MenuMenu
 						title="enter the republic"
 						description={[
-							"PITCH of the installation",
-							"A few words about bitSOIL resource and installation"
+							"Follow Live the redistribution of bitsoils",
 						]}
 					>
 						<li className="buttons-list__item">
-							<a className="button button--md hero-banner__button" href={FlowRouter.path("redistribution")}>Join the campaign</a>
+							<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Join the campaign</a>
 						</li>
 						<li className="buttons-list__item">
-							<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create your taxbot</a>
+							<a className="button button--md hero-banner__button" href={FlowRouter.path("about")}>FIND OUT MORE</a>
 						</li>
 					</MenuMenu>
+					<FixeInfo />
+
+					<FixePunchline description={[
+						"BITSOIL IS THE NEW OIL OF THE DIGITAL ECONOMY",
+						"CLAIM YOUR FAIR SHARE OF THIS WORLD’S NEWEST RESOURCE"
+					]}>
+						<a className="button--secondary hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>DESIGN YOUR TAXBOT</a>
+					</FixePunchline>
 					<div className="offset-grid offset-grid--installation">
 						<div className="offset-grid__wrapper container">
 							<div className="offset-grid__col text-center">
-								<FixePitch title="enter the republic"
+								<FixePitch title="WATCH THE TRAILER!"
 									description={[
-										"pitch pistch dsfjhsdlkfj sdkjfh lkfjha lskjfhlkjdsh alkjjshf alkjjhfs lkajshf kjh"
+										"Launch of the campaign the17th of May. Join us!"
 									]}
 								/>
 							</div>
@@ -54,13 +61,6 @@ export default class Installation extends Component {
 							</div>
 						</div>
 					</div>
-					<div>
-
-					</div>
-					<FixePunchline description={["design your tax collector bot", "claim a #bitsoiltax"]}>
-						<a className="button--secondary hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Create now</a>
-					</FixePunchline>
-					<FixeInfo />
 					<FixeSlider />
 				</div>
 				<FooterMenu />

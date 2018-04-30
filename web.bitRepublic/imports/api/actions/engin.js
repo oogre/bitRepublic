@@ -2,7 +2,7 @@
   bitRepublic - engin.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-15 11:41:25
-  @Last Modified time: 2018-03-26 15:46:53
+  @Last Modified time: 2018-04-30 12:33:32
 \*----------------------------------------*/
 
 import { Actions } from '../actions/actions.js';
@@ -34,7 +34,7 @@ if(Meteor.isServer){
 			}
 			nextBotNetConnection = Utilities.nowPlusSeconds(result.data.duration)
 			botNetToken = result.data.token;
-			console.log("NEXT BOTNET CONNECTION", nextBotNetConnection);
+			Utilities.log("NEXT BOTNET CONNECTION : " + nextBotNetConnection);
 		}
 		return botNetToken;
 	}
@@ -58,8 +58,8 @@ if(Meteor.isServer){
 		}).fetch().map(function(action){
 			action.bot = Bots.findOne({_id:action.bot});
 			if(action.bot){
-				console.warn("/action/engin", "DO NOT FORGET TO CHANGE THE tweet_target");
-				console.warn("/action/engin", "DO NOT FORGET TO CHANGE THE tweet_pic_id");
+				Utilities.log("/action/engin : DO NOT FORGET TO CHANGE THE tweet_target");
+				Utilities.log("/action/engin : DO NOT FORGET TO CHANGE THE tweet_pic_id");
 				HTTP.call('POST', process.env.TWEETER_BOT_URI+'/api/submit_task', {
 					auth: process.env.TWEETER_BOT_USER+":"+process.env.TWEETER_BOT_PWD,
 					headers : {
@@ -74,11 +74,11 @@ if(Meteor.isServer){
 						tweet_pic_id:"bot0"
 					}
 				}, function(err, res){
-					console.warn("Tweet engin has runned for", action._id);
+					Utilities.log("Tweet engin has runned for : " + action._id);
 					if (err){
-						console.error( "BOT NET POST TWEET ERROR", err);
+						Utilities.error( "BOT NET POST TWEET ERROR : " + err);
 					}else{
-						console.log(res.data);		
+						Utilities.log(res.data);		
 					}
 					Actions.update(action._id, {
 						$set : {
@@ -88,7 +88,7 @@ if(Meteor.isServer){
 					BitsoilCreate.call({bitsoil : action.bitsoil});
 				});
 			}else{
-				console.warn("THIS ACTION", action._id, "HAS NO MORE BOT. IT WILL BE DISACTIVATED");
+				Utilities.log("THIS ACTION : " + action._id + " : HAS NO MORE BOT. IT WILL BE DISACTIVATED");
 				Actions.update(action._id, {
 					$set : {
 						active : false
