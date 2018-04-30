@@ -50,6 +50,10 @@ textarea {
 .modal--login [type="email"],
 .modal--login [type="password"] {
   padding: .7rem 1.2rem;
+
+  @include breakpoint($md) {
+    padding: 1.1rem 2rem;
+  }
 }
 
 // textarea
@@ -266,6 +270,17 @@ textarea {
   height: 100%;
   padding: 0;
   line-height: 48px;
+  outline-color: $color-primary;
+}
+
+.Select .Select-input {
+  outline-color: $color-primary;
+}
+
+.Select.is-focused:not(.is-open) > .Select-control {
+  border-color: inherit;
+  box-shadow: 0 0 3px 2px rgba(4, 103, 95, 0.8);
+  background: #fff;
 }
 
 .Select .Select-placeholder,
@@ -329,4 +344,8 @@ textarea {
 
 .modal--login .fields-column {
   margin-bottom: 1.5rem;
+}
+
+.modal--login .fields-row {
+  margin-bottom: 0;
 }

@@ -182,7 +182,7 @@ class BotSelector extends Component {
 					selectedBot={this.state.selectedBot}
 					process="signup"
 					onMounted={this.handleModalMounted.bind(this)}
-					title="Thank you. I will do the job. I will send the tweet postcards for you. Please fill in the form if you will stay updated about the results."
+					title="Awesome!"
 				/>
 				<Alert open={this.state.success} message="Thank You. I will do the job..." onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>

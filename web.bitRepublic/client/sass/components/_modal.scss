@@ -61,6 +61,29 @@
   vertical-align: middle;
 }
 
+// Modal Title
+// ---------------------
+.modal--login .modal__title,
+.modal--login .modal__subtitle {
+  float: right;
+  width: 50%;
+}
+
+.modal--login .modal__title {
+  @include breakpoint($md) {
+    font-size: 2.6rem;
+    margin-bottom: 0;
+  }
+}
+
+.modal--login .modal__subtitle {
+  @include breakpoint($md) {
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+}
+
+
 // Modal Input
 // ---------------------
 .modal__container [type="text"],
@@ -69,6 +92,22 @@
 .modal__container [type="date"],
 .modal__container [type="number"] {
   border: 1px solid $grey-9;
+}
+
+.modal__container .Select-control,
+.modal__container .Select-placeholder,
+.modal__container .Select-input {
+  @include breakpoint($md) {
+    min-height: 38px;
+  }
+}
+
+.modal__container .Select-placeholder,
+.modal__container .Select-value {
+  @include breakpoint($md) {
+    font-size: 1.2rem;
+    line-height: 40px !important; // Overide JS style
+  }
 }
 
 .modal__container .Select-control,
@@ -161,7 +200,7 @@
   @include breakpoint($md) {
     float: none;
     width: 100%;
-    margin-bottom: 34px;
+    margin-bottom: 22px;
   }
 }
 
@@ -181,9 +220,9 @@
   @include breakpoint($md) {
     width: 100%;
     max-width: 205px;
-    clear: left;
-    margin: -16px 0 0;
-    float: left;
+    margin: 50px 0 0;
+    position: absolute;
+    top: 255px;
   }
 }
 
@@ -208,6 +247,12 @@
     width: 100%;
     left: 0;
     text-align: center;
+  }
+}
+
+.modal--login .modal__footer .modal__link {
+  @include breakpoint($md) {
+    font-size: 1.4rem;
   }
 }
 
