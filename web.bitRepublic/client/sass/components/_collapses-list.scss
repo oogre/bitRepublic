@@ -1,0 +1,89 @@
+/*------------------------------------*\
+  > collapses-list
+\*------------------------------------*/
+
+// Collapses List
+// ---------------------
+.collapses-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid $grey-iron;
+}
+
+// Collapse List Item
+// ---------------------
+.collapse-list__item {
+
+}
+
+// collapse-list__item__button
+// ---------------------
+.collapse-list__item__button {
+  background: $grey-95;
+  border: 0;
+  border-bottom: 1px solid $grey-82;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  line-height: 4.8;
+  font-size: 1.6rem;
+  padding: 0 7.4rem;
+  text-transform: uppercase;
+  position: relative;
+
+  &:before,
+  &:after {
+    @include vertical-center(absolute);
+    display: block;
+    content: "";
+  }
+
+  &:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 1px solid $color-text;
+    border-radius: 10px;
+    left: 30px;
+  }
+
+  &:after {
+    background: url('/images/icons/icon-plus.svg') no-repeat;
+    left: 34px;
+    width: 12px;
+    height: 12px;
+  }
+
+  &:hover,
+  &.open {
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:before {
+      border-color: $green-fun;
+    }
+
+    &:after {
+      background-image: url('/images/icons/icon-minus.svg');
+    }
+  }
+}
+
+.collapse-list__item:nth-child(even) .collapse-list__item__button {
+  background: $blue-aqua-haze;
+}
+
+// Collapse-list__item__content
+// ---------------------
+.collapse-list__item__content {
+  display: none;
+  background: $white-porcelain;
+  padding: 24px 38px;
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
+.open .collapse-list__item__content {
+  display: block;
+}
