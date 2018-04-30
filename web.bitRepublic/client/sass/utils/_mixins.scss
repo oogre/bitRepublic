@@ -13,7 +13,7 @@ $sm: (min: $screen-sm-min + 1);
 $md: (min: $screen-md-min + 1);
 $lg: (min: $screen-lg-min + 1);
 $lg-intermediate: (min: 1130px + 1); // Specific BP Use for hero-banner--bitsoil taxrate position
-$lg-intermediate-alt: (min: 1280px + 1); // Specific BP use for header menu (show hamburger below 1280px)
+$lg-intermediate-alt: (min: $screen-lg-header + 1); // Specific BP use for header menu (show hamburger below 1265px)
 $xl: (min: $screen-xl-min + 1);
 
 $xs-tiny-only: (max: 340px + 1);
@@ -24,7 +24,7 @@ $md-only: (min: map-get($md, min), max: map-get($lg, min) - 1);
 $below-sm: (max:  $screen-sm-min);
 $below-md: (max:  $screen-md-min);
 $below-lg: (max:  $screen-lg-min);
-$below-lg-intermediate-alt: (max: 1280px); // Specific BP use for header menu (show hamburger below 1280px)
+$below-lg-intermediate-alt: (max: $screen-lg-header); // Specific BP use for header menu (show hamburger below 1280px)
 
 
 @mixin breakpoint($map) {
