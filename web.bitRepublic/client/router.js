@@ -16,6 +16,7 @@ import UserUpdate from '../imports/ui/user/update.js';
 import Contact from '..//imports/ui/Contact.js'
 import About from '../imports/ui/About.js';
 import WhoWeAre from '../imports/ui/WhoWeAre.js';
+import Faq from '../imports/ui/Faq.js';
 import App from '../imports/ui/App.js';
 
 FlowRouter.route( '/', {
@@ -106,6 +107,21 @@ FlowRouter.route('/whoweare', {
 	name: 'whoweare',
 	action( params ) {
 		render(<WhoWeAre />, document.getElementById('render-target'));
+		Utilities.CreateBitsoil();
+		Utilities.setupView();
+	},
+	subscriptions: function(params, queryParams) {
+		this.register('public.bots', Meteor.subscribe('public.bots'));
+		this.register('schedules', Meteor.subscribe('schedules'));
+		this.register('targets', Meteor.subscribe('targets'));
+		this.register('public.wallet', Meteor.subscribe('public.wallet'));
+	}
+});
+
+FlowRouter.route('/faq', {
+	name: 'faq',
+	action( params ) {
+		render(<Faq />, document.getElementById('render-target'));
 		Utilities.CreateBitsoil();
 		Utilities.setupView();
 	},

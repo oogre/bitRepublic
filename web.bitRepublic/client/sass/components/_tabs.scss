@@ -160,3 +160,20 @@
     padding-left: 189px;
   }
 }
+
+// tab__content__wrapper
+// ---------------------
+
+.tab__content__wrapper {
+  @include breakpoint($md) {
+    padding: 0 4.5rem;
+    max-width: 840px;
+  }
+}
+
+
+// tabs--faq
+// ---------------------
+.tabs--faq .tabs-selector-list__item {
+  width: 100%;
+}
