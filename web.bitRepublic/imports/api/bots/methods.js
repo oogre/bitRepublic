@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:04
-  @Last Modified time: 2018-04-10 19:27:59
+  @Last Modified time: 2018-05-01 23:19:44
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -134,7 +134,7 @@ export const BotTweetUpdate = new ValidatedMethod({
 		botId: { type: String, regEx: SimpleSchema.RegEx.Id },
 		'tweet': { type: Object },
 		'tweet._id': { type: String, regEx: SimpleSchema.RegEx.Id },
-		'tweet.content': { type: String, min: 1, max: 140},
+		'tweet.content': { type: String, min: config.TWEETS.LEN.MIN, max: config.TWEETS.LEN.MAX },
 		'tweet.schedules': { type: [Object], minCount: 2},
 		'tweet.schedules.$._id': { type: String, regEx: SimpleSchema.RegEx.Id },
 		'tweet.schedules.$.content': { type: String },
