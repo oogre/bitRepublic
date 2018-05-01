@@ -88,6 +88,16 @@ export default class FooterMenu extends Component {
 						</div>
 						<div className="column">
 							<div className="column__content">
+								<p className="menu--footer__title">Faq</p>
+								<ul class="menu menu--footer">
+									<li class="menu__item">
+										<a class="menu__item__link" href="/faq">Frequently Asked Questions</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div className="column">
+							<div className="column__content">
 								<p className="menu--footer__title">Supported by</p>
 								<ul className="buttons-list buttons-list--footer">
 									<li className="buttons-list__item buttons-list__item--fsoa">
@@ -99,6 +109,22 @@ export default class FooterMenu extends Component {
 										<a className="buttons-list__link buttons-list__link" target="_blank" href="http://www.vgc.be/ondersteuning/subsidies/cultuur/subsidies-kunsten">
 											<svg width="64px" height="32px" id="icon-vgc" data-name="icon-vgc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.23 32"><title>Vlaamse Gemeenschapscommissie</title><path d="M63.23 24.6v7.29h-1.17V24.7l1-.1zM60 28.79a1.26 1.26 0 0 0-.34-.84.89.89 0 0 0-.66-.25 1 1 0 0 0-.68.26 1.44 1.44 0 0 0-.43.83zm.8 1.75v1.14a3.49 3.49 0 0 1-1.5.32 2.74 2.74 0 0 1-1.87-.67 2.67 2.67 0 0 1-.8-2 2.85 2.85 0 0 1 .73-2 2.21 2.21 0 0 1 1.6-.69 2.41 2.41 0 0 1 .76.13 1.82 1.82 0 0 1 .89.66 2.67 2.67 0 0 1 .39 1.5v.79h-3.11a1.37 1.37 0 0 0 .59.89 1.71 1.71 0 0 0 .94.26 2.8 2.8 0 0 0 1.3-.34zm-8 0a3.44 3.44 0 0 0 .57.24 2.23 2.23 0 0 0 .71.13 1.18 1.18 0 0 0 .59-.14.52.52 0 0 0 .27-.47c0-.34-.24-.49-.56-.61l-.52-.18a1.55 1.55 0 0 1-.93-.65 1.29 1.29 0 0 1-.16-.7 1.43 1.43 0 0 1 .54-1.19 2 2 0 0 1 1.25-.36 3.51 3.51 0 0 1 1.15.2v1.06h-.06a2 2 0 0 0-.89-.21 1.32 1.32 0 0 0-.57.11.39.39 0 0 0-.25.35c0 .25.24.37.56.49l.52.18a1.64 1.64 0 0 1 .92.73 1.5 1.5 0 0 1 .16.74 1.59 1.59 0 0 1-.61 1.32 2.26 2.26 0 0 1-1.38.42 2.47 2.47 0 0 1-1.33-.36v-1.1zM49 30.5a3.45 3.45 0 0 0 .57.24 2.23 2.23 0 0 0 .71.13 1.18 1.18 0 0 0 .59-.14.52.52 0 0 0 .27-.47c0-.34-.24-.49-.56-.61l-.52-.18a1.55 1.55 0 0 1-.93-.65 1.28 1.28 0 0 1-.16-.7 1.43 1.43 0 0 1 .54-1.19 2 2 0 0 1 1.25-.36 3.51 3.51 0 0 1 1.15.2v1.06h-.06a2 2 0 0 0-.89-.21 1.32 1.32 0 0 0-.57.11.39.39 0 0 0-.25.35c0 .25.24.37.56.49l.52.18a1.64 1.64 0 0 1 .92.73 1.5 1.5 0 0 1 .16.74 1.59 1.59 0 0 1-.61 1.32 2.26 2.26 0 0 1-1.38.42 2.47 2.47 0 0 1-1.31-.32v-1.1zm-1.85 1.39l-.12-.41a3 3 0 0 1-1.65.51 2 2 0 0 1-1.31-.44 1.81 1.81 0 0 1-.57-1.42v-3.46h1.17v3.12a1 1 0 0 0 .35.83 1.32 1.32 0 0 0 .82.25 2.21 2.21 0 0 0 1.16-.33v-3.87h1.17v5.23zM42.52 28a1.64 1.64 0 0 0-.88-.26 1.7 1.7 0 0 0-1 .38v3.81h-1.21v-5.26h1l.12.43a2 2 0 0 1 1.32-.53 3 3 0 0 1 .52 0 1.73 1.73 0 0 1 .51.16zM35 30.72a3.25 3.25 0 0 0 1 .15 1.22 1.22 0 0 0 1-.5 1.83 1.83 0 0 0 .33-1.09 1.89 1.89 0 0 0-.33-1.09 1.11 1.11 0 0 0-1-.49 2.06 2.06 0 0 0-1 .3zm-.18-6.12H35V27a2.16 2.16 0 0 1 1.32-.44 2 2 0 0 1 1.66.77 2.8 2.8 0 0 1 .54 1.73 3.24 3.24 0 0 1-.65 2.08 2.41 2.41 0 0 1-1.94.85 5.1 5.1 0 0 1-1.06-.13 6.24 6.24 0 0 1-1-.32V24.8zM11 7.58A6.77 6.77 0 0 1 16.49 5c6.23 0 7.93 4.91 7.93 8.3v10.25a3.83 3.83 0 0 0 2.81 3.61A16 16 0 0 0 15.86 0 16.59 16.59 0 0 0 5.41 3.87 6.5 6.5 0 0 1 11 7.58" /><path d="M20.76 23.55V12.98a4.47 4.47 0 0 0-4.46-4.25 4.55 4.55 0 0 0-4.52 4.11 4 4 0 0 0 0 .51v9.53a1.83 1.83 0 1 1-3.65 0V10.56c-.24-3.4-3.34-3.93-5-4A16 16 0 0 0 15.86 32a15.69 15.69 0 0 0 8.25-2.33c-3.21-2-3.35-6.12-3.35-6.12" /></svg>
 										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div className="column">
+							<div className="column__content">
+								<p className="menu--footer__title">Software Development</p>
+								<ul class="menu menu--footer">
+									<li class="menu__item">
+										<a class="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://ogre.be/">Backend: Vincent Evrard</a>
+									</li>
+									<li class="menu__item">
+										<a class="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://crucifixarnaud.com">Frontend: Crucifix Arnaud</a>
+									</li>
+									<li class="menu__item">
+										<a class="menu__item__link" target="_blank" rel="noopener noreferrer" href="">Bot Automation: Claire Tolan</a>
 									</li>
 								</ul>
 							</div>
