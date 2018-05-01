@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-05-01 20:13:02
+  @Last Modified time: 2018-05-01 23:07:20
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -124,7 +124,7 @@ export default class FooterMenu extends Component {
 										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://crucifixarnaud.com">Frontend: Crucifix Arnaud</a>
 									</li>
 									<li className="menu__item">
-										Bot Automation: Jenny Mainframe
+										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="#">Bot Automation: Jenny Mainframe</a>
 									</li>
 								</ul>
 							</div>
