@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-05-01 17:15:05
+  @Last Modified time: 2018-05-01 18:37:21
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -45,6 +45,23 @@ Meteor.startup(() => {
 				console.log("\tpassword:"+rpiUserData.password);
 				let rpiId =  Accounts.createUser(rpiUserData);
 				Roles.addUsersToRoles(rpiId, ['user'])
+
+				console.log("INSERT CLAIR");
+				let clairUserData = {
+					username : process.env.CLAIR_USR,
+					profile : {
+						firstname : "Claire",
+						lastname : "Tolan"
+					},
+					email : process.env.CLAIR_MAIL,
+					password : process.env.CLAIR_PWD
+				}
+				console.log("rpi info : ");
+				console.log("\tusername:"+clairUserData.username);
+				console.log("\temail:"+clairUserData.email);
+				console.log("\tpassword:"+clairUserData.password);
+				let clairId =  Accounts.createUser(clairUserData);
+				Roles.addUsersToRoles(clairId, ['user'])
 			}
 		}
 	}
