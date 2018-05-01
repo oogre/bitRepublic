@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-12 11:16:08
+  @Last Modified time: 2018-04-30 15:13:05
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -117,40 +117,6 @@ export default class UserSignup extends Component {
 					autoComplete="false"
 				>
 					<div className="fields-row">
-						<div className="fields-column">
-							<input
-								type="text"
-								ref="firstname"
-								name="firstname"
-								placeholder="first name"
-							/>
-							{ 	this.state["error-firstname"] ?
-									<MessageError
-										error={this.state["error-firstname"]}
-										messages={config.FORM.ERRORS.firstname}
-									/>
-								:
-									null
-							}
-						</div>
-						<div className="fields-column">
-							<input
-								type="text"
-								ref="lastname"
-								name="lastname"
-								placeholder="last name"
-							/>
-							{ 	this.state["error-lastname"] ?
-									<MessageError
-										error={this.state["error-lastname"]}
-										messages={config.FORM.ERRORS.lastname}
-									/>
-								:
-									null
-							}
-						</div>
-					</div>
-					<div className="fields-row">
 						{
 							this.props.children ?
 								<div className="fields-column">
@@ -170,7 +136,42 @@ export default class UserSignup extends Component {
 							:
 								null
 						}
-
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="firstname"
+								name="firstname"
+								placeholder="first name"
+							/>
+							{ 	this.state["error-firstname"] ?
+									<MessageError
+										error={this.state["error-firstname"]}
+										messages={config.FORM.ERRORS.firstname}
+									/>
+								:
+									null
+							}
+						</div>
+						
+					</div>
+					<div className="fields-row">
+						
+						<div className="fields-column">
+							<input
+								type="text"
+								ref="lastname"
+								name="lastname"
+								placeholder="last name"
+							/>
+							{ 	this.state["error-lastname"] ?
+									<MessageError
+										error={this.state["error-lastname"]}
+										messages={config.FORM.ERRORS.lastname}
+									/>
+								:
+									null
+							}
+						</div>
 
 
 						<div className="fields-column">

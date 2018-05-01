@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:44
-  @Last Modified time: 2018-04-05 11:56:50
+  @Last Modified time: 2018-05-01 14:40:08
 \*----------------------------------------*/
 
 import { Wallets } from './wallets.js';
@@ -32,7 +32,7 @@ if(Meteor.isServer){
 		*       "status": "success",
 		*       "data": [{
 		*			bitsoil: 0.000009,
-		*           key : "2LjFKYJ5CayMaEyD3Xi6w3CPmo3NWRgf",
+		*           publicKey : "2LjFKYJ5CayMaEyD3Xi6w3CPmo3NWRgf",
 		*           number : "000023"
 		*       }]
 		*     }
@@ -51,7 +51,7 @@ if(Meteor.isServer){
 						fields : {
 							_id : 0,
 							bitsoil : 1,
-							key : 1,
+							publicKey : 1,
 							number : 1
 						},
 						sort : {

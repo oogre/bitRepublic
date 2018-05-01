@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-12 11:09:46
+  @Last Modified time: 2018-04-30 15:10:35
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -166,6 +166,27 @@ export default class UserLogIn extends Component {
 
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					{
+						this.props.children ?
+							<div className="fields-row">
+								<div className="fields-column">
+									{
+										React.Children.map(this.props.children, (child, k) => (
+											<div key={k}>
+												{
+													React.cloneElement(child, {
+														onTargetSelected: self.handleTarget.bind(self),
+														error : self.state["error-target"]
+													})
+												}
+											</div>
+										))
+									}
+								</div>
+							</div>
+						:
+							null
+					}
+					{
 						Meteor.userId() ?
 							null
 						:
@@ -207,27 +228,7 @@ export default class UserLogIn extends Component {
 							</div>
 					}
 
-					{
-						this.props.children ?
-							<div className="fields-row">
-								<div className="fields-column">
-									{
-										React.Children.map(this.props.children, (child, k) => (
-											<div key={k}>
-												{
-													React.cloneElement(child, {
-														onTargetSelected: self.handleTarget.bind(self),
-														error : self.state["error-target"]
-													})
-												}
-											</div>
-										))
-									}
-								</div>
-							</div>
-						:
-							null
-					}
+					
 					{this.state['is-loading'] ? <FixeWait /> : null }
 					<div className="fields-row text-right">
 						<input
