@@ -2,7 +2,7 @@
   bitRepublic - modal.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-30 15:15:55
+  @Last Modified time: 2018-05-01 18:48:13
 \*----------------------------------------*/
 import React, { Component } from 'react';
 // https://reactcommunity.org/react-modal/
@@ -205,7 +205,7 @@ export default class UserModal extends Component {
 							</div>
 							<div className="modal__footer">
 								<span>
-									<a className="modal__link">Faq</a>
+									<a className="modal__link" href={FlowRouter.path("faq")} target="_blank">Faq</a>
 								</span>
 								{
 										this.state.selectedProcess == "signup"

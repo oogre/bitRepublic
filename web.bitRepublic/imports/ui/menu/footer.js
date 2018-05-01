@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-05-01 17:32:01
+  @Last Modified time: 2018-05-01 20:13:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -91,7 +91,7 @@ export default class FooterMenu extends Component {
 								<p className="menu--footer__title">Faq</p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
-										<a className="menu__item__link" href="/faq">Frequently Asked Questions</a>
+										<a className="menu__item__link" href={FlowRouter.path("faq")}>Frequently Asked Questions</a>
 									</li>
 								</ul>
 							</div>
@@ -124,7 +124,7 @@ export default class FooterMenu extends Component {
 										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://crucifixarnaud.com">Frontend: Crucifix Arnaud</a>
 									</li>
 									<li className="menu__item">
-										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="">Bot Automation: Claire Tolan</a>
+										Bot Automation: Jenny Mainframe
 									</li>
 								</ul>
 							</div>
