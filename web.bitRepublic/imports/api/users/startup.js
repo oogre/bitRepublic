@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-04-10 10:49:22
+  @Last Modified time: 2018-05-01 17:15:05
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -28,6 +28,23 @@ Meteor.startup(() => {
 				console.log("\tpassword:"+adminUserData.password);
 				let adminId =  Accounts.createUser(adminUserData);
 				Roles.addUsersToRoles(adminId, ['admin'])
+
+				console.log("INSERT RPI");
+				let rpiUserData = {
+					username : process.env.RPI_USR,
+					profile : {
+						firstname : "default",
+						lastname : "default"
+					},
+					email : process.env.RPI_MAIL,
+					password : process.env.RPI_PWD
+				}
+				console.log("rpi info : ");
+				console.log("\tusername:"+rpiUserData.username);
+				console.log("\temail:"+rpiUserData.email);
+				console.log("\tpassword:"+rpiUserData.password);
+				let rpiId =  Accounts.createUser(rpiUserData);
+				Roles.addUsersToRoles(rpiId, ['user'])
 			}
 		}
 	}
