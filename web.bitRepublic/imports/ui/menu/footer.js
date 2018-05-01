@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-04-30 15:04:10
+  @Last Modified time: 2018-05-01 17:32:01
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -89,9 +89,9 @@ export default class FooterMenu extends Component {
 						<div className="column">
 							<div className="column__content">
 								<p className="menu--footer__title">Faq</p>
-								<ul class="menu menu--footer">
-									<li class="menu__item">
-										<a class="menu__item__link" href="/faq">Frequently Asked Questions</a>
+								<ul className="menu menu--footer">
+									<li className="menu__item">
+										<a className="menu__item__link" href="/faq">Frequently Asked Questions</a>
 									</li>
 								</ul>
 							</div>
@@ -116,15 +116,15 @@ export default class FooterMenu extends Component {
 						<div className="column">
 							<div className="column__content">
 								<p className="menu--footer__title">Software Development</p>
-								<ul class="menu menu--footer">
-									<li class="menu__item">
-										<a class="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://ogre.be/">Backend: Vincent Evrard</a>
+								<ul className="menu menu--footer">
+									<li className="menu__item">
+										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://ogre.be/">Backend: Vincent Evrard</a>
 									</li>
-									<li class="menu__item">
-										<a class="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://crucifixarnaud.com">Frontend: Crucifix Arnaud</a>
+									<li className="menu__item">
+										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://crucifixarnaud.com">Frontend: Crucifix Arnaud</a>
 									</li>
-									<li class="menu__item">
-										<a class="menu__item__link" target="_blank" rel="noopener noreferrer" href="">Bot Automation: Claire Tolan</a>
+									<li className="menu__item">
+										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="">Bot Automation: Claire Tolan</a>
 									</li>
 								</ul>
 							</div>

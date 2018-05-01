@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-16 00:23:43
-  @Last Modified time: 2018-04-05 11:56:26
+  @Last Modified time: 2018-05-01 17:49:21
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 //import { Bots } from './bots.js';
@@ -59,8 +59,12 @@ if(Meteor.isServer){
 								}
 							]
 						}, {
+							$inc : {
+								counter : 1
+							},
 							$push : {
 								history : {
+									createdAt : new Date(),
 									botName : this.urlParams.botName,
 									tweetId : this.urlParams.tweetId
 								}

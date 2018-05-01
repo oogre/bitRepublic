@@ -2,7 +2,7 @@
   bitRepublic - profile.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:01:12
-  @Last Modified time: 2018-02-28 15:25:35
+  @Last Modified time: 2018-05-01 17:57:31
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -70,6 +70,6 @@ export default withTracker(() => {
 		isReady : isReady,
 		userId : Meteor.userId(),
 		currentUser : Meteor.user(),
-		wallet : Wallets.findOne({owner : Meteor.userId()}, {fields : {number : 1, bitsoil:1, key:1}})
+		wallet : Wallets.findOne({owner : Meteor.userId()}, {fields : {number : 1, bitsoil:1, key:1, publicKey:1}})
 	};
 })(UserProfile);

@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-04-23 20:08:18
+  @Last Modified time: 2018-05-01 18:05:25
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -64,7 +64,6 @@ class BotInfo extends Component {
 				});
 				return;
 			}
-			console.log(res);
 		});
 	}
 	renderTweet(actions){
@@ -93,6 +92,38 @@ class BotInfo extends Component {
 			</li>
 		));
 	}
+	renderHistoric(histories){
+		return _.compact(histories).map((history, k) => (
+			<li
+				className="table-list__item"
+				key={k}
+			>
+				<a 
+					target="_blank" 
+					href={"https://twitter.com/"+history.botName+"/status/"+history.tweetId}
+				>
+					{
+						history.createdAt ? 
+							moment(history.createdAt).format('MM-DD-YY HH:mm')
+						:
+							"-"
+					}
+				</a>
+			</li>
+		));
+	}
+	renderHistory(actions){
+		return _.compact(actions).map((action) => (
+			<li
+				className="table-list__item"
+				key={action._id}
+			>
+				<ul className="table-list">
+					{ this.renderHistoric(action.history) }
+				</ul>
+			</li>
+		));
+	}
 	renderNextActionAt(actions){
 		return _.compact(actions).map((action) => (
 			<li
@@ -103,18 +134,12 @@ class BotInfo extends Component {
 				}}
 			>
 				{
-					moment(
-						Utilities.datePlusSeconds(
-							action.nextActivation, action.interval
-						).getTime()
-					).format('MM-DD-YY HH:mm')
+					moment(action.nextActivation).format('MM-DD-YY HH:mm')
 				}
 			</li>
 		));
 	}
 	renderBitsoil(bot){
-
-		console.log(bot);
 
 		return _.compact(bot.actions).map((action) => (
 			<li className="table-list__item" key={action._id}>
@@ -144,6 +169,11 @@ class BotInfo extends Component {
 				</td>
 				<td className="table__cell">
 					<ul className="table-list">
+						{ this.renderHistory(bot.actions) }
+					</ul>
+				</td>
+				<td className="table__cell">
+					<ul className="table-list">
 						{ this.renderTweet(bot.actions) }
 					</ul>
 				</td>
@@ -163,10 +193,9 @@ class BotInfo extends Component {
 	renderTotal(){
 		return (
 			<tr className="table__row table__row--totals">
-				<td className="table__cell text-right" colSpan="6">bitsoils/day</td>
+				<td className="table__cell text-right" colSpan="7">Your bots contribution</td>
 				<td className="table__cell text-center">
 					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} />
-					<div className="table__cell--counter__label text-right">every {this.props.totalInterval.humanize()}</div>
 				</td>
 			</tr>
 		);
@@ -181,6 +210,7 @@ class BotInfo extends Component {
 						<th className="table__header__cell table__header__cell--large">Created at</th>
 						<th className="table__header__cell table__header__cell--large">Next action at</th>
 						<th className="table__header__cell">Active</th>
+						<th className="table__header__cell">History</th>
 						<th className="table__header__cell">Tweet</th>
 						<th className="table__header__cell table__header__cell--xl">Bitsoils</th>
 					</tr>
@@ -213,8 +243,7 @@ export default withTracker(() => {
 	let myBotsReady = FlowRouter.subsReady("my.bots");
 	let bots = [];
 	let totalBitsoil = 0;
-	let totalInterval = moment.duration(config.BOT_INFO_TOTAL_INTERVAL, "second");
-
+	
 	if(myBotsReady){
 		bots = Bots.find({owner : Meteor.userId(), model : { $ne : true }}).fetch();
 		let models = Bots.find({_id : {$in : _.pluck(bots, 'model')}}).fetch();
@@ -223,8 +252,8 @@ export default withTracker(() => {
 			bots[i].model = _.findWhere(models, { _id : bots[i].model });
 			bots[i].actions = 	bots[i].actions.map(function(act){
 									let action = _.findWhere(actions, { _id : act});
-									if(action && action.active){
-										totalBitsoil += bots[i].bitsoil * (totalInterval.asSeconds() / action.interval) ;
+									if(action){
+										totalBitsoil += bots[i].bitsoil * action.counter;
 									}
 									return action;
 								});
@@ -234,7 +263,6 @@ export default withTracker(() => {
 	return {
 		isReady : myBotsReady,
 		bots : bots,
-		totalBitsoil : totalBitsoil,
-		totalInterval : totalInterval
+		totalBitsoil : totalBitsoil
 	};
 })(BotInfo);
