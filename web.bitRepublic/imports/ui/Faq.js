@@ -60,7 +60,7 @@ export default class WhoWeAre extends Component {
         <HeaderMenu />
         <div className="page__content">
           <div className="container">
-            <div className="tabs--profile">
+            <div className="tabs--profile tabs--faq">
               <ul className="tabs-selector-list">
                 <li className="tabs-selector-list__item">
                   <a className="selected tabs-selector-list__button" href="#">Frequently Asked Questions</a>

@@ -165,6 +165,15 @@
 // ---------------------
 
 .tab__content__wrapper {
-  padding: 0 4.5rem;
-  max-width: 840px;
+  @include breakpoint($md) {
+    padding: 0 4.5rem;
+    max-width: 840px;
+  }
+}
+
+
+// tabs--faq
+// ---------------------
+.tabs--faq .tabs-selector-list__item {
+  width: 100%;
 }

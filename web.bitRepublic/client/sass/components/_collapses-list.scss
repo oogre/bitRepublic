@@ -11,12 +11,6 @@
   border-top: 1px solid $grey-iron;
 }
 
-// Collapse List Item
-// ---------------------
-.collapse-list__item {
-
-}
-
 // collapse-list__item__button
 // ---------------------
 .collapse-list__item__button {
@@ -79,9 +73,13 @@
 .collapse-list__item__content {
   display: none;
   background: $white-porcelain;
-  padding: 24px 38px;
   font-weight: 200;
   font-size: 1.4rem;
+  padding: 12px 19px;
+
+  @include breakpoint($md) {
+    padding: 24px 38px;
+  }
 }
 
 .open .collapse-list__item__content {
