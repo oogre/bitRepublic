@@ -2,7 +2,7 @@
   bitRepublic - account-config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 01:13:47
-  @Last Modified time: 2018-04-23 20:42:01
+  @Last Modified time: 2018-05-02 19:32:17
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -53,6 +53,7 @@ if(Meteor.isServer){
 			const onComplete = () => {
 				done();
 				FlowRouter.go('home');
+				FlowRouter.reload();
 			};
 			render(<UserPasswordSetup token={token} onComplete={onComplete}/>, document.getElementById('render-target'));
 		}, 100);

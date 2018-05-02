@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-05-02 18:14:57
+  @Last Modified time: 2018-05-02 19:35:34
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -151,13 +151,12 @@ class BotSelector extends Component {
 		));
 	}
 	render() {
-		console.log(this.state.selectedBot);
 		return (
 			<div id="taxbot" className="bot-selector clearfix">
 				<h2 className="title--primary">Make the data economy benefits all <br/> Design your taxbot</h2>
 				<div className="container">
 					<div className="text-block">
-						<p>Ever be part of a campaign led by bots? Want to be part of it? Join us, start now, tailor your bot or band of bots with a set of actions to perform. How? First customize your social bot by mashing predefined tasks and bot profiles. Next choose a claim-postcard to tweet as well as the target and running time of your bot. That’s all!</p>
+						<p>Ever been part of a campaign led by bots? Want to be part of it? Join us, start now, customize your bot or band of bots with a set of actions to perform. How? First customize your social bot by selecting predefined tasks and bot profiles. Next choose a claim-postcard to tweet as well as the target and running time of your bot. That’s all!</p>
 					</div>
 				</div>
 				<div className="bot-selector__counter">

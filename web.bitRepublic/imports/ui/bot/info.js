@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-05-02 12:48:03
+  @Last Modified time: 2018-05-02 19:42:32
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -84,11 +84,7 @@ class BotInfo extends Component {
 					onChange={this.handleActiveChange.bind(this, action)}
 					className="checkbox--toggle"
 				/>
-				<label htmlFor={"action_" + action._id} className="">
-					<span className="">
-						test
-					</span>
-				</label>
+				<label htmlFor={"action_" + action._id} className=""></label>
 			</li>
 		));
 	}
@@ -144,7 +140,7 @@ class BotInfo extends Component {
 		return _.compact(bot.actions).map((action) => (
 			<li className="table-list__item" key={action._id}>
 				<BitsoilCounter type="simple" currencyBefore={true} bitsoil={bot.bitsoil} tax={false} />
-				<div className="table__cell--counter__label text-right">every {moment.duration(action.interval, "second").humanize()}</div>
+				<div className="table__cell--counter__label text-right">every {moment.duration(action.interval, "second").humanize().replace(/an |a /, " ")}</div>
 			</li>
 		));
 

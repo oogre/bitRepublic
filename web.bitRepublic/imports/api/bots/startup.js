@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:27:45
-  @Last Modified time: 2018-05-02 12:56:09
+  @Last Modified time: 2018-05-02 19:44:58
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -41,16 +41,16 @@ Meteor.startup(() => {
 				value : 60 * 60 * 24 * 7
 			});
 			Schedules.insert({
-				content : "Every "+(60 * 60 * 24 * 7 * 30)+" secs", // month
+				content : "Every "+(60 * 60 * 24 * 30)+" secs", // month
 				value : 60 * 60 * 24 * 30
 			});
 			Schedules.insert({
-				content : "Every "+(60 * 60 * 24 * 7 * 30 * 365)+" secs", // year
-				value : 60 * 60 * 24 * 30 * 365
+				content : "Every "+(60 * 60 * 24 * 365)+" secs", // year
+				value : 60 * 60 * 24 * 365
 			});
 			Schedules.insert({
-				content : "Every "+(60 * 60 * 24 * 7 * 30 * 365 * 100)+" secs", // centuary
-				value : 60 * 60 * 24 * 30 * 365 * 100
+				content : "Every "+(60 * 60 * 24 * 365 * 100)+" secs", // centuary
+				value : 60 * 60 * 24 * 365 * 100
 			});
 		}
 
