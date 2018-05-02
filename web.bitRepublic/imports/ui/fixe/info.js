@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2018-04-30 14:34:07
+  @Last Modified time: 2018-05-02 14:24:43
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -41,7 +41,7 @@ export default class FixeInfo extends Component {
 			hash : "host_the_installation",
 			title : "host the installation",
 			desciption : [
-				"To host the installation in your city. Contact us @ mailus@bitsoil.tax."
+				"To host the installation in your city. Contact us @ campaign@bitsoil.tax"
 			]
 		}];
 

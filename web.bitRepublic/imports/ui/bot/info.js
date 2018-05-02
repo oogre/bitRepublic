@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-05-01 18:05:25
+  @Last Modified time: 2018-05-02 12:48:03
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -69,7 +69,7 @@ class BotInfo extends Component {
 	renderTweet(actions){
 		return _.compact(actions).map((action) => (
 			<li className="table-list__item" key={action._id}>
-				{action.content}
+				{ action.content.replace(/@Friend|@NetGiants|@PrimeMinister/, action.target.join(", ")) }
 			</li>
 		));
 	}

@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:27:45
-  @Last Modified time: 2018-05-01 17:07:36
+  @Last Modified time: 2018-05-02 12:56:09
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -28,18 +28,6 @@ Meteor.startup(() => {
 	if(Meteor.isServer){
 		if(Schedules.find({}).count() < 1){
 			console.log(" INSERT SCHEDULES");
-			/*Schedules.insert({
-				content : "Never",
-				value : 0
-			});
-			Schedules.insert({
-				content : "Once a minute",
-				value : 60 // 60 sec
-			});
-			Schedules.insert({
-				content : "Once an hour",
-				value : 60 * 60
-			});*/
 			Schedules.insert({
 				content : "Every "+(60 * 60)+" secs", // hour
 				value : 60 * 60
@@ -66,8 +54,13 @@ Meteor.startup(() => {
 			});
 		}
 
-		if(Bots.find({model : true}).count() != 3){
+		if(Bots.find({model : true}).count() == 0){
 			console.log(" INSERT BOTS MODEL");
+			let schedule = Schedules.find({}, {
+				fields : {
+					lvl : 0
+				}
+			}).fetch();
 			Bots.insert({
 				model : true,
 				title : [
@@ -79,9 +72,31 @@ Meteor.startup(() => {
 				target : "politics",
 				description : "Send a tweet postcard to the Prime Minister",
 				tweets : [
-					randomTweet(),
-					randomTweet(),
-					randomTweet()
+					{
+						_id : Random.id(),
+						content : "Dear @PrimeMinister, heard of bitsoil? The new oil of the data economy. Make the data industry fair again. Support the https://bitsoil.tax/campaign, Love",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Dear @PrimeMinister, billions of tax money are lost every year on people’s data. Make the data industry great again! It’s time to net giants too pay their fair share. Love, https://bitsoil.tax/campaign",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Dear @PrimeMinister, make the data economy fair again. Citizens should receive a fair share in return for their data. Support the https://bitsoil.tax/campaign, Love",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Dear #Prime Minister, make the data economy benefits all. Support the https://bitsoil.tax/campaign, Yours faithfully",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Dear @Prime Minister, I hope this tweet postcard brightness your day. Join the https://bitsoil.tax/campaign.",
+						schedules : schedule
+					}
 				]
 			});
 			Bots.insert({
@@ -95,9 +110,37 @@ Meteor.startup(() => {
 				target : "ceos",
 				description : "Send a tweet postcard to the CEO's of the top ten netgiants",
 				tweets : [
-					randomTweet(),
-					randomTweet(),
-					randomTweet()]
+					{
+						_id : Random.id(),
+						content : "Dear @NetGiants, beware: Taxbots are coming for you. You're not gonna like 'em! Love, https://bitsoil.tax/campaign",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Hi @NetGiants, and all world's big net giants, it's time to pay your fair share, Love, https://bitsoil.tax/campaign",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Dear @NetGiants, citizens should receive a fair share in return for their data, Taxbots are coming for you. You're gonna like 'em! Love, https://bitsoil.tax/campaign",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Dear @NetGiants, beware: Taxbots are coming for you. Citizens should receive a fair share in return for their data, Love, https://bitsoil.tax/campaign",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Hi @NetGiants, taxbots are coming for you! You're not gonna like 'em!",
+						schedules : schedule
+					},
+					{
+						_id : Random.id(),
+						content : "Hi @NetGiants, taxbots are coming for you! You're gonna like 'em! Love, https://bitsoil.tax/campaign",
+						schedules : schedule
+					}
+				]
 			});
 			Bots.insert({
 				model : true,
@@ -111,9 +154,28 @@ Meteor.startup(() => {
 				target : "friends",
 				description : "Send a tweet postcard to all your friends",
 				tweets : [
-					randomTweet(),
-					randomTweet(),
-					randomTweet()]
+					{
+						_id : Random.id(),
+						content : "Dear @Friend, heard of bitsoil? The new oil of the data economy. You could be cashing in too. Claim your share. Join the https://bitsoil.tax/campaign",
+						schedules : schedule
+					},{
+						_id : Random.id(),
+						content : "Dear @Friend, Twitter is making money of your tweets. Claim your share. Join the https://bitsoil.tax/campaign",
+						schedules : schedule
+					},{
+						_id : Random.id(),
+						content : "Dear @Friend, join the BitSoil Popup Tax & Hack Campaign. Act now, ask your Prime Minister to support the https://bitsoil.tax/campaign",
+						schedules : schedule
+					},{
+						_id : Random.id(),
+						content : "Dear @Friend, act now, ask your Prime Minister to support the https://bitsoil.tax/campaign",
+						schedules : schedule
+					},{
+						_id : Random.id(),
+						content : "Dear @Friend, greetings from the https://bitsoil.tax/campaign",
+						schedules : schedule
+					}
+				]
 			});
 		}
 	}

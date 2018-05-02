@@ -2,7 +2,7 @@
   bitRepublic - engin.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-15 11:41:25
-  @Last Modified time: 2018-04-30 12:33:32
+  @Last Modified time: 2018-05-02 12:55:01
 \*----------------------------------------*/
 
 import { Actions } from '../actions/actions.js';
@@ -47,7 +47,7 @@ if(Meteor.isServer){
 				$lte : date
 			},
 			active: true,
-		},{
+		}/*,{
 			fields : {
 				_id : true,
 				interval : true,
@@ -55,24 +55,28 @@ if(Meteor.isServer){
 				content : true,
 				bot : true
 			}
-		}).fetch().map(function(action){
+		}*/).fetch().map(function(action){
 			action.bot = Bots.findOne({_id:action.bot});
 			if(action.bot){
-				Utilities.log("/action/engin : DO NOT FORGET TO CHANGE THE tweet_target");
-				Utilities.log("/action/engin : DO NOT FORGET TO CHANGE THE tweet_pic_id");
+				let data = { 
+					task_id: action._id,
+					user_id: action.bot.owner,
+					tweet_text: (function(){
+						let tmp = action.content.split(", ");
+						tmp.shift();
+						return tmp.join(", ");
+					})(),
+					tweet_target: _.sample(action.target, 1),
+					tweet_pic_id:(/@PrimeMinister/).test(action.content) ? "bot0" : ((/@NetGiants/).test(action.content) ? "bot1" : "bot2")
+				};
+				Utilities.log(data);
 				HTTP.call('POST', process.env.TWEETER_BOT_URI+'/api/submit_task', {
 					auth: process.env.TWEETER_BOT_USER+":"+process.env.TWEETER_BOT_PWD,
 					headers : {
 						"Content-Type" : "application/json",
 						"X-Auth-Token" : getToken()
 					},
-					data: { 
-						task_id: action._id,
-						user_id: action.bot.owner,
-						tweet_text: action.content,
-						tweet_target:"ogre_vince",
-						tweet_pic_id:"bot0"
-					}
+					data: data
 				}, function(err, res){
 					Utilities.log("Tweet engin has runned for : " + action._id);
 					if (err){

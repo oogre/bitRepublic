@@ -2,7 +2,7 @@
   bitRepublic - Installation.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 20:35:46
-  @Last Modified time: 2018-04-30 14:37:52
+  @Last Modified time: 2018-05-02 14:25:32
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -52,7 +52,7 @@ export default class Installation extends Component {
 							<div className="offset-grid__col text-center">
 								<FixePitch title="WATCH THE TRAILER!"
 									description={[
-										"Launch of the campaign the17th of May. Join us!"
+										"Launch of the campaign the 17th of May. Join us!"
 									]}
 								/>
 							</div>
