@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-30 15:13:05
+  @Last Modified time: 2018-05-02 14:57:42
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -136,6 +136,19 @@ export default class UserSignup extends Component {
 							:
 								null
 						}
+					</div>
+					<div className="fields-row">
+						<div className="fields-column">
+							<h2 className="modal__title">FOLLOW ME</h2>
+							<span className="modal__subtitle">
+								<p>
+									Stay updated and get access <br/>
+									to your personal bot account.
+								</p>
+							</span>
+						</div>
+					</div>
+					<div className="fields-row">
 						<div className="fields-column">
 							<input
 								type="text"
@@ -152,10 +165,8 @@ export default class UserSignup extends Component {
 									null
 							}
 						</div>
-						
-					</div>
-					<div className="fields-row">
-						
+					
+
 						<div className="fields-column">
 							<input
 								type="text"

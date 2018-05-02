@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-04-26 18:05:21
+  @Last Modified time: 2018-05-02 15:22:48
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -182,7 +182,6 @@ class BotSelector extends Component {
 					selectedBot={this.state.selectedBot}
 					process="signup"
 					onMounted={this.handleModalMounted.bind(this)}
-					title="Awesome!"
 				/>
 				<Alert open={this.state.success} message="Thank You. I will do the job..." onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>

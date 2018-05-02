@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-04-30 15:10:35
+  @Last Modified time: 2018-05-02 15:03:58
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -164,11 +164,25 @@ export default class UserLogIn extends Component {
 		return (
 			<div className={(this.props.visible ? "" : "hidden")}>
 
+				
 				<form className="login-user" onSubmit={this.handleLogin.bind(this)}>
 					{
 						this.props.children ?
 							<div className="fields-row">
 								<div className="fields-column">
+									{
+										Meteor.userId() ?
+											<span>
+												<h2 className="modal__title">Hey, you did it once again.</h2>
+												<span className="modal__subtitle">
+													<p>
+														Glad to join the band!
+													</p>
+												</span>
+											</span>
+										:
+											null
+									}
 									{
 										React.Children.map(this.props.children, (child, k) => (
 											<div key={k}>
