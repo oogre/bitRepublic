@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-16 00:23:43
-  @Last Modified time: 2018-05-01 17:49:21
+  @Last Modified time: 2018-05-03 02:29:27
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 //import { Bots } from './bots.js';
@@ -33,6 +33,12 @@ if(Meteor.isServer){
 			authRequired: true,
 			//roleRequired: ['user'],
 			action : function () {
+				if("FAIL" == this.urlParams.tweetId){
+					return {
+						status : "error",
+						message : "tweetId : \"FAIL\""
+					}
+				}
 				return {
 					status : "success",
 					data : Actions.update({
@@ -65,7 +71,7 @@ if(Meteor.isServer){
 							$push : {
 								history : {
 									createdAt : new Date(),
-									botName : this.urlParams.botName,
+									botName : this.urlParams.botName.replace("@", ""),
 									tweetId : this.urlParams.tweetId
 								}
 							}
