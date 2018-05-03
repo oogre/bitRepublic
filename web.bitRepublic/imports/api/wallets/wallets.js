@@ -2,7 +2,7 @@
   bitRepublic - wallets.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:33:56
-  @Last Modified time: 2018-04-17 17:10:10
+  @Last Modified time: 2018-05-03 02:49:36
 \*----------------------------------------*/
 
 import { Mongo } from 'meteor/mongo';
@@ -67,7 +67,7 @@ if(Meteor.isServer){
 				}
 			});
 			Utilities.log(countBitsoil + " bitsoils redistributed to " + wallet._id);
-
+			/*
 			Wallets.update({
 				type : config.WALLET_TYPE.CONSUME
 			}, {
@@ -83,7 +83,7 @@ if(Meteor.isServer){
 					updatedAt : new Date()
 				}
 			});
-			
+			*/
 		}
 	});
 
