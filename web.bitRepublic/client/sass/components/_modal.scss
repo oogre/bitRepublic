@@ -65,7 +65,9 @@
 // ---------------------
 .modal--login .modal__title,
 .modal--login .modal__subtitle {
-  width: 50%;
+  @include breakpoint($md) {
+    width: 50%;
+  }
 }
 
 .modal--login .modal__title {
@@ -151,8 +153,14 @@
   background: url('/images/login/login-background-sm.png') no-repeat 100% 100% $purple-martinique;
   padding: 2rem 3rem;
 
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 100%;
+
   @include breakpoint($md) {
-    height: auto;
+    display: table;
+    height: 0;
     min-height: 652px;
     max-width: 908px;
     background-image: url('/images/login/login-background-md.png');
@@ -162,6 +170,9 @@
 }
 
 .modal--login .modal__container {
+  width: 100%;
+  align-self: flex-end;
+
   @include breakpoint($md) {
     vertical-align: top;
   }
@@ -239,13 +250,16 @@
 }
 
 .modal--login .modal__footer {
-  position: absolute;
-  bottom: 1.5rem;
+  align-self: flex-end;
+  margin-top: 2.5rem;
+  text-align: center;
 
   @include breakpoint($md) {
+    margin-top: 0;
+    position: absolute;
     width: 100%;
     left: 0;
-    text-align: center;
+    bottom: 1.5rem;
   }
 }
 

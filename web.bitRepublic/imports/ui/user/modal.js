@@ -95,7 +95,7 @@ export default class UserModal extends Component {
 		let isCEOS = this.props.selectedBot && this.props.selectedBot.target == "ceos";
 		let isPOLITICS = this.props.selectedBot && this.props.selectedBot.target == "politics";
 		let isFRIENDS = this.props.selectedBot && this.props.selectedBot.target == "friends";
-		
+
 		return (
 			<div className="container container--login-box">
 				<ReactModal
@@ -204,27 +204,27 @@ export default class UserModal extends Component {
 								</ul>
 								<p className="modal__share__text">Spread the word! </p>
 							</div>
-							<div className="modal__footer">
-								<span>
-									<a className="modal__link" href={FlowRouter.path("faq")} target="_blank">Faq</a>
-								</span>
-								{
-										this.state.selectedProcess == "signup"
-									?
+						</div>
+						<div className="modal__footer">
+							<span>
+								<a className="modal__link" href={FlowRouter.path("faq")} target="_blank">Faq</a>
+							</span>
+							{
+									this.state.selectedProcess == "signup"
+								?
+									<span>
+										<span> | </span>
 										<span>
-											<span> | </span>
-											<span>
-												<a 
-													className="modal__link" 
-													href="#"
-													onClick={this.handleChangeProcess.bind(this, "login")}
-												>Already joined the campaign? Log In</a>
-											</span>
+											<a
+												className="modal__link"
+												href="#"
+												onClick={this.handleChangeProcess.bind(this, "login")}
+											>Already joined the campaign? Log In</a>
 										</span>
-									: 
-										null								
-								}								
-							</div>
+									</span>
+								:
+									null
+							}
 						</div>
 					</div>
 				</ReactModal>
