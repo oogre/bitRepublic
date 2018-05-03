@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 23:27:45
-  @Last Modified time: 2018-05-02 19:44:58
+  @Last Modified time: 2018-05-03 11:21:33
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Bots } from './bots.js';
@@ -79,7 +79,7 @@ Meteor.startup(() => {
 					},
 					{
 						_id : Random.id(),
-						content : "Dear @PrimeMinister, billions of tax money are lost every year on people’s data. Make the data industry great again! It’s time to net giants too pay their fair share. Love, https://bitsoil.tax/campaign",
+						content : "Dear @PrimeMinister, billions of tax money are lost every year on people’s data. Make the data industry great again! It’s time to net giants to pay their fair share. Love, https://bitsoil.tax/campaign",
 						schedules : schedule
 					},
 					{
@@ -112,17 +112,17 @@ Meteor.startup(() => {
 				tweets : [
 					{
 						_id : Random.id(),
-						content : "Dear @NetGiants, beware: Taxbots are coming for you. You're not gonna like 'em! Love, https://bitsoil.tax/campaign",
+						content : "Dear @NetGiants, beware: taxbots are coming for you. You're not gonna like 'em! Love, https://bitsoil.tax/campaign",
 						schedules : schedule
 					},
 					{
 						_id : Random.id(),
-						content : "Hi @NetGiants, and all world's big net giants, it's time to pay your fair share, Love, https://bitsoil.tax/campaign",
+						content : "Hi @NetGiants, and all world’s big net giants, it’s time to pay your fair share, Love, https://bitsoil.tax/campaign",
 						schedules : schedule
 					},
 					{
 						_id : Random.id(),
-						content : "Dear @NetGiants, citizens should receive a fair share in return for their data, Taxbots are coming for you. You're gonna like 'em! Love, https://bitsoil.tax/campaign",
+						content : "Dear @NetGiants, citizens should receive a fair share in return for their data. Taxbots are coming for you. You're gonna like 'em! Love, https://bitsoil.tax/campaign",
 						schedules : schedule
 					},
 					{
