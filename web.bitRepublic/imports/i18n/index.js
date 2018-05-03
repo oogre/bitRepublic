@@ -1,6 +1,5 @@
 import i18n from 'meteor/universe:i18n';
 
-i18n.setLocale("en-US");
 i18n.setOptions({
     purify: string => string
 });
