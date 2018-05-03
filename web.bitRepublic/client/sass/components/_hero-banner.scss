@@ -298,6 +298,18 @@
   }
 }
 
+.hero-banner--redistribution .hero-banner__title span{
+  @include breakpoint($sm) {
+    padding: 0;
+  }
+  @include breakpoint($md) {
+    padding: 0;
+  }
+  @include breakpoint($lg) {
+   padding: 0 40px;
+  }
+}
+
 .hero-banner--redistribution .hero-banner__title {
   margin-top: 40px;
   font-size: 1.8rem;
