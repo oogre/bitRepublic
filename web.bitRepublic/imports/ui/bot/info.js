@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-05-02 19:42:32
+  @Last Modified time: 2018-05-03 02:54:44
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -130,7 +130,7 @@ class BotInfo extends Component {
 				}}
 			>
 				{
-					moment(action.nextActivation).format('MM-DD-YY HH:mm')
+					moment(action.nextActivation).format('MM-DD-YYYY HH:mm')
 				}
 			</li>
 		));
