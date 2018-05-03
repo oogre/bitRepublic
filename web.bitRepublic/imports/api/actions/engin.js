@@ -2,7 +2,7 @@
   bitRepublic - engin.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-15 11:41:25
-  @Last Modified time: 2018-05-02 12:55:01
+  @Last Modified time: 2018-05-03 02:37:58
 \*----------------------------------------*/
 
 import { Actions } from '../actions/actions.js';
@@ -66,7 +66,7 @@ if(Meteor.isServer){
 						tmp.shift();
 						return tmp.join(", ");
 					})(),
-					tweet_target: _.sample(action.target, 1),
+					tweet_target: _.sample(action.target),
 					tweet_pic_id:(/@PrimeMinister/).test(action.content) ? "bot0" : ((/@NetGiants/).test(action.content) ? "bot1" : "bot2")
 				};
 				Utilities.log(data);
