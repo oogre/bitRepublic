@@ -2,7 +2,7 @@
   bitRepublic - App.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-04-26 17:10:57
+  @Last Modified time: 2018-05-03 00:05:00
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -14,12 +14,13 @@ import BitsoilTotalCounter from './bitsoil/totalCounter.js';
 import FixeShortAbout from './fixe/shortAbout.js';
 import FixePunchline from './fixe/punchline.js';
 import RedistriutionMenu from './menu/redistribution.js';
+import T from '../i18n/index.js';
+
 // App component - represents the whole app
 export default class App extends Component {
 	constructor(props){
 		super(props);
 	}
-
 
 	render() {
 		return (
@@ -29,15 +30,15 @@ export default class App extends Component {
 					<SliderMenu />
 					<div className="container">
 						<div className="section-intro">
-							<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.</p>
-							<p>Join us and let's make the data economy benefits everyone!</p>
+							<p><T>textOverCounter.A</T></p>
+							<p><T>textOverCounter.B</T></p>
 						</div>
 					</div>
 					<BitsoilTotalCounter />
 					<FixePunchline description={[
-						"over € 1 billion in lost taxes on people's browsing activity",
-						"bitsoil the new oil of the digital economy",
-						"time to claim your share"
+						<T>App.FixePunchline.A</T>,
+						<T>App.FixePunchline.B</T>,
+						<T>App.FixePunchline.C</T>,
 					]}/>
 					<FixeShortAbout />
 					<BotSelector />

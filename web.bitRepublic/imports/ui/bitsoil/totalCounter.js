@@ -2,7 +2,7 @@
   bitRepublic - totalCounter.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 00:34:11
-  @Last Modified time: 2018-04-26 18:56:46
+  @Last Modified time: 2018-05-03 02:01:57
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -15,6 +15,9 @@ import { Wallets } from '../../api/wallets/wallets.js';
 import BitsoilSplitter from "./splitter.js";
 import FixeWait from '../fixe/wait.js';
 import Info from '../Info.js';
+import T from './../../i18n/index.js';
+
+
 
 // BitsoilTotalCounter: LARGE REALTIME TOATL BITSOIL COINTER
 class BitsoilTotalCounter extends Component {
@@ -28,8 +31,8 @@ class BitsoilTotalCounter extends Component {
 			],
 			message : "",
 			messages : [
-				"This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign. Join us and let’s make the data economy benefits everyone!",
-				"The Bitsoil Tax campaign aims to mobilize users of social media platforms and other tech tools to claim a micro tax on their data and therein make a call for fair distribution of the wealth of the digital economy."
+				i18n.__("Bitsoil.info.A"),
+				i18n.__("Bitsoil.info.B")
 			]
 		}
 	}

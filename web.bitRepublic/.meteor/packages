@@ -31,3 +31,4 @@ ddp-rate-limiter@1.0.7
 email@1.2.3
 http
 seba:minifiers-autoprefixer
+universe:i18n

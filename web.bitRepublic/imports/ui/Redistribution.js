@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-04-26 18:16:15
+  @Last Modified time: 2018-05-03 00:28:36
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -20,6 +20,7 @@ import { BitsoilCreate } from '../api/bitsoils/methods.js';
 import { config } from '../startup/config.js';
 
 import FixeWait from './fixe/wait.js';
+import T from '../i18n/index.js';
 
 class Redistribution extends Component {
 	constructor(props){
@@ -52,16 +53,16 @@ class Redistribution extends Component {
 					<div>
 						<div className="container">
 							<div className="section-intro">
-								<p>This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.</p>
-								<p>Join us and let's make the data economy benefits everyone!</p>
+								<p><T>textOverCounter.A</T></p>
+								<p><T>textOverCounter.B</T></p>
 							</div>
 						</div>
 
 						<BitsoilTotalCounter />
 						<div id="redistributionLogin"></div>
 						<FixePunchline description={[
-							"create your personal wallet",
-							"take part of the taxation system"
+							<T>Redistribution.FixePunchline.A</T>,
+							<T>Redistribution.FixePunchline.B</T>
 						]}>
 								{
 									this.props.currentUser ?

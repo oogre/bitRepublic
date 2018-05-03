@@ -2,7 +2,7 @@
   bitRepublic - account-config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 01:13:47
-  @Last Modified time: 2018-05-02 19:32:17
+  @Last Modified time: 2018-05-02 23:37:43
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';

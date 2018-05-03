@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-04-12 11:02:33
+  @Last Modified time: 2018-05-03 00:38:00
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -13,6 +13,7 @@ import BitsoilCounter from "../bitsoil/counter.js";
 import { Wallets } from '../../api/wallets/wallets.js';
 
 import {config} from '../../startup/config.js';
+import T from './../../i18n/index.js';
 
 // App component - represents the whole app
 class WalletList extends Component {
@@ -54,8 +55,8 @@ class WalletList extends Component {
 
 				<div className="container">
 					<div className="section-intro">
-						<p>Follow live the redistribution of bitsoils over participants wallets. Join and create your own personal wallet.</p>
-						<p>Let’s make the data economy benefits all.</p>
+						<p><T>Redistribution.overWalletList.A</T></p>
+						<p><T>Redistribution.overWalletList.B</T></p>
 					</div>
 					<table className="table table--redistribution">
 						<thead className="table__header">

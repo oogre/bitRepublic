@@ -2,7 +2,7 @@
   bitRepublic - About.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:21:06
-  @Last Modified time: 2018-04-26 18:23:56
+  @Last Modified time: 2018-05-03 00:17:41
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import HeaderMenu from './menu/header.js';
@@ -12,6 +12,7 @@ import FixePunchline from './fixe/punchline.js';
 import FixeSlider from './fixe/slider.js';
 import FixeLongAboutOne from './fixe/longAboutOne.js';
 import FixeLongAboutTwo from './fixe/longAboutTwo.js';
+
 // App component - represents the whole app
 export default class About extends Component {
 	constructor(props){
