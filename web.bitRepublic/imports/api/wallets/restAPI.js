@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:02:44
-  @Last Modified time: 2018-05-01 14:40:08
+  @Last Modified time: 2018-05-03 12:36:42
 \*----------------------------------------*/
 
 import { Wallets } from './wallets.js';
@@ -41,8 +41,6 @@ if(Meteor.isServer){
 			authRequired: true,
 			//roleRequired: ['user'],
 			action : function () {
-				console.log(this.urlParams);
-
 				return {
 					"status": "success",
 					data : Wallets.find({
