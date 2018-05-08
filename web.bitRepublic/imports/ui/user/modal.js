@@ -159,6 +159,7 @@ export default class UserModal extends Component {
 											className={this.state.selectedProcess == "login" ? "" : "hidden"}
 										>
 											<a 	className="modal__link"
+												href="#"
 												onClick={this.handleForgotPassword.bind(this)}>
 												forgot password ?
 											</a>
