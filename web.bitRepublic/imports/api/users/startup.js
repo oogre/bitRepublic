@@ -2,12 +2,17 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-05-01 18:37:21
+  @Last Modified time: 2018-05-15 12:16:32
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
+import * as Utilities from '../../utilities.js';
 
 Meteor.startup(() => {
 	if(Meteor.isServer){
+
+
+
+
 		if(!Meteor.users.findOne({username : "admin"})){
 			if(!process.env.ADMIN_MAIL || !process.env.ADMIN_PWD){
 				console.log("TO CREATE ADMIN USER SETUP 'ADMIN_MAIL' AND 'ADMIN_PWD' AS process.env");
@@ -62,6 +67,22 @@ Meteor.startup(() => {
 				console.log("\tpassword:"+clairUserData.password);
 				let clairId =  Accounts.createUser(clairUserData);
 				Roles.addUsersToRoles(clairId, ['user'])
+			}
+		}
+		for(var i = 0 ; i < 60 ; i ++){
+			let username = "bitsoil-"+Utilities.numberFormat(i, 2);
+			if(!Meteor.users.findOne({username : username})){
+				let rpiUserData = {
+					username : username,
+					profile : {
+						firstname : username,
+						lastname : username
+					},
+					email : username + "@" + process.env.RPI_MAIL.split("@").pop(),
+					password : process.env.RPI_PWD
+				}
+				let rpiId =  Accounts.createUser(rpiUserData);
+				Roles.addUsersToRoles(rpiId, ['user'])
 			}
 		}
 	}
