@@ -2,7 +2,7 @@
   bitRepublic - Faq.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-05-16 22:24:00
+  @Last Modified time: 2018-05-16 22:25:24
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -92,7 +92,11 @@ export default class WhoWeAre extends Component {
                               {d.title}
                             </button>
                             <div className="collapse-list__item__content">
+<<<<<<< HEAD
                               <p dangerouslySetInnerHTML={{__html: d.content}}></p>
+=======
+                              <p dangerouslySetInnerHTML={ {__html: d.content} }></p>
+>>>>>>> c1ca5ce8c979a492f8c8b09779b6596225482c53
                             </div>
                           </li>
                         ))

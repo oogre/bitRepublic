@@ -71,6 +71,8 @@
 }
 
 .modal--login .modal__title {
+  font-size: 2.1rem;
+
   @include breakpoint($md) {
     font-size: 2.6rem;
     margin-bottom: 0;

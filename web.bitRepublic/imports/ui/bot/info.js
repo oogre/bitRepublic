@@ -94,12 +94,12 @@ class BotInfo extends Component {
 				className="table-list__item"
 				key={k}
 			>
-				<a 
-					target="_blank" 
+				<a
+					target="_blank"
 					href={"https://twitter.com/"+history.botName+"/status/"+history.tweetId}
 				>
 					{
-						history.createdAt ? 
+						history.createdAt ?
 							moment(history.createdAt).format('MM-DD-YY HH:mm')
 						:
 							"-"
@@ -149,7 +149,9 @@ class BotInfo extends Component {
 		return (
 			<tr className="table__row" key={bot._id}>
 				<td className="table__cell">
-					<img width="100px" src={bot.model.picture} alt={"Bot " + bot.model.target}/>
+					<div className="bot-picture">
+						<img  width="100px" src={bot.model.picture} alt={"Bot " + bot.model.target}/>
+					</div>
 				</td>
 				<td className="table__cell">{bot.model.description}</td>
 				<td className="table__cell nowrap text-center">{ moment(bot.createdAt.getTime()).format('MM-DD-YYYY') }</td>
@@ -158,7 +160,7 @@ class BotInfo extends Component {
 						{ this.renderNextActionAt(bot.actions) }
 					</ul>
 				</td>
-				<td className="table__cell">
+				<td className="table__cell text-center">
 					<ul className="table-list">
 						{ this.renderActive(bot.actions) }
 					</ul>
@@ -239,7 +241,7 @@ export default withTracker(() => {
 	let myBotsReady = FlowRouter.subsReady("my.bots");
 	let bots = [];
 	let totalBitsoil = 0;
-	
+
 	if(myBotsReady){
 		bots = Bots.find({owner : Meteor.userId(), model : { $ne : true }}).fetch();
 		let models = Bots.find({_id : {$in : _.pluck(bots, 'model')}}).fetch();
