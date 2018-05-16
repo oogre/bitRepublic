@@ -160,7 +160,7 @@ class BotInfo extends Component {
 						{ this.renderNextActionAt(bot.actions) }
 					</ul>
 				</td>
-				<td className="table__cell">
+				<td className="table__cell text-center">
 					<ul className="table-list">
 						{ this.renderActive(bot.actions) }
 					</ul>
