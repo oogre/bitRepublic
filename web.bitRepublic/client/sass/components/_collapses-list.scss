@@ -50,6 +50,7 @@
   }
 
   &:hover,
+  &:focus,
   &.open {
     color: $color-primary;
     border-color: $color-primary;
@@ -57,7 +58,16 @@
     &:before {
       border-color: $green-fun;
     }
+  }
 
+  &:focus,
+  &:hover {
+    &:after {
+      background-image: url('/images/icons/icon-plus-active.svg');
+    }
+  }
+
+  &.open {
     &:after {
       background-image: url('/images/icons/icon-minus.svg');
     }
