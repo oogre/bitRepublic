@@ -92,11 +92,7 @@ export default class WhoWeAre extends Component {
                               {d.title}
                             </button>
                             <div className="collapse-list__item__content">
-<<<<<<< HEAD
-                              <p dangerouslySetInnerHTML={{__html: d.content}}></p>
-=======
                               <p dangerouslySetInnerHTML={ {__html: d.content} }></p>
->>>>>>> c1ca5ce8c979a492f8c8b09779b6596225482c53
                             </div>
                           </li>
                         ))
