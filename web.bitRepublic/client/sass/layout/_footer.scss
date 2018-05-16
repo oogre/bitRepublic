@@ -89,3 +89,18 @@
     background-position: -10px -10px;
   }
 }
+
+// Erg Logo Specific
+// ---------------------
+
+.icon-erg {
+  width: 42px;
+  height: 22px;
+  background: url('images/footer/partner/erg-sprite.png') -10px -52px no-repeat;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-position: -10px -10px;
+  }
+}

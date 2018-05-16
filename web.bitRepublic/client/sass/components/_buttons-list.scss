@@ -185,3 +185,11 @@
     margin-right: 0;
   }
 }
+
+// buttons-list--partner
+// ---------------------
+.buttons-list--partner .buttons-list__item:nth-child(2n) {
+  @include breakpoint($md) {
+    margin-right: 0;
+  }
+}
