@@ -160,6 +160,21 @@
   }
 }
 
+.bot-picture {
+  position: relative;
+}
+
+.bot-picture:after {
+  content: "";
+  display: block;
+  background: url('/images/bots/bot-envelop.svg');
+  width: 69px;
+  height: 25px;
+  position: absolute;
+  left: 31px;
+  bottom: -12px;
+}
+
 // Table Counter
 // ---------------------
 
