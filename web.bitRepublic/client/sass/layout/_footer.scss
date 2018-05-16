@@ -57,6 +57,10 @@
 }
 
 .main-footer .column:nth-child(7) .column__content {
+  @include breakpoint($sm-only) {
+    margin-top: -4rem;
+  }
+
   @include breakpoint($md) {
     margin-top: -6rem;
   }
