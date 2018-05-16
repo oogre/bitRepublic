@@ -44,7 +44,7 @@ class TargetSelector extends Component {
   		return (
   			<div>
   			{
-				this.props.targets.length > 0 ? 
+				this.props.targets.length > 0 ?
   					<div>
 						<Select
 							placeholder={("Choose your " + (this.props.process == "politics" ? "leader" : "ceo")).toUpperCase()}
@@ -71,7 +71,7 @@ class TargetSelector extends Component {
 							type="text"
 							ref="friendList"
 							name="friendList"
-							placeholder="Entre twitter username (@larbitslab, @ogre_vince) "
+							placeholder="Enter twitter username (@yourfriend, @&hellip;) "
 							onChange={this.handleChangeText.bind(this)}
 						/>
 						{ 	this.state["error-friends"] ?
