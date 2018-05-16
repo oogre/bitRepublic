@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-05-02 14:17:17
+  @Last Modified time: 2018-05-16 22:30:22
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -34,7 +34,7 @@ export default class FooterMenu extends Component {
 								<p className="menu--footer__title">Spread the word</p>
 								<ul className="buttons-list buttons-list--footer">
 									<li className="buttons-list__item">
-										<a target="_blank" className="buttons-list__link" href={"https://twitter.com/intent/tweet?text="+encodeURIComponent("Make the data economy benefits all. Join the bitsoil popup tax & hack campaign. https://bitsoil.tax")}>
+										<a target="_blank" className="buttons-list__link" href={"https://twitter.com/intent/tweet?text="+encodeURIComponent("Make the data economy benefits all. Join the bitsoil popup tax & hack campaign. @http://bitsoil.tax")}>
 											<svg width="25px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.25 19.71"><title>Twitter</title><path d="M24.25 2.33a10 10 0 0 1-2.86.78A5 5 0 0 0 23.58.36a10 10 0 0 1-3.16 1.21 5 5 0 0 0-8.48 4.54A14.13 14.13 0 0 1 1.69.91a5 5 0 0 0 1.54 6.64A5 5 0 0 1 1 6.93V7a5 5 0 0 0 4 4.88 5 5 0 0 1-2.28.12 5 5 0 0 0 4.65 3.46 10 10 0 0 1-6.18 2.13A10.07 10.07 0 0 1 0 17.47a14.08 14.08 0 0 0 7.63 2.24A14.06 14.06 0 0 0 21.78 5.55v-.64a10.11 10.11 0 0 0 2.48-2.58" data-name="icon-twitter"/></svg>
 										</a>
 									</li>
@@ -44,7 +44,7 @@ export default class FooterMenu extends Component {
 										</a>
 									</li>
 									<li className="buttons-list__item">
-										<a target="_blank" className="buttons-list__link" href={"https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title="+encodeURIComponent("Make the data economy benefits all. Join the bitsoil popup tax & hack campaign")}>
+										<a target="_blank" className="buttons-list__link" href={"https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title="+encodeURIComponent("Make the data economy benefits all. Join the bitsoil popup tax & hack campaign. BITSOIL.TAX")}>
 											<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430.117 430.117"><title>Linked-in</title><g data-name="icon-linkedin"><path d="M430.117,261.543V420.56h-92.188V272.193c0-37.271-13.334-62.707-46.703-62.707c-25.473,0-40.632,17.142-47.301,33.724c-2.432,5.928-3.058,14.179-3.058,22.477V420.56h-92.219c0,0,1.242-251.285,0-277.32h92.21v39.309c-0.187,0.294-0.43,0.611-0.606,0.896h0.606v-0.896c12.251-18.869,34.13-45.824,83.102-45.824C384.633,136.724,430.117,176.361,430.117,261.543z M52.183,9.558C20.635,9.558,0,30.251,0,57.463c0,26.619,20.038,47.94,50.959,47.94h0.616c32.159,0,52.159-21.317,52.159-47.94C103.128,30.251,83.734,9.558,52.183,9.558z M5.477,420.56h92.184v-277.32H5.477V420.56z"/></g></svg>
 										</a>
 									</li>
