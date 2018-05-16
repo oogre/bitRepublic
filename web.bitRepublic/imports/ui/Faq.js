@@ -2,7 +2,7 @@
   bitRepublic - Faq.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-04-18 12:28:10
+  @Last Modified time: 2018-05-16 22:24:00
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -11,6 +11,8 @@ import { config } from '../startup/config.js';
 
 import HeaderMenu from './menu/header.js';
 import FooterMenu from './menu/footer.js';
+import T from '../i18n/index.js';
+
 
 // App component - represents the whole app
 export default class WhoWeAre extends Component {
@@ -18,25 +20,33 @@ export default class WhoWeAre extends Component {
     super(props);
 
     this.data = [{
-      hash : "what",
-      title : "question-1",
-      content : "Answer to the question : text text text text text text text text text texttext text text text texttext text text text texttext text text text text",
+      hash : i18n.__("FAQ.A.hash"),
+      title : i18n.__("FAQ.A.title"),
+      content : i18n.__("FAQ.A.content"),
     },{
-      hash : "question-2",
-      title : "Question 2",
-      content : "Answer to the question : text text text text text text text text text texttext text text text texttext text text text texttext text text text text",
+      hash : i18n.__("FAQ.B.hash"),
+      title : i18n.__("FAQ.B.title"),
+      content : i18n.__("FAQ.B.content"),
     },{
-      hash : "question-3",
-      title : "Question 3",
-      content : "Answer to the question : text text text text text text text text text texttext text text text texttext text text text texttext text text text text",
+      hash : i18n.__("FAQ.C.hash"),
+      title : i18n.__("FAQ.C.title"),
+      content : i18n.__("FAQ.C.content"),
     },{
-      hash : "question-4",
-      title : "Question 4",
-      content : "Answer to the question : text text text text text text text text text texttext text text text texttext text text text texttext text text text text",
+      hash : i18n.__("FAQ.D.hash"),
+      title : i18n.__("FAQ.D.title"),
+      content : i18n.__("FAQ.D.content"),
     },{
-      hash : "question-5",
-      title : "Question 5",
-      content : "Answer to the question : text text text text text text text text text texttext text text text texttext text text text texttext text text text text",
+      hash : i18n.__("FAQ.E.hash"),
+      title : i18n.__("FAQ.E.title"),
+      content : i18n.__("FAQ.E.content"),
+    },{
+      hash : i18n.__("FAQ.F.hash"),
+      title : i18n.__("FAQ.F.title"),
+      content : i18n.__("FAQ.F.content"),
+    },{
+      hash : i18n.__("FAQ.G.hash"),
+      title : i18n.__("FAQ.G.title"),
+      content : i18n.__("FAQ.G.content"),
     }];
 
     let select = 0;
@@ -82,7 +92,7 @@ export default class WhoWeAre extends Component {
                               {d.title}
                             </button>
                             <div className="collapse-list__item__content">
-                              <p>{d.content}</p>
+                              <p dangerouslySetInnerHTML={{__html: d.content}}></p>
                             </div>
                           </li>
                         ))

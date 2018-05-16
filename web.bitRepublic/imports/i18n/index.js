@@ -89,4 +89,33 @@ i18n.addTranslation('en-US', "WhoWeAre", "D", "At the core, this Bitsoiltax camp
 i18n.addTranslation('en-US', "Bitsoil", "info", "A", "This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign. Join us and let’s make the data economy benefits everyone!");
 i18n.addTranslation('en-US', "Bitsoil", "info", "B", "The Bitsoil Tax campaign aims to mobilize users of social media platforms and other tech tools to claim a micro tax on their data and therewith make a call for the fair distribution of the wealth of the digital economy.");
 
+i18n.addTranslation('en-US', "FAQ", "A", "hash", "Who");
+i18n.addTranslation('en-US', "FAQ", "A", "title", "Who is the campaign for?");
+i18n.addTranslation('en-US', "FAQ", "A", "content", "The campaign is open to all. To anonymous users, the anonymous mass producing personal data, to the 99%, to refugees, to those who are applying for asylum, to migrants and to NGO’s. It’s a campaign with a double purpose. On the one hand it aims to create awareness of the uneven distribution of the new resource bitsoil and the disequilibrium to be restored, considering the fact that it currently is concentrated in the hands of internet giants. On the other hand it offers a new vision of wealth redistribution in a digital society. It is a campaign to awaken the slumbering positive forces of civil society, participants, NGO’s, founders, organizers and theorists.");
+
+i18n.addTranslation('en-US', "FAQ", "B", "hash", "twitter");
+i18n.addTranslation('en-US', "FAQ", "B", "title", "What do the bots on Twitter?");
+i18n.addTranslation('en-US', "FAQ", "B", "content", "The bots on Twitter have been designed to carry out multiple tasks. There are several types of bots, prospector bots, propaganda bots, and the tax-claim bots.<br/><br/>The prospector bots are trained to patrol Twitter and to prospect user accounts for keywords or actions related to the issue of the campaign. IBM’s Watson Natural Language Classifier has been used to train the bots to spot sets of preselected words.<br/><br/>The propaganda bots have been designed to provide pop-ups-tweets with an informative propaganda video on the campaign on accounts that were spotted by prospector bots. The user is then guided to the campaign’s website. There he is asked to join and to generate his own bot or group of bots that will be trolling tech companies with tax claims.<br/><br/>All bots are equipped with a preprogrammed tax calculation mechanism and are able to count the (fictional) amount of tax represented by online actions related to the campaign. Through this mechanism the bots are capable of redistributing this added value across the participants of the campaign.");
+
+i18n.addTranslation('en-US', "FAQ", "C", "hash", "bot");
+i18n.addTranslation('en-US', "FAQ", "C", "title", "What about the bots I generated?");
+i18n.addTranslation('en-US', "FAQ", "C", "content", "When you have created a bot, the task you asked him to perform will be carried out in the time or according to the frequency indicated. You can follow your bot’s actions at every instant, through your Personal Account Manager. This interface allows you to follow the actions performed by your bots and the value of bitsoil generated during this process.<br/><br/>And what will happen when I assign a task to my bot, for example sending a digital postcard to my friends?<br/><br/>When you have assigned your bot the task of sending a digital postcard to your friends, your friends will receive this postcard from an anonymous friend, from a dear friend who cares about the value of your data and who strives for a fairer economy.<br/><br/>The digital postcard that your bot will have sent to your friends will not be traceable to you. By making use of the TOR network your privacy is protected, and it also stresses the presence of the anonymous mass. It’s a campaign for and of the mass of anonymous internet users.");
+
+i18n.addTranslation('en-US', "FAQ", "D", "hash", "secure");
+i18n.addTranslation('en-US', "FAQ", "D", "title", "Is it secure?");
+i18n.addTranslation('en-US', "FAQ", "D", "content", "The bots that you configure to tweet and/or send digital postcards are in no way related to your Twitter account or even your personal data. Moreover, the bots create their tweets via the Tor network, which means the IP addresses of our server and website are hidden.<br/><br/>And what happens when I publish a tweet with the share button?<br/><br/>When you publish a tweet on your account, we thank you warmly for your support and for passing on the word. And this action does not amount to more than an official announcement of support for the campaign.");
+
+i18n.addTranslation('en-US', "FAQ", "E", "hash", "tax");
+i18n.addTranslation('en-US', "FAQ", "E", "title", "Do the bots really collect tax?");
+i18n.addTranslation('en-US', "FAQ", "E", "content", "The actions of tax collector-bots are limited to making tax claims to internet giants. Also, they alert prime ministers and point to the gains to be made with the proposed tax system.");
+
+i18n.addTranslation('en-US', "FAQ", "F", "hash", "calculated");
+i18n.addTranslation('en-US', "FAQ", "F", "title", "How is the tax calculated?");
+i18n.addTranslation('en-US', "FAQ", "F", "content", "Every action carried out by your bot generates data and bitsoil, the primary resource that is converted into the bitREPUBLIC’s virtual currency bitsoil. The amount of bitsoil is a translation of the number of bits and bytes involved in an online action.<br/><br/>Roughly, sending a tweet of 140 characters equals 200 bytes, equals 1 micro-bitsoil. By the same token all the micro-actions you carry out on the campaign’s website when you create your bot are converted into bitsoil on the basis of bits and bytes generated in the process.<br/><br/>What about the tax money? Will I really receive the tax-money collected by my bots and redistributed across participants?<br/><br/>No. What the bots actually do is only to claim a tax and to raise awareness about the gains to be made with the proposed tax system");
+
+i18n.addTranslation('en-US', "FAQ", "G", "hash", "leader");
+i18n.addTranslation('en-US', "FAQ", "G", "title", "I can’t find my beloved world leader I want to tweet to?");
+i18n.addTranslation('en-US', "FAQ", "G", "content", "Please send us an email: campaign@bitsoil.tax");
+
+
 export default i18n.createComponent();
