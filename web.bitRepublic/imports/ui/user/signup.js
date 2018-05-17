@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-05-02 19:08:06
+  @Last Modified time: 2018-05-17 13:20:37
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -178,7 +178,7 @@ export default class UserSignup extends Component {
 					</div>
 					<div className="fields-row">
 						<div className="fields-column">
-							<h2 className="modal__title">FOLLOW ME</h2>
+							<h2 className="modal__title">Follow me</h2>
 							<span className="modal__subtitle">
 								<p>
 									Stay updated and get access <br/>

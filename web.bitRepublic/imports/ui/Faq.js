@@ -2,7 +2,7 @@
   bitRepublic - Faq.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-05-16 23:22:34
+  @Last Modified time: 2018-05-17 13:17:42
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -49,7 +49,7 @@ export default class WhoWeAre extends Component {
       content : i18n.__("FAQ.G.content"),
     }];
 
-    let select = 0;
+    let select = -1;
 
     this.state = {
       selected : select >= this.data.length ? false : select
