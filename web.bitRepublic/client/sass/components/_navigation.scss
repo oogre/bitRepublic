@@ -114,6 +114,7 @@
   &:hover,
   &:focus {
     color: $color-primary;
+    outline: none;
   }
 
   @include breakpoint($below-lg-intermediate-alt) {
