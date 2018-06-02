@@ -69,8 +69,8 @@ i18n.addTranslation('en-US', "Installation", "info", "B", "desciption", "D", "He
 i18n.addTranslation('en-US', "Installation", "info", "C", "hash", "calendar");
 i18n.addTranslation('en-US', "Installation", "info", "C", "title", "calendar");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "A", "The campaign is touring. Please find the dates below.");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "B", "03/05/2017 @ And& Summit Festival Leuven");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "C", "17/05/2017 @ Gluon Art & Tech Hub Brussels");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "B", "03/05/2018 @ And& Summit Festival Leuven");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "C", "17/05/2018 @ Gluon Art & Tech Hub Brussels");
 i18n.addTranslation('en-US', "Installation", "info", "D", "hash", "host_the_installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "title", "host the installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host the installation in your city. Contact us @ campaign@bitsoil.tax");
