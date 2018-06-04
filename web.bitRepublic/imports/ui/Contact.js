@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-04-18 12:28:10
+  @Last Modified time: 2018-06-04 22:02:25
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -200,7 +200,7 @@ export default class Contact extends Component {
 											{this.state['is-loading'] ? <FixeWait /> : null }
 											<input
 												type="submit"
-												value="save"
+												value="send"
 												className={
 													"button--primary button--submit "+
 													(this.state['is-loading'] ? "loading " : "") +

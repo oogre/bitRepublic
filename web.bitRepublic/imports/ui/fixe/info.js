@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2018-05-03 01:21:06
+  @Last Modified time: 2018-06-04 22:08:30
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -40,7 +40,7 @@ export default class FixeInfo extends Component {
 			hash : i18n.__("Installation.info.D.hash"),
 			title : i18n.__("Installation.info.D.title"),
 			desciption : [
-				i18n.__("Installation.info.D.desciption")
+				i18n.__("Installation.info.D.desciption", {address : FlowRouter.path("contact")})
 			]
 		}];
 
@@ -95,7 +95,7 @@ export default class FixeInfo extends Component {
 								<div id={d.hash} key={k} className={this.state.selected === k ? "" : "hidden"}>
 									{
 										d.desciption.map((desc, k) => (
-											<p key={k} >{desc}</p>
+											<p key={k} dangerouslySetInnerHTML={ {__html: desc} }></p>
 										))
 									}
 								</div>

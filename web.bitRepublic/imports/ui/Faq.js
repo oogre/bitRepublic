@@ -2,7 +2,7 @@
   bitRepublic - Faq.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-05-17 13:17:42
+  @Last Modified time: 2018-06-04 22:07:06
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -46,7 +46,7 @@ export default class WhoWeAre extends Component {
     },{
       hash : i18n.__("FAQ.G.hash"),
       title : i18n.__("FAQ.G.title"),
-      content : i18n.__("FAQ.G.content"),
+      content : i18n.__("FAQ.G.content", {address : FlowRouter.path("contact")}),
     }];
 
     let select = -1;
