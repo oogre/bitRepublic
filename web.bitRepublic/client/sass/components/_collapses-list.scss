@@ -20,11 +20,15 @@
   outline: none;
   width: 100%;
   text-align: left;
-  line-height: 4.8;
   font-size: 1.6rem;
-  padding: 0 7.4rem;
+  padding: 1.5rem 7.4rem;
   text-transform: uppercase;
   position: relative;
+  line-height: 1.6;
+
+  @include breakpoint($md) {
+    padding: 2rem 7.4rem;
+  }
 
   &:before,
   &:after {
