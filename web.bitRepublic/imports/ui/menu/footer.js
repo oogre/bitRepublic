@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-05-16 22:30:22
+  @Last Modified time: 2018-05-31 19:23:32
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -93,6 +93,12 @@ export default class FooterMenu extends Component {
 											<svg width="20px" height="20px" data-name="icon-non-commercial" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.53 19.53"><title>Non Commercial</title><path d="M16.69 2.83A9.44 9.44 0 0 0 9.75 0a9.31 9.31 0 0 0-6.87 2.83A9.55 9.55 0 0 0 0 9.76a9.39 9.39 0 0 0 2.88 6.88 9.38 9.38 0 0 0 6.87 2.88 9.64 9.64 0 0 0 7-2.9 9.27 9.27 0 0 0 2.79-6.86 9.42 9.42 0 0 0-2.85-6.93zm-1.22 12.52a7.84 7.84 0 0 1-5.69 2.39 7.71 7.71 0 0 1-5.64-2.37 7.67 7.67 0 0 1-2.38-5.61 7.79 7.79 0 0 1 .43-2.6l2.59 1.15h-.19v1.16h.92v.77h-.9v1.16h1.04a4.6 4.6 0 0 0 .92 2.12 4.92 4.92 0 0 0 4 1.86 5.5 5.5 0 0 0 2.55-.62L12.71 13a4.53 4.53 0 0 1-1.86.43 2.74 2.74 0 0 1-2.11-.83 2.56 2.56 0 0 1-.54-1.2h3.55l5 2.23a7.54 7.54 0 0 1-1.28 1.72zm-6.35-5.11zm3-.77h.15V8.31H9.54l-1.12-.5a2.23 2.23 0 0 1 .34-.56 2.49 2.49 0 0 1 2-.88 4.81 4.81 0 0 1 1.81.39L13 4.9a6.2 6.2 0 0 0-2.45-.49 4.78 4.78 0 0 0-4.29 2.45L3.05 5.44a9 9 0 0 1 1.1-1.34 7.57 7.57 0 0 1 5.62-2.34 7.65 7.65 0 0 1 5.65 2.34 7.66 7.66 0 0 1 2.35 5.66 8.49 8.49 0 0 1-.25 2.08z"/></svg>
 										</a>
 									</li>
+									<li className="menu__item">
+										<a className="menu__item__link" href="http://lumin.be">lumin.be</a>
+									</li>
+									<li className="menu__item">
+										<a className="menu__item__link" href="http://larbitslab.be">larbitslab.be.be</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -134,7 +140,7 @@ export default class FooterMenu extends Component {
 										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://crucifixarnaud.com">Frontend: Crucifix Arnaud</a>
 									</li>
 									<li className="menu__item">
-										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="#">Bot Automation: Jenny Mainframe</a>
+										<a className="menu__item__link" rel="noopener noreferrer" href="#">Bot Automation: Jenny Mainframe</a>
 									</li>
 								</ul>
 							</div>

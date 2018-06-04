@@ -73,7 +73,7 @@ i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "B", "03
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "C", "17/05/2017 @ Gluon Art & Tech Hub Brussels");
 i18n.addTranslation('en-US', "Installation", "info", "D", "hash", "host_the_installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "title", "host the installation");
-i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host the installation in your city. Contact us @ campaign@bitsoil.tax");
+i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host the installation in your city. Contact us @ <a href=\"https://bitsoil.tax/contact/\" >campaign@bitsoil.tax</a>");
 
 i18n.addTranslation('en-US', "Installation", "FixePunchline", "A", "BITSOIL IS THE NEW OIL OF THE DIGITAL ECONOMY");
 i18n.addTranslation('en-US', "Installation", "FixePunchline", "B", "CLAIM YOUR FAIR SHARE OF THIS WORLD’S NEWEST RESOURCE");
@@ -109,7 +109,7 @@ i18n.addTranslation('en-US', "FAQ", "F", "title", "How is the tax calculated?");
 i18n.addTranslation('en-US', "FAQ", "F", "content", "Every action carried out by your bot generates data and bitsoil, the primary resource that is converted into the bitREPUBLIC’s virtual currency bitsoil. The amount of bitsoil is a translation of the number of bits and bytes involved in an online action.<br/><br/>Roughly, sending a tweet of 140 characters equals 200 bytes, equals 1 micro-bitsoil. By the same token all the micro-actions you carry out on the campaign’s website when you create your bot are converted into bitsoil on the basis of bits and bytes generated in the process.<br/><br/>What about the tax money? Will I really receive the tax-money collected by my bots and redistributed across participants?<br/><br/>No. What the bots actually do is only to claim a tax and to raise awareness about the gains to be made with the proposed tax system");
 i18n.addTranslation('en-US', "FAQ", "G", "hash", "leader");
 i18n.addTranslation('en-US', "FAQ", "G", "title", "I can’t find my beloved world leader I want to tweet to?");
-i18n.addTranslation('en-US', "FAQ", "G", "content", "Please send us an email: campaign@bitsoil.tax");
+i18n.addTranslation('en-US', "FAQ", "G", "content", "Please send us an email: <a href=\"https://bitsoil.tax/contact/\" >campaign@bitsoil.tax</a>");
 
 
 export default i18n.createComponent();

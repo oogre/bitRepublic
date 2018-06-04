@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-04-26 17:26:09
+  @Last Modified time: 2018-05-31 19:07:57
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -42,7 +42,7 @@ export const UserContact  = new ValidatedMethod({
 
 			return {
 				success : true,
-				message : "Your massage has been sent."
+				message : "Your message has been sent."
 			};
 		}
 	}
