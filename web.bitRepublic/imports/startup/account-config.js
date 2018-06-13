@@ -2,7 +2,7 @@
   bitRepublic - account-config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 01:13:47
-  @Last Modified time: 2018-05-31 19:21:16
+  @Last Modified time: 2018-06-13 16:37:47
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -20,7 +20,7 @@ if(Meteor.isServer){
 		text(user, url) {
 			console.log(user);
 			console.log(url);
-			return `Hey ${user.profile.firstname}! Create your password and login by following this link: <a href='${url}' target="_blank">${url}</a>`;
+			return `Hey ${user.profile.firstname}! Create your password and login by following this link: ${url}`;
 		}
 	};
 
@@ -31,7 +31,7 @@ if(Meteor.isServer){
 			return `Password reset to the bitsoil tax campaign, ${user.profile.firstname}`;
 		},
 		text(user, url) {
-			return `Hey ${user.profile.firstname}! Reset your password by following this link: <a href='${url}' target="_blank">${url}</a>`;
+			return `Hey ${user.profile.firstname}! Reset your password by following this link: ${url}`;
 		}
 	};
 
