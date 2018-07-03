@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-07-03 15:40:42
+  @Last Modified time: 2018-07-03 15:51:04
 \*----------------------------------------*/
 export const config = {
 	VIDEO_GALLERY : {
@@ -26,7 +26,7 @@ export const config = {
 			MAX : 255
 		}
 	},
-	TAX_RATE : 100.0427,
+	TAX_RATE : 0.0427,
 	BOT_INFO_TOTAL_INTERVAL: 60 * 60 * 24,
 	PWD_LENGTH : {
 		MIN : 6,
