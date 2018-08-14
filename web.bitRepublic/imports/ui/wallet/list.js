@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-05-03 00:38:00
+  @Last Modified time: 2018-08-14 10:51:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -35,14 +35,25 @@ class WalletList extends Component {
 					<span className="wallet-id">ID {Utilities.numberFormat(wallet.number, 6)}</span>
 				</td>
 				<td className="table__cell text-center">
-					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} />
+					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} noFormat={true} />
 				</td>
 			</tr>
 		);
 	}
 	renderWallets (){
-		return _.filter(this.props.wallets, (wallet, k) => {
+		let w = _.filter(this.props.wallets, (wallet, k) => {
 			return k >= this.state.currentPage * config.WALLET_LIST.LIMIT && k < (this.state.currentPage+1) * config.WALLET_LIST.LIMIT
+		});
+		let longest = w.reduce((l, wallet) => { 
+			let f = _.isNumber(wallet.bitsoil) ? wallet.bitsoil.toFixed(6) : wallet.bitsoil;
+			return l.length > f.length ? l : f;
+		}, "");
+		return w.map(wallet => {
+			if(_.isNumber(wallet.bitsoil)){
+				wallet.bitsoil = wallet.bitsoil.toFixed(6);//Utilities.bitsoilFormat(wallet.bitsoil);
+				while(wallet.bitsoil.length <= longest.length) wallet.bitsoil = "0"+wallet.bitsoil;
+			}
+			return wallet;
 		}).map((wallet) => (
 			this.renderWallet(wallet)
 		));

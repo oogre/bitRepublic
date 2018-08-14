@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-05-03 02:54:44
+  @Last Modified time: 2018-08-09 22:59:03
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -165,11 +165,15 @@ class BotInfo extends Component {
 						{ this.renderActive(bot.actions) }
 					</ul>
 				</td>
-				<td className="table__cell">
-					<ul className="table-list">
-						{ this.renderHistory(bot.actions) }
-					</ul>
-				</td>
+				{ this.props.isAdmin ?
+					<td className="table__cell">
+						<ul className="table-list">
+							{ this.renderHistory(bot.actions) }
+						</ul>
+					</td>
+				:
+					null
+				}
 				<td className="table__cell">
 					<ul className="table-list">
 						{ this.renderTweet(bot.actions) }
@@ -191,7 +195,7 @@ class BotInfo extends Component {
 	renderTotal(){
 		return (
 			<tr className="table__row table__row--totals">
-				<td className="table__cell text-right" colSpan="7">Your bots contribution</td>
+				<td className="table__cell text-right" colSpan={ this.props.isAdmin ? "7" : "6" }>Your bots contribution</td>
 				<td className="table__cell text-center">
 					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} />
 				</td>
@@ -208,7 +212,11 @@ class BotInfo extends Component {
 						<th className="table__header__cell table__header__cell--large">Created at</th>
 						<th className="table__header__cell table__header__cell--large">Next action at</th>
 						<th className="table__header__cell">Active</th>
-						<th className="table__header__cell">History</th>
+						{ this.props.isAdmin ?
+							<th className="table__header__cell">History</th>
+						: 
+							null
+						}
 						<th className="table__header__cell">Tweet</th>
 						<th className="table__header__cell table__header__cell--xl">Bitsoils</th>
 					</tr>
@@ -241,8 +249,10 @@ export default withTracker(() => {
 	let myBotsReady = FlowRouter.subsReady("my.bots");
 	let bots = [];
 	let totalBitsoil = 0;
-
 	if(myBotsReady){
+
+		
+
 		bots = Bots.find({owner : Meteor.userId(), model : { $ne : true }}).fetch();
 		let models = Bots.find({_id : {$in : _.pluck(bots, 'model')}}).fetch();
 		let actions = Actions.find({bot : {$in : _.pluck(bots, '_id')}}).fetch();
@@ -251,7 +261,10 @@ export default withTracker(() => {
 			bots[i].actions = 	bots[i].actions.map(function(act){
 									let action = _.findWhere(actions, { _id : act});
 									if(action){
-										totalBitsoil += bots[i].bitsoil * action.counter;
+										let d = moment.duration(moment().diff(moment(action.createdAt))).as('seconds');
+										d /= action.interval;
+										d *= action.bitsoil;
+										totalBitsoil += d;
 									}
 									return action;
 								});
@@ -261,6 +274,7 @@ export default withTracker(() => {
 	return {
 		isReady : myBotsReady,
 		bots : bots,
-		totalBitsoil : totalBitsoil
+		totalBitsoil : totalBitsoil,
+		isAdmin : myBotsReady && Meteor.user().roles.includes("admin")
 	};
 })(BotInfo);

@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-05-31 19:07:57
+  @Last Modified time: 2018-08-09 22:33:53
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
@@ -148,6 +148,46 @@ export const ForgotPassword = new ValidatedMethod({
 	}
 });
 
+
+export const DeleteAccount = new ValidatedMethod({
+	name: 'Users.methods.delete.account',
+	validate: new SimpleSchema({
+		'password': { type: String }
+	}).validator({clean:true}),
+	mixins: [RateLimiterMixin],
+	rateLimit: config.METHODS.RATE_LIMIT.FAST,
+	// This is optional, but you can use this to pass options into Meteor.apply every
+	// time this method is called.  This can be used, for instance, to ask meteor not
+	// to retry this method if it fails.
+	applyOptions: {
+		noRetry: true,
+	},
+	run({ password }) {
+		console.log(password);
+		if(!Meteor.userId()){
+			const errors = [{
+				name: 'login',
+				type: 'needed'
+			}];
+			throw new ValidationError(errors);
+		}
+		if (!this.isSimulation) {
+			
+      		var result = Accounts._checkPassword(Meteor.user(), {digest: password, algorithm: 'sha-256'});
+      		if(result.error){
+      			const errors = [{
+					name: 'password',
+					type: 'noMatch'
+				}];
+				throw new ValidationError(errors);
+      		}
+      		Meteor.users.remove(Meteor.userId());
+			return {
+				success : true
+			};
+		}
+	}
+});
 
 export const ResetPassword = new ValidatedMethod({
 	name: 'Users.methods.reset.password',

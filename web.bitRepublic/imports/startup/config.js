@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-07-03 15:51:04
+  @Last Modified time: 2018-08-09 19:17:05
 \*----------------------------------------*/
 export const config = {
 	VIDEO_GALLERY : {
@@ -33,7 +33,7 @@ export const config = {
 		MAX : 64
 	},
 	BITSOIL_UNIT : {
-		MIN : 0.000001,
+		MIN : 0.000100,
 		MAX : 1.0
 	},
 	WALLET_LIST : {
@@ -84,9 +84,10 @@ export const config = {
 				required : "your target is require"
 			},
 			password : {
+				noMatch : "your password does not match",
 				required : "your password is require",
-				tooShort : "your password is too short.",
-				tooLong : "your password is too long.",
+				tooShort : "your password is too short",
+				tooLong : "your password is too long",
 			},
 			"password-check" : {
 				required : "your password is require",

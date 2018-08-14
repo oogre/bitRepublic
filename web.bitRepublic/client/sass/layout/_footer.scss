@@ -42,6 +42,13 @@
   }
 }
 
+.main-footer .column__content.credits {
+  @include breakpoint($md){
+    position: absolute;
+    margin-top: 31px;
+  }
+}
+
 .main-footer .column__content {
   @include breakpoint($md) {
     width: 200px;

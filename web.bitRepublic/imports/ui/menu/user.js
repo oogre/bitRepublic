@@ -43,7 +43,7 @@ class UserMenu extends Component {
 								<a className="dropdown__item__link" href={FlowRouter.path("userProfile", {username : this.props.username})}>Bot info</a>
 							</li>
 							<li className="dropdown__item__item">
-								<a className="dropdown__item__link" href={FlowRouter.path("userUpdate", {username : this.props.username})}>Update profile</a>
+								<a className="dropdown__item__link" href={FlowRouter.path("userUpdate", {username : this.props.username})}>Settings</a>
 							</li>
 							<li className="dropdown__item__item">
 								<UserLogOut/>

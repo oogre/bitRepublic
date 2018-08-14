@@ -55,7 +55,7 @@ i18n.addTranslation('en-US', "Redistribution", "overWalletList", "A", "Follow li
 i18n.addTranslation('en-US', "Redistribution", "overWalletList", "B", "Let’s make the data economy benefits all.");
 
 i18n.addTranslation('en-US', "Installation", "banner__title", "ENTER THE BITREPUBLIC");
-i18n.addTranslation('en-US', "Installation", "banner__description", "Follow Live the redistribution of bitsoils");
+i18n.addTranslation('en-US', "Installation", "banner__description", "Follow live the redistribution of bitsoils");
 
 i18n.addTranslation('en-US', "Installation", "info", "A", "hash", "what");
 i18n.addTranslation('en-US', "Installation", "info", "A", "title", "what");
@@ -69,8 +69,10 @@ i18n.addTranslation('en-US', "Installation", "info", "B", "desciption", "D", "He
 i18n.addTranslation('en-US', "Installation", "info", "C", "hash", "calendar");
 i18n.addTranslation('en-US', "Installation", "info", "C", "title", "calendar");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "A", "The campaign is touring. Please find the dates below.");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "B", "03/05/2018 @ And& Summit Festival Leuven");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "C", "17/05/2018 @ Gluon Art & Tech Hub Brussels");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "B", "03/05/2018 - 05/05/2018 @ And& Summit Festival Leuven");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "C", "17/05/2018 - 27/05/2018 @ Gluon Art & Tech Hub Brussels");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "D", "06/09/2018 - 16/09/2018 @ ERROR The Art of Imperfection, Ars Electronica Linz");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "E", "16/11/2018 - 28/02/2019 @ ERROR The Art of Imperfection, Drive Berlin");
 i18n.addTranslation('en-US', "Installation", "info", "D", "hash", "host_the_installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "title", "host the installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host the installation in your city. <br/>Contact us @ <a href=\"{$address}\" >campaign@bitsoil.tax</a>");
@@ -79,14 +81,14 @@ i18n.addTranslation('en-US', "Installation", "FixePunchline", "A", "BITSOIL IS T
 i18n.addTranslation('en-US', "Installation", "FixePunchline", "B", "CLAIM YOUR FAIR SHARE OF THIS WORLD’S NEWEST RESOURCE");
 
 i18n.addTranslation('en-US', "Installation", "nextToVideo", "title", "WATCH THE TRAILER!");
-i18n.addTranslation('en-US', "Installation", "nextToVideo", "content", "Launch of the campaign the 17th of May. Join us!");
+i18n.addTranslation('en-US', "Installation", "nextToVideo", "content", "Look how the bots are claiming bitsoils.");
 
 i18n.addTranslation('en-US', "WhoWeAre", "A", "We are a Brussel-based <a href=\"http://larbitslab.be/\" target=\"_blank\">artist duo LarbitsSisters</a> who work at the intersection of art, technology and social systems. Our collaboration grew out of a shared fascination for new media, merging research and artistic practice in projects in which concepts such as traceability, data processing, network analysis, algorithms, automation and interaction are explored. Central is the friction between public and private, online and offline; between the unbridled faith in technological progress and everyday life. Strategies and practices of new media are above all tools of investigation and creation, allowing works that question critical issues of today’s society to be developed.");
 i18n.addTranslation('en-US', "WhoWeAre", "B", "In 2011 we founded the Research Lab on Digital Visualization, Larbitslab. Larbitslab brings together artists, designers, coders and scientists around issues of networked societies. The specificity of Larbitslab lies in the methodological approach, which combines closely observing practices, media analysis and research on the technical and societal implications.");
 i18n.addTranslation('en-US', "WhoWeAre", "C", "The Bitsoiltax campaign grew out of shared ideas on growth and wealth in the data economy, on social justice and tax abuse, on tackling net giants on tax evasion. The bitsoil tax can be thought of as a hacktivist act. For this project we worked essentially with programmers. Thanks to Jenny Mainframe, <a href=\"http://ogre.be/\" target=\"_blank\">Vincent Evrard</a>, <a href=\"http://crucifixarnaud.com/\" target=\"_blank\">Arnaud Crucifix</a>, Fleur Wirtz and the Peng! collective. Special thanks to <a href=\"https://imal.org/\" target=\"_blank\">iMAL</a> for the continuous support of the project since its very beginning.");
 i18n.addTranslation('en-US', "WhoWeAre", "D", "At the core, this Bitsoiltax campaign claims a new vision of the redistribution of internet wealth. The bitsoiltax is a micro tax on data, the new oil of the data economy or bitsoil as we coined it. The bitsoiltax is a tax for the people, a tax for the 99%, a tax to fight inequality and to restore a fair balance in the data economy. You can participate by generating your own tax collector bot or bands of tax bots.");
 
-i18n.addTranslation('en-US', "Bitsoil", "info", "A", "This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign. Join us and let’s make the data economy benefits everyone!");
+i18n.addTranslation('en-US', "Bitsoil", "info", "A", "This is the total amount of tax money claimed by the bots on the data generated by all the users during the Bitsoil Popup Hack & Tax Campaign. The tax is levied at a rate of 0.0427%. Roughly this could raise 8,5 billion on tax money at an annual base of 200 billion tweets per year.");
 i18n.addTranslation('en-US', "Bitsoil", "info", "B", "The Bitsoil Tax campaign aims to mobilize users of social media platforms and other tech tools to claim a micro tax on their data and therewith make a call for the fair distribution of the wealth of the digital economy.");
 
 i18n.addTranslation('en-US', "FAQ", "A", "hash", "Who");

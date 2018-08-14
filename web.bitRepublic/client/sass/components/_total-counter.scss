@@ -28,15 +28,15 @@
 // ---------------------
 .total-counter .counter--xl .artwork-bitsoil-symbol {
   @include breakpoint($below-sm) {
-    height: 35px;
+    height: 25px;
   }
 
   @include breakpoint($sm) {
-    height: 63px;
+    height: 45px;
   }
 
   @include breakpoint($md) {
-    height: 98px;
+    height: 70px;
   }
 }
 
