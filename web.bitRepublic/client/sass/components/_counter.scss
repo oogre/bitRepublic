@@ -263,6 +263,7 @@
   text-align: right;
   margin-bottom: 0.2rem;
   font-size: 1.8rem;
+  padding-right: 3px;
 
   @include breakpoint($lg) {
     margin-bottom: .3rem;
@@ -346,3 +347,8 @@
 // .counter--simple.counter--no-currency .counter__row .counter__block:first-child {
 //   display: inline;
 // }
+
+
+.taxrate .counter__row .counter__block:last-child{
+  margin-right:0;
+}

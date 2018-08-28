@@ -1,0 +1,800 @@
+[
+  {
+    "_id": "G7th79yP6owBkNWGu",
+    "createdAt": "2018-05-03T09:25:44.621Z",
+    "bitsoil": 0.04394013234400567,
+    "oldBitsoil": 93.12074600000004
+  },
+  {
+    "_id": "YvfMdYGhd5d5RN3z4",
+    "createdAt": "2018-05-03T09:25:44.728Z",
+    "bitsoil": 0.043940131884875465,
+    "oldBitsoil": 96.15046300000006
+  },
+  {
+    "_id": "7Shi993nFk8oKWf2d",
+    "createdAt": "2018-05-03T09:25:44.909Z",
+    "bitsoil": 0.04394013110955182,
+    "oldBitsoil": 120.790567
+  },
+  {
+    "_id": "RPWx2kWqnGzRJC2JE",
+    "createdAt": "2018-05-03T10:07:37.963Z",
+    "bitsoil": 0.04392924605065694,
+    "oldBitsoil": 112.73307300000006
+  },
+  {
+    "_id": "AZfJPcWc4u53axkby",
+    "createdAt": "2018-05-03T11:58:20.607Z",
+    "bitsoil": 0.043900473993667755,
+    "oldBitsoil": 109.88272300000007
+  },
+  {
+    "_id": "STpFuq6adt7LY4aM8",
+    "createdAt": "2018-05-03T12:00:54.065Z",
+    "bitsoil": 0.043899809307405155,
+    "oldBitsoil": 115.26851199999992
+  },
+  {
+    "_id": "YNqTsfLMQvNfPoDf4",
+    "createdAt": "2018-05-03T13:45:14.948Z",
+    "bitsoil": 0.04387269081651129,
+    "oldBitsoil": 108.14395099999996
+  },
+  {
+    "_id": "fqnZzFH6h4YS3DMRd",
+    "createdAt": "2018-05-03T21:15:26.031Z",
+    "bitsoil": 0.04375569455604029,
+    "oldBitsoil": 123.8647500000001
+  },
+  {
+    "_id": "TR9XsNyeaW6piNeYc",
+    "createdAt": "2018-05-04T15:32:58.232Z",
+    "bitsoil": 0.04347046121574723,
+    "oldBitsoil": 110.14311900000015
+  },
+  {
+    "_id": "93tTqCbiwMD2BauJ9",
+    "createdAt": "2018-05-05T07:09:21.686Z",
+    "bitsoil": 0.043227107246500626,
+    "oldBitsoil": 107.32802800000009
+  },
+  {
+    "_id": "PXjNv3SjMQpTEsySc",
+    "createdAt": "2018-05-05T11:05:00.832Z",
+    "bitsoil": 0.04316586471311165,
+    "oldBitsoil": 112.20136099999993
+  },
+  {
+    "_id": "852LgBPYbTXH6yJFf",
+    "createdAt": "2018-05-05T11:14:13.269Z",
+    "bitsoil": 0.0431634718910782,
+    "oldBitsoil": 111.77304000000001
+  },
+  {
+    "_id": "qR3WsHRBXBFGXZBuk",
+    "createdAt": "2018-05-05T11:33:46.632Z",
+    "bitsoil": 0.0431583895709335,
+    "oldBitsoil": 114.34748400000005
+  },
+  {
+    "_id": "JkEjyfHCESqqmBYBe",
+    "createdAt": "2018-05-05T11:46:52.231Z",
+    "bitsoil": 0.043154986814049126,
+    "oldBitsoil": 110.83776899999992
+  },
+  {
+    "_id": "W7Qxa4d4RpQXHSrJw",
+    "createdAt": "2018-05-05T12:24:29.506Z",
+    "bitsoil": 0.04314520961901271,
+    "oldBitsoil": 103.98730100000002
+  },
+  {
+    "_id": "w8SkW37StsZyWSbPa",
+    "createdAt": "2018-05-05T14:09:56.396Z",
+    "bitsoil": 0.043117805224275205,
+    "oldBitsoil": 104.72194200000014
+  },
+  {
+    "_id": "Jo4RTszzQmXyH75Bx",
+    "createdAt": "2018-05-09T12:44:04.960Z",
+    "bitsoil": 0.04164318052195002,
+    "oldBitsoil": 121.38634200000008
+  },
+  {
+    "_id": "TL8Yp2pG8nWtasYra",
+    "createdAt": "2018-05-10T08:14:03.989Z",
+    "bitsoil": 0.04133911925251636,
+    "oldBitsoil": 120.56454400000001
+  },
+  {
+    "_id": "KFh8MpGmA4Y7aSBLg",
+    "createdAt": "2018-05-10T18:39:29.285Z",
+    "bitsoil": 0.04117658155084,
+    "oldBitsoil": 114.92091099999999
+  },
+  {
+    "_id": "So8gN3Wb967G2suGP",
+    "createdAt": "2018-05-10T18:55:20.808Z",
+    "bitsoil": 0.0411724601122484,
+    "oldBitsoil": 109.75255500000003
+  },
+  {
+    "_id": "N4fWS3K35nTkgfmnz",
+    "createdAt": "2018-05-11T14:40:10.512Z",
+    "bitsoil": 0.04086454095795493,
+    "oldBitsoil": 119.97693199999993
+  },
+  {
+    "_id": "EQn4QnWDkArnyeDE6",
+    "createdAt": "2018-05-11T14:57:18.114Z",
+    "bitsoil": 0.04086008998948738,
+    "oldBitsoil": 109.56584699999995
+  },
+  {
+    "_id": "wHh5mjtviMsRXMnhw",
+    "createdAt": "2018-05-11T14:57:29.002Z",
+    "bitsoil": 0.04086004283768164,
+    "oldBitsoil": 117.20061000000005
+  },
+  {
+    "_id": "TAT3zCd8pYPprFQEk",
+    "createdAt": "2018-05-11T14:57:41.717Z",
+    "bitsoil": 0.040859987763714155,
+    "oldBitsoil": 104.85740199999995
+  },
+  {
+    "_id": "yM9pShQ8YDf65L2Mf",
+    "createdAt": "2018-05-11T14:57:53.212Z",
+    "bitsoil": 0.04085993797840685,
+    "oldBitsoil": 106.57352700000006
+  },
+  {
+    "_id": "B2X47u9BxtPLscu4N",
+    "createdAt": "2018-05-11T14:58:07.588Z",
+    "bitsoil": 0.0408598757142871,
+    "oldBitsoil": 114.65566999999994
+  },
+  {
+    "_id": "7BeDSScMioMdTXdsq",
+    "createdAt": "2018-05-11T14:58:19.440Z",
+    "bitsoil": 0.0408598243783325,
+    "oldBitsoil": 115.0829039999999
+  },
+  {
+    "_id": "fKaegFquvojXRSLfQ",
+    "createdAt": "2018-05-11T14:58:31.627Z",
+    "bitsoil": 0.040859771608678874,
+    "oldBitsoil": 108.67387100000018
+  },
+  {
+    "_id": "FrEGtvSoLEWXRknND",
+    "createdAt": "2018-05-11T14:58:44.505Z",
+    "bitsoil": 0.04085971582869041,
+    "oldBitsoil": 120.57704099999991
+  },
+  {
+    "_id": "2WrogGWQ4Qfi95wRF",
+    "createdAt": "2018-05-11T14:58:56.869Z",
+    "bitsoil": 0.04085966227938171,
+    "oldBitsoil": 118.12561600000001
+  },
+  {
+    "_id": "Fjcv2cDQp2GwEWtjz",
+    "createdAt": "2018-05-11T14:59:07.942Z",
+    "bitsoil": 0.04085961432193241,
+    "oldBitsoil": 116.58160199999986
+  },
+  {
+    "_id": "tfb9r2fZmLDtbBduD",
+    "createdAt": "2018-05-11T14:59:18.893Z",
+    "bitsoil": 0.04085956688858455,
+    "oldBitsoil": 128.387007
+  },
+  {
+    "_id": "sJiaoByADLzgwmCLY",
+    "createdAt": "2018-05-11T14:59:31.379Z",
+    "bitsoil": 0.04085951281084297,
+    "oldBitsoil": 107.73746300000012
+  },
+  {
+    "_id": "tJMDr7Z4XASm8wDGf",
+    "createdAt": "2018-05-11T19:16:53.484Z",
+    "bitsoil": 0.04079262662731978,
+    "oldBitsoil": 122.245775
+  },
+  {
+    "_id": "99ykkep7xBvqDnjk2",
+    "createdAt": "2018-05-12T11:09:44.493Z",
+    "bitsoil": 0.04054499514553187,
+    "oldBitsoil": 106.337348
+  },
+  {
+    "_id": "yEvdMs3DY8FA5QXyY",
+    "createdAt": "2018-05-15T10:20:07.883Z",
+    "bitsoil": 0.03943518479590535,
+    "oldBitsoil": 116.42881100000011
+  },
+  {
+    "_id": "mxZz4LcfKPHqDRJ4v",
+    "createdAt": "2018-05-15T10:20:07.996Z",
+    "bitsoil": 0.03943518431078664,
+    "oldBitsoil": 110.48351199999999
+  },
+  {
+    "_id": "3rBwdvQ4Qfz7F2nLm",
+    "createdAt": "2018-05-15T10:20:08.222Z",
+    "bitsoil": 0.039435183331886385,
+    "oldBitsoil": 122.5674139999998
+  },
+  {
+    "_id": "d8qsm2uf5yPHyAgmX",
+    "createdAt": "2018-05-15T10:20:08.338Z",
+    "bitsoil": 0.03943518283377344,
+    "oldBitsoil": 120.70468300000003
+  },
+  {
+    "_id": "juWo4dJp7L8n8Gapr",
+    "createdAt": "2018-05-15T10:20:08.455Z",
+    "bitsoil": 0.039435182699499506,
+    "oldBitsoil": 122.37420199999997
+  },
+  {
+    "_id": "c9D325uKZiswqDjWT",
+    "createdAt": "2018-05-15T10:20:08.669Z",
+    "bitsoil": 0.03943518178990193,
+    "oldBitsoil": 117.70312799999996
+  },
+  {
+    "_id": "GYzv75c6SZwqnDxPt",
+    "createdAt": "2018-05-15T10:20:08.785Z",
+    "bitsoil": 0.039435181313446054,
+    "oldBitsoil": 115.45364800000003
+  },
+  {
+    "_id": "6Pi7kyBoKQ47o3anJ",
+    "createdAt": "2018-05-15T10:20:08.902Z",
+    "bitsoil": 0.0394351808413216,
+    "oldBitsoil": 115.899958
+  },
+  {
+    "_id": "DWoR2ynJZ8txz7ymo",
+    "createdAt": "2018-05-15T10:20:09.096Z",
+    "bitsoil": 0.03943518000535812,
+    "oldBitsoil": 110.5142540000001
+  },
+  {
+    "_id": "m56bsQ7pFNjkK9HNd",
+    "createdAt": "2018-05-15T10:20:09.235Z",
+    "bitsoil": 0.03943517941628539,
+    "oldBitsoil": 128.25122299999998
+  },
+  {
+    "_id": "B7o5R66Y6Wr387STS",
+    "createdAt": "2018-05-15T10:20:09.418Z",
+    "bitsoil": 0.039435178632298916,
+    "oldBitsoil": 119.806799
+  },
+  {
+    "_id": "mXpRDKWiEjHxn26J8",
+    "createdAt": "2018-05-15T10:20:09.593Z",
+    "bitsoil": 0.039435177874300946,
+    "oldBitsoil": 103.11398599999995
+  },
+  {
+    "_id": "iTuNDwznMgKCgN79Y",
+    "createdAt": "2018-05-15T10:20:09.706Z",
+    "bitsoil": 0.03943517738918223,
+    "oldBitsoil": 112.8253029999999
+  },
+  {
+    "_id": "gRm3SGCcjrrA8gn5P",
+    "createdAt": "2018-05-15T10:20:09.827Z",
+    "bitsoil": 0.039435176869412183,
+    "oldBitsoil": 111.98398300000011
+  },
+  {
+    "_id": "zwnfdr6ZEcYdyRBWe",
+    "createdAt": "2018-05-15T10:20:10.006Z",
+    "bitsoil": 0.039435176098419955,
+    "oldBitsoil": 125.17820800000001
+  },
+  {
+    "_id": "mTNhM4tWXrCsz7Srk",
+    "createdAt": "2018-05-15T10:20:10.116Z",
+    "bitsoil": 0.03943517563062692,
+    "oldBitsoil": 109.2169210000001
+  },
+  {
+    "_id": "jBbJBrckJXX7AiCv6",
+    "createdAt": "2018-05-15T10:20:10.229Z",
+    "bitsoil": 0.039435175145508206,
+    "oldBitsoil": 117.695518
+  },
+  {
+    "_id": "Nm3kAWJhe9uT3474E",
+    "createdAt": "2018-05-15T10:20:10.412Z",
+    "bitsoil": 0.03943517435719031,
+    "oldBitsoil": 116.30079899999998
+  },
+  {
+    "_id": "M7E8yNEmJQj8EMYQd",
+    "createdAt": "2018-05-15T10:20:10.527Z",
+    "bitsoil": 0.03943517386340877,
+    "oldBitsoil": 118.43908100000002
+  },
+  {
+    "_id": "GG7JFLFEo3mpssPM6",
+    "createdAt": "2018-05-15T10:20:10.639Z",
+    "bitsoil": 0.03943517338262148,
+    "oldBitsoil": 118.0807529999999
+  },
+  {
+    "_id": "b6uJyCNdoqnTCcCAZ",
+    "createdAt": "2018-05-15T10:20:10.832Z",
+    "bitsoil": 0.03943517255098941,
+    "oldBitsoil": 106.53776899999997
+  },
+  {
+    "_id": "qLLXtPidT9b7xMNQT",
+    "createdAt": "2018-05-15T10:20:10.944Z",
+    "bitsoil": 0.03943517206587071,
+    "oldBitsoil": 120.97553500000016
+  },
+  {
+    "_id": "sfbfQHaBH7kurSK6z",
+    "createdAt": "2018-05-15T10:20:11.053Z",
+    "bitsoil": 0.03943517159807766,
+    "oldBitsoil": 106.69774900000006
+  },
+  {
+    "_id": "wD8PAAJ4B6rmKA8HM",
+    "createdAt": "2018-05-15T10:20:11.218Z",
+    "bitsoil": 0.039435170887725274,
+    "oldBitsoil": 107.68958600000018
+  },
+  {
+    "_id": "D7cK5PDMus9RFrXnJ",
+    "createdAt": "2018-05-15T10:20:11.334Z",
+    "bitsoil": 0.03943517038961231,
+    "oldBitsoil": 101.28646600000005
+  },
+  {
+    "_id": "Hi2E64hnkrRd3mQ5d",
+    "createdAt": "2018-05-15T10:20:11.453Z",
+    "bitsoil": 0.0394351698785051,
+    "oldBitsoil": 123.65336800000014
+  },
+  {
+    "_id": "5CLqhWikdG5qyv6T8",
+    "createdAt": "2018-05-15T10:20:11.638Z",
+    "bitsoil": 0.03943516908152437,
+    "oldBitsoil": 113.4154640000001
+  },
+  {
+    "_id": "9Qyo5D5hSLnn6tvk6",
+    "createdAt": "2018-05-15T10:20:11.751Z",
+    "bitsoil": 0.03943516859640567,
+    "oldBitsoil": 112.59859700000005
+  },
+  {
+    "_id": "H74NX4v5CPuuW5Zdp",
+    "createdAt": "2018-05-15T10:20:11.863Z",
+    "bitsoil": 0.039435168115618376,
+    "oldBitsoil": 112.48181499999993
+  },
+  {
+    "_id": "Q2a3TnzLwuNmonyJf",
+    "createdAt": "2018-05-15T10:20:12.037Z",
+    "bitsoil": 0.03943516736628323,
+    "oldBitsoil": 110.94643900000008
+  },
+  {
+    "_id": "KHCNpwjxmzCSbjE2L",
+    "createdAt": "2018-05-15T10:20:12.146Z",
+    "bitsoil": 0.03943516689849019,
+    "oldBitsoil": 114.22908000000008
+  },
+  {
+    "_id": "SkELECnaien3nZJGp",
+    "createdAt": "2018-05-15T10:20:12.255Z",
+    "bitsoil": 0.039435166430697145,
+    "oldBitsoil": 112.75147600000004
+  },
+  {
+    "_id": "2ChzM9ZqSjdKqueLJ",
+    "createdAt": "2018-05-15T10:20:12.441Z",
+    "bitsoil": 0.03943516593691561,
+    "oldBitsoil": 116.48545000000009
+  },
+  {
+    "_id": "huvd4uinucRkrmBqF",
+    "createdAt": "2018-05-15T10:20:12.566Z",
+    "bitsoil": 0.03943516543013982,
+    "oldBitsoil": 123.57048499999999
+  },
+  {
+    "_id": "RytyvShTMhPMPwcGG",
+    "createdAt": "2018-05-15T10:20:12.682Z",
+    "bitsoil": 0.039435164953683946,
+    "oldBitsoil": 116.90391600000007
+  },
+  {
+    "_id": "N2Ce3X8ikbLwGupDL",
+    "createdAt": "2018-05-15T10:20:12.857Z",
+    "bitsoil": 0.03943516420868022,
+    "oldBitsoil": 112.80859299999995
+  },
+  {
+    "_id": "pfaPScbKB2BW85g4W",
+    "createdAt": "2018-05-15T10:20:12.966Z",
+    "bitsoil": 0.03943516374088718,
+    "oldBitsoil": 108.49969200000012
+  },
+  {
+    "_id": "KY2kWD39PfCujiXFp",
+    "createdAt": "2018-05-15T10:20:13.078Z",
+    "bitsoil": 0.03943516326443131,
+    "oldBitsoil": 136.11221799999984
+  },
+  {
+    "_id": "weAzgpf7qPxqqcTvn",
+    "createdAt": "2018-05-15T10:20:13.248Z",
+    "bitsoil": 0.03943516253242183,
+    "oldBitsoil": 118.77090200000013
+  },
+  {
+    "_id": "MMbEqMumSxR9hFfRs",
+    "createdAt": "2018-05-15T10:20:13.359Z",
+    "bitsoil": 0.03943516205596596,
+    "oldBitsoil": 100.8688050000001
+  },
+  {
+    "_id": "7u5MsGikdF3n7rKZb",
+    "createdAt": "2018-05-15T10:20:13.473Z",
+    "bitsoil": 0.03943516156651583,
+    "oldBitsoil": 122.51108000000004
+  },
+  {
+    "_id": "SsBDGY9NQmrMcsHeX",
+    "createdAt": "2018-05-15T10:20:13.653Z",
+    "bitsoil": 0.039435160791192185,
+    "oldBitsoil": 117.73023600000013
+  },
+  {
+    "_id": "98sAJLgJAHxrfgqz3",
+    "createdAt": "2018-05-15T10:20:13.770Z",
+    "bitsoil": 0.03943516028874781,
+    "oldBitsoil": 111.53405199999997
+  },
+  {
+    "_id": "fobY5hbR5h7iwqHXR",
+    "createdAt": "2018-05-15T10:20:13.893Z",
+    "bitsoil": 0.03943515976464635,
+    "oldBitsoil": 118.774085
+  },
+  {
+    "_id": "nwSfXXmSWyM8Bt4pD",
+    "createdAt": "2018-05-15T10:20:14.099Z",
+    "bitsoil": 0.039435158876705866,
+    "oldBitsoil": 109.96772699999997
+  },
+  {
+    "_id": "Yhmu3MmoLcL3nzHzu",
+    "createdAt": "2018-05-15T10:20:14.223Z",
+    "bitsoil": 0.03943515834394157,
+    "oldBitsoil": 126.36853900000007
+  },
+  {
+    "_id": "zmMd7kBnMRqs6uC7A",
+    "createdAt": "2018-05-15T10:20:14.330Z",
+    "bitsoil": 0.03943515788481136,
+    "oldBitsoil": 129.11947999999992
+  },
+  {
+    "_id": "Tjk48yrgv9LJkyCqJ",
+    "createdAt": "2018-05-16T10:15:24.067Z",
+    "bitsoil": 0.03906218070817896,
+    "oldBitsoil": 127.25137899999984
+  },
+  {
+    "_id": "LYqpTm3Mn7WBcMdRD",
+    "createdAt": "2018-05-16T10:16:36.103Z",
+    "bitsoil": 0.039061868698884894,
+    "oldBitsoil": 114.2664280000001
+  },
+  {
+    "_id": "6ku6i6oSivuTSwRhN",
+    "createdAt": "2018-05-16T10:19:22.542Z",
+    "bitsoil": 0.03906114778649788,
+    "oldBitsoil": 117.20665800000003
+  },
+  {
+    "_id": "NNafgbeceQugvhyp3",
+    "createdAt": "2018-05-16T10:19:41.901Z",
+    "bitsoil": 0.03906106393892709,
+    "oldBitsoil": 125.4310809999999
+  },
+  {
+    "_id": "xDtgrR8v5StMF4fRr",
+    "createdAt": "2018-05-17T15:30:19.162Z",
+    "bitsoil": 0.03860610375824576,
+    "oldBitsoil": 109.81306300000006
+  },
+  {
+    "_id": "cpHRTxhZvamfWaRws",
+    "createdAt": "2018-05-17T15:57:28.742Z",
+    "bitsoil": 0.038599045372019615,
+    "oldBitsoil": 111.51722299999985
+  },
+  {
+    "_id": "rsphPqZAyat432af7",
+    "createdAt": "2018-05-17T16:24:44.617Z",
+    "bitsoil": 0.03859195971952329,
+    "oldBitsoil": 123.58792799999989
+  },
+  {
+    "_id": "47RxiQNxMY8ZktZkE",
+    "createdAt": "2018-05-17T16:30:07.930Z",
+    "bitsoil": 0.03859055932475313,
+    "oldBitsoil": 110.22258599999991
+  },
+  {
+    "_id": "FXxcAAcKNTKeHRpxo",
+    "createdAt": "2018-05-17T17:09:24.145Z",
+    "bitsoil": 0.03858035357931615,
+    "oldBitsoil": 112.02499199999998
+  },
+  {
+    "_id": "L8aWkPESfcQdpBDpx",
+    "createdAt": "2018-05-17T17:27:45.803Z",
+    "bitsoil": 0.03857558184342931,
+    "oldBitsoil": 108.4144520000001
+  },
+  {
+    "_id": "KyvjxMnDg6QJhpGaW",
+    "createdAt": "2018-05-17T17:30:22.297Z",
+    "bitsoil": 0.03857490400698463,
+    "oldBitsoil": 127.98862199999999
+  },
+  {
+    "_id": "zc9mNqPEwcdeQ7B7K",
+    "createdAt": "2018-05-17T17:38:52.840Z",
+    "bitsoil": 0.038572692636673234,
+    "oldBitsoil": 112.62959099999992
+  },
+  {
+    "_id": "EuxigfBMdTksntXAq",
+    "createdAt": "2018-05-17T17:48:29.598Z",
+    "bitsoil": 0.03857019446158345,
+    "oldBitsoil": 120.47920400000004
+  },
+  {
+    "_id": "q8LJpWG8GMZ3Wnpu2",
+    "createdAt": "2018-05-17T18:00:10.233Z",
+    "bitsoil": 0.038567160083054323,
+    "oldBitsoil": 117.27604799999992
+  },
+  {
+    "_id": "pP9hMrKSCSRcAS6LX",
+    "createdAt": "2018-05-17T18:10:59.944Z",
+    "bitsoil": 0.038564345957080984,
+    "oldBitsoil": 116.81821800000003
+  },
+  {
+    "_id": "qf9255ydv7sj8Mcuw",
+    "createdAt": "2018-05-17T18:11:18.838Z",
+    "bitsoil": 0.03856426413661336,
+    "oldBitsoil": 118.10899200000017
+  },
+  {
+    "_id": "esqYxeonFdL2antKH",
+    "createdAt": "2018-05-17T18:43:40.811Z",
+    "bitsoil": 0.03855585265035956,
+    "oldBitsoil": 119.28888200000014
+  },
+  {
+    "_id": "bdH7qhS3bWDXBSoR3",
+    "createdAt": "2018-05-17T18:50:21.120Z",
+    "bitsoil": 0.03855411875813547,
+    "oldBitsoil": 120.285172
+  },
+  {
+    "_id": "zHXcgmrmvgN3RgRpo",
+    "createdAt": "2018-05-17T19:17:52.795Z",
+    "bitsoil": 0.03854696467358154,
+    "oldBitsoil": 109.26506699999995
+  },
+  {
+    "_id": "TKcs6jgSW34jX7GXK",
+    "createdAt": "2018-05-18T12:18:29.912Z",
+    "bitsoil": 0.03828172118670346,
+    "oldBitsoil": 128.94498600000014
+  },
+  {
+    "_id": "rC6fByRdDdiKizATb",
+    "createdAt": "2018-05-19T13:23:59.237Z",
+    "bitsoil": 0.03789046721476429,
+    "oldBitsoil": 104.92053199999987
+  },
+  {
+    "_id": "GL5SLe3MpbmsTM4ft",
+    "createdAt": "2018-05-19T16:01:24.986Z",
+    "bitsoil": 0.037849553741051846,
+    "oldBitsoil": 117.88349799999982
+  },
+  {
+    "_id": "5CbiMSngjKbEzGaeL",
+    "createdAt": "2018-05-19T16:03:32.330Z",
+    "bitsoil": 0.03784900216108206,
+    "oldBitsoil": 112.64737199999995
+  },
+  {
+    "_id": "A8PcpHAe7tM4Ti5qG",
+    "createdAt": "2018-05-20T12:49:56.993Z",
+    "bitsoil": 0.037525078602796275,
+    "oldBitsoil": 124.38209299999998
+  },
+  {
+    "_id": "GCvSm2sui2LsJdo9b",
+    "createdAt": "2018-05-23T13:43:34.860Z",
+    "bitsoil": 0.03638843739002353,
+    "oldBitsoil": 109.29503400000009
+  },
+  {
+    "_id": "JfxJPHMK7denvwKEj",
+    "createdAt": "2018-05-24T07:48:05.221Z",
+    "bitsoil": 0.036106590524818245,
+    "oldBitsoil": 109.85839099999998
+  },
+  {
+    "_id": "osSvoz4C6dmQMxiLf",
+    "createdAt": "2018-05-24T15:44:03.422Z",
+    "bitsoil": 0.03598289305110048,
+    "oldBitsoil": 112.23464899999996
+  },
+  {
+    "_id": "Ek3CuiisKSKgZ6sDS",
+    "createdAt": "2018-05-25T13:34:28.623Z",
+    "bitsoil": 0.03564233452546313,
+    "oldBitsoil": 114.64261799999996
+  },
+  {
+    "_id": "bhShibpPhqGDtj7wK",
+    "createdAt": "2018-05-25T14:01:50.165Z",
+    "bitsoil": 0.035635224331157934,
+    "oldBitsoil": 118.03298599999998
+  },
+  {
+    "_id": "LMReXLP9bgGPgc2Z8",
+    "createdAt": "2018-05-25T14:58:01.986Z",
+    "bitsoil": 0.03562061957260063,
+    "oldBitsoil": 117.08511099999998
+  },
+  {
+    "_id": "anpqxKtJWo7FYBcXk",
+    "createdAt": "2018-05-25T16:19:58.153Z",
+    "bitsoil": 0.035599325607484585,
+    "oldBitsoil": 120.32535900000002
+  },
+  {
+    "_id": "WoWrTxbyZFcpCN9j5",
+    "createdAt": "2018-05-31T17:18:05.879Z",
+    "bitsoil": 0.033338812229652244,
+    "oldBitsoil": 114.05042299999985
+  },
+  {
+    "_id": "oMWaZHXAZ7HFG82HR",
+    "createdAt": "2018-05-31T17:19:21.566Z",
+    "bitsoil": 0.033338484397691784,
+    "oldBitsoil": 122.79634999999998
+  },
+  {
+    "_id": "5bmNWqsaYrxPWmGvS",
+    "createdAt": "2018-06-02T13:33:25.531Z",
+    "bitsoil": 0.032648732380701824,
+    "oldBitsoil": 119.80773699999992
+  },
+  {
+    "_id": "TZS7nd9PWmNT6oDHp",
+    "createdAt": "2018-06-11T19:26:52.337Z",
+    "bitsoil": 0.029188766984876487,
+    "oldBitsoil": 105.451198
+  },
+  {
+    "_id": "s44ik8NnQWzNMFto5",
+    "createdAt": "2018-06-11T22:12:47.742Z",
+    "bitsoil": 0.02914564597848814,
+    "oldBitsoil": 105.02764500000002
+  },
+  {
+    "_id": "8vuGFi2LMg5nqpbaP",
+    "createdAt": "2018-06-12T12:24:56.392Z",
+    "bitsoil": 0.028924186477682686,
+    "oldBitsoil": 99.51491100000003
+  },
+  {
+    "_id": "pLFyHEi2zTA4aziZK",
+    "createdAt": "2018-06-12T12:30:02.947Z",
+    "bitsoil": 0.02892285868612472,
+    "oldBitsoil": 119.75713900000001
+  },
+  {
+    "_id": "kmuwkNueSx7fX5bRT",
+    "createdAt": "2018-06-12T12:45:15.568Z",
+    "bitsoil": 0.02891890574831826,
+    "oldBitsoil": 117.89383900000013
+  },
+  {
+    "_id": "5WivaDFPekPnqdBeu",
+    "createdAt": "2018-06-14T00:14:51.941Z",
+    "bitsoil": 0.028365452995090776,
+    "oldBitsoil": 117.90967599999998
+  },
+  {
+    "_id": "y5Ru4rRaD6TfwTZbB",
+    "createdAt": "2018-06-14T08:44:36.286Z",
+    "bitsoil": 0.028232979446753865,
+    "oldBitsoil": 112.27238600000008
+  },
+  {
+    "_id": "XtZXLJRhaxy6vC8hw",
+    "createdAt": "2018-06-21T12:31:01.048Z",
+    "bitsoil": 0.02555449747174343,
+    "oldBitsoil": 113.29828600000008
+  },
+  {
+    "_id": "ZEyExzdWskt9cWnLh",
+    "createdAt": "2018-06-27T02:29:54.006Z",
+    "bitsoil": 0.023465312302488127,
+    "oldBitsoil": 121.04899400000002
+  },
+  {
+    "_id": "2apjDmFfLfJRgSwp9",
+    "createdAt": "2018-06-27T07:50:33.332Z",
+    "bitsoil": 0.02338197881458744,
+    "oldBitsoil": 106.99851799999999
+  },
+  {
+    "_id": "Lr3YPFEkYpBvBY2yM",
+    "createdAt": "2018-07-04T20:00:26.282Z",
+    "bitsoil": 0.02057265230686373,
+    "oldBitsoil": 108.79963900000007
+  },
+  {
+    "_id": "o3j4uqeteE7iyGfTA",
+    "createdAt": "2018-07-09T16:11:26.636Z",
+    "bitsoil": 0.018760992314150148,
+    "oldBitsoil": 119.39601000000003
+  },
+  {
+    "_id": "QACeceX5aoYzQqh5o",
+    "createdAt": "2018-07-14T02:17:08.226Z",
+    "bitsoil": 0.017106644012539793,
+    "oldBitsoil": 104.93588500000003
+  },
+  {
+    "_id": "c6Bfg7NbZm9facuuc",
+    "createdAt": "2018-08-04T05:41:34.183Z",
+    "bitsoil": 0.009194591989532546,
+    "oldBitsoil": 23.822142999999993
+  },
+  {
+    "_id": "8yMQjiTsaZygqfvmW",
+    "createdAt": "2018-08-12T04:22:40.972Z",
+    "bitsoil": 0.0062212180603965755,
+    "oldBitsoil": 10.583789999999997
+  },
+  {
+    "_id": "WyTxN7uu8RasXWnx9",
+    "createdAt": "2018-08-22T05:28:57.118Z",
+    "bitsoil": 0.0024616514076038843,
+    "oldBitsoil": 0.8771990000000001
+  },
+  {
+    "_id": "s3y4NzsiiBk8mtNyz",
+    "createdAt": "2018-08-22T10:14:40.191Z",
+    "bitsoil": 0.0023873976093302107,
+    "oldBitsoil": 1.235452
+  }
+]

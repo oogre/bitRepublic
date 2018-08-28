@@ -26,7 +26,7 @@
 
 // artwork-bitsoil-symbol
 // ---------------------
-.total-counter .counter--xl .artwork-bitsoil-symbol {
+.total-counter .counter--xl .artwork-bitsoil-symbol.artwork-info-symbol {
   @include breakpoint($below-sm) {
     height: 25px;
   }
@@ -37,6 +37,22 @@
 
   @include breakpoint($md) {
     height: 70px;
+  }
+}
+
+// artwork-bitsoil-symbol
+// ---------------------
+.total-counter .counter--xl .artwork-bitsoil-symbol {
+  @include breakpoint($below-sm) {
+    height: 35px;
+  }
+
+  @include breakpoint($sm) {
+    height: 63px;
+  }
+
+  @include breakpoint($md) {
+    height: 98px;
   }
 }
 
