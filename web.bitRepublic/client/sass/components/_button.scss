@@ -5,6 +5,7 @@
 
 .button,
 [class*="button--"] {
+  border-radius: 0;
   font-family: $font-title-sans-serif;
   display: inline-block;
   border: 0;

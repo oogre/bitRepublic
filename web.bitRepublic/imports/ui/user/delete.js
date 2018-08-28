@@ -2,7 +2,7 @@
   web.bcksp.es - delete.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-08-09 18:43:27
-  @Last Modified time: 2018-08-09 22:44:24
+  @Last Modified time: 2018-08-23 13:55:10
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -90,7 +90,7 @@ export default class UserDelete extends Component {
 			<form className="form form--delete" onSubmit={this.handleConfirmDeleteAccount.bind(this)}>
 				<div className="fields-row">
 					<label className="field__label">
-						Enter your password to deactivate your account
+						Enter your password to deactivate your account.
 					</label>
 					<input
 						type="password"
@@ -125,7 +125,7 @@ export default class UserDelete extends Component {
 				</div>
 				<Confirm 
 					open={this.state.success} 
-					message="Click OK to confirm. Your account will be deactivated immediately" 
+					message="Click OK to confirm. Your account will be deactivated immediately." 
 					onFail={this.handleCancelDeleteAccount.bind(this)} 
 					onSuccess={this.handleDeleteAccount.bind(this)}
 				/>

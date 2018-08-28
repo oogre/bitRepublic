@@ -2,7 +2,7 @@
   bitRepublic - wallets.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:33:56
-  @Last Modified time: 2018-05-08 18:46:01
+  @Last Modified time: 2018-08-23 14:03:41
 \*----------------------------------------*/
 
 import { Mongo } from 'meteor/mongo';
@@ -44,7 +44,8 @@ if(Meteor.isServer){
 			let countBitsoil = newWallet.bitsoil - oldWallet.bitsoil;
 			if(countBitsoil <= 0) return;
 			countBitsoil = parseFloat(countBitsoil.toFixed(6));
-
+			console.log("countBitsoil", countBitsoil);
+			
 			let wallet = Wallets.find(personnalWalletReq, {
 				skip : Math.floor(Wallets.find(personnalWalletReq).count() * Math.random()),
 				limit : 1
@@ -56,6 +57,8 @@ if(Meteor.isServer){
 			if(_.isEmpty(wallet)) return;
 
 			wallet = wallet[0];
+
+			console.log(wallet);
 			Wallets.update({
 				_id : wallet._id
 			}, {

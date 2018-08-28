@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-04-17 17:08:55
+  @Last Modified time: 2018-08-28 21:15:34
 \*----------------------------------------*/
 
 
@@ -12,6 +12,51 @@ import moment from 'moment';
 import {Api} from '../restAPI.js';
 
 if(Meteor.isServer){	
+	Api.addRoute('redistribution', {
+		get: {
+		authRequired: false,
+			//roleRequired: ['user'],
+			action : function () {
+				let publicWallet = Wallets.findOne({
+					type : config.WALLET_TYPE.PUBLIC, 
+					owner : { 
+						$exists : false 
+					}
+				}, {
+					fields : {
+						bitsoil : 1
+					}
+				});
+
+				let personnalWallets = Wallets.find({
+					type : config.WALLET_TYPE.PERSONNAL, 
+					owner : {
+						$exists:true
+					}
+				}, {
+					fields : {
+						_id : 1,
+						createdAt : 1,
+						bitsoil : 1,
+						oldBitsoil : 1
+					}
+				}).fetch();
+				let totalTemp = personnalWallets.reduce((acc, w) => acc += moment.duration(moment().diff(moment(w.createdAt))).as('seconds'), 0);
+
+				for(w of personnalWallets){
+					Wallets.update({
+						_id : w._id
+					}, {
+						$set : {
+							bitsoil : (moment.duration(moment().diff(moment(w.createdAt))).as('seconds') / totalTemp) * publicWallet.bitsoil,
+							oldBitsoil : w.bitsoil
+						}
+					});
+				}
+				return personnalWallets;
+			}
+		}
+	});
 	Api.addRoute('bitsoil', {
 		/**
 		* @api {get} /api/bitsoil

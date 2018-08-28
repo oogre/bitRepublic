@@ -9,6 +9,9 @@
 // Tabs Selector
 // ---------------------
 .tabs-selector-list {
+  /*FIXED MARTIN PIRSON & OOGRE */
+  display:flex;
+  /*END FIXED MARTIN PIRSON & OOGRE */
   list-style-type: none;
   margin: 20px 0 0;
   padding: 0;
@@ -80,11 +83,15 @@
   margin-right: 0;
 
   @include breakpoint($below-md) {
-    width: 33%;
+    width: 33.3333333%;
   }
 }
 
 .tabs--profile .tabs-selector-list__button {
+  /*FIXED MARTIN PIRSON & OOGRE */
+  display: block;
+  height: 100%;
+  /*END FIXED MARTIN PIRSON & OOGRE */
   display: block;
   padding: 0 0 40px;
   text-align: center;

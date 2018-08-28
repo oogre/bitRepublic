@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-08-14 11:12:31
+  @Last Modified time: 2018-08-28 16:02:22
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -44,7 +44,7 @@ export default class UserUpdate extends Component {
 										href="#profile"
 										onClick={this.handleChangeProcess.bind(this, "profile")}
 									>
-										user profile<br/>
+										user profile
 									</a>
 								</li>
 								<li className="tabs-selector-list__item">
