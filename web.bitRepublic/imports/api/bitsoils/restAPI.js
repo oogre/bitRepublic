@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-08-28 21:15:34
+  @Last Modified time: 2018-08-28 21:22:39
 \*----------------------------------------*/
 
 
@@ -14,7 +14,7 @@ import {Api} from '../restAPI.js';
 if(Meteor.isServer){	
 	Api.addRoute('redistribution', {
 		get: {
-		authRequired: false,
+			authRequired: true,
 			//roleRequired: ['user'],
 			action : function () {
 				let publicWallet = Wallets.findOne({
