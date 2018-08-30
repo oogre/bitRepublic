@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-08-28 21:22:39
+  @Last Modified time: 2018-08-30 13:34:23
 \*----------------------------------------*/
 
 
@@ -14,9 +14,10 @@ import {Api} from '../restAPI.js';
 if(Meteor.isServer){	
 	Api.addRoute('redistribution', {
 		get: {
-			authRequired: true,
+			authRequired: false,
 			//roleRequired: ['user'],
 			action : function () {
+				/*
 				let publicWallet = Wallets.findOne({
 					type : config.WALLET_TYPE.PUBLIC, 
 					owner : { 
@@ -54,6 +55,20 @@ if(Meteor.isServer){
 					});
 				}
 				return personnalWallets;
+				*/
+				let personnalWallets = Wallets.find({
+					type : config.WALLET_TYPE.PERSONNAL, 
+					owner : {
+						$exists:true
+					}
+				}, {
+					fields : {
+						bitsoil : 1,
+					}
+				}).fetch();
+				let totalTemp = personnalWallets.reduce((acc, w) => acc += w.bitsoil, 0);
+				return totalTemp;
+
 			}
 		}
 	});

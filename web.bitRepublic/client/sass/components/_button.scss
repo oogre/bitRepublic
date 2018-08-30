@@ -65,6 +65,7 @@
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     outline-color: $color-primary;
+    outline : 0;
   }
 }
 
