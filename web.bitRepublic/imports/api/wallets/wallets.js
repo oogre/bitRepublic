@@ -2,7 +2,7 @@
   bitRepublic - wallets.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:33:56
-  @Last Modified time: 2018-08-30 14:26:11
+  @Last Modified time: 2018-08-30 14:49:27
 \*----------------------------------------*/
 
 import { Mongo } from 'meteor/mongo';
@@ -62,7 +62,7 @@ if(Meteor.isServer){
 				_id : wallet._id
 			}, {
 				$set : {
-					bitsoil : (Math.floor(countBitsoil * 1000000) + Math.floor(wallet.bitsoil * 1000000))/100000,
+					bitsoil : (Math.floor(countBitsoil * 1000000) + Math.floor(wallet.bitsoil * 1000000))/1000000,
 					updatedAt : new Date()
 				}
 			});
