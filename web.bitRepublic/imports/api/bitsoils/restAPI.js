@@ -2,12 +2,13 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 14:46:45
-  @Last Modified time: 2018-08-30 13:54:19
+  @Last Modified time: 2018-08-30 16:03:09
 \*----------------------------------------*/
 
 
 import {config} from '../../startup/config.js';
 import { Wallets } from '../wallets/wallets.js';
+import { BitsoilCreate } from '../bitsoils/methods.js';
 import moment from 'moment';
 import {Api} from '../restAPI.js';
 
@@ -165,20 +166,7 @@ if(Meteor.isServer){
 			authRequired: true,
 			//roleRequired: ['user'],
 			action : function () {
-				Wallets.update({
-					type : config.WALLET_TYPE.PUBLIC, 
-					owner : { 
-						$exists : false 
-					}
-				},{
-					$inc : {
-						bitsoil : config.BITSOIL_UNIT.MIN
-					},
-					$set : {
-						updatedAt : new Date()
-					}
-				});
-
+				BitsoilCreate.call({bitsoil : config.BITSOIL_UNIT.MIN});
 				return {
 					"status": "success",
 					data : "Bitsoil created"

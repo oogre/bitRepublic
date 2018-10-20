@@ -2,7 +2,7 @@
   bitRepublic - restAPI.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-16 00:23:43
-  @Last Modified time: 2018-05-03 02:29:27
+  @Last Modified time: 2018-09-01 11:58:27
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 //import { Bots } from './bots.js';
@@ -10,6 +10,25 @@ import { Actions } from './actions.js';
 import {Api} from '../restAPI.js';
 
 if(Meteor.isServer){
+
+	Api.addRoute('action/listActive', {
+		get : {
+			authRequired: false,
+			action : function () {
+				let actions = Actions.find({
+					active: true
+				}).fetch();
+
+				return {
+					actions : actions,
+					len : actions.length
+				}
+			}
+		}
+
+	});
+
+
 	Api.addRoute('action/confirm/:actionId/:botName/:tweetId', {
 		/**
 		* @api {get} /api/action/confirm

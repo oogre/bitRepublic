@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-05-15 12:16:32
+  @Last Modified time: 2018-10-04 11:41:46
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import * as Utilities from '../../utilities.js';
@@ -69,7 +69,7 @@ Meteor.startup(() => {
 				Roles.addUsersToRoles(clairId, ['user'])
 			}
 		}
-		for(var i = 0 ; i < 60 ; i ++){
+		for(var i = 0 ; i < 199 ; i ++){
 			let username = "bitsoil-"+Utilities.numberFormat(i, 2);
 			if(!Meteor.users.findOne({username : username})){
 				let rpiUserData = {

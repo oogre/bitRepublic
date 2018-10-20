@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-08-09 22:59:03
+  @Last Modified time: 2018-09-01 13:25:59
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -250,9 +250,6 @@ export default withTracker(() => {
 	let bots = [];
 	let totalBitsoil = 0;
 	if(myBotsReady){
-
-		
-
 		bots = Bots.find({owner : Meteor.userId(), model : { $ne : true }}).fetch();
 		let models = Bots.find({_id : {$in : _.pluck(bots, 'model')}}).fetch();
 		let actions = Actions.find({bot : {$in : _.pluck(bots, '_id')}}).fetch();

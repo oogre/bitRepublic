@@ -2,7 +2,7 @@
   bitRepublic - About.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:21:06
-  @Last Modified time: 2018-05-03 00:17:41
+  @Last Modified time: 2018-09-23 18:57:24
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import HeaderMenu from './menu/header.js';
