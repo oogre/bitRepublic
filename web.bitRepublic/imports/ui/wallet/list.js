@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-08-14 10:51:02
+  @Last Modified time: 2018-10-21 14:35:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -32,7 +32,7 @@ class WalletList extends Component {
 		return (
 			<tr className="table__row" key={wallet._id}>
 				<td className="table__cell">
-					<span className="wallet-id">ID {Utilities.numberFormat(wallet.number, 6)}</span>
+					<span className="wallet-id"><T>Menu.ID</T> {Utilities.numberFormat(wallet.number, 6)}</span>
 				</td>
 				<td className="table__cell text-center">
 					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={wallet.bitsoil} tax={false} noFormat={true} />
@@ -62,7 +62,7 @@ class WalletList extends Component {
 
 		return (
 			<div>
-				<h2 className="title--primary">The redistribution mechanism</h2>
+				<h2 className="title--primary"><T>Menu.theRedistributionMechanism</T></h2>
 
 				<div className="container">
 					<div className="section-intro">
@@ -72,8 +72,8 @@ class WalletList extends Component {
 					<table className="table table--redistribution">
 						<thead className="table__header">
 							<tr>
-								<th className="table__header__cell">ID MEMBERS</th>
-								<th className="table__header__cell">WALLETS</th>
+								<th className="table__header__cell"><T>Menu.IDMEMBERS</T></th>
+								<th className="table__header__cell"><T>Menu.WALLETS</T></th>
 							</tr>
 						</thead>
 						<tbody className="table__body">

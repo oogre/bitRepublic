@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:30:54
-  @Last Modified time: 2018-09-01 13:25:59
+  @Last Modified time: 2018-10-21 14:18:00
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -19,6 +19,7 @@ import  BitsoilCounter from '../bitsoil/counter.js';
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 
+import T from './../../i18n/index.js';
 
 // App component - represents the whole app
 class BotInfo extends Component {
@@ -195,7 +196,7 @@ class BotInfo extends Component {
 	renderTotal(){
 		return (
 			<tr className="table__row table__row--totals">
-				<td className="table__cell text-right" colSpan={ this.props.isAdmin ? "7" : "6" }>Your bots contribution</td>
+				<td className="table__cell text-right" colSpan={ this.props.isAdmin ? "7" : "6" }><T>Menu.yourBotsContribution</T></td>
 				<td className="table__cell text-center">
 					<BitsoilCounter type="simple" currencyBefore={true} bitsoil={this.props.totalBitsoil} tax={false} />
 				</td>
@@ -207,18 +208,18 @@ class BotInfo extends Component {
 			<table className="table table--zebra table--bots">
 				<thead className="table__header">
 					<tr>
-						<th className="table__header__cell">Bots</th>
-						<th className="table__header__cell">Actions</th>
-						<th className="table__header__cell table__header__cell--large">Created at</th>
-						<th className="table__header__cell table__header__cell--large">Next action at</th>
-						<th className="table__header__cell">Active</th>
+						<th className="table__header__cell"><T>Menu.bot</T></th>
+						<th className="table__header__cell"><T>Menu.actions</T></th>
+						<th className="table__header__cell table__header__cell--large"><T>Menu.createdAt</T></th>
+						<th className="table__header__cell table__header__cell--large"><T>Menu.nextActionAt</T></th>
+						<th className="table__header__cell"><T>Menu.active</T></th>
 						{ this.props.isAdmin ?
 							<th className="table__header__cell">History</th>
 						: 
 							null
 						}
-						<th className="table__header__cell">Tweet</th>
-						<th className="table__header__cell table__header__cell--xl">Bitsoils</th>
+						<th className="table__header__cell"><T>Menu.tweet</T></th>
+						<th className="table__header__cell table__header__cell--xl"><T>Menu.bitsoils</T></th>
 					</tr>
 				</thead>
 				<tbody className="table__body">
@@ -232,7 +233,7 @@ class BotInfo extends Component {
 		return (
 			<div className="container">
 				<section className="section--profile">
-					<h2 className="title--profile">Bot info</h2>
+					<h2 className="title--profile"><T>Menu.botInfo</T></h2>
 						<div className="section__content">
 							{ this.props.isReady ? this.renderTable() : <FixeWait/> }
 							{ this.state["error-login"] ? <MessageError error={ this.state["error-login"] } messages={ config.FORM.ERRORS.login } /> : null }

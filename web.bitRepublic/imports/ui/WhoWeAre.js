@@ -2,7 +2,7 @@
   bitRepublic - WhoWeAre.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-05-03 01:32:22
+  @Last Modified time: 2018-10-21 14:36:04
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -28,7 +28,7 @@ export default class WhoWeAre extends Component {
             <div className="tabs--profile">
               <ul className="tabs-selector-list">
                 <li className="tabs-selector-list__item">
-                  <a className="selected tabs-selector-list__button" href="#">Who We Are</a>
+                  <a className="selected tabs-selector-list__button" href="#"><T>Menu.whoweare</T></a>
                 </li>
               </ul>
               <div className="tab">

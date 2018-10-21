@@ -2,7 +2,7 @@
   bitRepublic - redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 15:13:25
-  @Last Modified time: 2018-05-03 01:35:29
+  @Last Modified time: 2018-10-20 12:37:05
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import T from './../../i18n/index.js';
@@ -27,14 +27,14 @@ export default class RedistriutionMenu extends Component {
 												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("redistribution") + "#redistributionLogin"}
 											>
-												Genereate your wallet
+												<T>Menu.genereate</T>
 											</a>
 										:
 											<a
 												href={FlowRouter.path("redistribution")}
 												className="button--secondary hero-banner__button"
 											>
-												Join the campaign
+												<T>Menu.join</T>
 											</a>
 									}
 
@@ -47,14 +47,14 @@ export default class RedistriutionMenu extends Component {
 												href={FlowRouter.path("redistribution") + "#redistributionInfo"}
 												className="button--secondary hero-banner__button"
 											>
-												Find out more
+												<T>Menu.more</T>
 											</a>
 										:
 											<a
 												className="button--secondary hero-banner__button"
 												href={FlowRouter.path("about")}
 											>
-												Find out more
+												<T>Menu.more</T>
 											</a>
 
 									}

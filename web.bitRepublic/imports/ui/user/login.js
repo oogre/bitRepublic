@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-05-02 19:06:19
+  @Last Modified time: 2018-10-21 15:02:21
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -16,6 +16,8 @@ import { LoginUser } from '../../api/users/methods.js';
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 import Alert from '../Alert.js';
+import T from './../../i18n/index.js';
+
 
 export default class UserLogIn extends Component {
 	constructor(props){
@@ -180,8 +182,8 @@ export default class UserLogIn extends Component {
 												<h2 className="modal__title">Awesome!</h2>
 												<span className="modal__subtitle">
 													<p>
-														Got your tweet.<br/>
-														Which world leader you want.
+														<T>Menu.gotYourTweet</T><br/>
+														<T>Menu.whichWorldLeaderYouWant</T>
 													</p>
 												</span>
 											</span>
@@ -195,11 +197,11 @@ export default class UserLogIn extends Component {
 									<div className="fields-row">
 										<div className="fields-column">
 											<span>
-												<h2 className="modal__title">Hey!</h2>
+												<h2 className="modal__title"><T>Menu.hey</T></h2>
 												<span className="modal__subtitle">
 													<p>
-														You did it.<br/>
-														Got your tweet!
+														<T>Menu.youDidIt</T><br/>
+														<T>Menu.gotYourTweet</T>
 													</p>
 												</span>
 											</span>
@@ -215,10 +217,10 @@ export default class UserLogIn extends Component {
 									{
 										Meteor.userId() ?
 											<span>
-												<h2 className="modal__title">Hey, you did it once again.</h2>
+												<h2 className="modal__title"><T>Menu.heyYouDidItOnceAgain</T></h2>
 												<span className="modal__subtitle">
 													<p>
-														Glad to join the band!
+														<T>Menu.gladToJoinTheBand</T>
 													</p>
 												</span>
 											</span>
@@ -252,7 +254,7 @@ export default class UserLogIn extends Component {
 										type="email"
 										ref="email"
 										name="email"
-										placeholder="Type your email"
+										placeholder={i18n.__("Menu.typeYourEmail")}
 									/>
 									{
 										this.state["error-email"] ?
@@ -269,7 +271,7 @@ export default class UserLogIn extends Component {
 										type="password"
 										ref="password"
 										name="password"
-										placeholder="Type your password"
+										placeholder={i18n.__("Menu.typeYourPassword")}
 									/>
 									{
 										this.state["error-password"] ?
@@ -295,12 +297,12 @@ export default class UserLogIn extends Component {
 								(this.state['has-error'] ? "error " : "")
 							}
 							type="submit"
-							value={Meteor.userId() ? "Activation" : "Log in"}
+							value={Meteor.userId() ? i18n.__("Menu.activation") : i18n.__("Menu.logIn")}
 						/>
 						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>
 				</form>
-				<Alert open={this.state.success} message="You'll receive soon an email to reset your password." onSuccess={this.handleAlertSuccess.bind(this)}/>
+				<Alert open={this.state.success} message={i18n.__("Menu.youReceiveSoonAnEmailToResetYourPassword")} onSuccess={this.handleAlertSuccess.bind(this)}/>
 			</div>
 		);
 	}

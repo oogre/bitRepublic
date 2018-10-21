@@ -2,7 +2,7 @@
   bitRepublic - shortAbout.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:06:20
-  @Last Modified time: 2018-05-03 00:57:00
+  @Last Modified time: 2018-10-20 12:26:38
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import T from './../../i18n/index.js';
@@ -27,7 +27,7 @@ export default class FixeShortAbout extends Component {
 						<h3 className="short-about__title"><T>App.about.C.title</T></h3>
 						<p className="short-about__content"><T>App.about.C.content</T></p>
 					</div>
-					<a className="short-about__link" href={FlowRouter.path("about")}>find out more</a>
+					<a className="short-about__link" href={FlowRouter.path("about")}><T>Menu.more</T></a>
 				</div>
 			</div>
 		);

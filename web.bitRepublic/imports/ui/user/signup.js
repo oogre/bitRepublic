@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-05-17 13:20:37
+  @Last Modified time: 2018-10-21 15:05:19
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -13,6 +13,7 @@ import { config } from '../../startup/config.js';
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 import Alert from '../Alert.js';
+import T from './../../i18n/index.js';
 
 export default class UserSignup extends Component {
 	constructor(props){
@@ -127,8 +128,8 @@ export default class UserSignup extends Component {
 										<h2 className="modal__title">Awesome!</h2>
 										<span className="modal__subtitle">
 											<p>
-												Got your tweet.<br/>
-												Which world leader you want.
+												<T>Menu.gotYourTweet</T><br/>
+												<T>Menu.whichWorldLeaderYouWant</T>
 											</p>
 										</span>
 									</span>
@@ -145,8 +146,8 @@ export default class UserSignup extends Component {
 										<h2 className="modal__title">Hey!</h2>
 										<span className="modal__subtitle">
 											<p>
-												You did it.<br/>
-												Got your tweet!
+												<T>Menu.youDidIt</T><br/>
+												<T>Menu.gotYourTweet</T>
 											</p>
 										</span>
 									</span>
@@ -178,11 +179,11 @@ export default class UserSignup extends Component {
 					</div>
 					<div className="fields-row">
 						<div className="fields-column">
-							<h2 className="modal__title">Follow me</h2>
+							<h2 className="modal__title"><T>Menu.followMe</T></h2>
 							<span className="modal__subtitle">
 								<p>
-									Stay updated and get access <br/>
-									to your personal bot account.
+									<T>Menu.stayYpdatedAndGetAccess</T><br/>
+									<T>Menu.toYourPersonalBotAccount</T>
 								</p>
 							</span>
 						</div>
@@ -193,7 +194,7 @@ export default class UserSignup extends Component {
 								type="text"
 								ref="firstname"
 								name="firstname"
-								placeholder="first name"
+								placeholder={i18n.__("Menu.firstName")}
 							/>
 							{ 	this.state["error-firstname"] ?
 									<MessageError
@@ -211,7 +212,7 @@ export default class UserSignup extends Component {
 								type="text"
 								ref="lastname"
 								name="lastname"
-								placeholder="last name"
+								placeholder={i18n.__("Menu.firstName")}
 							/>
 							{ 	this.state["error-lastname"] ?
 									<MessageError
@@ -229,7 +230,7 @@ export default class UserSignup extends Component {
 								type="email"
 								ref="email"
 								name="email"
-								placeholder="your email"
+								placeholder={i18n.__("Menu.yourEmail")}
 							/>
 							{ 	this.state["error-email"] ?
 									<MessageError

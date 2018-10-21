@@ -2,7 +2,7 @@
   bitRepublic - Installation.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 20:35:46
-  @Last Modified time: 2018-05-03 01:26:56
+  @Last Modified time: 2018-10-21 14:24:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -34,10 +34,10 @@ export default class Installation extends Component {
 						]}
 					>
 						<li className="buttons-list__item">
-							<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>Join the campaign</a>
+							<a className="button button--md hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}><T>Menu.joinCampaign</T></a>
 						</li>
 						<li className="buttons-list__item">
-							<a className="button button--md hero-banner__button" href={FlowRouter.path("about")}>FIND OUT MORE</a>
+							<a className="button button--md hero-banner__button" href={FlowRouter.path("about")}><T>Menu.FINDOUTMORE</T></a>
 						</li>
 					</MenuMenu>
 					<FixeInfo />
@@ -46,7 +46,7 @@ export default class Installation extends Component {
 						<T>Installation.FixePunchline.A</T>,
 						<T>Installation.FixePunchline.B</T>
 					]}>
-						<a className="button--secondary hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}>DESIGN YOUR TAXBOT</a>
+						<a className="button--secondary hero-banner__button" href={FlowRouter.path("home") + "#taxbot"}><T>Menu.DESIGNYOURTAXBOT</T></a>
 					</FixePunchline>
 					<div className="offset-grid offset-grid--installation">
 						<div className="offset-grid__wrapper container">

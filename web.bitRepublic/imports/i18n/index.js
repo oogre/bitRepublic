@@ -1,8 +1,10 @@
 import i18n from 'meteor/universe:i18n';
+import './cn.js';
 
 i18n.setOptions({
     purify: string => string
 });
+
 i18n.addTranslation('en-US', "textOverCounter", "A", "This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.");
 i18n.addTranslation('en-US', "textOverCounter", "B", "Join us and let's make the data economy benefits everyone!");
 
@@ -11,6 +13,80 @@ i18n.addTranslation('en-US', "App", "FixePunchline", "B", "BITSOIL THE NEW OIL O
 i18n.addTranslation('en-US', "App", "FixePunchline", "C", "TIME TO CLAIM YOUR SHARE");
 
 i18n.addTranslation('en-US', "SliderMenu", "banner__title", "Make the data economy benefits all");
+
+i18n.addTranslation('en-US', "Menu", "about", "About");
+i18n.addTranslation('en-US', "Menu", "taxbot", "Design your taxbot");
+i18n.addTranslation('en-US', "Menu", "redistribution", "Take part in the redistribution");
+i18n.addTranslation('en-US', "Menu", "installation", "Installation");
+i18n.addTranslation('en-US', "Menu", "whoweare", "Who We Are");
+i18n.addTranslation('en-US', "Menu", "dyourtaxcollectorbot", "design your tax collector bot");
+i18n.addTranslation('en-US', "Menu", "claim", "claim a #bitsoiltax");
+i18n.addTranslation('en-US', "Menu", "more", "find out more");
+i18n.addTranslation('en-US', "Menu", "createTaxbot", "Create your taxbot");
+i18n.addTranslation('en-US', "Menu", "signup", "Sign up");
+i18n.addTranslation('en-US', "Menu", "genereate", "Genereate your wallet");
+i18n.addTranslation('en-US', "Menu", "join", "Join the campaign");
+i18n.addTranslation('en-US', "Menu", "bot", "Bots");
+i18n.addTranslation('en-US', "Menu", "actions", "Actions");
+i18n.addTranslation('en-US', "Menu", "createdAt", "Created at");
+i18n.addTranslation('en-US', "Menu", "nextActionAt", "Next action at");
+i18n.addTranslation('en-US', "Menu", "active", "Active");
+i18n.addTranslation('en-US', "Menu", "tweet", "Tweet");
+i18n.addTranslation('en-US', "Menu", "bitsoils", "Bitsoils");
+i18n.addTranslation('en-US', "Menu", "yourBotsContribution", "Your bots contribution");
+i18n.addTranslation('en-US', "Menu", "botInfo", "Bot info");
+i18n.addTranslation('en-US', "Menu", "chooseaTweet", "Choose a Tweet");
+i18n.addTranslation('en-US', "Menu", "joinCampaign", "Join the campaign");
+i18n.addTranslation('en-US', "Menu", "FINDOUTMORE", "FIND OUT MORE");
+i18n.addTranslation('en-US', "Menu", "DESIGNYOURTAXBOT", "DESIGN YOUR TAXBOT");
+i18n.addTranslation('en-US', "Menu", "designYourTaxbot", "Design your taxbot");
+i18n.addTranslation('en-US', "Menu", "findOutMore", "Find out more");
+i18n.addTranslation('en-US', "Menu", "claimBitsoiltax", "Claim a bitsoiltax");
+i18n.addTranslation('en-US', "Menu", "whatJobTaxBotDo", "What job will the tax bot do");
+i18n.addTranslation('en-US', "Menu", "activateMe", "activate me");
+i18n.addTranslation('en-US', "Menu", "createNow", "Create now");
+i18n.addTranslation('en-US', "Menu", "theRedistributionMechanism", "The redistribution mechanism");
+i18n.addTranslation('en-US', "Menu", "IDMEMBERS", "ID MEMBERS");
+i18n.addTranslation('en-US', "Menu", "WALLETS", "WALLETS");
+i18n.addTranslation('en-US', "Menu", "ID", "ID");
+i18n.addTranslation('en-US', "Menu", "contact", "Contact");
+i18n.addTranslation('en-US', "Menu", "spreadTheWord", "Spread the word");
+i18n.addTranslation('en-US', "Menu", "partners", "Partners");
+i18n.addTranslation('en-US', "Menu", "license", "License");
+i18n.addTranslation('en-US', "Menu", "photoCredits", "photo credits");
+i18n.addTranslation('en-US', "Menu", "faq", "Faq");
+i18n.addTranslation('en-US', "Menu", "frequentlyAskedQuestions", "Frequently Asked Questions");
+i18n.addTranslation('en-US', "Menu", "supportedBy", "Supported by");
+i18n.addTranslation('en-US', "Menu", "softwareDevelopment", "Software Development");
+i18n.addTranslation('en-US', "Menu", "yourWallet", "Your wallet");
+i18n.addTranslation('en-US', "Menu", "idNumber", "id number");
+i18n.addTranslation('en-US', "Menu", "valueOfYourWallet", "Value of your wallet");
+i18n.addTranslation('en-US', "Menu", "privateKey", "private key");
+i18n.addTranslation('en-US', "Menu", "publicKey", "public key");
+i18n.addTranslation('en-US', "Menu", "botInfo", "Bot info");
+i18n.addTranslation('en-US', "Menu", "settings", "Settings");
+i18n.addTranslation('en-US', "Menu", "gotYourTweet.", "Got your tweet.");
+i18n.addTranslation('en-US', "Menu", "whichWorldLeaderYouWant.", "Which world leader you want.");
+i18n.addTranslation('en-US', "Menu", "youDidIt", "You did it.");
+i18n.addTranslation('en-US', "Menu", "gotYourTweet", "Got your tweet!");
+i18n.addTranslation('en-US', "Menu", "hey", "Hey!");
+i18n.addTranslation('en-US', "Menu", "heyYouDidItOnceAgain", "Hey, you did it once again.");
+i18n.addTranslation('en-US', "Menu", "gladToJoinTheBand", "Glad to join the band!");
+i18n.addTranslation('en-US', "Menu", "activation", "Activation");
+i18n.addTranslation('en-US', "Menu", "logIn", "Log in");
+i18n.addTranslation('en-US', "Menu", "youReceiveSoonAnEmailToResetYourPassword", "You'll receive soon an email to reset your password.");
+i18n.addTranslation('en-US', "Menu", "stayYpdatedAndGetAccess", "Stay updated and get access");
+i18n.addTranslation('en-US', "Menu", "toYourPersonalBotAccount", "to your personal bot account.");
+i18n.addTranslation('en-US', "Menu", "typeYourEmail", "Type your email");
+i18n.addTranslation('en-US', "Menu", "typeYourPassword", "Type your password");
+i18n.addTranslation('en-US', "Menu", "followMe", "Follow me");
+i18n.addTranslation('en-US', "Menu", "firstName", "first name");
+i18n.addTranslation('en-US', "Menu", "lastName", "last name");
+i18n.addTranslation('en-US', "Menu", "yourEmail", "your email");
+i18n.addTranslation('en-US', "Menu", "forgotPassword", "forgot password ?");
+i18n.addTranslation('en-US', "Menu", "spreadTheWord", "Spread the word!");
+i18n.addTranslation('en-US', "Menu", "alreadyJoinedTheCampaignLogIn", "Already joined the campaign? Log In");
+
 
 i18n.addTranslation('en-US', "App", "about", "A", "title", "the campaign");
 i18n.addTranslation('en-US', "App", "about", "A", "content", "The Bitsoil Popup Tax & Hack campaign is intended to mobilize users of social media platforms to claim a micro-tax on their data and thereby call for a fair distribution of the wealth of the digital economy. The campaign is led by a band of cheerfully trolling social media bots on Twitter. Their goal is to make users aware of the value of their data.");
@@ -113,5 +189,17 @@ i18n.addTranslation('en-US', "FAQ", "G", "hash", "leader");
 i18n.addTranslation('en-US', "FAQ", "G", "title", "I can’t find my beloved world leader I want to tweet to?");
 i18n.addTranslation('en-US', "FAQ", "G", "content", "Please send us an email: <a href=\"{$address}\" >campaign@bitsoil.tax</a>");
 
+function getLang () {
+    return (
+        navigator.languages && navigator.languages[0] ||
+        navigator.language ||
+        navigator.browserLanguage ||
+        navigator.userLanguage ||
+        'en-US'
+    );
+}
+let l = getLang();
+i18n.setLocale(l);
+console.log(l);
 
 export default i18n.createComponent();

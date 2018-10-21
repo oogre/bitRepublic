@@ -2,7 +2,7 @@
   bitRepublic - modal.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-05-02 19:07:21
+  @Last Modified time: 2018-10-21 15:09:19
 \*----------------------------------------*/
 import React, { Component } from 'react';
 // https://reactcommunity.org/react-modal/
@@ -12,6 +12,7 @@ import ReactModal from 'react-modal';
 import UserSignup from './signup.js';
 import UserLogIn from './login.js';
 import TargetSelector from '../target/selector.js';
+import T from './../../i18n/index.js';
 
 ReactModal.setAppElement('body');
 
@@ -153,6 +154,7 @@ export default class UserModal extends Component {
 											onClick={this.handleChangeProcess.bind(this, "login")}
 										>
 											Log in
+											<T>Menu.logIn</T>
 										</a>
 
 										<span
@@ -161,7 +163,7 @@ export default class UserModal extends Component {
 											<a 	className="modal__link"
 												href="#"
 												onClick={this.handleForgotPassword.bind(this)}>
-												forgot password ?
+												<T>Menu.forgotPassword</T>
 											</a>
 											<span> | </span>
 											<a
@@ -169,7 +171,7 @@ export default class UserModal extends Component {
 												href="#"
 												onClick={this.handleChangeProcess.bind(this, "signup")}
 											>
-												Sign up
+												<T>Menu.signup</T>
 											</a>
 										</span>
 									</div>
@@ -203,12 +205,12 @@ export default class UserModal extends Component {
 										</a>
 									</li>*/}
 								</ul>
-								<p className="modal__share__text">Spread the word! </p>
+								<p className="modal__share__text"><T>Menu.spreadTheWord</T> </p>
 							</div>
 						</div>
 						<div className="modal__footer">
 							<span>
-								<a className="modal__link" href={FlowRouter.path("faq")} target="_blank">Faq</a>
+								<a className="modal__link" href={FlowRouter.path("faq")} target="_blank"><T>Menu.faq</T></a>
 							</span>
 							{
 									this.state.selectedProcess == "signup"
@@ -220,7 +222,7 @@ export default class UserModal extends Component {
 												className="modal__link"
 												href="#"
 												onClick={this.handleChangeProcess.bind(this, "login")}
-											>Already joined the campaign? Log In</a>
+											><T>Menu.alreadyJoinedTheCampaignLogIn</T></a>
 										</span>
 									</span>
 								:

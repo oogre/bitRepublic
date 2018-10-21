@@ -2,11 +2,13 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-08-13 19:12:16
+  @Last Modified time: 2018-10-21 14:41:30
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
 import { FacebookIcon, TwitterIcon } from 'react-share';
+
+import T from './../../i18n/index.js';
 
 // App component - represents the whole app
 export default class FooterMenu extends Component {
@@ -21,7 +23,7 @@ export default class FooterMenu extends Component {
 					<nav className="main-footer__nav">
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Contact</p>
+								<p className="menu--footer__title"><T>Menu.contact</T></p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
 										<a className="menu__item__link" href={FlowRouter.path("contact")}>campaign@bitsoil.tax</a>
@@ -31,7 +33,7 @@ export default class FooterMenu extends Component {
 						</div>
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Spread the word</p>
+								<p className="menu--footer__title"><T>Menu.spreadTheWord</T></p>
 								<ul className="buttons-list buttons-list--footer">
 									<li className="buttons-list__item">
 										<a target="_blank" className="buttons-list__link" href={"https://twitter.com/intent/tweet?text="+encodeURIComponent("Make the data economy benefits all. Join the bitsoil popup tax & hack campaign. @http://bitsoil.tax")}>
@@ -56,7 +58,7 @@ export default class FooterMenu extends Component {
 
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Partners</p>
+								<p className="menu--footer__title"><T>Menu.partners</T></p>
 								<ul className="buttons-list buttons-list--footer buttons-list--partner">
 									<li className="buttons-list__item">
 										<a className="buttons-list__link" target="_blank" title="gluon" href="http://gluon.be/">
@@ -83,7 +85,7 @@ export default class FooterMenu extends Component {
 						</div>
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">License</p>
+								<p className="menu--footer__title"><T>Menu.license</T></p>
 								<ul className="buttons-list buttons-list--footer buttons-list--license">
 									<li className="buttons-list__item">
 										<a className="buttons-list__link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/2.0/be/deed.en">
@@ -96,7 +98,7 @@ export default class FooterMenu extends Component {
 								</ul>
 							</div>
 							<div className="column__content credits">
-								<p className="menu--footer__title">photo credits</p>
+								<p className="menu--footer__title"><T>Menu.photoCredits</T></p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
 										<a className="menu__item__link" href="http://lumin.be">lumin.be</a>
@@ -109,17 +111,17 @@ export default class FooterMenu extends Component {
 						</div>
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Faq</p>
+								<p className="menu--footer__title"><T>Menu.faq</T></p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
-										<a className="menu__item__link" href={FlowRouter.path("faq")}>Frequently Asked Questions</a>
+										<a className="menu__item__link" href={FlowRouter.path("faq")}><T>Menu.frequentlyAskedQuestions</T></a>
 									</li>
 								</ul>
 							</div>
 						</div>
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Supported by</p>
+								<p className="menu--footer__title"><T>Menu.supportedBy</T></p>
 								<ul className="buttons-list buttons-list--footer">
 									<li className="buttons-list__item buttons-list__item--fsoa">
 										<a className="buttons-list__link--fsoa" target="_blank" href="http://www.kunstenenerfgoed.be/">
@@ -136,7 +138,7 @@ export default class FooterMenu extends Component {
 						</div>
 						<div className="column">
 							<div className="column__content">
-								<p className="menu--footer__title">Software Development</p>
+								<p className="menu--footer__title"><T>Menu.softwareDevelopment</T></p>
 								<ul className="menu menu--footer">
 									<li className="menu__item">
 										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://ogre.be/">Backend: Vincent Evrard</a>

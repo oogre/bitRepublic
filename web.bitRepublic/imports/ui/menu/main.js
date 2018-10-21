@@ -2,13 +2,15 @@
   bitRepublic - main.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:48:05
-  @Last Modified time: 2018-05-31 19:07:09
+  @Last Modified time: 2018-10-21 15:10:07
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import UserModal from '../user/modal.js';
 import * as Utilities from '../../utilities.js'
+import T from './../../i18n/index.js';
+
 
 class MainMenu extends Component {
 	constructor(props){
@@ -52,19 +54,19 @@ class MainMenu extends Component {
 				</button>
 				<ul className={"menu menu--header" + " " + (this.state.mobileMenu ? "visible" : "")}>
 					<li className="menu__item">
-						<a className={"menu__item__link " + (FlowRouter.current().route.name == "about" ? "active" : "")} href={FlowRouter.path("about")}>About</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "about" ? "active" : "")} href={FlowRouter.path("about")}><T>Menu.about</T></a>
 					</li>
 					<li className="menu__item">
-						<a className={"menu__item__link " + (FlowRouter.current().route.name == "home" ? "active" : "")} href={FlowRouter.path("home") + "#taxbot"}>Design your taxbot</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "home" ? "active" : "")} href={FlowRouter.path("home") + "#taxbot"}><T>Menu.taxbot</T></a>
 					</li>
 					<li className="menu__item">
-						<a className={"menu__item__link " + (FlowRouter.current().route.name == "redistribution" ? "active" : "")} href={FlowRouter.path("redistribution")} >Take part in the redistribution</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "redistribution" ? "active" : "")} href={FlowRouter.path("redistribution")} ><T>Menu.redistribution</T></a>
 					</li>
 					<li className="menu__item">
-						<a className={"menu__item__link " + (FlowRouter.current().route.name == "installation" ? "active" : "")} href={FlowRouter.path("installation")}>Installation</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "installation" ? "active" : "")} href={FlowRouter.path("installation")}><T>Menu.installation</T></a>
 					</li>
 					<li className="menu__item">
-						<a className={"menu__item__link " + (FlowRouter.current().route.name == "whoweare" ? "active" : "")} href={FlowRouter.path("whoweare")}>Who We Are</a>
+						<a className={"menu__item__link " + (FlowRouter.current().route.name == "whoweare" ? "active" : "")} href={FlowRouter.path("whoweare")}><T>Menu.whoweare</T></a>
 					</li>
 					<li className="menu__item">
 						{
@@ -76,7 +78,7 @@ class MainMenu extends Component {
 								{this.props.username}
 							</a>
 						:
-							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}>Log in</a>
+							<a href="#" className="menu__item__link" onClick={this.handleOpenModal.bind(this)}><T>Menu.logIn</T></a>
 						}
 						<UserModal
 							process="login"

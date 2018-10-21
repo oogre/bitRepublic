@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-02 00:09:00
-  @Last Modified time: 2018-05-03 00:15:57
+  @Last Modified time: 2018-10-21 14:28:08
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -170,9 +170,9 @@ class BotSelector extends Component {
 				<div className="bot-selector__counter">
 					<BitsoilCounter unBlock="." large={true} bitsoil={this.props.bitsoil} tax={true} />
 				</div>
-				<h3 className="title--secondary">Claim a bitsoiltax</h3>
+				<h3 className="title--secondary"><T>Menu.claimBitsoiltax</T></h3>
 				<div className="container">
-					<h4 className="title--ternary">What job will the tax bot do</h4>
+					<h4 className="title--ternary"><T>Menu.whatJobTaxBotDo</T></h4>
 					{ this.props.isReady ? this.renderBots() : <FixeWait/> }
 				</div>
 				<div id="tweetSelector" ></div>
@@ -182,7 +182,7 @@ class BotSelector extends Component {
 						<button className="button--primary button--submit"
 							disabled={this.state.validateDisable}
 							onClick={this.handleValidation.bind(this)}>
-								activate me
+								<T>Menu.activateMe</T>
 						</button>
 					</div>
 				</div>

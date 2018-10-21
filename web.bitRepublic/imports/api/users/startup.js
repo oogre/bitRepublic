@@ -2,7 +2,7 @@
   bitRepublic - startup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:21:50
-  @Last Modified time: 2018-10-04 11:41:46
+  @Last Modified time: 2018-10-21 15:23:31
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import * as Utilities from '../../utilities.js';
@@ -85,5 +85,20 @@ Meteor.startup(() => {
 				Roles.addUsersToRoles(rpiId, ['user'])
 			}
 		}
+
+		process.env.ADMIN_GROUP.split(",").map((mail)=>{
+			let user = Meteor.users.findOne({
+				"emails.address" : mail
+			});
+
+			if(user && !Roles.userIsInRole(user._id, "admin")){
+				Roles.addUsersToRoles(user._id, ['admin']);
+				console.log("admin info : ");
+				console.log("\tusername:"+user.username);
+				console.log("\temail:"+user.email);
+				console.log("\t is now an administrator");
+			}
+		})
+		
 	}
 });

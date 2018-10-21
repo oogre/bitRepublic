@@ -2,7 +2,7 @@
   bitRepublic - Redistribution.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:21:07
-  @Last Modified time: 2018-05-03 00:28:36
+  @Last Modified time: 2018-10-20 12:34:17
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -76,11 +76,11 @@ class Redistribution extends Component {
 											className="button--secondary hero-banner__button"
 											onClick={this.handleOpenModal.bind(this)}
 										>
-											Sign up
+											<T>Menu.signup</T>
 										</a>
 								}
 							<a	className="button--secondary" href={FlowRouter.path("home") + "#taxbot"}>
-								Create your taxbot
+								<T>Menu.createTaxbot</T>
 							</a>
 						</FixePunchline>
 						<div id="redistributionInfo"></div>

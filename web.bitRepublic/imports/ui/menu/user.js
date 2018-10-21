@@ -9,6 +9,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import UserLogOut from '../user/logout.js';
 // https://reactcommunity.org/react-modal/
 import ReactModal from 'react-modal';
+import T from './../../i18n/index.js';
 
 ReactModal.setAppElement('body');
 
@@ -40,10 +41,10 @@ class UserMenu extends Component {
 					<div className={"dropdown__content" + (this.state.showDropdown ? "" : " hidden" )}>
 						<ul className="dropdown__list">
 							<li className="dropdown__item__item">
-								<a className="dropdown__item__link" href={FlowRouter.path("userProfile", {username : this.props.username})}>Bot info</a>
+								<a className="dropdown__item__link" href={FlowRouter.path("userProfile", {username : this.props.username})}><T>Menu.botInfo</T></a>
 							</li>
 							<li className="dropdown__item__item">
-								<a className="dropdown__item__link" href={FlowRouter.path("userUpdate", {username : this.props.username})}>Settings</a>
+								<a className="dropdown__item__link" href={FlowRouter.path("userUpdate", {username : this.props.username})}><T>Menu.settings</T></a>
 							</li>
 							<li className="dropdown__item__item">
 								<UserLogOut/>

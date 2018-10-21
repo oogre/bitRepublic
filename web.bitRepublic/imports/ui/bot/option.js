@@ -2,11 +2,12 @@
   bitRepublic - option.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:06:20
-  @Last Modified time: 2018-02-02 00:09:15
+  @Last Modified time: 2018-10-21 14:19:05
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
 import BitsoilCounter from '../bitsoil/counter.js';
+import T from './../../i18n/index.js';
 
 export default class BotOption extends Component {
 	constructor(props){
@@ -32,7 +33,9 @@ export default class BotOption extends Component {
 					{this.props.bot.description}
 				</div>
 				<footer className="card__footer">
-					<button  className="button--ternary" onClick={this.botSelected.bind(this)} >Choose a Tweet</button>
+					<button  className="button--ternary" onClick={this.botSelected.bind(this)} >
+						<T>Menu.chooseaTweet</T>
+					</button>
 				</footer>
 			</li>
 		);
