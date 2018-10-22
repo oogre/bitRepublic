@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-10-20 12:05:20
+  @Last Modified time: 2018-10-22 16:19:59
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -13,6 +13,79 @@ i18n.addTranslation('zh-CN', "App", "FixePunchline", "B", "数据油田(bitsoil)
 i18n.addTranslation('zh-CN', "App", "FixePunchline", "C", "是时候申请属于您的份额");
 
 i18n.addTranslation('zh-CN', "SliderMenu", "banner__title", "让数据经济造福全人类");
+
+i18n.addTranslation('zh-CN', "Menu", "about", "关于");
+i18n.addTranslation('zh-CN', "Menu", "taxbot", "定制税收机器人");
+i18n.addTranslation('zh-CN', "Menu", "redistribution", "参与资源再分配");
+i18n.addTranslation('zh-CN', "Menu", "installation", "安装");
+i18n.addTranslation('zh-CN', "Menu", "whoweare", "关于我们");
+i18n.addTranslation('zh-CN', "Menu", "dyourtaxcollectorbot", "定制你的专属税收机器人");
+i18n.addTranslation('zh-CN', "Menu", "claim", "申请数据油田税");
+i18n.addTranslation('zh-CN', "Menu", "more", "了解更多");
+i18n.addTranslation('zh-CN', "Menu", "createTaxbot", "创建你的税收机器人");
+i18n.addTranslation('zh-CN', "Menu", "signup", "注册");
+i18n.addTranslation('zh-CN', "Menu", "genereate", "创建您的钱包");
+i18n.addTranslation('zh-CN', "Menu", "join", "加入运动");
+i18n.addTranslation('zh-CN', "Menu", "bot", "机器人");
+i18n.addTranslation('zh-CN', "Menu", "actions", "行动");
+i18n.addTranslation('zh-CN', "Menu", "createdAt", "创建");
+i18n.addTranslation('zh-CN', "Menu", "nextActionAt", "继续创建");
+i18n.addTranslation('zh-CN', "Menu", "active", "激活");
+i18n.addTranslation('zh-CN', "Menu", "tweet", "推文");
+i18n.addTranslation('zh-CN', "Menu", "bitsoils", "数据油田");
+i18n.addTranslation('zh-CN', "Menu", "yourBotsContribution", "你的机器人贡献");
+i18n.addTranslation('zh-CN', "Menu", "botInfo", "机器人信息");
+i18n.addTranslation('zh-CN', "Menu", "chooseaTweet", "选择推文");
+i18n.addTranslation('zh-CN', "Menu", "joinCampaign", "加入数据油田运动");
+i18n.addTranslation('zh-CN', "Menu", "FINDOUTMORE", "了解更多");
+i18n.addTranslation('zh-CN', "Menu", "DESIGNYOURTAXBOT", "定制你的税收机器人");
+i18n.addTranslation('zh-CN', "Menu", "designYourTaxbot", "定制你的税收机器人");
+i18n.addTranslation('zh-CN', "Menu", "findOutMore", "了解更多");
+i18n.addTranslation('zh-CN', "Menu", "claimBitsoiltax", "申请数据油田税");
+i18n.addTranslation('zh-CN', "Menu", "whatJobTaxBotDo", "税收机器人职责");
+i18n.addTranslation('zh-CN', "Menu", "activateMe", "激活我");
+i18n.addTranslation('zh-CN', "Menu", "createNow", "现在创建");
+i18n.addTranslation('zh-CN', "Menu", "theRedistributionMechanism", "再分配机制");
+i18n.addTranslation('zh-CN', "Menu", "IDMEMBERS", "ID成员");
+i18n.addTranslation('zh-CN', "Menu", "WALLETS", "钱包");
+i18n.addTranslation('zh-CN', "Menu", "ID", "身份");
+i18n.addTranslation('zh-CN', "Menu", "contact", "连接");
+i18n.addTranslation('zh-CN', "Menu", "spreadTheWord", "传播信息分享");
+i18n.addTranslation('zh-CN', "Menu", "partners", "合作者");
+i18n.addTranslation('zh-CN', "Menu", "license", "执照");
+i18n.addTranslation('zh-CN', "Menu", "photoCredits", "图片版权");
+i18n.addTranslation('zh-CN', "Menu", "faq", "常见问题咨询");
+i18n.addTranslation('zh-CN', "Menu", "frequentlyAskedQuestions", "常见问题咨询");
+i18n.addTranslation('zh-CN', "Menu", "supportedBy", "赞助商");
+i18n.addTranslation('zh-CN', "Menu", "softwareDevelopment", "软件开发者");
+i18n.addTranslation('zh-CN', "Menu", "yourWallet", "你的钱包");
+i18n.addTranslation('zh-CN', "Menu", "idNumber", "身份证号");
+i18n.addTranslation('zh-CN', "Menu", "valueOfYourWallet", "钱包价值");
+i18n.addTranslation('zh-CN', "Menu", "privateKey", "个人密钥");
+i18n.addTranslation('zh-CN', "Menu", "publicKey", "公开密钥");
+i18n.addTranslation('zh-CN', "Menu", "botInfo", "机器人信息");
+i18n.addTranslation('zh-CN', "Menu", "settings", "设置");
+i18n.addTranslation('zh-CN', "Menu", "gotYourTweet.", "已选择您的推文");
+i18n.addTranslation('zh-CN', "Menu", "whichWorldLeaderYouWant.", "你想选择哪个国家领导人");
+i18n.addTranslation('zh-CN', "Menu", "youDidIt", "成功操作");
+i18n.addTranslation('zh-CN', "Menu", "gotYourTweet", "已选择您的推文");
+i18n.addTranslation('zh-CN', "Menu", "hey", "你好");
+i18n.addTranslation('zh-CN', "Menu", "heyYouDidItOnceAgain", "您已操作过");
+i18n.addTranslation('zh-CN', "Menu", "gladToJoinTheBand", "欢迎加入");
+i18n.addTranslation('zh-CN', "Menu", "activation", "激活");
+i18n.addTranslation('zh-CN', "Menu", "logIn", "登陆");
+i18n.addTranslation('zh-CN', "Menu", "youReceiveSoonAnEmailToResetYourPassword", "你将收到一封电子邮件以重置密码");
+i18n.addTranslation('zh-CN', "Menu", "stayYpdatedAndGetAccess", "保持更新并访问");
+i18n.addTranslation('zh-CN', "Menu", "toYourPersonalBotAccount", "您的专属机器人账户");
+i18n.addTranslation('zh-CN', "Menu", "typeYourEmail", "输入您的邮箱");
+i18n.addTranslation('zh-CN', "Menu", "typeYourPassword", "输入密码");
+i18n.addTranslation('zh-CN', "Menu", "followMe", "跟我来");
+i18n.addTranslation('zh-CN', "Menu", "firstName", "名");
+i18n.addTranslation('zh-CN', "Menu", "lastName", "姓");
+i18n.addTranslation('zh-CN', "Menu", "yourEmail", "你的电子邮件");
+i18n.addTranslation('zh-CN', "Menu", "forgotPassword", "忘记密码？");
+i18n.addTranslation('zh-CN', "Menu", "spreadTheWord", "传播消息分享");
+i18n.addTranslation('zh-CN', "Menu", "alreadyJoinedTheCampaignLogIn", "已经加入本次运动？登陆");
 
 i18n.addTranslation('zh-CN', "App", "about", "A", "title", "活动信息");
 i18n.addTranslation('zh-CN', "App", "about", "A", "content", "数据油田(bitsoil)快闪流量税和黑客运动旨在动员使用社交媒体平台或其它科技工具的用户对自己贡献的流量数据征收微税，从而呼吁数字经济财富的公平再分配。这场运动是由一群在Twitter上愉快地刷着流量的机器人领导。他们的目标是让用户认识了解到自己贡献的流量数据的真实价值。");
