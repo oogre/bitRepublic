@@ -2,7 +2,9 @@ import i18n from 'meteor/universe:i18n';
 import './cn.js';
 
 i18n.setOptions({
-    purify: string => string
+	hostUrl : "https://bitsoil.tax/",
+    purify: string => string,
+
 });
 
 i18n.addTranslation('en-US', "textOverCounter", "A", "This is the total amount of bitsoils produced by all the users and their bots during the bitsoil popup hack & tax campaign.");
