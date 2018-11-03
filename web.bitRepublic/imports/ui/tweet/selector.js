@@ -2,7 +2,7 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:59:30
-  @Last Modified time: 2018-03-20 16:40:58
+  @Last Modified time: 2018-11-03 19:43:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 //import ReactDom from 'react-dom';
@@ -88,7 +88,7 @@ class TweetSelector extends Component {
 		return false;
 	}
 	renderTweetButtons(){
-		let tweets = this.props.isAdmin ? this.props.bot.tweets : _.sample(this.props.bot.tweets, 3)
+		let tweets = this.props.isAdmin ? this.props.bot.tweets : _.sample(this.props.bot.tweets, 4)
 		return tweets.map((tweet, k) => (
 			<li className="tabs-selector-list__item" key={k}>
 				<button
