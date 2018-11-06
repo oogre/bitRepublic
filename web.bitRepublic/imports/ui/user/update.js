@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-08-28 16:02:22
+  @Last Modified time: 2018-11-06 23:19:53
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -13,6 +13,8 @@ import UserAvatar from './avatar.js';
 import UserForm from './form.js';
 import UserPassword from './password.js';
 import UserDelete from './delete.js';
+
+import T from './../../i18n/index.js';
 
 // App component - represents the whole app
 export default class UserUpdate extends Component {
@@ -44,7 +46,7 @@ export default class UserUpdate extends Component {
 										href="#profile"
 										onClick={this.handleChangeProcess.bind(this, "profile")}
 									>
-										user profile
+										<T>Menu.userProfile</T>
 									</a>
 								</li>
 								<li className="tabs-selector-list__item">
@@ -53,7 +55,7 @@ export default class UserUpdate extends Component {
 										href="#deactivate"
 										onClick={this.handleChangeProcess.bind(this, "deactivate")}
 									>
-										deactivate account
+										<T>Menu.deactivateAccount</T>
 									</a>
 								</li>
 								<li className="tabs-selector-list__item">
@@ -62,7 +64,8 @@ export default class UserUpdate extends Component {
 										href="#password"
 										onClick={this.handleChangeProcess.bind(this, "password")}
 									>
-										new password
+										<T>Menu.newPassword</T>
+
 									</a>
 								</li>
 							</ul>

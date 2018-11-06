@@ -320,6 +320,15 @@
   height: 2rem;
 }
 
+.counter--simple.no-block .counter__block,
+.counter--simple.no-block .counter__row .counter__block:first-child {
+  color: $grey-thunder;
+  background: transparent;
+  width: 2rem;
+  height: 2rem;
+}
+
+
 .counter--simple .counter__block__text {
   font-size: 3rem;
 }

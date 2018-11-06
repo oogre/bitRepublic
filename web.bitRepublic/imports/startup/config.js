@@ -2,7 +2,7 @@
   bitRepublic - config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 14:16:42
-  @Last Modified time: 2018-11-06 19:24:21
+  @Last Modified time: 2018-11-06 23:10:58
 \*----------------------------------------*/
 export const config = {
 	VIDEO_GALLERY : {
@@ -26,6 +26,7 @@ export const config = {
 			MAX : 255
 		}
 	},
+	NO_BLOCK : ["zh-CN"],
 	ZERO_AFTER_COMMA : 5,
 	DISPLAYED_TWEET : 4,
 	TAX_RATE : 0.0427,

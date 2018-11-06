@@ -2,7 +2,7 @@
   bitRepublic - account-config.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 01:13:47
-  @Last Modified time: 2018-06-13 16:37:47
+  @Last Modified time: 2018-11-06 23:46:29
 \*----------------------------------------*/
 import React from 'react';
 import { render } from 'react-dom';
@@ -10,17 +10,17 @@ import { render } from 'react-dom';
 import { Accounts } from 'meteor/accounts-base';
 import UserPasswordSetup from './../ui/user/passwordSetup.js'
 
+import T from './../i18n/index.js';
+
 if(Meteor.isServer){
 	Accounts.emailTemplates.siteName = 'bitsoil.tax';
 	Accounts.emailTemplates.from = 'bitsoil tax campaign <noreply@bitsoil.tax>';
 	Accounts.emailTemplates.enrollAccount = {
 		subject(user) {
-			return `Welcome to the bitsoil tax campaign, ${user.profile.firstname}`;
+			return i18n.createTranslator("Mail")("enrollAccount.subject").replace("[USER_FIRSTNAME]", user.profile.firstname);
 		},
 		text(user, url) {
-			console.log(user);
-			console.log(url);
-			return `Hey ${user.profile.firstname}! Create your password and login by following this link: ${url}`;
+			return i18n.createTranslator("Mail")("enrollAccount.message").replace("[USER_FIRSTNAME]", user.profile.firstname).replace("[URL]", url);
 		}
 	};
 
@@ -28,10 +28,10 @@ if(Meteor.isServer){
 	Accounts.emailTemplates.from = 'bitsoil tax campaign <noreply@bitsoil.tax>';
 	Accounts.emailTemplates.resetPassword = {
 		subject(user) {
-			return `Password reset to the bitsoil tax campaign, ${user.profile.firstname}`;
+			return i18n.createTranslator("Mail")("resetPassword.subject").replace("[USER_FIRSTNAME]", user.profile.firstname);
 		},
 		text(user, url) {
-			return `Hey ${user.profile.firstname}! Reset your password by following this link: ${url}`;
+			return i18n.createTranslator("Mail")("resetPassword.message").replace("[USER_FIRSTNAME]", user.profile.firstname).replace("[URL]", url);
 		}
 	};
 

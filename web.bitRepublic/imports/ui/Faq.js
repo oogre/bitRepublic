@@ -2,7 +2,7 @@
   bitRepublic - Faq.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-06-04 22:07:06
+  @Last Modified time: 2018-11-06 23:07:43
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -73,13 +73,13 @@ export default class WhoWeAre extends Component {
             <div className="tabs--profile tabs--faq">
               <ul className="tabs-selector-list">
                 <li className="tabs-selector-list__item">
-                  <a className="selected tabs-selector-list__button" href="#">Frequently Asked Questions</a>
+                  <a className="selected tabs-selector-list__button" href="#"><T>Menu.frequentlyAskedQuestions</T></a>
                 </li>
               </ul>
               <div className="tab">
                 <div className="tab__content">
                   <div className="tab__content__wrapper">
-                    <h5 className="title--quaternary">FAQ</h5>
+                    <h5 className="title--quaternary"><T>Menu.faq</T></h5>
                     <ul className="collapses-list">
 
                       {

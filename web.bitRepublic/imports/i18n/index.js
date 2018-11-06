@@ -90,11 +90,17 @@ i18n.addTranslation('en-US', "Menu", "typeYourPassword", "Type your password");
 i18n.addTranslation('en-US', "Menu", "followMe", "Follow me");
 i18n.addTranslation('en-US', "Menu", "firstName", "first name");
 i18n.addTranslation('en-US', "Menu", "lastName", "last name");
+i18n.addTranslation('en-US', "Menu", "userName", "user name");
 i18n.addTranslation('en-US', "Menu", "yourEmail", "your email");
+i18n.addTranslation('en-US', "Menu", "save", "save");
 i18n.addTranslation('en-US', "Menu", "forgotPassword", "forgot password ?");
 i18n.addTranslation('en-US', "Menu", "spreadTheWord", "Spread the word!");
 i18n.addTranslation('en-US', "Menu", "alreadyJoinedTheCampaignLogIn", "Already joined the campaign? Log In");
-
+i18n.addTranslation('en-US', "Menu", "userProfile", "user profile");
+i18n.addTranslation('en-US', "Menu", "deactivateAccount", "deactivate account");
+i18n.addTranslation('en-US', "Menu", "newPassword", "new password");
+i18n.addTranslation('en-US', "Menu", "ResetPassword", "label", "Send me a mail to reset password.");
+i18n.addTranslation('en-US', "Menu", "ResetPassword", "btn", "Reset Password");
 
 i18n.addTranslation('en-US', "App", "about", "A", "title", "the campaign");
 i18n.addTranslation('en-US', "App", "about", "A", "content", "The Bitsoil Popup Tax & Hack campaign is intended to mobilize users of social media platforms to claim a micro-tax on their data and thereby call for a fair distribution of the wealth of the digital economy. The campaign is led by a band of cheerfully trolling social media bots on Twitter. Their goal is to make users aware of the value of their data.");
@@ -197,6 +203,39 @@ i18n.addTranslation('en-US', "FAQ", "G", "hash", "leader");
 i18n.addTranslation('en-US', "FAQ", "G", "title", "I can’t find my beloved world leader I want to tweet to?");
 i18n.addTranslation('en-US', "FAQ", "G", "content", "Please send us an email: <a href=\"{$address}\" >campaign@bitsoil.tax</a>");
 
+i18n.addTranslation('en-US', "UserContact", "success", "Your message has been sent.");
+i18n.addTranslation('en-US', "CreateUser", "success", "Your account is up to be created. You'll receive soon an email to complete your subscription.");
+i18n.addTranslation('en-US', "ResetPassword", "success", "You'll receive soon an email to reset your password.");
+i18n.addTranslation('en-US', "UserSetAvatar", "success", "Your picture is setup as avatar.");
+i18n.addTranslation('en-US', "UserDelete", "form", "Enter your password to deactivate your account.");
+i18n.addTranslation('en-US', "UserDelete", "confirm", "Click OK to confirm. Your account will be deactivated immediately.");
+i18n.addTranslation('en-US', "UpdateUser", "success", "Your account is updated.");
+i18n.addTranslation('en-US', "ToggleAction", "success", "Action updated");
+i18n.addTranslation('en-US', "BitsoilCreate", "success", "Bitsoil created");
+i18n.addTranslation('en-US', "CreateBot", "success", "Bot created");
+i18n.addTranslation('en-US', "CreateBot", "success", "display", "Thank You. I will do the job...");
+i18n.addTranslation('en-US', "BotTweetUpdate", "success", "Tweet updated");
+i18n.addTranslation('en-US', "BotTweetDelete", "success", "Tweet deleted");
+
+
+i18n.addTranslation('en-US', "Contact", "banner__title", "contact");
+i18n.addTranslation('en-US', "Contact", "taxCampaign", "BITSOIL TAX CAMPAIGN");
+i18n.addTranslation('en-US', "Contact", "yourName", "YOUR NAME");
+i18n.addTranslation('en-US', "Contact", "yourEmail", "YOUR EMAIL");
+i18n.addTranslation('en-US', "Contact", "subject", "SUBJECT");
+i18n.addTranslation('en-US', "Contact", "message", "MESSAGE");
+i18n.addTranslation('en-US', "Contact", "newsLetter", "Newsletter");
+i18n.addTranslation('en-US', "Contact", "send", "send");
+i18n.addTranslation('en-US', "Contact", "receiveOurLatestNewsletter", "Receive our latest newsletter");
+
+i18n.addTranslation('en-US', "Mail", "enrollAccount", "subject", "Welcome to the bitsoil tax campaign, [USER_FIRSTNAME]");
+i18n.addTranslation('en-US', "Mail", "enrollAccount", "message", "Hey [USER_FIRSTNAME]! Create your password and login by following this link: [URL]]");
+i18n.addTranslation('en-US', "Mail", "resetPassword", "subject", "Password reset to the bitsoil tax campaign, [USER_FIRSTNAME]");
+i18n.addTranslation('en-US', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]]");
+
+
+
+i18n.addTranslation('en-US', "OK", "OK");
 function getLang () {
     return (
         navigator.languages && navigator.languages[0] ||
@@ -206,8 +245,9 @@ function getLang () {
         'en-US'
     );
 }
-let l = getLang();
-i18n.setLocale(l);
-console.log(l);
+if(!Meteor.isServer){
+	i18n.setLocale(getLang());
+}
+
 
 export default i18n.createComponent();

@@ -2,12 +2,13 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 13:45:04
-  @Last Modified time: 2018-04-06 19:20:56
+  @Last Modified time: 2018-11-06 22:37:42
 \*----------------------------------------*/
 import { Wallets } from '../wallets/wallets.js';
 import { TempWallets } from '../wallets/wallets.js';
 import {config} from '../../startup/config.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
+import T from './../../i18n/index.js';
 
 export const BitsoilCreate = new ValidatedMethod({
 	name: 'Bitsoils.methods.create',
@@ -59,7 +60,7 @@ export const BitsoilCreate = new ValidatedMethod({
 
 		return {
 			success : true,
-			message : "Bitsoil created"
+			message : i18n.createTranslator("BitsoilCreate")("success")
 		};
 	}
 });

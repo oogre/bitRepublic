@@ -2,12 +2,12 @@
   256x256x256 - Alert.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-03-21 17:21:07
-  @Last Modified time: 2018-03-21 17:44:59
+  @Last Modified time: 2018-11-06 23:03:47
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-
+import T from './../i18n/index.js';
 // https://reactcommunity.org/react-modal/
 import ReactModal from 'react-modal';
 
@@ -72,7 +72,7 @@ export default class Alert extends Component {
 								<button
 									onClick={this.handleSuccess.bind(this)}
 									className="button--primary--fw">
-									OK
+									<T>OK</T>
 								</button>
 							</div>
 						</div>

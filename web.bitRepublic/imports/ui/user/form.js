@@ -2,7 +2,7 @@
   bitRepublic - form.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:11:04
-  @Last Modified time: 2018-03-21 18:19:26
+  @Last Modified time: 2018-11-06 23:32:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -15,6 +15,8 @@ import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 
 import Alert from '../Alert.js';
+
+import T from './../../i18n/index.js';
 
 class UserForm extends Component {
 	constructor(props){
@@ -103,7 +105,7 @@ class UserForm extends Component {
 			<form className="form form--profile" onSubmit={this.handleSubmit.bind(this)}>
 				<div className="fields-row">
 					<label className="field__label">
-						First Name:
+						<T>Menu.firstName</T>:
 					</label>
 					<input
 						type="text"
@@ -124,7 +126,7 @@ class UserForm extends Component {
 				</div>
 				<div className="fields-row">
 					<label className="field__label">
-						Last Name:
+						<T>Menu.lastName</T>:
 					</label>
 					<input
 						type="text"
@@ -145,7 +147,7 @@ class UserForm extends Component {
 				</div>
 				<div className="fields-row">
 					<label className="field__label">
-						User Name:
+						<T>Menu.userName</T>:
 					</label>
 					<input
 						type="text"
@@ -166,7 +168,7 @@ class UserForm extends Component {
 				</div>
 				<div className="fields-row">
 					<label className="field__label">
-						Email:
+						<T>Menu.yourEmail</T>:
 					</label>
 					<input
 						type="email"
@@ -189,7 +191,7 @@ class UserForm extends Component {
 					{this.state['is-loading'] ? <FixeWait /> : null }
 					<input
 						type="submit"
-						value="save"
+						value={i18n.createTranslator("Menu")("save")}
 						className={
 							"button--primary button--submit "+
 							(this.state['is-loading'] ? "loading " : "") +

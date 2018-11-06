@@ -2,12 +2,12 @@
   web.bcksp.es - Confirm.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-08-09 22:38:47
-  @Last Modified time: 2018-08-09 22:49:43
+  @Last Modified time: 2018-11-07 00:01:46
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-
+import T from './../i18n/index.js';
 // https://reactcommunity.org/react-modal/
 import ReactModal from 'react-modal';
 
@@ -84,7 +84,7 @@ export default class Confirm extends Component {
 								<button
 									onClick={this.handleSuccess.bind(this)}
 									className="button--primary--fw">
-									OK
+									<T>OK</T>
 								</button>
 							</div>
 						</div>

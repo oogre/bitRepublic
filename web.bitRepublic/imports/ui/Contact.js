@@ -2,7 +2,7 @@
   bitRepublic - update.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 21:22:03
-  @Last Modified time: 2018-06-04 22:02:25
+  @Last Modified time: 2018-11-06 22:57:09
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -15,6 +15,7 @@ import FooterMenu from './menu/footer.js';
 import MessageError from './message/error.js';
 import FixeWait from './fixe/wait.js';
 import Alert from './Alert.js';
+import T from '../i18n/index.js';
 
 // App component - represents the whole app
 export default class Contact extends Component {
@@ -98,14 +99,14 @@ export default class Contact extends Component {
 						<div className="tabs--profile">
 							<ul className="tabs-selector-list">
 								<li className="tabs-selector-list__item">
-									<a className="selected tabs-selector-list__button" href="#">CONTACT</a>
+									<a className="selected tabs-selector-list__button" href="#"><T>Contact.banner__title</T></a>
 								</li>
 							</ul>
 							<div className="tab">
 								<div className="tab__content">
 									<form className="form form--profile" onSubmit={this.handleSubmit.bind(this)}>
 										<div className="fields-row">
-											<h5 className="title--quaternary">BITSOIL TAX CAMPAIGN</h5>
+											<h5 className="title--quaternary"><T>Contact.taxCampaign</T></h5>
 											<label className="field__label field__label--contact">
 												@: campaign@bitsoil.tax
 											</label>
@@ -113,7 +114,7 @@ export default class Contact extends Component {
 												type="text"
 												ref="name"
 												name="name"
-												placeholder="YOUR NAME"
+												placeholder={i18n.createTranslator("Contact")("yourName")}
 											/>
 											{
 												this.state["error-name"] ?
@@ -130,7 +131,7 @@ export default class Contact extends Component {
 												type="email"
 												ref="email"
 												name="email"
-												placeholder="YOUR EMAIL"
+												placeholder={i18n.createTranslator("Contact")("yourEmail")}
 											/>
 											{
 												this.state["error-email"] ?
@@ -147,7 +148,7 @@ export default class Contact extends Component {
 												type="text"
 												ref="subject"
 												name="subject"
-												placeholder="SUBJECT"
+												placeholder={i18n.createTranslator("Contact")("subject")}
 											/>
 											{
 												this.state["error-subject"] ?
@@ -164,7 +165,7 @@ export default class Contact extends Component {
 											<textarea
 												ref="message"
 												name="message"
-												placeholder="MESSAGE"
+												placeholder={i18n.createTranslator("Contact")("message")}
 											>
 											</textarea>
 											{
@@ -179,7 +180,7 @@ export default class Contact extends Component {
 										</div>
 
 										<div className="fields-row">
-											<label className="field__label field__label--contact">Newsletter</label>
+											<label className="field__label field__label--contact"><T>Contact.newsLetter</T></label>
 											<div className="checkbox">
 												<input
 													id="newsletterCheckbox"
@@ -190,7 +191,7 @@ export default class Contact extends Component {
 												/>
 												<label htmlFor="newsletterCheckbox" className="">
 													<span className="">
-														Receive our latest newsletter
+														<T>Contact.receiveOurLatestNewsletter</T>
 													</span>
 												</label>
 											</div>
@@ -200,7 +201,7 @@ export default class Contact extends Component {
 											{this.state['is-loading'] ? <FixeWait /> : null }
 											<input
 												type="submit"
-												value="send"
+												value={i18n.createTranslator("Contact")("send")}
 												className={
 													"button--primary button--submit "+
 													(this.state['is-loading'] ? "loading " : "") +

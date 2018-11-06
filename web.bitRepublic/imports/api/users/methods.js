@@ -2,13 +2,13 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:17:42
-  @Last Modified time: 2018-08-09 22:33:53
+  @Last Modified time: 2018-11-06 22:35:43
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { config } from '../../startup/config.js';
 import { Images } from '../images/images.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
-
+import T from './../../i18n/index.js';
 
 export const UserContact  = new ValidatedMethod({
 	name: 'User.methods.contact',
@@ -42,7 +42,7 @@ export const UserContact  = new ValidatedMethod({
 
 			return {
 				success : true,
-				message : "Your message has been sent."
+				message : i18n.createTranslator("UserContact")("success")
 			};
 		}
 	}
@@ -101,7 +101,7 @@ export const CreateUser = new ValidatedMethod({
 			Accounts.sendEnrollmentEmail(userId);
 			return {
 				success : true,
-				message : "Your account is up to be created. You'll receive soon an email to complete your subscription.",
+				message : i18n.createTranslator("CreateUser")("success"),
 				data : userId
 			};
 		}
@@ -213,7 +213,7 @@ export const ResetPassword = new ValidatedMethod({
 			Accounts.sendResetPasswordEmail(Meteor.userId());
 			return {
 				success : true,
-				message : "You'll receive soon an email to reset your password.",
+				message : i18n.createTranslator("ResetPassword")("success"),
 			};
 		}
 	}
@@ -265,7 +265,7 @@ export const UserSetAvatar = new ValidatedMethod({
 
 			return {
 				success : true,
-				message : "Your picture is setup as avatar.",
+				message : i18n.createTranslator("UserSetAvatar")("success"),
 			};
 		}
 	}
@@ -337,7 +337,7 @@ export const UpdateUser = new ValidatedMethod({
 			});
 			return {
 				success : true,
-				message : "Your account is updated."
+				message : i18n.createTranslator("UpdateUser")("success")
 			};
 		}
 	}

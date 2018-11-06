@@ -2,7 +2,7 @@
   web.bcksp.es - delete.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-08-09 18:43:27
-  @Last Modified time: 2018-08-23 13:55:10
+  @Last Modified time: 2018-11-07 00:03:29
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -11,6 +11,8 @@ import { DeleteAccount } from '../../api/users/methods.js';
 import MessageError from '../message/error.js';
 import Confirm from '../Confirm.js';
 import FixeWait from '../fixe/wait.js';
+
+import T from './../../i18n/index.js';
 
 // App component - represents the whole app
 export default class UserDelete extends Component {
@@ -90,13 +92,13 @@ export default class UserDelete extends Component {
 			<form className="form form--delete" onSubmit={this.handleConfirmDeleteAccount.bind(this)}>
 				<div className="fields-row">
 					<label className="field__label">
-						Enter your password to deactivate your account.
+						<T>UserDelete.form</T>
 					</label>
 					<input
 						type="password"
 						ref="password"
 						name="password"
-						placeholder="type your password"
+						placeholder={i18n.createTranslator("Menu")("typeYourPassword")}
 					/>
 					{
 						this.state["error-password"] ?
@@ -112,7 +114,7 @@ export default class UserDelete extends Component {
 					{this.state['is-loading'] ? <FixeWait /> : null }
 					<input
 						type="submit"
-						value="deactivate account"
+						value={i18n.createTranslator("Menu")("deactivateAccount")}
 						className={
 							"button--primary button--submit "+
 							(this.state['is-loading'] ? "loading " : "") +
@@ -125,7 +127,7 @@ export default class UserDelete extends Component {
 				</div>
 				<Confirm 
 					open={this.state.success} 
-					message="Click OK to confirm. Your account will be deactivated immediately." 
+					message={i18n.createTranslator("UserDelete")("confirm")} 
 					onFail={this.handleCancelDeleteAccount.bind(this)} 
 					onSuccess={this.handleDeleteAccount.bind(this)}
 				/>

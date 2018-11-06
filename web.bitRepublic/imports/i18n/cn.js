@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-11-06 22:14:43
+  @Last Modified time: 2018-11-07 00:04:11
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -58,9 +58,13 @@ i18n.addTranslation('zh-CN', "Menu", "faq", "常见问题咨询");
 i18n.addTranslation('zh-CN', "Menu", "frequentlyAskedQuestions", "常见问题咨询");
 i18n.addTranslation('zh-CN', "Menu", "supportedBy", "赞助商");
 i18n.addTranslation('zh-CN', "Menu", "softwareDevelopment", "软件开发者");
+i18n.addTranslation('zh-CN', "Menu", "userProfile", "用户文件");
+i18n.addTranslation('zh-CN', "Menu", "deactivateAccount", "停用帐户");
+i18n.addTranslation('zh-CN', "Menu", "newPassword", "新密码");
 
-i18n.addTranslation('en-US', "Menu", "technicalSupport", "技术支持");
-i18n.addTranslation('en-US', "Menu", "translation", "翻译");
+
+i18n.addTranslation('zh-CN', "Menu", "technicalSupport", "技术支持");
+i18n.addTranslation('zh-CN', "Menu", "translation", "翻译");
 i18n.addTranslation('zh-CN', "Menu", "LowTechLab", "低科技艺术实验室");
 
 i18n.addTranslation('zh-CN', "Menu", "yourWallet", "你的钱包");
@@ -79,7 +83,7 @@ i18n.addTranslation('zh-CN', "Menu", "heyYouDidItOnceAgain", "您已操作过");
 i18n.addTranslation('zh-CN', "Menu", "gladToJoinTheBand", "欢迎加入");
 i18n.addTranslation('zh-CN', "Menu", "activation", "激活");
 i18n.addTranslation('zh-CN', "Menu", "logIn", "登陆");
-i18n.addTranslation('en-US', "Menu", "logOut", "菜单 退出");
+i18n.addTranslation('zh-CN', "Menu", "logOut", "菜单 退出");
 i18n.addTranslation('zh-CN', "Menu", "youReceiveSoonAnEmailToResetYourPassword", "你将收到一封电子邮件以重置密码");
 i18n.addTranslation('zh-CN', "Menu", "stayYpdatedAndGetAccess", "保持更新并访问");
 i18n.addTranslation('zh-CN', "Menu", "toYourPersonalBotAccount", "您的专属机器人账户");
@@ -88,7 +92,9 @@ i18n.addTranslation('zh-CN', "Menu", "typeYourPassword", "输入密码");
 i18n.addTranslation('zh-CN', "Menu", "followMe", "跟我来");
 i18n.addTranslation('zh-CN', "Menu", "firstName", "名");
 i18n.addTranslation('zh-CN', "Menu", "lastName", "姓");
+i18n.addTranslation('zh-CN', "Menu", "userName", "用户名");
 i18n.addTranslation('zh-CN', "Menu", "yourEmail", "你的电子邮件");
+i18n.addTranslation('zh-CN', "Menu", "save", "保存");
 i18n.addTranslation('zh-CN', "Menu", "forgotPassword", "忘记密码？");
 i18n.addTranslation('zh-CN', "Menu", "spreadTheWord", "传播消息分享");
 i18n.addTranslation('zh-CN', "Menu", "alreadyJoinedTheCampaignLogIn", "已经加入本次运动？登陆");
@@ -193,3 +199,36 @@ i18n.addTranslation('zh-CN', "FAQ", "F", "content", "机器人执行的每个操
 i18n.addTranslation('zh-CN', "FAQ", "G", "hash", "leader");
 i18n.addTranslation('zh-CN', "FAQ", "G", "title", "如果找不到我想要发送推文的那位国家首领怎么办？");
 i18n.addTranslation('zh-CN', "FAQ", "G", "content", "请发送电子邮件至：<a href=\"{$address}\" >campaign@bitsoil.tax</a>");
+
+i18n.addTranslation('zh-CN', "UserContact", "success", "您的信息已发送");
+i18n.addTranslation('zh-CN', "CreateUser", "success", "您的帐户即将被创建。您将很快收到一封电子邮件来完成您的订阅。");
+i18n.addTranslation('zh-CN', "ResetPassword", "success", "You'll receive soon an email to reset your password.");
+i18n.addTranslation('zh-CN', "UserSetAvatar", "success", "Your picture is setup as avatar.");
+i18n.addTranslation('zh-CN', "UserDelete", "form", "停用您的帐户需输入您的密码。");
+i18n.addTranslation('zh-CN', "UserDelete", "confirm", "Click OK to confirm. Your account will be deactivated immediately.");
+i18n.addTranslation('zh-CN', "UpdateUser", "success", "您的账号已更新");
+i18n.addTranslation('zh-CN', "ToggleAction", "success", "Action updated");
+i18n.addTranslation('zh-CN', "BitsoilCreate", "success", "Bitsoil created");
+i18n.addTranslation('zh-CN', "CreateBot", "success", "Bot created");
+i18n.addTranslation('zh-CN', "CreateBot", "success", "display", "谢谢你，我将执行这项工作...");
+i18n.addTranslation('zh-CN', "BotTweetUpdate", "success", "Tweet updated");
+i18n.addTranslation('zh-CN', "BotTweetDelete", "success", "Tweet deleted");
+
+
+i18n.addTranslation('zh-CN', "Contact", "banner__title", "联系方式");
+i18n.addTranslation('zh-CN', "Contact", "taxCampaign", "数据油田税运动");
+i18n.addTranslation('zh-CN', "Contact", "yourName", "您的姓名");
+i18n.addTranslation('zh-CN', "Contact", "yourEmail", "您的邮箱");
+i18n.addTranslation('zh-CN', "Contact", "subject", "主题");
+i18n.addTranslation('zh-CN', "Contact", "message", "信息");
+i18n.addTranslation('zh-CN', "Contact", "newsLetter", "新闻通讯");
+i18n.addTranslation('zh-CN', "Contact", "send", "发送");
+i18n.addTranslation('zh-CN', "Contact", "receiveOurLatestNewsletter", "接收最新通讯信息");
+
+i18n.addTranslation('zh-CN', "Mail", "enrollAccount", "subject", "Welcome to the bitsoil tax campaign, [USER_FIRSTNAME]");
+i18n.addTranslation('zh-CN', "Mail", "enrollAccount", "message", "你好 [USER_FIRSTNAME]! 通过这个链接创建您的密码并登陆 : [URL]]");
+i18n.addTranslation('zh-CN', "Mail", "resetPassword", "subject", "Password reset to the bitsoil tax campaign, [USER_FIRSTNAME]");
+i18n.addTranslation('zh-CN', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]]");
+
+
+i18n.addTranslation('zh-CN', "OK", "好");

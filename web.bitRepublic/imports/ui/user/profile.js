@@ -2,7 +2,7 @@
   bitRepublic - profile.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:01:12
-  @Last Modified time: 2018-05-01 17:57:31
+  @Last Modified time: 2018-11-06 23:12:49
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -18,7 +18,8 @@ import WalletDetail from '../wallet/detail.js';
 import BotInfo from '../bot/info.js';
 import UserAvatar from './avatar.js';
 import FixeWait from '../fixe/wait.js';
-
+import { config } from '../../startup/config.js';
+import T from './../../i18n/index.js';
 // App component - represents the whole app
 class UserProfile extends Component {
 	constructor(props){
@@ -26,6 +27,7 @@ class UserProfile extends Component {
 	}
 
 	render() {
+		
 		return (
 			<div className="page">
 				<HeaderMenu />
@@ -38,7 +40,7 @@ class UserProfile extends Component {
 								<div className="user-summary">
 									<UserAvatar update={false}/>
 									<span className="user-summary__name">
-										<div className="counter--simple counter--no-currency">
+										<div className={"counter--simple counter--no-currency " + (config.NO_BLOCK.includes(i18n.getLocale()) ? "no-block" : "")}>
 											<BitsoilSplitter substitution="" input={this.props.currentUser.username}/>
 										</div>
 									</span>

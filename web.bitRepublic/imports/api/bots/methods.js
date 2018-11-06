@@ -2,7 +2,7 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:37:04
-  @Last Modified time: 2018-05-01 23:19:44
+  @Last Modified time: 2018-11-06 22:39:45
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 
@@ -13,7 +13,7 @@ import { Targets } from '../targets/targets.js';
 import { Actions } from '../actions/actions.js';
 import * as Utilities from '../../utilities.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
-
+import T from './../../i18n/index.js';
 
 export const CreateBot = new ValidatedMethod({
 	name: 'Bots.methods.create',
@@ -121,7 +121,7 @@ export const CreateBot = new ValidatedMethod({
 
 		return {
 			success : true,
-			message : "Bot created",
+			message : i18n.createTranslator("CreateBot")("success"),
 			data : botId
 		};
 	}
@@ -179,7 +179,7 @@ export const BotTweetUpdate = new ValidatedMethod({
 
 		return {
 			success : true,
-			message : "Tweet updated"
+			message : i18n.createTranslator("BotTweetUpdate")("success")
 		};
 
 	}
@@ -236,7 +236,7 @@ export const BotTweetDelete = new ValidatedMethod({
 		
 		return {
 			success : true,
-			message : "Tweet deleted"
+			message : i18n.createTranslator("BotTweetDelete")("success")
 		};
 
 	}

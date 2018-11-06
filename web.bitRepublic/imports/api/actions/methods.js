@@ -2,13 +2,13 @@
   bitRepublic - methods.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 23:16:22
-  @Last Modified time: 2018-02-05 17:04:58
+  @Last Modified time: 2018-11-06 22:36:55
 \*----------------------------------------*/
 import { Meteor } from 'meteor/meteor';
 import { Actions } from '../actions/actions.js';
 import { config } from '../../startup/config.js';
 import { RateLimiterMixin } from 'ddp-rate-limiter-mixin';
-
+import T from './../../i18n/index.js';
 
 export const ToggleAction = new ValidatedMethod({
 	name: 'Actions.methods.toggle',
@@ -51,7 +51,7 @@ export const ToggleAction = new ValidatedMethod({
 
 		return {
 			success : true,
-			message : "Action updated"
+			message : i18n.createTranslator("ToggleAction")("success")
 		};
 	}
 });
