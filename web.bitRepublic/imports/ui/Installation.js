@@ -2,7 +2,7 @@
   bitRepublic - Installation.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 20:35:46
-  @Last Modified time: 2018-10-21 14:24:46
+  @Last Modified time: 2018-11-06 18:44:14
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -23,14 +23,15 @@ export default class Installation extends Component {
 	}
 
 	render() {
+		console.log(i18n.createTranslator("Installation")("banner__title"));
 		return (
 			<div className="page">
 				<HeaderMenu />
 				<div className="page__content">
 					<MenuMenu
-						title={<T>Installation.banner__title</T>}
+						title={ i18n.createTranslator("Installation")("banner__title")}
 						description={[
-							<T>Installation.banner__description</T>
+							i18n.createTranslator("Installation")("banner__description")
 						]}
 					>
 						<li className="buttons-list__item">

@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-10-22 16:19:59
+  @Last Modified time: 2018-11-06 19:40:58
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -74,6 +74,7 @@ i18n.addTranslation('zh-CN', "Menu", "heyYouDidItOnceAgain", "您已操作过");
 i18n.addTranslation('zh-CN', "Menu", "gladToJoinTheBand", "欢迎加入");
 i18n.addTranslation('zh-CN', "Menu", "activation", "激活");
 i18n.addTranslation('zh-CN', "Menu", "logIn", "登陆");
+i18n.addTranslation('en-US', "Menu", "logOut", "菜单 退出");
 i18n.addTranslation('zh-CN', "Menu", "youReceiveSoonAnEmailToResetYourPassword", "你将收到一封电子邮件以重置密码");
 i18n.addTranslation('zh-CN', "Menu", "stayYpdatedAndGetAccess", "保持更新并访问");
 i18n.addTranslation('zh-CN', "Menu", "toYourPersonalBotAccount", "您的专属机器人账户");
@@ -114,14 +115,14 @@ i18n.addTranslation('zh-CN', "About", "E", "title", "实时监控机器人");
 i18n.addTranslation('zh-CN', "About", "E", "content", "洞悉每分钟的信息，并关注监控您的个人帐户上由您的机器人开采的数据油田（bitsoil）。个人客户经理会从创建税收机器人的第一天开始，实时显示它们的发展变化：它们达到的目标，以及开采的数据油田（bitsoil）总量。");
 
 
-i18n.addTranslation('zh-CN', "Redistribution", "banner__title", "参与资源再分配");
+i18n.addTranslation('zh-CN', "Redistribution", "banner__title", "请随意参与再分配。 非常感谢你。");
 i18n.addTranslation('zh-CN', "Redistribution", "FixePunchline", "A", "创建您的钱包");
 i18n.addTranslation('zh-CN', "Redistribution", "FixePunchline", "B", "参与税收系统");
 
 i18n.addTranslation('zh-CN', "Redistribution", "about", "A", "title", "活动性质");
 i18n.addTranslation('zh-CN', "Redistribution", "about", "A", "content", "A", "数据油田税（Bitsoil Tax）提出数字经济中财富再分配的新愿景。人们创造出数据这种新能源或称之为\"数据油田\" ，却免费赠送出，至今未曾反思这些数据的价值及其获益者。近年来，谷歌、苹果和脸谱网（Facebook）等主要科技公司都从提供免费服务以换取用户数据的商业模式中获益，这种模式现已被打破，用户数据的价值已远远超过免费服务的价值。而这些公司也通过数据深入了解自己的用户，产生对广告商和其他第三方合作更多的吸引力，利润也持续在增加。");
 i18n.addTranslation('zh-CN', "Redistribution", "about", "A", "content", "B", "该提案探讨税收制度可用作在互联网财富方面恢复公平平衡的工具。目标是将繁荣扩展到普遍的国家和国际体系之外。本项目通过建立新的数据油田（由所有人生产的新型人工资源）通用征税机制，来寻求重新平衡财富和权力不平等的途径。");
-i18n.addTranslation('zh-CN', "Redistribution", "about", "B", "title", "HOW");
+i18n.addTranslation('zh-CN', "Redistribution", "about", "B", "title", "活动方式");
 i18n.addTranslation('zh-CN', "Redistribution", "about", "B", "content", "A", "在运动平台上，用户不仅可以开采数据油田(bitsoil)，还可以通过申请个人公平份额，他们也可以成为互联网财富再分配新模式的一部分。");
 i18n.addTranslation('zh-CN', "Redistribution", "about", "B", "content", "B", "参与者及其机器人在活动期间推特上的所有行动都是公平的财富再分配的原材料。参与者可通过个人账号追踪活动期间数据油田再分配的总量以及机器人生成的数据油田价值。");
 i18n.addTranslation('zh-CN', "Redistribution", "about", "B", "content", "C", "在线平台向所有参与者实时显示数据油田分配情况。获取机器人开采数据油田每分钟的操作信息，创建您的个人钱包，追踪分配给您的数据油田。");
@@ -129,8 +130,8 @@ i18n.addTranslation('zh-CN', "Redistribution", "about", "B", "content", "C", "�
 i18n.addTranslation('zh-CN', "Redistribution", "overWalletList", "A", "实时追踪数据油田再分配至参与者钱包。加入并创建您的专属个人钱包。");
 i18n.addTranslation('zh-CN', "Redistribution", "overWalletList", "B", "让数据经济造福全人类。");
 
-i18n.addTranslation('zh-CN', "Installation", "banner__title", "ENTER THE BITREPUBLIC");
-i18n.addTranslation('zh-CN', "Installation", "banner__description", "Follow live the redistribution of bitsoils");
+i18n.addTranslation('zh-CN', "Installation", "banner__title", "进入数据共和国");
+i18n.addTranslation('zh-CN', "Installation", "banner__description", "追踪数据油田的再分配");
 
 i18n.addTranslation('zh-CN', "Installation", "info", "A", "hash", "what");
 i18n.addTranslation('zh-CN', "Installation", "info", "A", "title", "本次活动 是什么");

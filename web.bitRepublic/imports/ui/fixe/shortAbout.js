@@ -2,7 +2,7 @@
   bitRepublic - shortAbout.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 18:06:20
-  @Last Modified time: 2018-10-20 12:26:38
+  @Last Modified time: 2018-11-06 19:30:11
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import T from './../../i18n/index.js';
@@ -23,7 +23,7 @@ export default class FixeShortAbout extends Component {
 						<h3 className="short-about__title"><T>App.about.B.title</T></h3>
 						<p className="short-about__content"><T>App.about.B.content</T></p>
 					</div>
-					<div className="short-about__col">
+					<div className="short-about__col spec">
 						<h3 className="short-about__title"><T>App.about.C.title</T></h3>
 						<p className="short-about__content"><T>App.about.C.content</T></p>
 					</div>

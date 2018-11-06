@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-10-21 15:05:19
+  @Last Modified time: 2018-11-06 18:38:02
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -212,7 +212,7 @@ export default class UserSignup extends Component {
 								type="text"
 								ref="lastname"
 								name="lastname"
-								placeholder={i18n.__("Menu.firstName")}
+								placeholder={i18n.__("Menu.lastName")}
 							/>
 							{ 	this.state["error-lastname"] ?
 									<MessageError

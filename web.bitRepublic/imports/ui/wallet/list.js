@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-10-21 14:35:02
+  @Last Modified time: 2018-11-06 19:22:14
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -20,7 +20,7 @@ class WalletList extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			currentPage : 0,
+			currentPage : 0
 		}
 	}
 	handleSkip(c){
@@ -45,12 +45,12 @@ class WalletList extends Component {
 			return k >= this.state.currentPage * config.WALLET_LIST.LIMIT && k < (this.state.currentPage+1) * config.WALLET_LIST.LIMIT
 		});
 		let longest = w.reduce((l, wallet) => { 
-			let f = _.isNumber(wallet.bitsoil) ? wallet.bitsoil.toFixed(6) : wallet.bitsoil;
+			let f = _.isNumber(wallet.bitsoil) ? wallet.bitsoil.toFixed(config.ZERO_AFTER_COMMA) : wallet.bitsoil;
 			return l.length > f.length ? l : f;
 		}, "");
 		return w.map(wallet => {
 			if(_.isNumber(wallet.bitsoil)){
-				wallet.bitsoil = wallet.bitsoil.toFixed(6);//Utilities.bitsoilFormat(wallet.bitsoil);
+				wallet.bitsoil = wallet.bitsoil.toFixed(config.ZERO_AFTER_COMMA);//Utilities.bitsoilFormat(wallet.bitsoil);
 				while(wallet.bitsoil.length <= longest.length) wallet.bitsoil = "0"+wallet.bitsoil;
 			}
 			return wallet;
@@ -58,8 +58,16 @@ class WalletList extends Component {
 			this.renderWallet(wallet)
 		));
 	}
+	renderPaginer(k){
+		if(k > this.state.currentPage - 3 && k < this.state.currentPage + 3){
+			return (
+				<li key={k} className={(k == this.state.currentPage ? "selected" : " " ) + " table-pagination__item"}>
+					<a className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</a>
+				</li>
+			);
+		}
+	}
 	render() {
-
 		return (
 			<div>
 				<h2 className="title--primary"><T>Menu.theRedistributionMechanism</T></h2>
@@ -88,9 +96,7 @@ class WalletList extends Component {
 										</li>
 										{
 											Array(this.props.pages).fill().map((action, k) => (
-												<li key={k} className={(k == this.state.currentPage ? "selected" : " " ) + " table-pagination__item"}>
-													<a className="table-pagination__button" onClick={this.handleSkip.bind(this, k)}>{k+1}</a>
-												</li>
+												this.renderPaginer(k)
 											))
 										}
 										<li className="table-pagination__item" style={{ visibility : this.state.currentPage < this.props.pages-1  ? "visible" : "hidden" }}>

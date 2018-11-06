@@ -14,6 +14,13 @@
   }
 }
 
+.short-about__col.spec {
+  @include breakpoint($md) {
+    margin-left:30px;
+  }
+}
+
+
 .short-about__col + .short-about__col {
   float: right;
 }

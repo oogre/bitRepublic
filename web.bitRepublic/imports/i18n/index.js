@@ -76,6 +76,7 @@ i18n.addTranslation('en-US', "Menu", "heyYouDidItOnceAgain", "Hey, you did it on
 i18n.addTranslation('en-US', "Menu", "gladToJoinTheBand", "Glad to join the band!");
 i18n.addTranslation('en-US', "Menu", "activation", "Activation");
 i18n.addTranslation('en-US', "Menu", "logIn", "Log in");
+i18n.addTranslation('en-US', "Menu", "logOut", "Log out");
 i18n.addTranslation('en-US', "Menu", "youReceiveSoonAnEmailToResetYourPassword", "You'll receive soon an email to reset your password.");
 i18n.addTranslation('en-US', "Menu", "stayYpdatedAndGetAccess", "Stay updated and get access");
 i18n.addTranslation('en-US', "Menu", "toYourPersonalBotAccount", "to your personal bot account.");
