@@ -2,7 +2,11 @@
   bitRepublic - selector.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 21:59:30
-  @Last Modified time: 2018-11-06 19:24:28
+<<<<<<< HEAD
+  @Last Modified time: 2018-11-06 22:13:52
+=======
+  @Last Modified time: 2018-11-03 19:43:02
+>>>>>>> berlin
 \*----------------------------------------*/
 import React, { Component } from 'react';
 //import ReactDom from 'react-dom';

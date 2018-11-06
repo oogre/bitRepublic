@@ -55,26 +55,9 @@
   }
 }
 
-.main-footer .column:nth-child(2) .column__content,
-.main-footer .column:nth-child(3n+5) .column__content,
-.main-footer .column:nth-child(7) .column__content {
-  @include breakpoint($md) {
-   margin: 0 auto;
-  }
-}
 
-.main-footer .column:nth-child(7) .column__content {
-  @include breakpoint($sm-only) {
-    margin-top: -4rem;
-  }
-
-  @include breakpoint($md) {
-    margin-top: -6rem;
-  }
-}
-
-.main-footer .column:last-child {
-  @include breakpoint($md) {
+.main-footer .column:nth-child(3n+2) .column__content{
+  @include breakpoint($md) {
     margin: 0 auto;
   }
 }

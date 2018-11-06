@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-11-06 19:40:58
+  @Last Modified time: 2018-11-06 22:14:43
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -58,6 +58,11 @@ i18n.addTranslation('zh-CN', "Menu", "faq", "常见问题咨询");
 i18n.addTranslation('zh-CN', "Menu", "frequentlyAskedQuestions", "常见问题咨询");
 i18n.addTranslation('zh-CN', "Menu", "supportedBy", "赞助商");
 i18n.addTranslation('zh-CN', "Menu", "softwareDevelopment", "软件开发者");
+
+i18n.addTranslation('en-US', "Menu", "technicalSupport", "技术支持");
+i18n.addTranslation('en-US', "Menu", "translation", "翻译");
+i18n.addTranslation('zh-CN', "Menu", "LowTechLab", "低科技艺术实验室");
+
 i18n.addTranslation('zh-CN', "Menu", "yourWallet", "你的钱包");
 i18n.addTranslation('zh-CN', "Menu", "idNumber", "身份证号");
 i18n.addTranslation('zh-CN', "Menu", "valueOfYourWallet", "钱包价值");
@@ -161,7 +166,7 @@ i18n.addTranslation('zh-CN', "Installation", "nextToVideo", "content", "探索�
 
 i18n.addTranslation('zh-CN', "WhoWeAre", "A", "<a href=\"http://larbitslab.be/\" target=\"_blank\">LarbitsSisters</a> 是一个来自比利时布鲁塞尔的艺术家二人组，跨界艺术、科技、政治和社会问题领域。他们的工作起源于对新媒体的共同迷恋，将研究和艺术实践融合到项目中，探索可追溯性、数据处理、网络分析、算法，自动化和信息交互的可能性。核心是探讨公共和私人，线上和线下，肆无忌惮的技术发展信仰和日常生活之间的摩擦。新媒体的策略和实行是通过上述调查及创造工具，衍生出对当今社会的关键问题提出质疑的作品。");
 i18n.addTranslation('zh-CN', "WhoWeAre", "B", "2011年，LarbitsSisters成立了Larbitslab数字可视化研究实验室。Larbitslab汇集了艺术家和科学家，共同围绕网络问社会中产生的问题进行探讨。Larbitslab的特别之处在于其方法论，它结合了观察实践、媒体分析以及技术和社会影响的研究。");
-i18n.addTranslation('zh-CN', "WhoWeAre", "C", "数据油田税运动源于创作人员对数据经济的增长、财富、社会公平、税收滥用以及解决互联网巨头逃税行为的共同观点。数据油田税运动可看作是黑客行为。对于这个项目，我们主要与程序员合作，感谢Jenny Mainframe, <a href=\"http://ogre.be/\" target=\"_blank\">Vincent Evrard</a>, <a href=\"http://crucifixarnaud.com/\" target=\"_blank\">Arnaud Crucifix</a>, Fleur Wirtz 和 Peng! collective, 更要特别感谢 <a href=\"https://imal.org/\" target=\"_blank\">iMAL</a> 自项目开始以来的不断支持。");
+i18n.addTranslation('zh-CN', "WhoWeAre", "C", "数据油田税运动源于创作人员对数据经济的增长、财富、社会公平、税收滥用以及解决互联网巨头逃税行为的共同观点。数据油田税运动可看作是黑客行为。对于这个项目，我们主要与程序员合作，感谢Jenny Mainframe, <a href=\"http://ogre.be/\" target=\"_blank\">Vincent Evrard</a>, <a href=\"http://crucifixarnaud.com/\" target=\"_blank\">Arnaud Crucifix</a>, Fleur Wirtz 和 Peng! collective, 更要特别感谢 <a href=\"https://imal.org/\" target=\"_blank\">iMAL</a> 自项目开始以来的不断支持。在武汉的展览中，特别感谢：方维，Big House当代艺术中心的创始人；黄晶晶，项目经理；郑富贵，项目助理和中国地质大学（武汉）的实习生。");
 i18n.addTranslation('zh-CN', "WhoWeAre", "D", "本次活动的核心是为互联网资源重新分配提出新愿景。数据油田税(bitsoil tax)是人们创造的数据经济新能源或新油田，“数据油田”(bitsoil)针对数据征收微税。“数据油田”(bitsoil)为了人民、对99%征税，为了社会普通民众征税，抵制不平等现象，恢复数据经济中的公正平等。您可通过生成个人收税机器人参与到我们的活动中来。");
 
 i18n.addTranslation('zh-CN', "Bitsoil", "info", "A", "这是数据油田(bitsoil)快闪流量税和黑客运动期间，机器人根据用户生成数据而申请的总税款，以0.0427%的税率计算。以每年两千亿条推文估算，可收取税款85亿美元。");
