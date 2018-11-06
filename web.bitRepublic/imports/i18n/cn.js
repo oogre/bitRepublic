@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-11-07 00:04:11
+  @Last Modified time: 2018-11-07 00:19:26
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -89,6 +89,8 @@ i18n.addTranslation('zh-CN', "Menu", "stayYpdatedAndGetAccess", "保持更新并
 i18n.addTranslation('zh-CN', "Menu", "toYourPersonalBotAccount", "您的专属机器人账户");
 i18n.addTranslation('zh-CN', "Menu", "typeYourEmail", "输入您的邮箱");
 i18n.addTranslation('zh-CN', "Menu", "typeYourPassword", "输入密码");
+i18n.addTranslation('zh-CN', "Menu", "retypeYourPassword", "再次输入您的密码");
+i18n.addTranslation('zh-CN', "Menu", "setPassword", "设置密码");
 i18n.addTranslation('zh-CN', "Menu", "followMe", "跟我来");
 i18n.addTranslation('zh-CN', "Menu", "firstName", "名");
 i18n.addTranslation('zh-CN', "Menu", "lastName", "姓");

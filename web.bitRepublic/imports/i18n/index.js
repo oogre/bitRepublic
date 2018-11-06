@@ -87,6 +87,8 @@ i18n.addTranslation('en-US', "Menu", "stayYpdatedAndGetAccess", "Stay updated an
 i18n.addTranslation('en-US', "Menu", "toYourPersonalBotAccount", "to your personal bot account.");
 i18n.addTranslation('en-US', "Menu", "typeYourEmail", "Type your email");
 i18n.addTranslation('en-US', "Menu", "typeYourPassword", "Type your password");
+i18n.addTranslation('en-US', "Menu", "retypeYourPassword", "Retype your password");
+i18n.addTranslation('en-US', "Menu", "setPassword", "set password");
 i18n.addTranslation('en-US', "Menu", "followMe", "Follow me");
 i18n.addTranslation('en-US', "Menu", "firstName", "first name");
 i18n.addTranslation('en-US', "Menu", "lastName", "last name");

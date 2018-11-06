@@ -2,7 +2,7 @@
   dev - enrollment.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-20 13:29:36
-  @Last Modified time: 2018-04-23 20:43:54
+  @Last Modified time: 2018-11-07 00:17:45
 \*----------------------------------------*/
 
 import React, { Component } from 'react';
@@ -15,7 +15,7 @@ import ReactModal from 'react-modal';
 import MessageError from '../message/error.js';
 import FixeWait from '../fixe/wait.js';
 
-
+import T from './../../i18n/index.js';
 import { config } from '../../startup/config.js';
 
 //ReactModal.setAppElement('body');
@@ -137,7 +137,7 @@ export default class UserPasswordSetup extends Component {
 										type="password"
 										ref="password"
 										name="password"
-										placeholder="Type your password"
+										placeholder={i18n.createTranslator("Menu")("typeYourPassword")}
 									/>
 									{
 										this.state["error-password"] ?
@@ -154,7 +154,7 @@ export default class UserPasswordSetup extends Component {
 										type="password"
 										ref="password-check"
 										name="password-check"
-										placeholder="Retype your password"
+										placeholder={i18n.createTranslator("Menu")("retypeYourPassword")}
 									/>
 									{
 										this.state["error-password-check"] ?
@@ -175,7 +175,7 @@ export default class UserPasswordSetup extends Component {
 											(this.state['has-error'] ? "error " : "")
 										}
 										type="submit"
-										value="set password"
+										value={i18n.createTranslator("Menu")("setPassword")}
 									/>
 									{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 									{ this.state['is-loading'] ? <FixeWait /> : null }
