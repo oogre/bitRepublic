@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-11-07 00:19:26
+  @Last Modified time: 2018-11-07 09:27:36
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -204,10 +204,10 @@ i18n.addTranslation('zh-CN', "FAQ", "G", "content", "请发送电子邮件至：
 
 i18n.addTranslation('zh-CN', "UserContact", "success", "您的信息已发送");
 i18n.addTranslation('zh-CN', "CreateUser", "success", "您的帐户即将被创建。您将很快收到一封电子邮件来完成您的订阅。");
-i18n.addTranslation('zh-CN', "ResetPassword", "success", "You'll receive soon an email to reset your password.");
-i18n.addTranslation('zh-CN', "UserSetAvatar", "success", "Your picture is setup as avatar.");
+i18n.addTranslation('zh-CN', "ResetPassword", "success", "你将收到重置密码的电子邮件");
+i18n.addTranslation('zh-CN', "UserSetAvatar", "success", "您的照片被定义为头像");
 i18n.addTranslation('zh-CN', "UserDelete", "form", "停用您的帐户需输入您的密码。");
-i18n.addTranslation('zh-CN', "UserDelete", "confirm", "Click OK to confirm. Your account will be deactivated immediately.");
+i18n.addTranslation('zh-CN', "UserDelete", "confirm", "点击\"OK\"键确认立即停止使用账号");
 i18n.addTranslation('zh-CN', "UpdateUser", "success", "您的账号已更新");
 i18n.addTranslation('zh-CN', "ToggleAction", "success", "Action updated");
 i18n.addTranslation('zh-CN', "BitsoilCreate", "success", "Bitsoil created");
@@ -227,10 +227,10 @@ i18n.addTranslation('zh-CN', "Contact", "newsLetter", "新闻通讯");
 i18n.addTranslation('zh-CN', "Contact", "send", "发送");
 i18n.addTranslation('zh-CN', "Contact", "receiveOurLatestNewsletter", "接收最新通讯信息");
 
-i18n.addTranslation('zh-CN', "Mail", "enrollAccount", "subject", "Welcome to the bitsoil tax campaign, [USER_FIRSTNAME]");
+i18n.addTranslation('zh-CN', "Mail", "enrollAccount", "subject", "欢迎加入数据油田(bitsoil)税运动, [USER_FIRSTNAME]");
 i18n.addTranslation('zh-CN', "Mail", "enrollAccount", "message", "你好 [USER_FIRSTNAME]! 通过这个链接创建您的密码并登陆 : [URL]]");
-i18n.addTranslation('zh-CN', "Mail", "resetPassword", "subject", "Password reset to the bitsoil tax campaign, [USER_FIRSTNAME]");
-i18n.addTranslation('zh-CN', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]]");
+i18n.addTranslation('zh-CN', "Mail", "resetPassword", "subject", "\"数据油田税运动\" 密码重置, [USER_FIRSTNAME]");
+i18n.addTranslation('zh-CN', "Mail", "resetPassword", "message", "您好 [USER_FIRSTNAME]! 请点击链接重置您的密码: [URL]");
 
 
 i18n.addTranslation('zh-CN', "OK", "好");
