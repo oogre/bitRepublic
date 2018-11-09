@@ -2,7 +2,7 @@
   bitRepublic - signup.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-11-06 18:38:02
+  @Last Modified time: 2018-11-09 17:48:27
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -125,7 +125,7 @@ export default class UserSignup extends Component {
 							<div className="fields-row">
 								<div className="fields-column">
 									<span>
-										<h2 className="modal__title">Awesome!</h2>
+										<h2 className="modal__title"><T>Menu.Awesome</T></h2>
 										<span className="modal__subtitle">
 											<p>
 												<T>Menu.gotYourTweet</T><br/>
@@ -143,7 +143,7 @@ export default class UserSignup extends Component {
 							<div className="fields-row">
 								<div className="fields-column">
 									<span>
-										<h2 className="modal__title">Hey!</h2>
+										<h2 className="modal__title"><T>Menu.hey</T></h2>
 										<span className="modal__subtitle">
 											<p>
 												<T>Menu.youDidIt</T><br/>
@@ -252,7 +252,7 @@ export default class UserSignup extends Component {
 								(this.state['has-error'] ? "error " : "")
 							}
 							type="submit"
-							value="confirm"
+							value={i18n.__("Menu.confirm")}
 						/>
 						{ this.state["error"] ? <MessageError error={this.state["error"]} messages={[]} /> : null }
 					</div>

@@ -2,7 +2,7 @@
   bitRepublic - cn.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-10-20 12:03:43
-  @Last Modified time: 2018-11-07 09:27:36
+  @Last Modified time: 2018-11-09 17:51:07
 \*----------------------------------------*/
 import i18n from 'meteor/universe:i18n';
 i18n.addTranslation('zh-CN', "textOverCounter", "A", "这是数据油田快闪流量税和黑客运动期间，所有用户及其机器人生成的数据油田(bitsoil)总量");
@@ -61,11 +61,13 @@ i18n.addTranslation('zh-CN', "Menu", "softwareDevelopment", "软件开发者");
 i18n.addTranslation('zh-CN', "Menu", "userProfile", "用户文件");
 i18n.addTranslation('zh-CN', "Menu", "deactivateAccount", "停用帐户");
 i18n.addTranslation('zh-CN', "Menu", "newPassword", "新密码");
+i18n.addTranslation('zh-CN', "Menu", "ResetPassword", "label", "向用户发送邮件以重置密码");
+i18n.addTranslation('zh-CN', "Menu", "ResetPassword", "btn", "重置密码");
 
 
 i18n.addTranslation('zh-CN', "Menu", "technicalSupport", "技术支持");
 i18n.addTranslation('zh-CN', "Menu", "translation", "翻译");
-i18n.addTranslation('zh-CN', "Menu", "LowTechLab", "低科技艺术实验室");
+i18n.addTranslation('zh-CN', "Menu", "LowTechLab", "低科技艺术实验室<br/>在地球球中插入地线");
 
 i18n.addTranslation('zh-CN', "Menu", "yourWallet", "你的钱包");
 i18n.addTranslation('zh-CN', "Menu", "idNumber", "身份证号");
@@ -100,6 +102,9 @@ i18n.addTranslation('zh-CN', "Menu", "save", "保存");
 i18n.addTranslation('zh-CN', "Menu", "forgotPassword", "忘记密码？");
 i18n.addTranslation('zh-CN', "Menu", "spreadTheWord", "传播消息分享");
 i18n.addTranslation('zh-CN', "Menu", "alreadyJoinedTheCampaignLogIn", "已经加入本次运动？登陆");
+
+i18n.addTranslation('zh-CN', "Menu", "Awesome", "很棒！");
+i18n.addTranslation('zh-CN', "Menu", "confirm", "确认");
 
 i18n.addTranslation('zh-CN', "App", "about", "A", "title", "活动信息");
 i18n.addTranslation('zh-CN', "App", "about", "A", "content", "数据油田(bitsoil)快闪流量税和黑客运动旨在动员使用社交媒体平台或其它科技工具的用户对自己贡献的流量数据征收微税，从而呼吁数字经济财富的公平再分配。这场运动是由一群在Twitter上愉快地刷着流量的机器人领导。他们的目标是让用户认识了解到自己贡献的流量数据的真实价值。");
@@ -161,7 +166,8 @@ i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "A", "�
 i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "B", "2018年5月3日至2018年5月5日，于勒文And& Summit Festival展出");
 i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "C", "2018年5月17日至2018年5月27日，于布鲁塞尔Gluon Art & Tech Hub展出");
 i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "D", "2018年9月6月至2018年9月16日，于林茨Ars Electronica：ERROR The Art of Imperfection展出");
-i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "E", "2018年11月16日至2019年2月28日，柏林Drive展厅，ERROR The Art of Imperfection展出");
+i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "E", "2018年10月27日至2018年12月20日，于中国武汉市，Big House当代艺术中心展出");
+i18n.addTranslation('zh-CN', "Installation", "info", "C", "desciption", "F", "2018年11月16日至2019年2月28日，柏林Drive展厅，ERROR The Art of Imperfection展出");
 i18n.addTranslation('zh-CN', "Installation", "info", "D", "hash", "host_the_installation");
 i18n.addTranslation('zh-CN', "Installation", "info", "D", "title", "主持安装");
 i18n.addTranslation('zh-CN', "Installation", "info", "D", "desciption","在您所在的城市主持安装. <br/>请发送邮件至 <a href=\"{$address}\" >campaign@bitsoil.tax联系我们</a>");

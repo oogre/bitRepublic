@@ -2,7 +2,7 @@
   bitRepublic - login.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-10-21 15:02:21
+  @Last Modified time: 2018-11-09 17:46:33
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
@@ -179,7 +179,7 @@ export default class UserLogIn extends Component {
 									<div className="fields-row">
 										<div className="fields-column">
 											<span>
-												<h2 className="modal__title">Awesome!</h2>
+												<h2 className="modal__title"><T>Menu.Awesome</T></h2>
 												<span className="modal__subtitle">
 													<p>
 														<T>Menu.gotYourTweet</T><br/>

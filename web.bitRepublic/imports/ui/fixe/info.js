@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2018-08-09 18:23:53
+  @Last Modified time: 2018-11-09 17:44:43
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -36,6 +36,7 @@ export default class FixeInfo extends Component {
 				i18n.__("Installation.info.C.desciption.B"),
 				i18n.__("Installation.info.C.desciption.C"),
 				i18n.__("Installation.info.C.desciption.D"),
+				i18n.__("Installation.info.C.desciption.F"),
 				i18n.__("Installation.info.C.desciption.E")
 			]
 		},{

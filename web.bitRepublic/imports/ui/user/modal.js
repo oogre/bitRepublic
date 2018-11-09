@@ -2,7 +2,7 @@
   bitRepublic - modal.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 19:46:12
-  @Last Modified time: 2018-10-21 15:09:19
+  @Last Modified time: 2018-11-09 17:49:10
 \*----------------------------------------*/
 import React, { Component } from 'react';
 // https://reactcommunity.org/react-modal/
@@ -153,7 +153,6 @@ export default class UserModal extends Component {
 											href="#"
 											onClick={this.handleChangeProcess.bind(this, "login")}
 										>
-											Log in
 											<T>Menu.logIn</T>
 										</a>
 
