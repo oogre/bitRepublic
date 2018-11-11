@@ -218,7 +218,7 @@ i18n.addTranslation('en-US', "UpdateUser", "success", "Your account is updated."
 i18n.addTranslation('en-US', "ToggleAction", "success", "Action updated");
 i18n.addTranslation('en-US', "BitsoilCreate", "success", "Bitsoil created");
 i18n.addTranslation('en-US', "CreateBot", "success", "Bot created");
-i18n.addTranslation('en-US', "CreateBot", "success", "display", "Thank You. I will do the job...");
+i18n.addTranslation('en-US', "CreateBot", "display", "Thank You. I will do the job...");
 i18n.addTranslation('en-US', "BotTweetUpdate", "success", "Tweet updated");
 i18n.addTranslation('en-US', "BotTweetDelete", "success", "Tweet deleted");
 
