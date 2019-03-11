@@ -2,7 +2,7 @@
   bitRepublic - list.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-02-01 16:22:08
-  @Last Modified time: 2018-11-06 19:22:14
+  @Last Modified time: 2019-03-11 15:48:41
 \*----------------------------------------*/
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -31,7 +31,7 @@ class WalletList extends Component {
 	renderWallet(wallet){
 		return (
 			<tr className="table__row" key={wallet._id}>
-				<td className="table__cell">
+				<td className="table__cell text-right">
 					<span className="wallet-id"><T>Menu.ID</T> {Utilities.numberFormat(wallet.number, 6)}</span>
 				</td>
 				<td className="table__cell text-center">

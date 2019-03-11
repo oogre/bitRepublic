@@ -110,15 +110,21 @@
 // --------------------
 .table--redistribution {
   width: 100%;
-  max-width: 730px;
+  /*max-width: 730px;*/
   margin-bottom: 65px;
 }
 
-.table--redistribution th {
+.table--redistribution th:first-child {
   @include breakpoint($md) {
-    width: 50%;
+    width: 25%;
   }
 }
+.table--redistribution th:last-child {
+  @include breakpoint($md) {
+    width: 75%;
+  }
+}
+
 
 .table--redistribution .counter--simple:before {
   @include breakpoint($below-sm) {
