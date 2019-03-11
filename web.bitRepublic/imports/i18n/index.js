@@ -1,5 +1,6 @@
 import i18n from 'meteor/universe:i18n';
 import './cn.js';
+import './ko.js';
 
 i18n.setOptions({
 	hostUrl : "https://bitsoil.tax/",
