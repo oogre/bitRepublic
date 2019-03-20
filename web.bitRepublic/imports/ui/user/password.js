@@ -2,7 +2,7 @@
   bitRepublic - password.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-30 20:10:14
-  @Last Modified time: 2018-11-06 23:36:02
+  @Last Modified time: 2019-03-20 11:06:25
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -71,7 +71,7 @@ export default class UserPassword extends Component {
 		return (
 			<div className="form--password">
 				<p>
-					<T>Menu.ResetPassword.label</T>:
+					<T>Menu.ResetPassword.label</T>
 				</p>
 				<button
 					onClick={this.handleResetPassword.bind(this)}

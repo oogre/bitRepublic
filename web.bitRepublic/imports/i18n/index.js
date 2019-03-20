@@ -135,7 +135,7 @@ i18n.addTranslation('en-US', "About", "E", "content", "Get minute-by-minute insi
 
 i18n.addTranslation('en-US', "Redistribution", "banner__title", "TAKE PART IN THE REDISTRIBUTION");
 i18n.addTranslation('en-US', "Redistribution", "FixePunchline", "A", "create your personal wallet");
-i18n.addTranslation('en-US', "Redistribution", "FixePunchline", "B", "take part of the taxation system");
+i18n.addTranslation('en-US', "Redistribution", "FixePunchline", "B", "take part of the taxation   system");
 
 i18n.addTranslation('en-US', "Redistribution", "about", "A", "title", "WHAT");
 i18n.addTranslation('en-US', "Redistribution", "about", "A", "content", "A", "The Bitsoil tax presents a vision of wealth redistribution in the digital economy. Data, the new oil, or \"bitsoil\" as we coined it, has up until now been freely given away without any thought about the value of this data and who benefits from it. Major tech companies like Google, Apple and Facebook profit from a business model of providing free services in exchange for people’s data. This model is now broken. The value of user data has outstripped the value of free services. These companies' profits continue to increase, as their ability to know more about their users increases and this becomes more attractive to advertisers and other third parties.");
@@ -169,6 +169,7 @@ i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "D", "06
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "E", "27/10/2018 - 20/12/2018 @ BIG HOUSE, Wuhan, China");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "F", "16/11/2018 - 28/02/2019 @ ERROR - The Art of Imperfection, Drive, Berlin, Germany");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "G", "25/03/2019 - 08/06/2019 @ Brussels in SongEun: Imagining Cities Beyond Technology 2.0, SongEun ArtSpace, Seoul, South Korea");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "H", "12/07/2019 - 06/10/2019 @ Lying Sophia and Mocking Alexa, Hyundai Art Space, Beijing, China");
 i18n.addTranslation('en-US', "Installation", "info", "D", "hash", "host_the_installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "title", "host the installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host the installation in your city. <br/>Contact us @ <a href=\"{$address}\" >campaign@bitsoil.tax</a>");
@@ -235,9 +236,9 @@ i18n.addTranslation('en-US', "Contact", "send", "send");
 i18n.addTranslation('en-US', "Contact", "receiveOurLatestNewsletter", "Receive our latest newsletter");
 
 i18n.addTranslation('en-US', "Mail", "enrollAccount", "subject", "Welcome to the bitsoil tax campaign, [USER_FIRSTNAME]");
-i18n.addTranslation('en-US', "Mail", "enrollAccount", "message", "Hey [USER_FIRSTNAME]! Create your password and login by following this link: [URL]]");
+i18n.addTranslation('en-US', "Mail", "enrollAccount", "message", "Hey [USER_FIRSTNAME]! Create your password and login by following this link: [URL]");
 i18n.addTranslation('en-US', "Mail", "resetPassword", "subject", "Password reset to the bitsoil tax campaign, [USER_FIRSTNAME]");
-i18n.addTranslation('en-US', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]]");
+i18n.addTranslation('en-US', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]");
 
 
 

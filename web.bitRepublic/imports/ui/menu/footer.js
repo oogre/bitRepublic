@@ -2,7 +2,7 @@
   bitRepublic - footer.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-25 18:10:49
-  @Last Modified time: 2018-11-09 17:26:38
+  @Last Modified time: 2019-03-20 11:07:35
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -178,6 +178,9 @@ export default class FooterMenu extends Component {
 									</li>
 									<li className="menu__item">
 										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="http://www.belchin.be/language/en/">Confucius Institute Brussels</a>
+									</li>
+									<li className="menu__item">
+										<a className="menu__item__link" target="_blank" rel="noopener noreferrer" href="#">Korean translation: Aerin Lee</a>
 									</li>
 								</ul>
 							</div>

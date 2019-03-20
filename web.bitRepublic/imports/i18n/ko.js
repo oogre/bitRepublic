@@ -85,7 +85,7 @@ i18n.addTranslation('ko', "Menu", "setPassword", "패스워드 설정");
 i18n.addTranslation('ko', "Menu", "followMe", "봇 현황 확인하기");
 i18n.addTranslation('ko', "Menu", "firstName", "이름");
 i18n.addTranslation('ko', "Menu", "lastName", "성");
-i18n.addTranslation('ko', "Menu", "userName", "사용자ID");
+i18n.addTranslation('ko', "Menu", "userName", "사용자 ID");
 i18n.addTranslation('ko', "Menu", "yourEmail", "이메일");
 i18n.addTranslation('ko', "Menu", "save", "저장");
 i18n.addTranslation('ko', "Menu", "forgotPassword", "암호를 잊으셨습니까?");
@@ -126,7 +126,7 @@ i18n.addTranslation('ko', "About", "E", "title", "봇 활동내역 확인");
 i18n.addTranslation('ko', "About", "E", "content", "개인 계정에서 실시간 정보를 조회하고 봇이 채굴한 비트소일을 확인하세요. 개인 계정 관리자는 여러분이 택스봇을 만든 날부터 택스봇이 활동하는 시점까지 실시간으로 택스봇의 활동 대상과 채굴된 비트소일 수량을 보여줍니다.");
 
 
-i18n.addTranslation('ko', "Redistribution", "banner__title", "부의 재분배 운동에 참여하세요");
+i18n.addTranslation('ko', "Redistribution", "banner__title", "부의  재분배   운동에   참여하  세요");
 i18n.addTranslation('ko', "Redistribution", "FixePunchline", "A", "비트소일 월렛 만들기");
 i18n.addTranslation('ko', "Redistribution", "FixePunchline", "B", "새로운 조세제도에 참여하세요");
 
@@ -154,7 +154,7 @@ i18n.addTranslation('ko', "Installation", "info", "B", "desciption", "B", "캠�
 i18n.addTranslation('ko', "Installation", "info", "B", "desciption", "C", "각 티켓 출력기에서는 사용자와 봇이 트위터 상에서 생성한 비트소일 현황을 확인할 수 있습니다. 방문자 또한 캠페인의 일부이며, 본 캠페인에 참여하여 비트소일 재분배 현황을 확인할 것을 권유하고 있습니다.");
 i18n.addTranslation('ko', "Installation", "info", "B", "desciption", "D", "이 과정에서 기술은 사용자의 기본적 권리를 어느 정도 회복시키고, 국가· 국제적 체계를 초월하여 부를 분배하기 위한 필수불가결한 수단으로 활용됩니다. 본 프로젝트는 새로운 과세 시스템을 활용하여 출신, 성별 등 개인의 특성과 관계 없이 모두가 평등한 사회에서 인터넷 자본 재분배의 가능성을 탐구합니다.");
 i18n.addTranslation('ko', "Installation", "info", "C", "hash", "calendar");
-i18n.addTranslation('ko', "Installation", "info", "C", "title", "캠페인 일정");
+i18n.addTranslation('ko', "Installation", "info", "C", "title", "calendar");
 i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "A", "본 캠페인은 투어 중입니다. 일정은 다음을 참고하세요.");
 i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "B", "03/05/2018 - 05/05/2018 @ And& Summit Festival, Leuven, Belgium");
 i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "C", "17/05/2018 - 27/05/2018 @ Gluon Art & Tech Hub, Brussels, Belgium");
@@ -162,9 +162,10 @@ i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "D", "06/09
 i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "E", "27/10/2018 - 20/12/2018 @ BIG HOUSE, Wuhan, China");
 i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "F", "16/11/2018 - 28/02/2019 @ ERROR The Art of Imperfection, Drive, Berlin, Germany");
 i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "G", "25/03/2019 - 08/06/2019 @ Brussels in SongEun: Imagining Cities Beyond Technology 2.0, SongEun ArtSpace, Seoul, South Korea");
+i18n.addTranslation('ko', "Installation", "info", "C", "desciption", "H", "12/07/2019 - 06/10/2019 @ Lying Sophia and Mocking Alexa, Hyundai Art Space, Beijing, China");
 i18n.addTranslation('ko', "Installation", "info", "D", "hash", "host_the_installation");
-i18n.addTranslation('ko', "Installation", "info", "D", "title", "비트리퍼블릭 설치작품 전시");
-i18n.addTranslation('ko', "Installation", "info", "D", "desciption","여러분과 가까운 곳에 비트리퍼블릭 설치작품을 전시하려면. <br/><a href=\"{$address}\" >campaign@bitsoil.tax</a>로 문의하세요.");
+i18n.addTranslation('ko', "Installation", "info", "D", "title", "host the installation");
+i18n.addTranslation('ko', "Installation", "info", "D", "desciption","여러분과 가까운 곳에 비트리퍼블릭 설치작품을 전시하려면. <br/><a href=\"{$address}\" >campaign@bitsoil.tax</a> 로 문의하세요.");
 
 i18n.addTranslation('ko', "Installation", "FixePunchline", "A", "비트소일은 디지털 경제가 탄생시킨 새로운 자원입니다");
 i18n.addTranslation('ko', "Installation", "FixePunchline", "B", "가장 최근에 탄생한 자원인 비트소일, 여러분의 몫을 청구해보세요");
@@ -174,7 +175,7 @@ i18n.addTranslation('ko', "Installation", "nextToVideo", "content", "인터넷 �
 
 i18n.addTranslation('ko', "WhoWeAre", "A", "<a href=\"http://larbitslab.be/\" target=\"_blank\">라빗시스터즈(LarbitsSisters)</a> 는 브뤼셀에 소재하는 아티스트 듀오입니다. 예술·기술·사회 체계의 경계를 자유롭게 넘나 들며 실험적인 예술 활동을 하고 있습니다. 새로운 매체에 대한 호기심으로부터 시작되는 라빗시스터즈의 콜라보레이션은 추적가능성·데이터 프로세싱· 네트워크 분석·알고리즘· 자동화·인터랙션 등의 개념을 탐구하는 프로젝트를 통해 연구와 예술 활동을 결합하고 있습니다. 예술 활동의 핵심은 공공과 민간, 온라인과 오프라인, 기술 진보에 대한 맹신과 일상적인 삶의 마찰입니다. 신규 매체와 관련된 전략과 실천은 연구와 창조의 핵심적 수단으로서 오늘날 사회 주요 이슈에 질문을 던지는 작품을 탄생시킵니다.");
 i18n.addTranslation('ko', "WhoWeAre", "B", "2011년 라빗시스터즈는 라빗랩(Larbitslab) 디지털 시각화 연구소를 설립했습니다. 라빗랩은 아티스트, 디자이너, 코딩 전문가 및 과학자들을 한데 모아 네트워크화된 사회 현상에 대해 논하며, 관찰 행위, 미디어 분석, 기술·사회적 함의 연구를 결합하는 체계적 접근방식을 택하고 있습니다.");
-i18n.addTranslation('ko', "WhoWeAre", "C", "비트소일 캠페인은 데이터 경제에서의 부와 성장, 사회적 정의와 세금 남용, 거대 IT기업의 탈세 문제 해결 등에 대한 공통된 생각이 모여 탄생하였습니다. 비트소일 택스는 사회적 목적을 위한 핵티비즘 행위로 볼 수 있습니다. 라빗시스터즈는 본 프로젝트를 위해 프로그래머들과 대거 협업하였습니다. 제니 메인프레임(Jenny Mainframe),  <a href=\"http://ogre.be/\" target=\"_blank\">에이라드(Vincent Eyrad)</a>, <a href=\"http://crucifixarnaud.com/\" target=\"_blank\">아르노 크루시픽스(Arnaud Crucifix)</a>, 플러 워크(Fleur Wirtz), 펭!컬렉티브(Peng!Collective)에 감사의 말씀을 전합니다. 또한 프로젝트의 초창기부터 지금까지 지원을 아끼지 않는<a href=\"https://imal.org/\" target=\"_blank\">이말(iMAL)</a> 에게도 특별히 감사의 말씀 전합니다.<p>중국 우한에 설치된 작품과 관련하여, 빅하우스 컨템포러리 아트센터의 설립자 사이먼 팽(Simon Fang), BHCAC의 프로젝트 매니저 지니 황(Genie Huang), 프로젝트 어시스턴트 푸구이 정 (Fugui Zheng) 및 중국지질대학(China University of Geosciences) 관계자 분들의 노고에 깊은 감사를 표합니다.</p>");
+i18n.addTranslation('ko', "WhoWeAre", "C", "비트소일 캠페인은 데이터 경제에서의 부와 성장, 사회적 정의와 세금 남용, 거대 IT기업의 탈세 문제 해결 등에 대한 공통된 생각이 모여 탄생하였습니다. 비트소일 택스는 사회적 목적을 위한 핵티비즘 행위로 볼 수 있습니다. 라빗시스터즈는 본 프로젝트를 위해 프로그래머들과 대거 협업하였습니다. 제니 메인프레임(Jenny Mainframe),  <a href=\"http://ogre.be/\" target=\"_blank\">에이라드(Vincent Eyrad)</a>, <a href=\"http://crucifixarnaud.com/\" target=\"_blank\">아르노 크루시픽스(Arnaud Crucifix)</a>, 플러 워크(Fleur Wirtz), 펭!컬렉티브(Peng!Collective)에 감사의 말씀을 전합니다. 또한 프로젝트의 초창기부터 지금까지 지원을 아끼지 않는<a href=\"https://imal.org/\" target=\"_blank\">아이말(iMAL)</a> 에게도 특별히 감사의 말씀 전합니다.<p>중국 우한에 설치된 작품과 관련하여, 빅하우스 컨템포러리 아트센터의 설립자 사이먼 팽(Simon Fang), BHCAC의 프로젝트 매니저 지니 황(Genie Huang), 프로젝트 어시스턴트 푸구이 정 (Fugui Zheng) 및 중국지질대학(China University of Geosciences) 관계자 분들의 노고에 깊은 감사를 표합니다.</p>");
 i18n.addTranslation('ko', "WhoWeAre", "D", "비트소일 캠페인의 핵심은 인터넷 자본의 재분배에 대한 새로운 비전의 제시입니다. 라빗시스터스는 사용자의 데이터를 데이터 경제의 새로운 자원, 즉 ‘비트소일’이라고 명명하고, 개인 데이터 이용에 부과되는 소액의 세금에 ‘비트소일 택스’라는 이름을 붙였습니다. 비트소일 택스는 초부유층 1%가 아닌 나머지 99%인 일반 대중을 위한 세금으로서, 양극화를 타파하고 데이터 경제의 불균형을 해소하기 위한 세금입니다. 여러분도 각자 택스봇을 만들어 이 운동에 동참할 수 있습니다.");
 
 i18n.addTranslation('ko', "Bitsoil", "info", "A", "다음은 비트소일 캠페인 기간 동안 사용자가 생성한 데이터에 대해 인터넷 봇이 청구한 세금 총액입니다. 과세율은 0.0427%이며, 연간 2,000억 트윗이 생성된다고 가정하면 약 85억 유로를 징수할 수 있습니다.");
@@ -196,11 +197,11 @@ i18n.addTranslation('ko', "FAQ", "E", "hash", "tax");
 i18n.addTranslation('ko', "FAQ", "E", "title", "봇이 실질적으로 세금을 징수하나요?");
 i18n.addTranslation('ko', "FAQ", "E", "content", "택스봇의 활동은 인터넷 대기업에 세금을 청구하는 데 그치지만, 정치 지도자들의 경각심을 일깨워주고 우리가 제안하는 과세 시스템을 통해 얼마나 많은 이익이 창출되는지 알려줍니다.");
 i18n.addTranslation('ko', "FAQ", "F", "hash", "calculated");
-i18n.addTranslation('ko', "FAQ", "F", "title", "세금이 어떻게 정산되나요?");
+i18n.addTranslation('ko', "FAQ", "F", "title", "세금은 어떻게 정산되나요?");
 i18n.addTranslation('ko', "FAQ", "F", "content", "여러분의 봇이 실행한 모든 활동은 데이터와 비트소일을 생성합니다. 데이터는 비트리퍼블릭의 가상 화폐 ‘비트소일’로 환산되는 주요 자원입니다. 비트소일의 양은 각 온라인 활동으로부터 생성되는 비트와 바이트 수를 의미합니다.<br/><br/>대략 140자의 트윗은 200바이트, 1 마이크로 비트소일에 해당합니다. 이와 같이 여러분이 캠페인 웹사이트에서 봇을 만들어 실행하는 작은 활동들은 비트와 바이트를 기반으로 하여 비트소일로 환산됩니다.<br/><br/>그러면 징수된 세금은 어떻게 되나요? 내가 만든 봇이 징수한 세금을 실제로 받을 수 있나요? 세금이 캠페인 참여자들에게 재분배되나요?<br/><br/>그렇지 않습니다. 봇이 실제로 하는 행위는 세금을 청구하고, 캠페인이 제안하는 과세 시스템을 통해 창출 가능한 이익에 대해 인식을 제고하는 것입니다.");
 i18n.addTranslation('ko', "FAQ", "G", "hash", "leader");
-i18n.addTranslation('ko', "FAQ", "G", "title", "트윗을 보내고 싶은 정치 지도자가 없나요?");
-i18n.addTranslation('ko', "FAQ", "G", "content", "<a href=\"{$address}\" >campaign@bitsoil.tax</a>로 이메일을 보내주세요. ");
+i18n.addTranslation('ko', "FAQ", "G", "title", "트윗을 보내고 싶은 정치 지도자가 있나요?");
+i18n.addTranslation('ko', "FAQ", "G", "content", "<a href=\"{$address}\" >campaign@bitsoil.tax</a> 로 이메일을 보내주세요. ");
 
 i18n.addTranslation('ko', "UserContact", "success", "메시지가 전송되었습니다.");
 i18n.addTranslation('ko', "CreateUser", "success", "계정이 생성될 예정입니다. 가입 완료 메일이 곧 전송됩니다.");
@@ -228,9 +229,8 @@ i18n.addTranslation('ko', "Contact", "send", "전송");
 i18n.addTranslation('ko', "Contact", "receiveOurLatestNewsletter", "최신 뉴스레터를 받아보세요");
 
 i18n.addTranslation('ko', "Mail", "enrollAccount", "subject", "[USER_FIRSTNAME], 비트소일 캠페인을 찾아주신 여러분을 환영합니다.");
-i18n.addTranslation('ko', "Mail", "enrollAccount", "message", "[USER_FIRSTNAME] 님! 이 링크에서 패스워드를 생성하고 로그인해보세요. [URL]]");
+i18n.addTranslation('ko', "Mail", "enrollAccount", "message", "[USER_FIRSTNAME] 님! 이 링크에서 패스워드를 생성하고 로그인해보세요. [URL]");
 i18n.addTranslation('ko', "Mail", "resetPassword", "subject", "[USER_FIRSTNAME], 비트소일 캠페인 패스워드 변경.");
-i18n.addTranslation('ko', "Mail", "resetPassword", "message", "안녕하세요! [USER_FIRSTNAME]! 링크에 접속하여 패스워드를 변경하세요: [URL]]");
+i18n.addTranslation('ko', "Mail", "resetPassword", "message", "안녕하세요! [USER_FIRSTNAME]! 링크에 접속하여 패스워드를 변경하세요: [URL]");
 
 i18n.addTranslation('ko', "OK", "OK");
-
