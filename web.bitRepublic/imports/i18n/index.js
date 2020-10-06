@@ -162,7 +162,7 @@ i18n.addTranslation('en-US', "Installation", "info", "B", "desciption", "C", "On
 i18n.addTranslation('en-US', "Installation", "info", "B", "desciption", "D", "Here the technology is employed as a critical tool to recover basic rights to a certain extent and to spread prosperity beyond prevailing national and international systems. By means of a new taxation system the project explores possibilities to redistribute internet wealth in a society of equals, regardless of origin, gender and other characteristics of the individual.");
 i18n.addTranslation('en-US', "Installation", "info", "C", "hash", "calendar");
 i18n.addTranslation('en-US', "Installation", "info", "C", "title", "calendar");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "A", "The campaign is touring. Please find the dates below.");
+i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "A", "The campaign is touring.");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "B", "03/05/2018 - 05/05/2018 @ And& Summit Festival, Leuven, Belgium");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "C", "17/05/2018 - 27/05/2018 @ Gluon Art & Tech Hub, Brussels, Belgium");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "D", "06/09/2018 - 16/09/2018 @ CyberArts 2018, Ars Electronica, Linz, Austria");

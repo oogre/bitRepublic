@@ -2,7 +2,7 @@
   bitRepublic - info.js
   @author Evrard Vincent (vincent@ogre.be)
   @Date:   2018-01-31 22:11:26
-  @Last Modified time: 2020-10-06 15:40:50
+  @Last Modified time: 2020-10-06 17:16:04
 \*----------------------------------------*/
 import React, { Component } from 'react';
 
@@ -32,6 +32,7 @@ export default class FixeInfo extends Component {
 			hash : i18n.__("Installation.info.C.hash"),
 			title : i18n.__("Installation.info.C.title"),
 			desciption : [
+				i18n.__("Installation.info.C.desciption.A"),
 				i18n.__("Installation.info.C.desciption.L"),
 				i18n.__("Installation.info.C.desciption.K"),
 				i18n.__("Installation.info.C.desciption.J"),
@@ -42,8 +43,7 @@ export default class FixeInfo extends Component {
 				i18n.__("Installation.info.C.desciption.E"),
 				i18n.__("Installation.info.C.desciption.D"),
 				i18n.__("Installation.info.C.desciption.C"),
-				i18n.__("Installation.info.C.desciption.B"),
-				i18n.__("Installation.info.C.desciption.A")
+				i18n.__("Installation.info.C.desciption.B")
 			]
 		},{
 			hash : i18n.__("Installation.info.D.hash"),
