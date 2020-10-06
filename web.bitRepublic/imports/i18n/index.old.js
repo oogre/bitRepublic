@@ -135,7 +135,7 @@ i18n.addTranslation('en-US', "About", "E", "content", "Get minute-by-minute insi
 
 i18n.addTranslation('en-US', "Redistribution", "banner__title", "TAKE PART IN THE REDISTRIBUTION");
 i18n.addTranslation('en-US', "Redistribution", "FixePunchline", "A", "create your personal wallet");
-i18n.addTranslation('en-US', "Redistribution", "FixePunchline", "B", "take part of the taxation   system");
+i18n.addTranslation('en-US', "Redistribution", "FixePunchline", "B", "take part of the taxation system");
 
 i18n.addTranslation('en-US', "Redistribution", "about", "A", "title", "WHAT");
 i18n.addTranslation('en-US', "Redistribution", "about", "A", "content", "A", "The Bitsoil tax presents a vision of wealth redistribution in the digital economy. Data, the new oil, or \"bitsoil\" as we coined it, has up until now been freely given away without any thought about the value of this data and who benefits from it. Major tech companies like Google, Apple and Facebook profit from a business model of providing free services in exchange for people’s data. This model is now broken. The value of user data has outstripped the value of free services. These companies' profits continue to increase, as their ability to know more about their users increases and this becomes more attractive to advertisers and other third parties.");
@@ -169,12 +169,6 @@ i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "D", "06
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "E", "27/10/2018 - 20/12/2018 @ BIG HOUSE, Wuhan, China");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "F", "16/11/2018 - 28/02/2019 @ ERROR - The Art of Imperfection, Drive, Berlin, Germany");
 i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "G", "25/03/2019 - 08/06/2019 @ Brussels in SongEun: Imagining Cities Beyond Technology 2.0, SongEun ArtSpace, Seoul, South Korea");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "H", "12/07/2019 - 06/10/2019 @ Lying Sophia and Mocking Alexa, Hyundai Art Space, Beijing, China");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "I", "07/11/2019 - 09/02/2020 @ Mind the Deep - Artificial Intelligence and Artistic Creation, Shanghai Ming Contemporary Art Museum, Shanghai, CN");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "J", "07/02/2020 - 08/04/2020 @ The Question of Intelligence – AI and the Future of Humanity, Kellen Gallery, New York, US");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "K", "02/09/2020 - 14/12/2020 @ Currency, New Media Gallery, New Westminster, CA");
-i18n.addTranslation('en-US', "Installation", "info", "C", "desciption", "L", "13/10/2020 - 18/10/2020 @ Machinic Sense & Sensibility’s, Printemps Numériques, ISEA2020, Montreal, CA");
-
 i18n.addTranslation('en-US', "Installation", "info", "D", "hash", "host_the_installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "title", "host the installation");
 i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host the installation in your city. <br/>Contact us @ <a href=\"{$address}\" >campaign@bitsoil.tax</a>");
@@ -182,8 +176,8 @@ i18n.addTranslation('en-US', "Installation", "info", "D", "desciption","To host 
 i18n.addTranslation('en-US', "Installation", "FixePunchline", "A", "BITSOIL IS THE NEW OIL OF THE DIGITAL ECONOMY");
 i18n.addTranslation('en-US', "Installation", "FixePunchline", "B", "CLAIM YOUR FAIR SHARE OF THIS WORLD’S NEWEST RESOURCE");
 
-i18n.addTranslation('en-US', "Installation", "nextToVideo", "title", "LIVE FEED BITSOIL.TAX/CAMPAIGN");
-i18n.addTranslation('en-US', "Installation", "nextToVideo", "content", "Follow live the redistribution of bitsoils!");
+i18n.addTranslation('en-US', "Installation", "nextToVideo", "title", "WATCH THE TRAILER!");
+i18n.addTranslation('en-US', "Installation", "nextToVideo", "content", "Look how the bots are claiming bitsoils.");
 
 i18n.addTranslation('en-US', "WhoWeAre", "A", "We are a Brussel-based <a href=\"http://larbitslab.be/\" target=\"_blank\">artist duo LarbitsSisters</a> who work at the intersection of art, technology and social systems. Our collaboration grew out of a shared fascination for new media, merging research and artistic practice in projects in which concepts such as traceability, data processing, network analysis, algorithms, automation and interaction are explored. Central is the friction between public and private, online and offline; between the unbridled faith in technological progress and everyday life. Strategies and practices of new media are above all tools of investigation and creation, allowing works that question critical issues of today’s society to be developed.");
 i18n.addTranslation('en-US', "WhoWeAre", "B", "In 2011 we founded the Research Lab on Digital Visualization, Larbitslab. Larbitslab brings together artists, designers, coders and scientists around issues of networked societies. The specificity of Larbitslab lies in the methodological approach, which combines closely observing practices, media analysis and research on the technical and societal implications.");
@@ -241,9 +235,9 @@ i18n.addTranslation('en-US', "Contact", "send", "send");
 i18n.addTranslation('en-US', "Contact", "receiveOurLatestNewsletter", "Receive our latest newsletter");
 
 i18n.addTranslation('en-US', "Mail", "enrollAccount", "subject", "Welcome to the bitsoil tax campaign, [USER_FIRSTNAME]");
-i18n.addTranslation('en-US', "Mail", "enrollAccount", "message", "Hey [USER_FIRSTNAME]! Create your password and login by following this link: [URL]");
+i18n.addTranslation('en-US', "Mail", "enrollAccount", "message", "Hey [USER_FIRSTNAME]! Create your password and login by following this link: [URL]]");
 i18n.addTranslation('en-US', "Mail", "resetPassword", "subject", "Password reset to the bitsoil tax campaign, [USER_FIRSTNAME]");
-i18n.addTranslation('en-US', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]");
+i18n.addTranslation('en-US', "Mail", "resetPassword", "message", "Hey [USER_FIRSTNAME]! Reset your password by following this link: [URL]]");
 
 
 
