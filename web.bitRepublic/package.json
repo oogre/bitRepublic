@@ -7,7 +7,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.47",
     "babel-runtime": "^6.26.0",
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^1.0.3",
     "ddp-rate-limiter-mixin": "^1.1.10",
     "embed-video": "^2.0.4",
     "fast-lorem-ipsum": "^1.1.0",
