@@ -14,7 +14,7 @@
     "glamor": "^2.20.40",
     "ismobilejs": "^0.4.1",
     "meteor-node-stubs": "^0.3.2",
-    "moment": "^2.20.1",
+    "moment": "^2.29.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-file-reader-input": "^1.1.4",
