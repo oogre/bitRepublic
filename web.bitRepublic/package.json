@@ -17,7 +17,7 @@
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-file-reader-input": "^1.1.4",
+    "react-file-reader-input": "^2.0.0",
     "react-modal": "^3.1.11",
     "react-responsive-picture": "^2.1.0",
     "react-select": "^1.2.1",
